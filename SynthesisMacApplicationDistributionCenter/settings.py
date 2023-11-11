@@ -87,14 +87,19 @@ DATABASES = {
 }
 
 CACHES = {
-    'BACKEND': 'django_redis.cache.RedisCache',
-    'LOCATION': 'redis://127.0.0.1:6379',
-    'OPTIONS': {
-        "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        "CONNECTION_POOL_KWARGS": {"max_connections": 100}
-        # "PASSWORD": "123",
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379',
+        'OPTIONS': {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100},
+            "DECODE_RESPONSE": True,
+        }
     }
 }
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
