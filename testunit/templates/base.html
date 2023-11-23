@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Meta -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- SITE TITLE -->
+<title>{%  block title %}{% endblock %}</title>
+<link rel="shortcut icon" href={% static 'favicon.ico' %}>
+<!-- Latest Bootstrap min CSS -->
+<link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<!-- fonts CSS -->
+<link rel="stylesheet" href="../static/assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="../static/assets/fonts/themify-icons.css">
+<!--- owl carousel Css-->
+<link rel="stylesheet" href="../static/assets/owlcarousel/css/owl.carousel.css">
+<link rel="stylesheet" href="../static/assets/owlcarousel/css/owl.theme.css">
+<!-- animate CSS -->
+<link rel="stylesheet" href="../static/assets/css/animate.css">
+<!--slicknav Css-->
+<link rel="stylesheet" href="../static/assets/css/slicknav.css">
+<!-- MAGNIFIC CSS -->
+<link rel="stylesheet" href="../static/assets/css/magnific-popup.css">
+<!-- SLICK CSS -->
+<link rel="stylesheet" href="../static/assets/css/slick.css">
+<link rel="stylesheet" href="../static/assets/css/slick-theme.css">
+<!-- Style CSS -->
+<link rel="stylesheet" href="../static/assets/css/style.css">
+<style>
+    {%  block extra_css %}{% endblock %}
+</style>
+</head>
+
+<body data-spy="scroll" data-offset="80">
+<!-- START PRELOADER -->
+<div class="preloader">
+	<div class="status">
+		<div class="status-mes"></div>
+	</div>
+</div>
+<!-- END PRELOADER -->
+<!-- START NAVBAR -->
+<div id="navigation" class="fixed-top navbar-light bg-faded site-navigation">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2 col-md-3 col-sm-4">
+				<div class="site-logo">
+					<a href="/index"><img src="../static/assets/img/logo.png" alt=""></a>
+				</div>
+			</div><!--- END Col -->
+
+			<div class="col-lg-10 col-md-9 col-sm-8">
+				<div class="header_right">
+					<nav id="main-menu" class="ml-auto">
+						<ul>
+						  <li><a href="#home">Home</a></li>
+						  <li><a href="#features">Features</a></li>
+						  <li><a href="#screenshots">Screenshots</a></li>
+						  <li><a href="#pricing">pricing</a></li>
+						 <li><a href="#blog">Blog</a></li>
+						 <li><a href="#download">Download</a></li>
+						  <li><a href="#contact">Contact</a></li>
+						</ul>
+					</nav>
+					<div id="mobile_menu"></div>
+				</div>
+			</div><!--- END Col -->
+		</div><!--- END ROW -->
+	</div><!--- END CONTAINER -->
+</div>
+<!-- END NAVBAR -->
+{%  block content %}{% endblock %}
+<!-- START FOOTER TOP -->
+<div class="footer-top section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+				<div class="footer_logo">
+					<img src="../static/assets/img/logo.png" alt="" />
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis dignissim.</p>
+				</div>
+				<div class="social_profile">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+				</div>
+			</div><!--- END COL -->
+			<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+				<div class="single_footer">
+					<h4>Frequently Asked Questions</h4>
+					<ul>
+						<li><a href="#">Privacy & Securty</a></li>
+						<li><a href="#">Terms of Service</a></li>
+						<li><a href="#">Communications</a></li>
+						<li><a href="#">Referral Terms</a></li>
+						<li><a href="#">Disclaimers</a></li>
+					</ul>
+				</div>
+			</div><!--- END COL -->
+			<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
+				<div class="single_footer single_footer_address">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="#">Licenses</a></li>
+						<li><a href="#">market API</a></li>
+						<li><a href="#">Careers and job</a></li>
+						<li><a href="#">Emplois en France</a></li>
+						<li><a href="#">Jobs in Deutschland	</a></li>
+					</ul>
+				</div>
+			</div><!--- END COL -->
+			<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-offset="0">
+				<div class="single_footer single_footer_address">
+					<h4>Our Address</h4>
+					<p>4380 Tea Berry Lane Eau Claire, WI 54701</p>
+					<p>(+1) 517 397 7100</p>
+					<p>Info@example.com</p>
+					<p></p>
+				</div>
+			</div><!--- END COL -->
+		</div><!--- END ROW -->
+	</div><!--- END CONTAINER -->
+</div>
+<!-- END FOOTER TOP -->
+
+<!-- START FOOTER -->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 col-xs-12 text-center">
+				<div class="single_footer">
+					<p class="copyright">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+				</div>
+			</div><!--- END COL -->
+		</div><!--- END ROW -->
+	</div><!--- END CONTAINER -->
+</div>
+<!-- END FOOTER -->
+
+<!-- Latest jQuery -->
+	<script src="../static/assets/js/jquery-1.12.4.min.js"></script>
+<!-- Latest compiled and minified Bootstrap -->
+	<script src="../static/assets/bootstrap/js/bootstrap.js"></script>
+<!-- modernizer JS -->
+	<script src="../static/assets/js/modernizr-2.8.3.min.js"></script>
+<!-- owl-carousel min js  -->
+	<script src="../static/assets/owlcarousel/js/owl.carousel.min.js"></script>
+<!-- jquery nav -->
+	<script src="../static/assets/js/jquery.nav.js"></script>
+<!-- jquery.slicknav -->
+	<script src="../static/assets/js/jquery.slicknav.js"></script>
+<!-- jquery smooth-scroll JS -->
+	<script src="../static/assets/js/smooth-scroll.js"></script>
+<!-- scrolltopcontrol js -->
+	<script src="../static/assets/js/scrolltopcontrol.js"></script>
+<!-- countTo js -->
+	<script src="../static/assets/js/jquery.inview.min.js"></script>
+<!-- Slick js -->
+	<script src="../static/assets/js/slick.min.js"></script>
+<!-- WOW - Reveal Animations When You Scroll -->
+	<script src="../static/assets/js/wow.min.js"></script>
+<!-- MAGNIFICANT JS -->
+	<script src="../static/assets/js/jquery.magnific-popup.min.js"></script>
+<!-- form-contact js -->
+	<script src="../static/assets/js/form-contact.js"></script>
+<!-- scripts js -->
+	<script src="../static/assets/js/scripts.js"></script>
+{% block script %}{% endblock %}
+</body>
+</html>
