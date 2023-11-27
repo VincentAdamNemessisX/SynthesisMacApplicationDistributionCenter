@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Meta -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- SITE TITLE -->
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href={% static 'favicon.ico' %}>
+    <link rel="stylesheet" href="../static/front/bootstrap/css/bootstrap.min.css">
+    <link href="../static/front/fonts/google_font.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/front/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/front/fonts/themify-icons.css">
+    <link rel="stylesheet" href="../static/front/owlcarousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="../static/front/owlcarousel/css/owl.theme.css">
+    <link rel="stylesheet" href="../static/front/css/animate.css">
+    <link rel="stylesheet" href="../static/front/css/slicknav.css">
+    <link rel="stylesheet" href="../static/front/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/front/css/slick.css">
+    <link rel="stylesheet" href="../static/front/css/slick-theme.css">
+    <link rel="stylesheet" href="../static/front/css/style.css">
+    <link rel="stylesheet" href="../static/front/css/linearicons.css">
+    <link rel="stylesheet" href="../static/front/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/front/css/nice-select.css">
+    <link rel="stylesheet" href="../static/front/css/main.css">
+    <style>
+        {%  block extra_css %}{% endblock %}
+    </style>
+</head>
+
+<body data-spy="scroll" data-offset="80">
+<!-- START PRELOADER -->
+<div class="preloader">
+    <div class="status">
+        <div class="status-mes"></div>
+    </div>
+</div>
+<!-- END PRELOADER -->
+<!-- START NAVBAR -->
+<div id="navigation" class="fixed-top navbar-light bg-faded site-navigation" style="background-color: #f54291">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="site-logo">
+                    <a href="/index"><img src="../static/front/img/logo.png" alt=""></a>
+                </div>
+            </div><!--- END Col -->
+
+            <div class="col-lg-10 col-md-9 col-sm-8">
+                <div class="header_right">
+                    <nav id="main-menu" class="ml-auto">
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#screenshots">Screenshots</a></li>
+                            <li><a href="#pricing">pricing</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#download">Download</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div id="mobile_menu"></div>
+                </div>
+            </div><!--- END Col -->
+        </div><!--- END ROW -->
+    </div><!--- END CONTAINER -->
+</div>
+<!-- END NAVBAR -->
+{% block content %}{% endblock %}
+<!-- START FOOTER TOP -->
+<div class="footer-top section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
+                 data-wow-offset="0">
+                <div class="footer_logo">
+                    <img src="../static/front/img/logo.png" alt=""/>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis
+                        dignissim.</p>
+                </div>
+                <div class="social_profile">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
+                 data-wow-offset="0">
+                <div class="single_footer">
+                    <h4>Frequently Asked Questions</h4>
+                    <ul>
+                        <li><a href="#">Privacy & Securty</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Communications</a></li>
+                        <li><a href="#">Referral Terms</a></li>
+                        <li><a href="#">Disclaimers</a></li>
+                    </ul>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s"
+                 data-wow-offset="0">
+                <div class="single_footer single_footer_address">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Licenses</a></li>
+                        <li><a href="#">market API</a></li>
+                        <li><a href="#">Careers and job</a></li>
+                        <li><a href="#">Emplois en France</a></li>
+                        <li><a href="#">Jobs in Deutschland </a></li>
+                    </ul>
+                </div>
+            </div><!--- END COL -->
+            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s"
+                 data-wow-offset="0">
+                <div class="single_footer single_footer_address">
+                    <h4>Our Address</h4>
+                    <p>4380 Tea Berry Lane Eau Claire, WI 54701</p>
+                    <p>(+1) 517 397 7100</p>
+                    <p>Info@example.com</p>
+                    <p></p>
+                </div>
+            </div><!--- END COL -->
+        </div><!--- END ROW -->
+    </div><!--- END CONTAINER -->
+</div>
+<!-- END FOOTER TOP -->
+
+<!-- START FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12 text-center">
+                <div class="single_footer">
+                    <p class="copyright">Copyright &copy; 2023.Vincent Adam Nemessis All rights reserved.</p>
+                </div>
+            </div><!--- END COL -->
+        </div><!--- END ROW -->
+    </div><!--- END CONTAINER -->
+</div>
+<!-- END FOOTER -->
+</body>
+<script src="../static/front/extend_js/vendor/jquery-2.2.4.min.js"></script>
+<script src="../static/front/extend_js/vendor/bootstrap.min.js"></script>
+<script src="../static/front/extend_js/jquery.ajaxchimp.min.js"></script>
+<script src="../static/front/extend_js/jquery.sticky.js"></script>
+<script src="../static/front/extend_js/jquery.nice-select.min.js"></script>
+<script src="../static/front/extend_js/jquery.magnific-popup.min.js"></script>
+<script src="../static/front/extend_js/jquery.counterup.min.js"></script>
+<script src="../static/front/js/jquery.inview.min.js"></script>
+<script src="../static/front/js/jquery.slicknav.js"></script>
+<script src="../static/front/js/jquery.nav.js"></script>
+<script src="../static/front/js/form-contact.js"></script>
+<script src="../static/front/js/modernizr-2.8.3.min.js"></script>
+<script src="../static/front/js/smooth-scroll.js"></script>
+<script src="../static/front/js/scrolltopcontrol.js"></script>
+<script src="../static/front/js/slick.min.js"></script>
+<script src="../static/front/js/wow.min.js"></script>
+<script src="../static/front/js/scripts.js"></script>
+<script src="../static/front/extend_js/popper.min.js"></script>
+<script src="../static/front/extend_js/easing.min.js"></script>
+<script src="../static/front/extend_js/hoverIntent.js"></script>
+<script src="../static/front/extend_js/superfish.min.js"></script>
+<script src="../static/front/extend_js/owl.carousel.min.js"></script>
+<script src="../static/front/extend_js/parallax.min.js"></script>
+<script src="../static/front/extend_js/waypoints.min.js"></script>
+<script src="../static/front/extend_js/mail-script.js"></script>
+<script src="../static/front/extend_js/main.js"></script>
+{% block script %}{% endblock %}
+</html>

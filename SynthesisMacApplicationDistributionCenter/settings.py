@@ -30,13 +30,21 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'simpleui',
-    'testunit.apps.TestunitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'testunit.apps.TestunitConfig',
+    'analytics.apps.AnalyticsConfig',
+    'announcements.apps.AnnouncementsConfig',
+    'category.apps.CategoryConfig',
+    'commentsandposts.apps.CommentsandpostsConfig',
+    'favorites.apps.FavoritesConfig',
+    'frontenduser.apps.FrontenduserConfig',
+    'questions.apps.QuestionsConfig',
+    'software.apps.SoftwareConfig',
 ]
 
 MIDDLEWARE = [
