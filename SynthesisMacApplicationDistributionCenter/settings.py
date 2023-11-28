@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'simpleui',
+    'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,3 +156,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# simpleui that backend settings
+SIMPLEUI_HOME_PAGE = '/analytics/'
+SIMPLEUI_HOME_TITLE = 'SynthesisMacApplicationDistributionCenter'
+# SIMPLEUI_INDEX = 'auth/group/'  # top home icon url
+SIMPLEUI_LOGO = '/static/favicon.ico' # left top logo

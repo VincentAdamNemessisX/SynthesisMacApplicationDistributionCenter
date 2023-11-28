@@ -3,16 +3,16 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'frontenduser/index.html')
 
 
 def generic(request):
-    return render(request, 'generic.html')
+    return render(request, 'frontenduser/generic.html')
 
 
 def help(request):
-    return render(request, 'help.html')
+    return render(request, 'frontenduser/help.html')
 
 
 def elements(request):
-    return render(request, 'elements.html')
+    return render(request, 'frontenduser/elements.html')

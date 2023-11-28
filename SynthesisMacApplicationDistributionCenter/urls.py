@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from analytics.views import index as ana
 from testunit.views import *
 
 urlpatterns = [
@@ -23,5 +23,6 @@ urlpatterns = [
     path('index/', index),
     path('generic/', generic),
     path('help/', help),
-    path('elements/', elements)
+    path('elements/', elements),
+    path('analytics/', ana)
 ]
