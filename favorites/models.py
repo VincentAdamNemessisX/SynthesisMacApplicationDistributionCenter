@@ -5,8 +5,7 @@ from django.db import models
 class Favorites(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
-    apps = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE)
-    articles = models.ForeignKey('commentsandposts.Article', on_delete=models.CASCADE)
+    type = models.CharField(max_length=100, choices=(('article', 'article'), ('app', 'app')))
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -14,4 +13,4 @@ class Favorites(models.Model):
         verbose_name_plural = 'Favorites'
 
     def __str__(self):
-        return self.app.name
+        return str(self.id)

@@ -132,8 +132,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'zh-hans'
+LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'zh-hans'
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'PRC'
 
@@ -157,9 +157,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # simpleui that backend settings
 SIMPLEUI_HOME_PAGE = '/analytics/'
-SIMPLEUI_HOME_TITLE = 'SynthesisMacApplicationDistributionCenter'
-# SIMPLEUI_INDEX = 'auth/group/'  # top home icon url
+SIMPLEUI_HOME_TITLE = 'OverView'
 SIMPLEUI_LOGO = '/static/favicon.ico' # left top logo

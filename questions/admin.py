@@ -8,4 +8,4 @@ from questions.models import Questions
 
 @admin.register(Questions)
 class QuestionsAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'question', 'answer', 'date', 'author']

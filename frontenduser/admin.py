@@ -7,4 +7,4 @@ from frontenduser.models import FrontEndUser
 
 @admin.register(FrontEndUser)
 class FrontEndUserAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'username', 'email']

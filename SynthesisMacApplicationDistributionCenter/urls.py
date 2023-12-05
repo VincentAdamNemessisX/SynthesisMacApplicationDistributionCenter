@@ -20,6 +20,7 @@ from testunit.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index),
     path('index/', index),
     path('generic/', generic),
     path('help/', help),
