@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from analytics.views import index as ana
 from testunit.views import *
@@ -26,4 +28,5 @@ urlpatterns = [
     path('help/', help),
     path('elements/', elements),
     path('analytics/', ana)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+document_root = settings.STATIC_ROOT
