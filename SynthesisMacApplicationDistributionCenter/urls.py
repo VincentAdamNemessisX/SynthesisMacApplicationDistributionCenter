@@ -21,7 +21,7 @@ from analytics.views import index as ana
 from testunit.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('center/all/control/', admin.site.urls),
     path('', index),
     path('index/', index),
     path('generic/', generic),

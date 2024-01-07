@@ -100,11 +100,12 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379',
+        'LOCATION': 'redis://39.98.180.165:6379',
         'OPTIONS': {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "CONNECTION_POOL_KWARGS": {"max_connections": 100},
             "DECODE_RESPONSE": True,
+            "PASSWORD": "2",
         }
     }
 }
@@ -133,8 +134,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-# LANGUAGE_CODE = 'zh-hans'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'PRC'
 
@@ -162,5 +163,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # simpleui that backend settings
 SIMPLEUI_HOME_PAGE = '/analytics/'
-SIMPLEUI_HOME_TITLE = 'OverView'
+SIMPLEUI_HOME_TITLE = '概览'
 SIMPLEUI_LOGO = '/static/favicon.ico' # left top logo
