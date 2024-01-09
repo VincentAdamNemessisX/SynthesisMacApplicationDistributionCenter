@@ -13,7 +13,7 @@ class SoftWare(models.Model):
     class Meta:
         ordering = ['-date']
         verbose_name = 'Software'
-        verbose_name_plural = 'Softwares'
+        verbose_name_plural = 'Software'
 
     def __str__(self):
         return self.name

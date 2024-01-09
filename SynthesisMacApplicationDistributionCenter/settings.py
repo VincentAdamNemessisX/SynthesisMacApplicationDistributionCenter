@@ -28,10 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
-
 INSTALLED_APPS = [
     'simpleui',
-    'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +42,7 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'commentsandposts.apps.CommentsandpostsConfig',
     'favorites.apps.FavoritesConfig',
-    'frontenduser.apps.FrontenduserConfig',
+    'frontenduser.apps.FrontEndUserConfig',
     'questions.apps.QuestionsConfig',
     'software.apps.SoftwareConfig',
 ]
@@ -93,14 +91,14 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'ic3344',
-        'NAME': 'SynthesisYouWantMacApplicationDistributionCenter',  # database Name
+        'NAME': 'SynthesisYouWantMacApplicationDistributionCenter',  # database Name dismiss caps
     }
 }
 
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://39.98.180.165:6379',
+        'LOCATION': 'redis://localhost:6379',
         'OPTIONS': {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "CONNECTION_POOL_KWARGS": {"max_connections": 100},
@@ -162,6 +160,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # simpleui that backend settings
-SIMPLEUI_HOME_PAGE = '/analytics/'
-SIMPLEUI_HOME_TITLE = '概览'
-SIMPLEUI_LOGO = '/static/favicon.ico' # left top logo
+# SIMPLEUI_HOME_PAGE = '/analytics/'
+# SIMPLEUI_HOME_TITLE = '概览'
+# SIMPLEUI_LOGO = '/static/favicon.ico'  # left top logo
+JET_SIDE_MENU_COMPACT = True
+JET_CHANGE_FORM_SIBLING_LINKS = True

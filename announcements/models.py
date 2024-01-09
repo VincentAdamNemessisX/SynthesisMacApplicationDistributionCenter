@@ -12,6 +12,8 @@ class Announcements(models.Model):
     # author = models.CharField(max_length=100)
     # author = models.ForeignKey(User, on_delete=models.CASCADE)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    type = models.IntegerField(default=0, choices=((0, '全站'), (1, '指定APP')))
+    app = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
         ordering = ['-date']
