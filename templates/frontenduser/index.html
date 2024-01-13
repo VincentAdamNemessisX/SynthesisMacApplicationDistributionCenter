@@ -690,10 +690,7 @@
 				type: "GET",
 				dataType: "json",
 				success: function (data) {
-					$.dialog({
-                        title: '公告',
-                        contentHtml: data.data[0].content,
-                    });
+                        {#contentHtml: data.data[0].content;#}
 				}, error: function (data) {
 					console.log('error')
 				}

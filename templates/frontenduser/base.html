@@ -9,7 +9,7 @@
     <!-- SITE TITLE -->
     <title>{% block title %}{% endblock %}</title>
     <link rel="shortcut icon" href={% static 'favicon.ico' %}>
-    <link rel="stylesheet" href="../../static/front/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/front/css/bootstrap.min.css">
     <link href="../../static/front/fonts/google_font.css" rel="stylesheet">
     <link rel="stylesheet" href="../../static/front/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../../static/front/fonts/themify-icons.css">
@@ -25,10 +25,6 @@
     <link rel="stylesheet" href="../../static/front/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../static/front/css/nice-select.css">
     <link rel="stylesheet" href="../../static/front/css/main.css">
-    <link rel="stylesheet" type="text/css" href='{% static "front/css/normalize.css" %}'/>
-    <link rel="stylesheet" type="text/css" href='{% static "front/css/htmleaf-demo.css" %}'>
-    <link rel="stylesheet" href='{% static "front/css/tpl-style.css" %}'>
-    <link rel="stylesheet" href='{% static "front/css/dialog.css" %}'>
     <style>
         {%  block extra_css %}{% endblock %}
     </style>
@@ -175,7 +171,5 @@
 <script src="../../static/front/extend_js/waypoints.min.js"></script>
 <script src="../../static/front/extend_js/mail-script.js"></script>
 <script src="../../static/front/extend_js/main.js"></script>
-<script src='{% static "front/js/zepto.min.js" %}'></script>
-<script src='{% static "front/js/dialog.js" %}'></script>
 </html>
 {% block script %}{% endblock %}

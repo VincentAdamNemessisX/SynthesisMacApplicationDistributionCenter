@@ -4,37 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized codes style and update admin style">
-      <change afterPath="$PROJECT_DIR$/static/front/css/dialog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/htmleaf-demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/normalize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/tpl-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/icon/fail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/icon/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/icon/success.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/dialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/example.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/jquery-1.11.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/zepto.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/dialog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/temp.html" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="try using pop-up notifications of third part, but met something I can't resolve">
+      <change afterPath="$PROJECT_DIR$/static/front/ajax-loader.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/dist/js/pages/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/dist/js/pages/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/magnific-popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/magnific-popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/slick-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/slick-theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/theme/pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/theme/pages.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/owlcarousel/css/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/owlcarousel/css/owl.carousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/owlcarousel/css/owl.theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/owlcarousel/css/owl.theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/dialog.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/tpl-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/icon/fail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/icon/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/icon/success.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/dialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/example.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/zepto.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/dialog.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testunit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testunit/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/temp.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +45,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/static/front/css/jquery.DonutWidget.min.css" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -99,11 +88,11 @@
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\temp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\fonts" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -134,7 +123,7 @@
       <workItem from="1704970867782" duration="621000" />
       <workItem from="1705117608517" duration="5143000" />
       <workItem from="1705137313671" duration="6414000" />
-      <workItem from="1705154461416" duration="6189000" />
+      <workItem from="1705154461416" duration="7927000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -152,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705140211622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="try using pop-up notifications of third part, but met something I can't resolve">
+      <option name="closed" value="true" />
+      <created>1705160995333</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705160995333</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +161,7 @@
     <MESSAGE value="optimized backend page name and change language to chinese" />
     <MESSAGE value="optimized some warnings" />
     <MESSAGE value="optimized codes style and update admin style" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized codes style and update admin style" />
+    <MESSAGE value="try using pop-up notifications of third part, but met something I can't resolve" />
+    <option name="LAST_COMMIT_MESSAGE" value="try using pop-up notifications of third part, but met something I can't resolve" />
   </component>
 </project>
