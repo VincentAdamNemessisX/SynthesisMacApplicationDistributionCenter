@@ -10,8 +10,8 @@ class FrontEndUser(models.Model):
 
     class Meta:
         db_table = 'front_end_user'
-        verbose_name = 'Front End User'
-        verbose_name_plural = 'Front End Users'
+        verbose_name = '前台用户管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.username

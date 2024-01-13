@@ -22,7 +22,8 @@ class Migration(migrations.Migration):
                 ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
                                              to='commentsandposts.comment')),
                 (
-                'user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
+                    'user',
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
             ],
             options={
                 'verbose_name': 'Comment',
@@ -39,7 +40,8 @@ class Migration(migrations.Migration):
                 ('created_time', models.DateTimeField(auto_now_add=True)),
                 ('updated_time', models.DateTimeField(auto_now=True)),
                 (
-                'user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
+                    'user',
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
             ],
             options={
                 'verbose_name': 'Article',

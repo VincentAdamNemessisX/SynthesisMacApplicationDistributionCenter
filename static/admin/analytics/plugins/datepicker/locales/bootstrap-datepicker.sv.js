@@ -2,7 +2,7 @@
  * Swedish translation for bootstrap-datepicker
  * Patrik Ragnarsson <patrik@starkast.net>
  */
-;(function($){
+;(function ($) {
 	$.fn.datepicker.dates['sv'] = {
 		days: ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"],
 		daysShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],

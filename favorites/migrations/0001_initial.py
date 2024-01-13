@@ -23,7 +23,8 @@ class Migration(migrations.Migration):
                 ('articles',
                  models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='commentsandposts.article')),
                 (
-                'user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
+                    'user',
+                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
             ],
             options={
                 'verbose_name': 'Favorite',

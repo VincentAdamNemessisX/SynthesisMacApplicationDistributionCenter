@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -17,8 +16,8 @@ class Announcements(models.Model):
 
     class Meta:
         ordering = ['-date']
-        verbose_name = 'Announcement'
-        verbose_name_plural = 'Announcements'
+        verbose_name = '公告管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.title

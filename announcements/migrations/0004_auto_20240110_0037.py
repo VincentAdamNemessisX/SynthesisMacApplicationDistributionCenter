@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('software', '0002_alter_software_id'),
         ('announcements', '0003_alter_announcements_author'),
@@ -15,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='announcements',
             name='app',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='software.software'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='software.software'),
         ),
         migrations.AddField(
             model_name='announcements',

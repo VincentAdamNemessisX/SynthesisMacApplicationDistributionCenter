@@ -12,8 +12,8 @@ class SoftWare(models.Model):
 
     class Meta:
         ordering = ['-date']
-        verbose_name = 'Software'
-        verbose_name_plural = 'Software'
+        verbose_name = '软件管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.name

@@ -11,8 +11,8 @@ class Questions(models.Model):
 
     class Meta:
         ordering = ['-date']
-        verbose_name = 'Question'
-        verbose_name_plural = 'Questions'
+        verbose_name = '反馈中心'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.question

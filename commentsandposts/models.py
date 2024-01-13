@@ -12,8 +12,8 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-created_time']
-        verbose_name = 'Comment'
-        verbose_name_plural = 'Comments'
+        verbose_name = '评论审核中心'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.content
@@ -29,8 +29,8 @@ class Article(models.Model):
 
     class Meta:
         ordering = ['-created_time']
-        verbose_name = 'Article'
-        verbose_name_plural = 'Articles'
+        verbose_name = '文章管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.title

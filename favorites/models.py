@@ -9,8 +9,8 @@ class Favorites(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'Favorite'
-        verbose_name_plural = 'Favorites'
+        verbose_name = '收藏管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return str(self.id)

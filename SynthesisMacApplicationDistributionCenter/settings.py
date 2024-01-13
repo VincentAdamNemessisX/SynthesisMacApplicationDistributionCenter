@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -160,8 +159,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # simpleui that backend settings
-# SIMPLEUI_HOME_PAGE = '/analytics/'
-# SIMPLEUI_HOME_TITLE = '概览'
-# SIMPLEUI_LOGO = '/static/favicon.ico'  # left top logo
-JET_SIDE_MENU_COMPACT = True
-JET_CHANGE_FORM_SIBLING_LINKS = True
+SIMPLEUI_HOME_PAGE = '/analytics/'
+SIMPLEUI_HOME_TITLE = '概览'
+SIMPLEUI_LOGO = '/static/favicon.ico'  # left top logo
+SIMPLEUI_DEFAULT_THEME = 'e-purple.css'  # default theme

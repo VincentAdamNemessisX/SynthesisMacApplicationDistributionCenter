@@ -8950,11 +8950,11 @@
 		},
 		serializeArray: function () {
 			return this.map(function () {
-				
-				// Can add propHook for "elements" to filter or add form elements
-				var elements = jQuery.prop(this, "elements");
-				return elements ? jQuery.makeArray(elements) : this;
-			})
+					
+					// Can add propHook for "elements" to filter or add form elements
+					var elements = jQuery.prop(this, "elements");
+					return elements ? jQuery.makeArray(elements) : this;
+				})
 				.filter(function () {
 					var type = this.type;
 					
