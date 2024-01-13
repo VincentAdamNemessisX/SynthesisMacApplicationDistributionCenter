@@ -682,3 +682,22 @@
     </div>
     <!-- END MAP -->
 {% endblock %}
+{% block script %}
+    <script>
+		$(document).ready(function () {
+			$.ajax({
+				url: "/api/notice/to/all/",
+				type: "GET",
+				dataType: "json",
+				success: function (data) {
+					$.dialog({
+                        title: '公告',
+                        contentHtml: data.data[0].content,
+                    });
+				}, error: function (data) {
+					console.log('error')
+				}
+			})
+		})
+    </script>
+{% endblock %}

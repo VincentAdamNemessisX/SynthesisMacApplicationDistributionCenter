@@ -952,7 +952,7 @@ v
 }
 
 .subscribe__btn {
-    background-color: none;
+    /*background-color: none;*/
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
@@ -972,7 +972,7 @@ v
 
 @media only screen and (max-width: 480px) {
     .subscribe__btn {
-        background-color: none;
+        /*background-color: none;*/
         border-radius: 3px;
         color: #fff;
         cursor: pointer;
@@ -1264,7 +1264,6 @@ button {
     line-height: 50px;
 }
 
-}
 .owl-theme .owl-controls {
     display: block !important;
     margin-top: 10px;

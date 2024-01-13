@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="../../static/front/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../static/front/css/nice-select.css">
     <link rel="stylesheet" href="../../static/front/css/main.css">
+    <link rel="stylesheet" type="text/css" href='{% static "front/css/normalize.css" %}'/>
+    <link rel="stylesheet" type="text/css" href='{% static "front/css/htmleaf-demo.css" %}'>
+    <link rel="stylesheet" href='{% static "front/css/tpl-style.css" %}'>
+    <link rel="stylesheet" href='{% static "front/css/dialog.css" %}'>
     <style>
         {%  block extra_css %}{% endblock %}
     </style>
@@ -171,5 +175,7 @@
 <script src="../../static/front/extend_js/waypoints.min.js"></script>
 <script src="../../static/front/extend_js/mail-script.js"></script>
 <script src="../../static/front/extend_js/main.js"></script>
-{% block script %}{% endblock %}
+<script src='{% static "front/js/zepto.min.js" %}'></script>
+<script src='{% static "front/js/dialog.js" %}'></script>
 </html>
+{% block script %}{% endblock %}
