@@ -1,5 +1,4 @@
 # Create your views here.
-from django.core import serializers
 from django.http import JsonResponse
 
 from announcements.models import Announcements
@@ -14,9 +13,7 @@ def get_notice_to_all(request):
                 'title': notice.title,
                 'content': notice.content,
                 'date': notice.date,
-                'author': notice.author.username,
-                'type': notice.type,
-                'app': notice.app.name if notice.app else None
+                'image': notice.image.url if notice.image else None
             }
             for notice in notices
         ]
@@ -24,5 +21,27 @@ def get_notice_to_all(request):
             return JsonResponse({'code': 200, 'msg': '获取成功', 'data': notices})
         else:
             return JsonResponse({'code': 400, 'msg': '获取失败'})
+    else:
+        return JsonResponse({'code': 401, 'msg': '请求方式错误'})
+
+
+def get_specific_app_notice(request):
+    if request.method == 'GET':
+        notice = Announcements.objects.filter(type=1, app__id=request.GET.get('app_id')).order_by('-date')[:1]
+        notices = [
+            {
+                'id': notice.id,
+                'title': notice.title,
+                'content': notice.content,
+                'date': notice.date,
+                'image': notice.image.url if notice.image else None,
+                'app': notice.app.name if notice.app else None
+            }
+            for notice in notice
+        ]
+        if notice:
+            return JsonResponse({'code': 200, 'msg': '获取成功', 'data': notices})
+        else:
+            return JsonResponse({'code': 404, 'msg': '获取失败'})
     else:
         return JsonResponse({'code': 401, 'msg': '请求方式错误'})

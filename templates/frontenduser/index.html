@@ -1,5 +1,8 @@
 ﻿{% extends 'frontenduser/base.html' %}
 {% load static %}
+{% block title %}
+    Mac软件分享平台
+{% endblock %}
 {% block content %}
     <!-- START HOME -->
     <section id="home" class="home_bg"
@@ -684,17 +687,10 @@
 {% endblock %}
 {% block script %}
     <script>
-		$(document).ready(function () {
-			$.ajax({
-				url: "/api/notice/to/all/",
-				type: "GET",
-				dataType: "json",
-				success: function (data) {
-                        {#contentHtml: data.data[0].content;#}
-				}, error: function (data) {
-					console.log('error')
-				}
-			})
-		})
+		$(document).ready(
+			function () {
+				get_notice_to_all();
+            }
+        );
     </script>
 {% endblock %}

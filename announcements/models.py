@@ -10,6 +10,7 @@ class Announcements(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # author = models.CharField(max_length=100)
     # author = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='announcements', null=True, blank=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     type = models.IntegerField(default=0, choices=((0, '全站'), (1, '指定APP')))
     app = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)

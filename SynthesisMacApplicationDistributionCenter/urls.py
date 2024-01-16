@@ -36,7 +36,7 @@ urlpatterns = [
                   path('elements/', elements),
                   path('analytics/', ana),
                   path('api/notice/to/all/', get_notice_to_all),
-                  path('dialog/', dialog),
+                  path('api/notice/to/specific/app/', get_specific_app_notice),
                   path('temp/', temp),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 document_root = settings.STATIC_ROOT
