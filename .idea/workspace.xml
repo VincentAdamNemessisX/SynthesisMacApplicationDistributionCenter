@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized some models' fields related">
-      <change afterPath="$PROJECT_DIR$/media/announcements/Weixin_Image_20240117124459.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/software/migrations/0003_auto_20240117_2028.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/app.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/html5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/js-sdk-pro.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_1_9__10_48__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_1_9_下午_10_48_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized announcements' date logic of date filling&#10;optimized apis.js show content&#10;appended software_details.html template page&#10;fixed some bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/front/extend_js/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/apis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +122,7 @@
       <workItem from="1705395630589" duration="607000" />
       <workItem from="1705403187620" duration="11169000" />
       <workItem from="1705463747838" duration="8593000" />
-      <workItem from="1705493717841" duration="4671000" />
+      <workItem from="1705493717841" duration="5384000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -188,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705414673953</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="optimized announcements' date logic of date filling&#10;optimized apis.js show content&#10;appended software_details.html template page&#10;fixed some bugs">
+      <option name="closed" value="true" />
+      <created>1705499895659</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705499895659</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +196,7 @@
     <MESSAGE value="give up jquery dialog, try other pop-up dialog" />
     <MESSAGE value="integrated popup windows with announcement and implements home page's pop-up and specific app's pop-up window, finished announcement module for basic using" />
     <MESSAGE value="optimized some models' fields related" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized some models' fields related" />
+    <MESSAGE value="optimized announcements' date logic of date filling&#10;optimized apis.js show content&#10;appended software_details.html template page&#10;fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized announcements' date logic of date filling&#10;optimized apis.js show content&#10;appended software_details.html template page&#10;fixed some bugs" />
   </component>
 </project>

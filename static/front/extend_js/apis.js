@@ -9,14 +9,14 @@ function get_notice_to_all() {
 					if (data.data[0].image == null) {
 						Swal.fire({
 							title: data.data[0].title,
-							html: data.data[0].content + "<br/>更新时间：" +
-								toDate(data.data[0].date)
+							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
+								toDate(data.data[0].date) + "</p>",
 						})
 					} else {
 						Swal.fire({
 							title: data.data[0].title,
-							html: data.data[0].content + "<br/>更新时间：" +
-								toDate(data.data[0].date),
+							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
+								toDate(data.data[0].date) + "</p>",
 							width: 800,
 							padding: '3em',
 							imageUrl: data.data[0].image,
@@ -76,8 +76,8 @@ function get_notice_to_specific_app(app_id) {
 					if (data.data[0].image == null) {
 						Swal.fire({
 							title: data.data[0].title,
-							html: data.data[0].content + "<br/>更新时间：" +
-								toDate(data.data[0].date),
+							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
+								toDate(data.data[0].date) + "</p>",
 							width: 800,
 							padding: '3em',
 							confirmButtonText: '我已知晓！'
@@ -85,8 +85,8 @@ function get_notice_to_specific_app(app_id) {
 					} else {
 						Swal.fire({
 							title: data.data[0].title,
-							html: data.data[0].content + "<br/>更新时间：" +
-								toDate(data.data[0].date),
+							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
+								toDate(data.data[0].date) + "</p>",
 							width: 800,
 							padding: '3em',
 							imageUrl: data.data[0].image,
