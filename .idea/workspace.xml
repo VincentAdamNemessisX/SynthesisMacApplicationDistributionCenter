@@ -4,41 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="integrated popup windows with announcement and implements home page's pop-up and specific app's pop-up window, finished announcement module for basic using">
-      <change afterPath="$PROJECT_DIR$/announcements/migrations/0002_announcements_app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/favorites/migrations/0002_favorites_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/software/migrations/0002_software_category.py" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized some models' fields related">
+      <change afterPath="$PROJECT_DIR$/media/announcements/Weixin_Image_20240117124459.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/migrations/0003_auto_20240117_2028.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/js/app.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/js/html5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/js/js-sdk-pro.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_1_9__10_48__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_1_9_下午_10_48_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0002_alter_announcements_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0003_alter_announcements_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0004_auto_20240110_0037.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0005_alter_announcements_options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0006_announcements_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/announcements/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0002_auto_20240113_1753.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0003_alter_category_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsandposts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsandposts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsandposts/migrations/0002_auto_20240113_1753.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0002_auto_20231205_1803.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0003_alter_favorites_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0004_alter_favorites_options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0002_alter_frontenduser_options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/migrations/0002_alter_questions_options.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0002_alter_software_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0003_alter_software_options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0004_alter_software_options.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/front/extend_js/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/apis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +54,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -89,6 +73,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.AllYouWantMacApplicationDistributionCenter.executor": "Run",
     "Django Server.SynthesisMacApplicationDistributionCenter.executor": "Run",
+    "JavaScript Debug.software_details.html.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -96,14 +81,14 @@
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/temp",
+    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/SynthesisMacApplicationDistributionCenter/settings.py",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Subversion.Network",
+    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,11 +97,11 @@
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\temp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\bootstrap5\fonts" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -151,7 +136,9 @@
       <workItem from="1705305032730" duration="14000" />
       <workItem from="1705314183112" duration="18000" />
       <workItem from="1705395630589" duration="607000" />
-      <workItem from="1705403187620" duration="10788000" />
+      <workItem from="1705403187620" duration="11169000" />
+      <workItem from="1705463747838" duration="8593000" />
+      <workItem from="1705493717841" duration="4671000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -193,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705409431416</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="optimized some models' fields related">
+      <option name="closed" value="true" />
+      <created>1705414673953</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705414673953</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +203,7 @@
     <MESSAGE value="try using pop-up notifications of third part, but met something I can't resolve" />
     <MESSAGE value="give up jquery dialog, try other pop-up dialog" />
     <MESSAGE value="integrated popup windows with announcement and implements home page's pop-up and specific app's pop-up window, finished announcement module for basic using" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrated popup windows with announcement and implements home page's pop-up and specific app's pop-up window, finished announcement module for basic using" />
+    <MESSAGE value="optimized some models' fields related" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized some models' fields related" />
   </component>
 </project>

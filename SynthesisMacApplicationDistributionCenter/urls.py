@@ -24,6 +24,7 @@ from django.views.static import serve
 from analytics.views import index as ana
 from announcements.views import *
 from testunit.views import *
+from software.views import *
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -35,6 +36,7 @@ urlpatterns = [
                   path('help/', help),
                   path('elements/', elements),
                   path('analytics/', ana),
+                  path('software_details/', software_details),
                   path('api/notice/to/all/', get_notice_to_all),
                   path('api/notice/to/specific/app/', get_specific_app_notice),
                   path('temp/', temp),
