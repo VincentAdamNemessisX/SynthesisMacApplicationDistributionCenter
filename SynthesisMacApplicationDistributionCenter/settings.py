@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'frontenduser.apps.FrontEndUserConfig',
     'questions.apps.QuestionsConfig',
     'software.apps.SoftwareConfig',
+    "error_handler.apps.ErrorHandlerConfig"
 ]
 
 MIDDLEWARE = [
