@@ -4,63 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized notice's update time's font color">
-      <change afterPath="$PROJECT_DIR$/category/migrations/0002_auto_20240120_0300.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/category/migrations/0003_alter_category_icon.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/general/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/general/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/algolia-autocomplete.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/font_1620678_18rbnd2homc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/font_4184880_kci8o10x3ij.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/font_4263277_2axl22bwq06.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/jquery.fancybox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/loading.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/style.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/uaf.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/6697Mono.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/6697Mono.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4184880_vhx4dqprsh.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4184880_vhx4dqprsh.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4184880_vhx4dqprsh.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/algoliasearch-lite.umd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/autocomplete-noconflict.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/autocomplete.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/comment-reply.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/comments-ajax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/core.201a35b2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/forticket.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/jquery.fancybox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/js-sdk-event.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/lazyload.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/log-reporter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/nc-loader-2.13.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/theia-sticky-sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/underscore.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/wp-util.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/new_base.html" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended category.html and loading.css animation, and optimized static resources">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/app.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/js-sdk-pro.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/js-sdk-pro.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsandposts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +138,7 @@
       <workItem from="1705501159501" duration="271000" />
       <workItem from="1705561420614" duration="614000" />
       <workItem from="1705681215569" duration="1094000" />
-      <workItem from="1705682342811" duration="9032000" />
+      <workItem from="1705682342811" duration="9927000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -250,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705500306390</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="appended category.html and loading.css animation, and optimized static resources">
+      <option name="closed" value="true" />
+      <created>1705691488779</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705691488779</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +230,7 @@
     <MESSAGE value="optimized some models' fields related" />
     <MESSAGE value="optimized announcements' date logic of date filling&#10;optimized apis.js show content&#10;appended software_details.html template page&#10;fixed some bugs" />
     <MESSAGE value="optimized notice's update time's font color" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized notice's update time's font color" />
+    <MESSAGE value="appended category.html and loading.css animation, and optimized static resources" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended category.html and loading.css animation, and optimized static resources" />
   </component>
 </project>

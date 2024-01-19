@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('content', models.TextField()),
                 ('created_time', models.DateTimeField(auto_now_add=True)),
                 ('updated_time', models.DateTimeField(auto_now=True)),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='commentsandposts.comment')),
+                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='comments_with_articles.comment')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='frontenduser.frontenduser')),
             ],
             options={

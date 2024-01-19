@@ -7,7 +7,7 @@ class Comment(models.Model):
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
     content = models.TextField()
     created_time = models.DateTimeField(auto_now_add=True)
-    updated_time = models.DateTimeField(auto_now=True)
+    state = models.IntegerField(default=1, choices=((1, '待审核'), (2, '正常'), (3, '拒绝')))
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
@@ -24,6 +24,7 @@ class Article(models.Model):
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
+    state = models.IntegerField(default=1, choices=((1, '待审核'), (2, '正常'), (3, '拒绝')))
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
 
