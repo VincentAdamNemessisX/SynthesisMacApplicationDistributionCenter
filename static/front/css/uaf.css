@@ -1,12 +1,10 @@
-@font-face {
-    font-family: 'mono';
-    src: url('../fonts/6697Mono.woff2') format('woff2'),
-    url('../fonts/6697Mono.woff') format('woff');
-    font-display: auto;
-}
+				@font-face {
+					font-family: 'mono';
+					src: url('/wp-content/uploads/useanyfont/6697Mono.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/6697Mono.woff') format('woff');
+					  font-display: auto;
+				}
 
-.mono {
-    font-family: 'mono' !important;
-}
+				.mono{font-family: 'mono' !important;}
 
 		

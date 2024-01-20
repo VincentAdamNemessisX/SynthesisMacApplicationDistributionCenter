@@ -19,6 +19,14 @@
     <link rel="dns-prefetch" href="https://at.alicdn.com">
     <link rel="stylesheet" id="uaf_client_css-css"
           href="../../static/front/css/uaf.css?ver=1699649159" type="text/css" media="all">
+    <link rel="stylesheet" id="iconfont-css"
+          href="../../static/front/css/iconfont.css?ver=4.1031" type="text/css" media="all">
+    <link rel="stylesheet" id="iconfont-io-1-css" href="../../static/front/css/font_1620678_18rbnd2homc.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="iconfont-io-2-css" href="../../static/front/css/font_4184880_kci8o10x3ij.css"
+          type="text/css" media="all">
+    <link rel="stylesheet" id="iconfont-io-3-css" href="../../static/front/css/font_4263277_2axl22bwq06.css"
+          type="text/css" media="all">
     <link rel="stylesheet" id="bootstrap-css"
           href="../../static/front/css/bootstrap.min.css?ver=4.1031" type="text/css" media="all">
     <link rel="stylesheet" id="lightbox-css"
@@ -62,10 +70,10 @@
 <script type="text/javascript"
         src="../../static/front/js/autocomplete.min.js?ver=2.6.1"
         id="algolia-autocomplete-js"></script>
-id="algolia-autocomplete-js"></script>
 <script type="text/javascript"
         src="../../static/front/js/autocomplete-noconflict.js?ver=2.6.1"
         id="algolia-autocomplete-noconflict-js"></script>
+<script type="text/javascript" src="../../static/front/js/new-post.js?ver=4.1031" id="new-post-js"></script>
 <script>
 	$(document).ready(function () {
 		setTimeout(function () {
@@ -74,6 +82,185 @@ id="algolia-autocomplete-js"></script>
 			document.getElementsByClassName('loading_container')[0].classList.add('animated', 'fadeOut');
 			document.getElementsByClassName('loading_container')[0].style.visibility = 'hidden';
 		}, 1500);
+	});
+</script>
+
+{# append main-content-footer into main-content#}
+<script>
+	$(document).ready(function () {
+		document.getElementsByClassName('main-content')[0].innerHTML += `
+		   <div class="main-footer footer-stick container container-fluid customize-width pt-4 pb-3 footer-type-big"
+             style="">
+            <div class="footer-inner card rounded-xl m-0">
+                <div class="footer-text card-body text-muted text-center text-md-left">
+                    <div class="row my-4">
+                        <div class="col-12 col-md-4 mb-4 mb-md-0">
+                            <a class="footer-logo" href="https://macwk.cn" title="MacWk">
+                                <img src="https://macwk.cn/wp-content/uploads/2023/10/macwklogo.png"
+                                     class="logo-light mb-3"
+                                     alt="MacWk" height="40">
+                                <img src="https://macwk.cn/wp-content/uploads/2023/10/macwklogo.png"
+                                     class="logo-dark d-none mb-3" alt="MacWk" height="40">
+                            </a>
+                            <div class="text-sm">
+                                MAC应用软件,每天更新大量精品mac软件,为您提供优质的mac软件,mac破解版软件下载
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 mb-4 mb-md-0">
+                            <div class="footer-social">
+                                <a class="rounded-circle bg-light qr-img" href="javascript:" data-toggle="tooltip"
+                                   data-placement="top" data-html="true" title=""
+                                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg' height='100' width='100'>">
+                                    <i class="iconfont icon-wechat"></i>
+                                </a><a class="rounded-circle bg-light" href="mailto:macwk@qq.com" target="_blank"
+                                       data-toggle="tooltip" data-placement="top" title=""
+                                       rel="external noopener nofollow"
+                                       data-original-title=" 联系站长">
+                                <i class="iconfont icon-email"></i>
+                            </a></div>
+                        </div>
+                        <div class="col-12 col-md-3 text-md-right mb-4 mb-md-0">
+                            <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="公众号">
+                                <p class="bg-light rounded-lg p-1">
+                                    <img class=" "
+                                         src="https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg"
+                                         alt="公众号MacWk">
+                                </p>
+                                <span class="text-muted text-ss mt-2">公众号</span>
+                            </div>
+                            <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="微信赞赏">
+                                <p class="bg-light rounded-lg p-1">
+                                    <img class=" " src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG18.jpg"
+                                         alt="微信赞赏MacWk">
+                                </p>
+                                <span class="text-muted text-ss mt-2">微信赞赏</span>
+                            </div>
+                            <div class="footer-mini-img" data-toggle="tooltip" title=""
+                                 data-original-title="支付宝捐助">
+                                <p class="bg-light rounded-lg p-1">
+                                    <img class=" " src="https://macwk.cn/wp-content/uploads/2023/10/zfb.jpg"
+                                         alt="支付宝捐助MacWk">
+                                </p>
+                                <span class="text-muted text-ss mt-2">支付宝捐助</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright text-xs">
+                        Copyright © 2024 <a href="https://macwk.cn" title="MacWk" class="" rel="home">MacWk</a>&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+		`;
+	})
+</script>
+
+{# append page footer into body#}
+<script>
+	$(document).ready(function () {
+		document.getElementsByTagName('body')[0].innerHTML += `
+        <footer>
+            <div id="footer-tools" class="d-flex flex-column">
+                <a href="javascript:" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top"
+                   style="display: none;">
+                    <i class="iconfont icon-to-up"></i>
+                </a>
+                <a class="btn rounded-circle custom-tool0 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                   data-html="true"
+                   data-placement="left" title=""
+                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg' height='100' width='100'>">
+                    <i class="iconfont icon-wechat"></i>
+                </a><a class="btn rounded-circle custom-tool1 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                       data-html="true" data-placement="left" title=""
+                       data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/10/zfb.jpg' height='100' width='100'>">
+                <i class="iconfont icon-alipay"></i>
+            </a><a class="btn rounded-circle custom-tool2 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                   data-html="true"
+                   data-placement="left" title=""
+                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/07/WechatIMG18.jpg' height='100' width='100'>">
+                <i class="io io-dashang1"></i>
+            </a><a class="btn rounded-circle custom-tool3 m-1" href="mailto:macwk@qq.com" target="_blank"
+                   data-toggle="tooltip"
+                   data-placement="left" title="" rel="external noopener nofollow" data-original-title=" 联系站长">
+                <i class="iconfont icon-email"></i>
+            </a> <a href="javascript:" data-toggle="modal" data-target="#search-modal" class="btn rounded-circle m-1"
+                    rel="search">
+                <i class="iconfont icon-search"></i>
+            </a>
+            </div>
+        </footer>
+		`;
+	});
+</script>
+<script>
+	$(document).ready(function () {
+		document.getElementsByTagName('body')[0].innerHTML += `
+	<div class="modal fade search-modal" id="search-modal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="search" class="s-search mx-auto my-4">
+                        <div id="search-list" class="hide-type-list">
+                            <div class="s-type">
+                                <span></span>
+                                <div class="s-type-list">
+                                    <label for="m_type-1" data-page="home" data-id="group-1">MacWk</label></div>
+                            </div>
+                            <div class="search-group group-1 s-current"><span class="type-text text-muted">MacWk</span>
+                                <ul class="search-type">
+                                    <li><input checked="checked" hidden="" type="radio" name="type2" data-page="home"
+                                               id="m_type-1" value="https://macwk.cn/?post_type=app&amp;s="
+                                               data-placeholder=""><label for="m_type-1"><span
+                                            class="text-muted"> 搜索</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <form action="" method="get" target="_blank" class="super-search-fm">{% csrf_token %} 
+                            <label for="m_search-text"></label><input type="text" id="m_search-text"
+                                                                      class="form-control smart-tips search-key"
+                                                                      zhannei=""
+                                                                      autocomplete="off" placeholder=""
+                                                                      style="outline:0"
+                                                                      data-status="true">
+                            <button type="submit"><i class="iconfont icon-search"></i></button>
+                        </form>
+                        <div class="card search-smart-tips" style="display: none">
+                            <ul></ul>
+                        </div>
+                    </div>
+
+                    <div class="px-1 mb-3"><i class="text-xl iconfont icon-hot mr-1" style="color:#f1404b;"></i><span
+                            class="h6">热门推荐： </span></div>
+                    <div class="mb-3">
+                        <li id="menu-item-839"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-839"><a
+                                href="https://macwk.cn/app/93.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>Adob​​e PhotoShop</span></a></li>
+                        <li id="menu-item-840"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-840"><a
+                                href="https://macwk.cn/app/175.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>App Cleaner &amp; Uninstaller</span></a></li>
+                        <li id="menu-item-841"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-841"><a
+                                href="https://macwk.cn/app/586.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>CleanMyMac X</span></a></li>
+                        <li id="menu-item-842"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-842"><a
+                                href="https://macwk.cn/app/256.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>Final Cut Pro</span></a></li>
+                    </div>
+                </div>
+                <div style="position: absolute;bottom: -40px;width: 100%;text-align: center;"><a href="javascript:"
+                                                                                                 data-dismiss="modal"><i
+                        class="iconfont icon-close-circle icon-2x" style="color: #fff;"></i></a></div>
+            </div>
+        </div>
+    </div>
+		`;
 	});
 </script>
 {% block script %}

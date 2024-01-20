@@ -1,8 +1,8 @@
 @font-face {
   font-family: "io"; /* Project id 4184880 */
-  src: url('//at.alicdn.com/t/c/font_4184880_kci8o10x3ij.woff2?t=1695396374402') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4184880_kci8o10x3ij.woff?t=1695396374402') format('woff'),
-       url('//at.alicdn.com/t/c/font_4184880_kci8o10x3ij.ttf?t=1695396374402') format('truetype');
+  src: url('../fonts/font_4184880_kci8o10x3ij.woff2?t=1695396374402') format('woff2'),
+       url('../fonts/font_4184880_kci8o10x3ij.woff?t=1695396374402') format('woff'),
+       url('../fonts/font_4184880_kci8o10x3ij.ttf?t=1695396374402') format('truetype');
 }
 
 .io {

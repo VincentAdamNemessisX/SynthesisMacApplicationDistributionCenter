@@ -1,14 +1,14 @@
 {% extends 'frontenduser/new_base.html' %}
 {% load static %}
 {% block title %}
-    Mac软件分享平台分类页面
+
 {% endblock %}
 {% block meta %}
     <meta name="keywords" content="">
     <meta name="description" content="">
 {% endblock %}
 {% block style %}
-    <style id="classic-theme-styles-inline-css">
+    <style id="classic-theme-styles-inline-css" type="text/css">
         /*! This file is auto-generated */
         .wp-block-button__link {
             color: #fff;
@@ -30,7 +30,7 @@
         .sidebar-logo {
             position: relative;
             overflow: hidden;
-            margin: 0 0 0 0
+            margin: 0px 0 0 0px
         }
 
         .sidebar-logo:before {
@@ -58,7 +58,7 @@
             }
             65% {
                 left: 350px;
-                top: 0
+                top: 0px
             }
         }
 
@@ -69,11 +69,11 @@
             }
             60% {
                 left: 350px;
-                top: 0
+                top: 0px
             }
             80% {
                 left: -120px;
-                top: 0
+                top: 0px
             }
         }
     </style>
@@ -87,7 +87,8 @@
             background: #fff;
             border-width: 0;
             transition: background-color .3s;
-            -webkit-box-shadow: rgb(163 177 198 / 50%) 12px 12px 24px 0, rgb(255 255 255) -12px -12px 24px 0
+            background-color: rgb(224, 229, 236);
+            -webkit-box-shadow: rgb(163 177 198 / 50%) 12px 12px 24px 0px, rgb(255 255 255) -12px -12px 24px 0px
         }
 
         body {
@@ -96,7 +97,7 @@
 
         .sidebar-item > a:hover {
             background: #EEF0F4;
-            box-shadow: 10px 10px 15px #d9dade, -9.91px -9.91px 15px #ffffff
+            box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff
         }
 
         .url-card a.card {
@@ -107,8 +108,9 @@
         .header-big #search-text {
             color: #4069e4;
             border-radius: 15px;
+            background-color: #e0e5ec !important;
             background: #e0e5ec;
-            box-shadow: inset 9px 9px 15px rgb(0 0 0 / 10%), inset -9.31px -9.31px 15px #f5f8fa
+            box-shadow: inset 9.31px 9.31px 15px rgb(0 0 0 / 10%), inset -9.31px -9.31px 15px #f5f8fa
         }
     </style>
     <style>.media-title-bg:before {
@@ -131,13 +133,13 @@
 
     @font-face {
         font-family: 'io';  /* Project id 4184880 */
-        src: url('//at.alicdn.com/t/c/font_4184880_vhx4dqprsh.woff2?t=1695309630232') format('woff2'),
-        url('//at.alicdn.com/t/c/font_4184880_vhx4dqprsh.woff?t=1695309630232') format('woff'),
-        url('//at.alicdn.com/t/c/font_4184880_vhx4dqprsh.ttf?t=1695309630232') format('truetype');
+        src: url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff2?t=1695309630232') format('woff2'),
+        url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff?t=1695309630232') format('woff'),
+        url('../../static/front/fonts/font_4184880_vhx4dqprsh.ttf?t=1695309630232') format('truetype');
     }
 
     .iconfont {
-        font-family: "iconfont", serif !important;
+        font-family: "iconfont" !important;
         font-size: 16px;
         font-style: normal;
         -webkit-font-smoothing: antialiased;
@@ -199,7 +201,7 @@
     <div class="loading_container">
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
-    <body class="archive tax-apps term-yinpin term-48 sidebar_no">
+    <body class="page-template page-template-template-contribute page-template-template-contribute-php page page-id-31 sidebar_right">
     <div id="sidebar" class="sticky sidebar-nav fade">
         <div class="modal-dialog h-100  sidebar-nav-inner">
             <div class="sidebar-logo border-bottom border-color">
@@ -421,14 +423,15 @@
                                     <i class="iconfont icon-notice icon-fw icon-lg"></i>
                                     <span>公告</span></a></li>
                                 <li id="menu-item-935"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-apps current-apps-ancestor current-menu-ancestor current-menu-parent current-apps-parent menu-item-has-children menu-item-935">
+                                    class="menu-item menu-item-type-taxonomy menu-item-object-apps menu-item-has-children menu-item-935">
                                     <a href="https://macwk.cn/apps/chajian">
                                         <i class="io io-chajiancanshushuju icon-fw icon-lg"></i>
                                         <span>扩展</span></a>
                                     <ul class="sub-menu">
                                         <li id="menu-item-951"
-                                            class="menu-item menu-item-type-taxonomy menu-item-object-apps current-menu-item menu-item-951">
-                                            <a href="https://macwk.cn/apps/yinpin" aria-current="page">
+                                            class="menu-item menu-item-type-taxonomy menu-item-object-apps menu-item-951">
+                                            <a
+                                                    href="https://macwk.cn/apps/yinpin">
                                                 <i class="iconfont icon-arrow-r icon-fw icon-lg"></i>
                                                 <span>音频</span></a></li>
                                         <li id="menu-item-950"
@@ -480,10 +483,10 @@
                                     </ul>
                                 </li>
                                 <li id="menu-item-100"
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a
-                                        href="https://macwk.cn/zaixiantougao">
-                                    <i class="io io-xiazai4 icon-fw icon-lg"></i>
-                                    <span>投稿</span></a></li>
+                                    class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-31 current_page_item menu-item-100">
+                                    <a href="https://macwk.cn/zaixiantougao" aria-current="page">
+                                        <i class="io io-xiazai4 icon-fw icon-lg"></i>
+                                        <span>投稿</span></a></li>
                                 <li id="menu-item-101"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a
                                         href="https://macwk.cn/paixingbang">
@@ -509,376 +512,178 @@
             </div>
             <div class="placeholder"></div>
         </div>
-        <div class="container container-fluid customize-width">
-            <div class="no-search my-2 p-1"></div>
-        </div>
-        <div id="content" class="container container-lg is_category">
-            <div class="content-wrap">
-                <div class="content-layout">
-                    <h4 class="text-gray text-lg mb-4">
-                        <i class="site-tag iconfont icon-app icon-lg mr-1" id="音频"></i>音频 </h4>
-                    <div class="row">
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1295.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 85%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1295.html" target="_blank"
-                                                             class="text-md overflowClip_1">Analog Lab V<span
-                                                class="text-xs"> - 5.7.4.371</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">Analog Lab V
-                                            是一款插件，汇集了数千个世界一流的预设，涵盖数十种永恒的乐器、即时访问控制和无缝集成
-                                            - 全部集中在一个地方。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 39</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1295"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1295">3</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1290.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 85%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1290.html" target="_blank"
-                                                             class="text-md overflowClip_1">Arturia Acid V<span
-                                                class="text-xs"> - 1.0.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">Acid V
-                                            提供反应性的、不断发展的低音凹槽、充满突变的失真序列和生动的狂欢实验。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 10</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1290"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1290">0</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1289.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 85%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1289.html" target="_blank"
-                                                             class="text-md overflowClip_1">Arturia ARP2600 V<span
-                                                class="text-xs"> - 3.12.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">
-                                            一位永恒的传奇人物，以沉重的鼓和贝斯节拍、棱角分明的琶音电贝司线和创造
-                                            R2-D2 的“声音”而闻名。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 3</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1289"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1289">0</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1285.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 85%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1285.html" target="_blank"
-                                                             class="text-md overflowClip_1">Native Instruments Komplete
-                                            Kontrol<span class="text-xs"> - 3.0.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">KOMPLETE KONTROL
-                                            是一款易于使用的工具，可简化您的工作流程。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 9</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1285"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1285">0</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1284.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 85%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1284.html" target="_blank"
-                                                             class="text-md overflowClip_1">Glitchmachines Cryogen<span
-                                                class="text-xs"> - 1.6.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">Cryogen
-                                            是一款模块化缓冲效果处理器，专为创建抽象音乐故障而设计。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 2</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1284"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1284">0</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1070.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 90%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1070.html" target="_blank"
-                                                             class="text-md overflowClip_1">Glitchmachines Tactic<span
-                                                class="text-xs"> - 1.3.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">Tactic
-                                            是一个专注于演变序列和变形模式的短语生成器。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 1</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1070"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1070">1</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"><i class="iconfont icon-microsoft mr-1"></i><i
-                                            class="iconfont icon-mac mr-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1066.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 90%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/1066.html" target="_blank"
-                                                             class="text-md overflowClip_1">Glitchmachines
-                                            Palindrome<span
-                                                    class="text-xs"> - 1.4.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">Palindrome
-                                            是一款专注于实验性声音设计的颗粒变形采样器。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 1</span>
-                                                    <span class="home-like pl-2 " data-action="post_like"
-                                                          data-id="1066"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-1066">2</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"><i class="iconfont icon-microsoft mr-1"></i><i
-                                            class="iconfont icon-mac mr-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/942.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 90%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/942.html" target="_blank"
-                                                             class="text-md overflowClip_1">Martinic AX73<span
-                                                class="text-xs"> - 1.3.0</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1">这款 AX73 (VST/AU)
-                                            插件在两个合成器层上具有四个模拟振荡器、独特的调制功能、高级性能选项和八个模块效果部分，可释放源硬件的全部功能以及更多功能
-                                            - 所有这些都使用完美建模我们的先进电路仿真技术。此外，它还包括超过 600
-                                            个鼓舞人心的预设的广泛阵容，可帮助您立即开始。
-                                        </div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 7</span>
-                                                    <span class="home-like pl-2 " data-action="post_like" data-id="942"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-942">2</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"><i class="iconfont icon-microsoft mr-1"></i><i
-                                            class="iconfont icon-mac mr-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1a col-md-2a col-lg-3a col-xl-4a">
-                            <div class="card-app card">
-                                <div class="card-body align-items-center d-flex flex-fill py-3">
-                                    <div class="media size-70 p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/745.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png)"
-                                           style="background-size: 90%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/音乐.png);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="app-content flex-fill pl-2 pr-1">
-                                        <div class="mb-2"><a href="https://macwk.cn/app/745.html" target="_blank"
-                                                             class="text-md overflowClip_1">Positive Grid BIAS Mac<span
-                                                class="text-xs"> - 最新版</span></a></div>
-                                        <div class="text-muted text-xs overflowClip_1"></div>
-                                        <div class="app-like">
-                                            <div class="d-flex align-items-center" style="white-space: nowrap;">
-                                                <div class="tga text-xs">
-                                                <span class="mr-1"><a href="https://macwk.cn/apps/yinpin"
-                                                                      rel="tag">音频</a></span></div>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs text-center mr-1">
-                                                    <span class="down"><i class="iconfont icon-down"></i> 50</span>
-                                                    <span class="home-like pl-2 " data-action="post_like" data-id="745"><i
-                                                            class="iconfont icon-heart"></i> <span
-                                                            class="home-like-745">0</span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-platform"><i class="iconfont icon-mac mr-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="posts-nav mb-4">
+        <div id="content" class="container my-4 my-md-5">
+            <h1 id="comments-list-title" class="comments-title h5 mx-1 my-4">
+                <i class="iconfont icon-tishi mr-2"></i>投稿须知
+            </h1>
+            <div class="panel card">
+                <div class="card-body">
+                    <div class="panel-body single mt-2">
+
                     </div>
                 </div>
             </div>
+            <div class="text-center mb-3">
+                <div class="tab-btn-group text-sm">
+                    <a href="https://macwk.cn/zaixiantougao/?type=post" class="tab-btn ">新文章</a><a
+                        href="https://macwk.cn/zaixiantougao/?type=sites" class="tab-btn active">新网址</a></div>
+            </div>
+            <form class="post-tg tougao-form" method="post">
+                <div class="content-wrap">
+                    <div class="content-layout">
+                        <div class="panel card">
+                            <div class="card-body">
+                                <div class="d-inline-block slider_menu into" slidertab="sliderTab">
+                                    <ul class="nav nav-pills tab-auto-scrollbar menu" role="tablist">
+                                        <li class="anchor"
+                                            style="position: absolute; width: 60px; height: 40px; left: 0px; opacity: 1;"></li>
+                                        <li class="pagenumber nav-item">
+                                            <a class="nav-link active" data-toggle="pill" data-type="sites"
+                                               href="#sites"
+                                               onclick="currentType(this)">网址</a>
+                                        </li>
+                                        <li class="pagenumber nav-item">
+                                            <a class="nav-link " data-toggle="pill" data-type="wechat" href="#wechat"
+                                               onclick="currentType(this)">公众号</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="my-2">
+                                    <label for="tougao_ico">图标:</label>
+                                    <input type="hidden" value="" id="tougao_ico" class="tougao-sites"
+                                           name="tougao_ico">
+                                    <div class="upload_img">
+                                        <div class="show_ico">
+                                            <img id="show_ico" class="show-sites"
+                                                 src="https://macwk.cn/wp-content/themes/onenav/images/add.png"
+                                                 alt="图标">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               data-id="" data-type="ico" style="display: none;"></i>
+                                        </div>
+                                        <input type="file" id="upload_ico" class="upload-sites" name="tougao_ico"
+                                               data-type="ico" accept="image/*" onchange="uploadImg(this)">
+                                    </div>
+                                </div>
+                                <div class="row row-sm">
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="iconfont icon-name icon-fw"
+                                                                              aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control sites-title" value=""
+                                                   name="post_title"
+                                                   placeholder="名称" maxlength="30">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2 tg-wechat-id" style="display:none">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="iconfont icon-huabanfuben icon-fw"
+                                                                              aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" value="" id="tougao_wechat_id"
+                                                   name="wechat_id" placeholder="公众号ID(微信号)">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="iconfont icon-url icon-fw"
+                                                                              aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control sites-link" value="" name="link"
+                                                   placeholder="链接">
+                                            <div class="input-group-append tg-sites-url">
+                                                <a href="javascript:" id="get_info"
+                                                   class="btn btn-danger custom_btn-d">一键填写</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group count-tips" data-min="0" data-max="80">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="iconfont icon-tishi icon-fw"
+                                                                              aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control sites-des" value="" name="sescribe"
+                                                   data-status="true" placeholder="简介" maxlength="80">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                    <textarea class="form-control text-sm" rows="16" cols="55" name="post_content"
+                                              placeholder="输入网址介绍"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar show-sidebar">
+                    <div class="card rounded-lg mb-3 relative">
+                        <div class="card-header widget-header">
+                            <h3 class="text-md mb-0"><i class="iconfont icon-publish mr-2"></i>网址选项</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted text-sm mb-2">分类</p>
+                            <div class="form-select">
+                                <select name="category" id="post_cat" class="form-control">
+                                    <option value="0" selected="selected">选择分类</option>
+                                    <option class="level-0" value="19">MacWk&nbsp;&nbsp;(0)</option>
+                                </select>
+                            </div>
+                            <p class="text-muted text-sm mb-2 mt-3">标签</p>
+                            <textarea class="form-control sites-keywords" rows="3" name="tags" placeholder="输入标签"
+                                      tabindex="6"></textarea>
+                            <p class="text-muted text-xs mt-2"><i class="iconfont icon-tishi"></i>填写标签，每个标签用逗号隔开
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg mb-3 relative">
+                        <div class="card-header widget-header">
+                            <h3 class="text-md mb-0"><i class="iconfont icon-user-circle mr-2"></i>用户信息</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted text-sm mb-2">昵称</p>
+                            <div class="mb20">
+                                <input class="form-control" name="user_name" placeholder="请输入昵称">
+                            </div>
+                            <p class="text-muted text-sm mb-2 mt-3">联系方式</p>
+                            <input class="form-control" name="contact_details" placeholder="输入联系方式">
+                        </div>
+                    </div>
+                    <input type="hidden" name="sites_type" value="sites">
+                    <input type="hidden" name="action" value="io_sites_submit">
+                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="87f859f189"><input type="hidden"
+                                                                                                 name="_wp_http_referer"
+                                                                                                 value="/zaixiantougao">
+                    <div class="card rounded-lg relative">
+                        <div class="card-body">
+                            <button type="submit" id="submit"
+                                    class="btn btn-danger custom_btn-d text-sm col-12 custom-submit"><i
+                                    class="iconfont icon-upload-wd mr-2"></i>提交审核
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div><!-- main-content end -->
+    </body>
 {% endblock %}
-</body>
 {% block script %}
-    <script type="text/javascript" id="jquery-js-after">
-		/* <![CDATA[ */
-		/* <![CDATA[ */
-		function loadFunc(func) {
-			if (document.all) {
-				window.attachEvent("onload", func);
-			} else {
-				window.addEventListener("load", func, false);
-			}
-		}
-
-		/* ]]]]><![CDATA[> */
-		/* ]]> */
-    </script>
     <script>
 		document.oncontextmenu = function (event) {
 			if (window.event) {
 				event = window.event;
 			}
 			try {
-				const the = event.srcElement;
-				return (the.tagName === "INPUT" && the.type.toLowerCase() === "text") || the.tagName === "TEXTAREA";
-
+				var the = event.srcElement;
+				if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+					return false;
+				}
+				return true;
 			} catch (e) {
 				return false;
 			}
@@ -886,16 +691,15 @@
     </script>
     <script>
 		document.onkeydown = function () {
-			if (window.event && window.event.keyCode === 123) {
+			if (window.event && window.event.keyCode == 123) {
 				alert("小子，别想扒站！");
-				event.keyCode = 0;
 				event.keyCode = 0;
 				event.returnValue = false;
 			}
-			if (window.event && window.event.keyCode === 13) {
+			if (window.event && window.event.keyCode == 13) {
 				window.event.keyCode = 505;
 			}
-			if (window.event && window.event.keyCode === 8) {
+			if (window.event && window.event.keyCode == 8) {
 				alert(str + "\n请使用Del键进行字符的删除操作！");
 				window.event.returnValue = false;
 			}
@@ -912,7 +716,7 @@
 			if (a.devicePixelRatio) {
 				l = (l * a.devicePixelRatio)
 			}
-			c = parseInt((((f === "?" ? 72 : f.charCodeAt(0)) - 64) * 12345).toString().slice(0, 5));
+			c = parseInt((((f == "?" ? 72 : f.charCodeAt(0)) - 64) * 12345).toString().slice(0, 5));
 			k = c % (h.length - 1);
 			t = (c + 1) % (h.length - 1);
 			m = (c - 1) % (h.length - 1);
@@ -942,6 +746,45 @@
 			return i
 		}
 	})(window, document);</script>
+    <script type="text/javascript" id="jquery-js-after">
+		/* <![CDATA[ */
+		/* <![CDATA[ */
+		function loadFunc(func) {
+			if (document.all) {
+				window.attachEvent("onload", func);
+			} else {
+				window.addEventListener("load", func, false);
+			}
+		}
+		
+		/* ]]]]><![CDATA[> */
+		/* ]]> */
+    </script>
+    <script>
+		var tg_data = {
+			sites_img_max: "64",
+			post_img_max: "1024",
+			theme_key: "TWpBeU1USTJNemd4TWpZM0d6RS9oY25Zd1FWcDFRak5PVWxOUFoyMUlhVkp5TkhwRmNtcG9VVWhDVjFNeg==",
+			local: {
+				only_img: "只能上传图片！",
+				only_jpg: "图片类型只能是jpeg,jpg,png！",
+				timeout: "网络连接错误！",
+				select_file: "请选择文件！",
+				sites_img_max_msg: "图片大小不能超过 64 kb",
+				post_img_max_msg: "图片大小不能超过 1024 kb",
+				get_failed: "获取失败，请再试试，或者手动填写！",
+				get_success: "获取成功，没有的请手动填写！",
+				timeout2: "访问超时，请再试试，或者手动填写！",
+				code_error: "验证码错误！",
+				v_first: "请先验证！！！",
+				url_error: "链接格式错误！",
+				fill_url: "请先填写网址链接！",
+				v_success: "验证成功",
+				v_canceled: "您取消了验证！",
+				v_text: "验证",
+			}
+		}
+    </script>
     <script type="text/javascript">var algolia = {
 		"debug": false,
 		"application_id": "KORZRWOEEG",
@@ -992,22 +835,28 @@
 	};</script>
     <script type="text/html" id="tmpl-autocomplete-header">
         <div class="autocomplete-header">
-            <div class="autocomplete-header-title"></div>
+            <div class="autocomplete-header-title">{ data.label }</div>
             <div class="clear"></div>
         </div>
     </script>
 
     <script type="text/html" id="tmpl-autocomplete-post-suggestion">
-        <a class="suggestion-link" href="" title="">
-            <img class="suggestion-post-thumbnail" src="" alt="">
+        <a class="suggestion-link" href=" data.permalink " title=" data.post_title ">
+            <# if ( data.images.thumbnail ) { #>
+            <img class="suggestion-post-thumbnail" src=" data.images.thumbnail.url "
+                 alt=" data.post_title ">
+            <# } #>
             <div class="suggestion-post-attributes">
-                <span class="suggestion-post-title"></span>
+                <span class="suggestion-post-title">{ data._highlightResult.post_title.value }</span>
+                <# if ( data._snippetResult['content'] ) { #>
+                <span class="suggestion-post-content">{ data._snippetResult['content'].value }</span>
+                <# } #>
             </div>
         </a>
     </script>
 
     <script type="text/html" id="tmpl-autocomplete-term-suggestion">
-        <a class="suggestion-link" href="" title="">
+        <a class="suggestion-link" href=" data.permalink " title=" data.name ">
             <svg viewBox="0 0 21 21" width="21" height="21">
                 <svg width="21" height="21" viewBox="0 0 21 21">
                     <path
@@ -1015,14 +864,16 @@
                             fill-rule="evenodd"></path>
                 </svg>
             </svg>
-            <span class="suggestion-post-title"></span>
+            <span class="suggestion-post-title">{ data._highlightResult.name.value }</span>
         </a>
     </script>
 
     <script type="text/html" id="tmpl-autocomplete-user-suggestion">
-        <a class="suggestion-link user-suggestion-link" href="" title="">
-            <img class="suggestion-user-thumbnail" src="" alt="">
-            <span class="suggestion-post-title"></span>
+        <a class="suggestion-link user-suggestion-link" href=" data.posts_url " title=" data.display_name ">
+            <# if ( data.avatar_url ) { #>
+            <img class="suggestion-user-thumbnail" src=" data.avatar_url " alt=" data.display_name ">
+            <# } #>
+            <span class="suggestion-post-title">{ data._highlightResult.display_name.value }</span>
         </a>
     </script>
 
@@ -1043,23 +894,22 @@
 
     <script type="text/html" id="tmpl-autocomplete-empty">
         <div class="autocomplete-empty">
-            No results matched your query <span class="empty-query">""</span>
+            No results matched your query <span class="empty-query">" data.query "</span>
         </div>
     </script>
-
     <script type="text/javascript">
 		window.addEventListener('load', function () {
-
+			
 			/* Initialize Algolia client */
 			var client = algoliasearch(algolia.application_id, algolia.search_api_key);
-
+			
 			/**
 			 * Algolia hits source method.
 			 *
 			 * This method defines a custom source to use with autocomplete.js.
 			 *
-			 * @param index
-			 * @param params
+			 * @param object $index Algolia index object.
+			 * @param object $params Options object to use in search.
 			 */
 			var algoliaHitsSource = function (index, params) {
 				return function (query, callback) {
@@ -1073,7 +923,7 @@
 						});
 				}
 			}
-
+			
 			/* Setup autocomplete.js sources */
 			var sources = [];
 			algolia.autocomplete.sources.forEach(function (config, i) {
@@ -1098,7 +948,7 @@
 								return suggestion_template(hit);
 							}
 							hit.escaped = true;
-
+							
 							for (var key in hit._highlightResult) {
 								/* We do not deal with arrays. */
 								if (typeof hit._highlightResult[key].value !== 'string') {
@@ -1107,27 +957,27 @@
 								hit._highlightResult[key].value = _.escape(hit._highlightResult[key].value);
 								hit._highlightResult[key].value = hit._highlightResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
 							}
-
+							
 							for (var key in hit._snippetResult) {
 								/* We do not deal with arrays. */
 								if (typeof hit._snippetResult[key].value !== 'string') {
 									continue;
 								}
-
+								
 								hit._snippetResult[key].value = _.escape(hit._snippetResult[key].value);
 								hit._snippetResult[key].value = hit._snippetResult[key].value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
 							}
-
+							
 							return suggestion_template(hit);
 						}
 					}
 				});
-
+				
 			});
-
+			
 			/* Setup dropdown menus */
 			document.querySelectorAll(algolia.autocomplete.input_selector).forEach(function (element) {
-
+				
 				var config = {
 					debug: algolia.debug,
 					hint: false,
@@ -1137,18 +987,18 @@
 						empty: wp.template('autocomplete-empty')
 					}
 				};
-
+				
 				if (algolia.powered_by_enabled) {
 					config.templates.footer = wp.template('autocomplete-footer');
 				}
-
+				
 				/* Instantiate autocomplete.js */
 				var autocomplete = algoliaAutocomplete(element, config, sources)
 					.on('autocomplete:selected', function (e, suggestion) {
 						/* Redirect the user when we detect a suggestion selection. */
 						window.location.href = suggestion.permalink ?? suggestion.posts_url; // Users use the `posts_url` property instead of `permalink`.
 					});
-
+				
 				/* Force the dropdown to be re-drawn on scroll to handle fixed containers. */
 				window.addEventListener('scroll', function () {
 					if (autocomplete.autocomplete.getWrapper().style.display === "block") {
@@ -1157,12 +1007,11 @@
 					}
 				});
 			});
-
+			
 			var algoliaPoweredLink = document.querySelector('.algolia-powered-by-link');
 			if (algoliaPoweredLink) {
 				algoliaPoweredLink.addEventListener('click', function (e) {
 					e.preventDefault();
-					window.location = "https://www.algolia.com/?utm_source=WordPress&utm_medium=extension&utm_content=" + window.location.hostname + "&utm_campaign=poweredby";
 				});
 			}
 		});
@@ -1172,7 +1021,7 @@
 		var theme = {
 			"ajaxurl": "https:\/\/macwk.cn\/wp-admin\/admin-ajax.php",
 			"uri": "https:\/\/macwk.cn\/wp-content\/themes\/onenav",
-			"loginurl": "https:\/\/macwk.cn\/wp-login.php?redirect_to=https%3A%2F%2Fmacwk.cn%2Fapp%2F1428.html",
+			"loginurl": "https:\/\/macwk.cn\/wp-login.php?redirect_to=https%3A%2F%2Fmacwk.cn%2Fzaixiantougao",
 			"sitesName": "MacWk",
 			"addico": "https:\/\/macwk.cn\/wp-content\/themes\/onenav\/images\/add.png",
 			"order": "asc",

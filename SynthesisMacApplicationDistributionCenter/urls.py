@@ -26,6 +26,7 @@ from announcements.views import *
 from testunit.views import *
 from software.views import *
 from category.views import *
+from comments_with_articles.views import *
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -39,6 +40,7 @@ urlpatterns = [
                   path('analytics/', ana),
                   path('category/', category),
                   path('software_details/', software_details),
+                  path('publish/', publish_article_and_software_page),
                   path('api/notice/to/all/', get_notice_to_all),
                   path('api/notice/to/specific/app/', get_specific_app_notice),
                   path('temp/', temp),

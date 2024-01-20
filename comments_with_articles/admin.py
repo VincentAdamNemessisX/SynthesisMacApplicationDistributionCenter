@@ -8,7 +8,7 @@ from comments_with_articles.models import Comment, Article
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'content', 'created_time', 'updated_time', 'parent']
+    list_display = ['id', 'user', 'content', 'created_time', 'parent']
 
 
 @admin.register(Article)
