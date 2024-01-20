@@ -4,58 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized comments_with_articles' models.py and views.py">
-      <change afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/content.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/dashicons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/editor-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/editor.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/new-posts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/skin.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/css/wp-content.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_1620678_18rbnd2homc.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_1620678_18rbnd2homc.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_1620678_18rbnd2homc.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4184880_kci8o10x3ij.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4184880_kci8o10x3ij.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4184880_kci8o10x3ij.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4263277_2axl22bwq06.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4263277_2axl22bwq06.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/font_4263277_2axl22bwq06.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/fonts/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/a11y.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/core.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/dom-ready.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/editor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/hooks.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/i18n.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/menu.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/new-post.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/plugin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/regenerator-runtime.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/tinymce.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/wp-polyfill-inert.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/wp-polyfill.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/wplink.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article_and_software.html" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended publish_article_and_software.html page;&#10; extra the new_base.html;&#10; appended the fonts that iconfont.css needed;&#10; optimized static resources loading action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comments_with_articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_with_articles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font_1620678_18rbnd2homc.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font_1620678_18rbnd2homc.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font_4184880_kci8o10x3ij.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font_4184880_kci8o10x3ij.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font_4263277_2axl22bwq06.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font_4263277_2axl22bwq06.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/iconfont.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/uaf.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/uaf.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/app.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/new_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/new_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testunit/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/testunit/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/apis.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +144,8 @@
       <workItem from="1705693538791" duration="530000" />
       <workItem from="1705727436607" duration="7452000" />
       <workItem from="1705742516544" duration="1500000" />
+      <workItem from="1705744043672" duration="386000" />
+      <workItem from="1705744971202" duration="4013000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -267,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705692472200</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="appended publish_article_and_software.html page;&#10; extra the new_base.html;&#10; appended the fonts that iconfont.css needed;&#10; optimized static resources loading action">
+      <option name="closed" value="true" />
+      <created>1705744350050</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705744350050</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +255,8 @@
     <MESSAGE value="optimized notice's update time's font color" />
     <MESSAGE value="appended category.html and loading.css animation, and optimized static resources" />
     <MESSAGE value="optimized comments_with_articles' models.py and views.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized comments_with_articles' models.py and views.py" />
+    <MESSAGE value="appended publish_article_and_software.html page;&#10; extra the new_base.html;&#10; appended the fonts that iconfont.css needed;&#10; optimized static resources loading action" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended publish_article_and_software.html page;&#10; extra the new_base.html;&#10; appended the fonts that iconfont.css needed;&#10; optimized static resources loading action" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1705733396603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

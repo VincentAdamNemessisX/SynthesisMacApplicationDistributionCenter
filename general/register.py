@@ -2,7 +2,6 @@ from django.urls import path
 
 from SynthesisMacApplicationDistributionCenter.urls import urlpatterns
 
-
 # 定义一个装饰器，接受一个 url 作为参数
 def register_url(url):
     # 定义一个内部函数，接受一个 view 函数作为参数

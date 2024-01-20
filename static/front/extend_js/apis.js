@@ -1,6 +1,6 @@
 function get_notice_to_all() {
 	$.ajax({
-		url: "/api/notice/to/all/",
+		url: "/announcements/api/notice/to/all/",
 		type: "GET",
 		dataType: "json",
 		success: function (data) {
@@ -66,7 +66,7 @@ function get_notice_to_all() {
 
 function get_notice_to_specific_app(app_id) {
 	$.ajax({
-		url: "/api/notice/to/specific/app/",
+		url: "/announcements/api/notice/to/specific/app/",
 		type: "GET",
 		data: {'app_id': app_id},
 		dataType: "json",

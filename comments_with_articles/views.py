@@ -1,6 +1,7 @@
 # Create your views here.
 from django.http import JsonResponse
 from django.shortcuts import render
+from django_router import router
 from general.init_cache import get_comments, get_articles
 from comments_with_articles.models import Comment, Article
 
@@ -31,7 +32,7 @@ def load_more_comments(request):
             }
         })
 
-
+@router.path('')
 def publish_article_and_software_page(request):
     if request.method == "GET":
         return render(request, 'frontenduser/publish_article_and_software.html')
