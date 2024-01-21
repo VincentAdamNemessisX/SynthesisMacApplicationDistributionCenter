@@ -10,8 +10,14 @@ class Announcements(models.Model):
     date = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='announcements', null=True, blank=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    type = models.IntegerField(default=0, choices=((0, '全站'), (1, '指定APP')))
+    type = models.IntegerField(default=1, choices=((1, '全站'), (2, '指定APP')))
     app = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        # 如果没有指定 author，就使用当前登录的后台用户
+        if not self.author:
+            self.author = kwargs.pop('request').user
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date']

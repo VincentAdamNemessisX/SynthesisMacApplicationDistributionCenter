@@ -1,6 +1,16 @@
 from django.core.cache import cache
 
-from comments_with_articles.models import *
+from announcements.models import Announcements
+from commentsWithArticles.models import Comment, Article
+from software.models import SoftWare
+
+
+def get_notices():
+    notices = cache.get('notices')
+    if notices is None:
+        notices = list(Announcements.objects.all().order_by('-date'))
+        cache.set('notices', notices, 600)
+    return cache.get('notices')
 
 
 def get_comments():
@@ -8,7 +18,7 @@ def get_comments():
     if comments is None:
         comments = list(Comment.objects.filter(state=2).select_related('user').order_by('-created_time'))
         cache.set('comments', comments, 60)
-    return comments
+    return cache.get('comments')
 
 
 def get_articles():
@@ -16,4 +26,16 @@ def get_articles():
     if articles is None:
         articles = list(Article.objects.filter(state=2).select_related('user').order_by('-created_time'))
         cache.set('articles', articles, 60)
-    return articles
+    return cache.get('articles')
+
+
+def get_software(id=None):
+    softwares = cache.get('softwares')
+    if softwares is None:
+        if id is None:
+            softwares = list(SoftWare.objects.filter(state=2).select_related('category', 'user').order_by('-create_date'))
+            cache.set('softwares', softwares, 180)
+        else:
+            softwares = list(SoftWare.objects.filter(id=int(id)).select_related('category', 'user'))
+            cache.set('softwares', softwares, 60)
+    return cache.get('softwares')

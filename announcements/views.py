@@ -1,14 +1,14 @@
 # Create your views here.
 from django.http import JsonResponse
 from django_router import router
-
-from announcements.models import Announcements
+from general.init_cache import get_notices
 
 
 @router.path(pattern='api/notice/to/all/')
 def get_notice_to_all(request):
     if request.method == 'GET':
-        notices = Announcements.objects.filter(type=0).order_by('-date')[:1]
+        notices = get_notices()
+        notices = [notice for notice in notices if notice.type == 1]
         notices = [
             {
                 'id': notice.id,
@@ -22,16 +22,19 @@ def get_notice_to_all(request):
         if notices:
             return JsonResponse({'code': 200, 'msg': '获取成功', 'data': notices})
         else:
-            return JsonResponse({'code': 400, 'msg': '获取失败'})
+            return JsonResponse({'code': 202, 'msg': '请求成功，但是没有数据'})
     else:
         return JsonResponse({'code': 401, 'msg': '请求方式错误'})
 
 
-@router.path(pattern='api/notice/to/specific/app/')
+@router.path(pattern='api/notice/to/specific/software/')
 def get_specific_app_notice(request):
     if request.method == 'GET':
-        notice = Announcements.objects.filter(type=1, app__id=request.GET.get('app_id')).order_by('-date')[:1]
-        notices = [
+        notices = get_notices()
+        notice = [notice for notice in notices
+                   if notice.type == 2 and
+                   notice.app.id == request.GET.get('software_id')]
+        notice = [
             {
                 'id': notice.id,
                 'title': notice.title,
@@ -42,9 +45,9 @@ def get_specific_app_notice(request):
             }
             for notice in notice
         ]
-        if notice:
-            return JsonResponse({'code': 200, 'msg': '获取成功', 'data': notices})
+        if notices:
+            return JsonResponse({'code': 200, 'msg': '获取成功', 'data': notice})
         else:
-            return JsonResponse({'code': 404, 'msg': '获取失败'})
+            return JsonResponse({'code': 202, 'msg': '请求成功，但是没有数据'})
     else:
         return JsonResponse({'code': 401, 'msg': '请求方式错误'})

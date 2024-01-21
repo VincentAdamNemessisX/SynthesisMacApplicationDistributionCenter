@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'analytics.apps.AnalyticsConfig',
     'announcements.apps.AnnouncementsConfig',
     'category.apps.CategoryConfig',
-    'comments_with_articles.apps.CommentsandpostsConfig',
+    'commentsWithArticles.apps.CommentsWithArticlesConfig',
     'favorites.apps.FavoritesConfig',
     'frontenduser.apps.FrontEndUserConfig',
     'questions.apps.QuestionsConfig',

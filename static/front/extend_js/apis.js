@@ -20,8 +20,6 @@ function get_notice_to_all() {
 							width: 800,
 							padding: '3em',
 							imageUrl: data.data[0].image,
-							imageWidth: 400,
-							imageHeight: 200,
 							imageAlt: '公告图片',
 							confirmButtonText: '我已了解！'
 						})
@@ -90,8 +88,6 @@ function get_notice_to_specific_app(app_id) {
 							width: 800,
 							padding: '3em',
 							imageUrl: data.data[0].image,
-							imageWidth: 400,
-							imageHeight: 200,
 							imageAlt: '公告图片',
 							confirmButtonText: '我已了解！'
 						})

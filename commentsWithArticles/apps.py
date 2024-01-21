@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class CommentsandpostsConfig(AppConfig):
+class CommentsWithArticlesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'comments_with_articles'
+    name = 'commentsWithArticles'
     verbose_name = '评论和文章'

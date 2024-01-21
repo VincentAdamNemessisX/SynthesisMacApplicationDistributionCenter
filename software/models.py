@@ -17,7 +17,8 @@ class SoftWare(models.Model):
     link_direct = models.URLField(null=True, blank=True)
     link_123 = models.URLField(null=True, blank=True)
     icon = models.ImageField(upload_to='software')
-    status = models.IntegerField(default=1, choices=((1, '未审核'), (2, '已审核'), (3, '已下架')))
+    state = models.IntegerField(default=1, choices=((1, '未审核'), (2, '已审核'), (3, '已下架')))
+    user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

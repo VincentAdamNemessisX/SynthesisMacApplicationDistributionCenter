@@ -22,13 +22,13 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.views.generic import RedirectView
 from django.views.static import serve
-from django_router import router
+from django_router import router as rt
 from analytics.views import index as ana
 from announcements.views import *
 from testunit.views import *
 from software.views import *
 from category.views import *
-from comments_with_articles.views import *
+from commentsWithArticles.views import *
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -40,9 +40,6 @@ urlpatterns = [
                   path('help/', help),
                   path('elements/', elements),
                   path('analytics/', ana),
-                  # path('category/', category),
-                  path('software_details/', software_details),
-                  path('publish/', publish_article_and_software_page),
                   path('temp/', temp),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urlpatterns
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT
