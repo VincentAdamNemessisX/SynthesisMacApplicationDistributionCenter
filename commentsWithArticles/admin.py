@@ -8,9 +8,11 @@ from commentsWithArticles.models import Comment, Article
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'content', 'state', 'created_time', 'parent']
+    list_display = ['id', 'user', 'content', 'correlation_article', 'correlation_software',
+                    'state', 'created_time', 'parent']
 
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'title', 'content', 'state', 'created_time', 'updated_time']
+    list_display = ['id', 'user', 'title', 'content', 'correlation_software', 'state', 'created_time',
+                    'updated_time']

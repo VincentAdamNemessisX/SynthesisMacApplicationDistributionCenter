@@ -37,15 +37,30 @@ def publish_software(request):
 
 
 @router.path('api/get/software/')
-# @require_POST
+@require_POST
 def get_software_details(request):
-    if request.method == "GET":
-        software_id = request.GET.get('software_id')
+    if request.method == "POST":
+        try:
+            software_id = int(request.POST.get('software_id'))
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'msg': 'failed with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
         if software_id:
-            software = get_software(id=software_id)[0]
+            softwares = get_software(software_id)
+            if softwares:
+                software = softwares[0]
+            else:
+                software = None
         else:
             return JsonResponse({
-                'code': 404,
+                'code': 401,
                 'msg': 'failed with wrong params'
             })
         if software:
@@ -75,13 +90,17 @@ def get_software_details(request):
                         # 'created_time': software.user.created_time,
                         # 'updated_time': software.user.updated_time,
                         # 'state': software.user.state,
-                    }
+                    },
+                    'screenshots': [{
+                        'id': screenshot.id,
+                        'image': screenshot.image.url,
+                    } for screenshot in software.softwarescreenshots_set.all()],
                 }
             })
         else:
             return JsonResponse({
-                'code': 202,
-                'msg': 'success but with no data'
+                'code': 404,
+                'msg': 'failed with no data'
             })
     else:
         return JsonResponse({

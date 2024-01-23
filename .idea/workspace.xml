@@ -4,48 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="restructured urls with views map from django_router module;&#10;optimized apis.js request url">
-      <change afterPath="$PROJECT_DIR$/announcements/migrations/0002_alter_announcements_author.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/announcements/migrations/0003_alter_announcements_author.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/announcements/100128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/announcements/10019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/announcements/10019_Aukz1Pu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/announcements/1009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/category/icons/10036.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/1009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/software/migrations/0002_rename_status_software_state.py" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="All database query method instead of redis cache;&#10;optimized some models.py fields">
+      <change afterPath="$PROJECT_DIR$/commentsWithArticles/migrations/0002_auto_20240123_1614.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commentsWithArticles/migrations/0003_auto_20240123_1618.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commentsWithArticles/migrations/0004_comment_correlation_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/10010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/10015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/1008.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0002_announcements_app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0003_alter_announcements_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0002_auto_20240120_0300.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0003_alter_category_icon.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_with_articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0002_favorites_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/migrations/0003_software_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsWithArticles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsWithArticles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsWithArticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0002_software_category.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0003_auto_20240117_2028.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/apis.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +149,10 @@
       <workItem from="1705742516544" duration="1500000" />
       <workItem from="1705744043672" duration="386000" />
       <workItem from="1705744971202" duration="4271000" />
-      <workItem from="1705810367894" duration="15978000" />
+      <workItem from="1705810367894" duration="16284000" />
+      <workItem from="1705833144376" duration="432000" />
+      <workItem from="1705992755154" duration="156000" />
+      <workItem from="1705992927907" duration="9752000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -276,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705750929687</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="All database query method instead of redis cache;&#10;optimized some models.py fields">
+      <option name="closed" value="true" />
+      <created>1705832680165</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705832680165</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +280,8 @@
     <MESSAGE value="optimized comments_with_articles' models.py and views.py" />
     <MESSAGE value="appended publish_article_and_software.html page;&#10; extra the new_base.html;&#10; appended the fonts that iconfont.css needed;&#10; optimized static resources loading action" />
     <MESSAGE value="restructured urls with views map from django_router module;&#10;optimized apis.js request url" />
-    <option name="LAST_COMMIT_MESSAGE" value="restructured urls with views map from django_router module;&#10;optimized apis.js request url" />
+    <MESSAGE value="All database query method instead of redis cache;&#10;optimized some models.py fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="All database query method instead of redis cache;&#10;optimized some models.py fields" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1705733396603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

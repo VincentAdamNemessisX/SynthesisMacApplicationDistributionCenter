@@ -1,11 +1,11 @@
 # Create your views here.
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.views.decorators.http import require_POST, require_GET, require_safe, require_http_methods
+from django.views.decorators.http import require_POST, require_http_methods
 from django_router import router
+
 from commentsWithArticles.models import Article
 from general.init_cache import get_comments
-from software.models import SoftWare
 
 
 @router.path(pattern='api/get/init/comments/')
@@ -15,11 +15,15 @@ def get_init_comments(request):
     if request.method == "POST":
         if comments:
             comments = comments[:10]
+            # filter anything, just like specifc article or software
             comments = [
                 {
                     'id': comment.id,
                     'user': comment.user.username,
                     'content': comment.content,
+                    'correlation_model': comment.correlation_model,
+                    'correlation_article': comment.correlation_article,
+                    'correlation_software': comment.correlation_software,
                     'created_time': comment.created_time,
                     'parent': comment.parent
                 }
@@ -34,8 +38,8 @@ def get_init_comments(request):
             })
         else:
             return JsonResponse({
-                'code': 202,
-                'msg': 'success but with no data',
+                'code': 404,
+                'msg': 'failed with no data',
             })
     else:
         return JsonResponse({
@@ -50,33 +54,49 @@ def load_more_comments(request):
     comments = get_comments()
     if request.method == "POST":
         try:
-            page_num = request.POST.get('page_num')
-        except TypeError:
+            page_num = int(request.POST.get('page_num'))
+        except ValueError:
             return JsonResponse({
-                'code': 404,
-                'msg': 'failed with wrong params'
+                'code': 402,
+                'msg': 'failed with invalid params'
             })
-        comments = comments[:int(page_num * 10)]
-        if comments:
-            comments = [
-                {
-                    'id': comment.id,
-                    'user': comment.user.username,
-                    'content': comment.content,
-                    'created_time': comment.created_time,
-                    'parent': comment.parent
-                }
-                for comment in comments
-            ]
-            return JsonResponse({
-                'code': 200,
-                'msg': 'success',
-                'data': comments
-            })
+        if page_num and page_num > 0:
+            page_num = page_num - 1
         else:
             return JsonResponse({
-                'code': 202,
-                'msg': 'success but with no data'
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
+        if comments:
+            comments = comments[int(page_num * 10):int((page_num + 1) * 10)]
+            if comments:
+                comments = [
+                    {
+                        'id': comment.id,
+                        'user': comment.user.username,
+                        'content': comment.content,
+                        'correlation_model': comment.correlation_model,
+                        'correlation_article': comment.correlation_article,
+                        'correlation_software': comment.correlation_software,
+                        'created_time': comment.created_time,
+                        'parent': comment.parent
+                    }
+                    for comment in comments
+                ]
+                return JsonResponse({
+                    'code': 200,
+                    'msg': 'success',
+                    'data': comments
+                })
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'msg': 'failed with no data'
+                })
+        else:
+            return JsonResponse({
+                'code': 404,
+                'msg': 'failed with no data'
             })
     else:
         return JsonResponse({
@@ -96,13 +116,19 @@ def publish_article_and_software_page(request):
         return render(request, 'frontenduser/publish_article_and_software.html')
 
 
-@router.path('api/publish_article/')
+@router.path('api/publish/article/')
 @require_POST
 def publish_article(request):
     if request.method == "POST":
-        user = request.user
-        title = request.POST.get('title')
-        content = request.POST.get('content')
+        try:
+            user = request.user
+            title = str(request.POST.get('title'))
+            content = str(request.POST.get('content'))
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'msg': 'failed with invalid params'
+            })
         article = Article.objects.create(user=user, title=title, content=content, state=2)
         if article:
             return JsonResponse({
