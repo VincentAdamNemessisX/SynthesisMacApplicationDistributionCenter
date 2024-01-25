@@ -14,7 +14,7 @@ def publish_software(request):
         user = request.user
         name = request.POST.get('name')
         software = SoftWare.objects.create(
-            user=user, name=name, state=2,
+            user=user, name=name, state=1,
         )
         if software:
             return JsonResponse({

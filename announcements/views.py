@@ -14,7 +14,7 @@ def get_notice_to_all(request):
                 'id': notice.id,
                 'title': notice.title,
                 'content': notice.content,
-                'date': notice.date,
+                'created_time': notice.date,
                 'image': notice.image.url if notice.image else None
             }
             for notice in notices
@@ -39,7 +39,7 @@ def get_specific_app_notice(request):
                 'id': notice.id,
                 'title': notice.title,
                 'content': notice.content,
-                'date': notice.date,
+                'created_time': notice.date,
                 'image': notice.image.url if notice.image else None,
                 'app': notice.app.name if notice.app else None
             }

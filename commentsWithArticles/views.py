@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST, require_http_methods
 from django_router import router
 
 from commentsWithArticles.models import Article
-from general.init_cache import get_comments
+from general.init_cache import get_comments, get_article as g_a, get_articles as g_as
 
 
 @router.path(pattern='api/get/init/comments/')
@@ -18,7 +18,7 @@ def get_init_comments(request):
             # filter anything, just like specifc article or software
             comments = [
                 {
-                    'id': comment.id,
+                    'comment_id': comment.id,
                     'user': comment.user.username,
                     'content': comment.content,
                     'correlation_model': comment.correlation_model,
@@ -108,6 +108,132 @@ def load_more_comments(request):
 @router.path('api/leave/comment/')
 def leave_comment(request):
     pass
+
+
+@router.path(pattern='api/get/article/')
+@require_POST
+def get_article_details(request):
+    if request.method == "POST":
+        # if request.method == "GET":
+        try:
+            article_id = int(request.POST.get('article_id'))
+            # article_id = int(request.GET.get('article_id'))
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'msg': 'failed with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
+        if article_id:
+            articles = g_a(article_id)
+            if articles:
+                article = articles[0]
+            else:
+                article = None
+        else:
+            return JsonResponse({
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
+        if article:
+            return JsonResponse({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'article_id': article.id,
+                    'title': article.title,
+                    'content': article.content,
+                    'user': {
+                        'user_id': article.user.id,
+                        'username': article.user.username,
+                        'email': article.user.email,
+                    },
+                    'correlation_software': article.correlation_software,
+                    'created_time': article.created_time,
+                    'updated_time': article.updated_time
+                }
+            })
+        else:
+            return JsonResponse({
+                'code': 404,
+                'msg': 'failed with no data'
+            })
+    else:
+        return JsonResponse({
+            'code': 301,
+            'msg': 'failed with wrong request action'
+        })
+
+
+@router.path(pattern='api/get/articles/')
+# @require_POST
+def get_articles(request):
+    articles = g_as()
+    # if request.method == "POST":
+    if request.method == "GET":
+        try:
+            if request.GET.get('page_num'):
+                # if request.POST.get('page_num'):
+                page_num = int(request.GET.get('page_num'))
+            elif request.POST.get('page_num') is None:
+                page_num = 1
+            else:
+                page_num = -1
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'msg': 'failed with invalid params'
+            })
+        if page_num and page_num > 0:
+            page_num = page_num - 1
+        else:
+            return JsonResponse({
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
+        if articles:
+            articles = articles[int(page_num * 7):int((page_num + 1) * 7)]
+            if len(articles) > 0:
+                articles = [
+                    {
+                        'id': article.id,
+                        'user': {
+                            'user_id': article.user.id,
+                            'username': article.user.username,
+                            'email': article.user.email,
+                        },
+                        'title': article.title,
+                        'content': article.content,
+                        'correlation_software': article.correlation_software,
+                        'created_time': article.created_time,
+                        'updated_time': article.updated_time
+                    }
+                    for article in articles
+                ]
+                return JsonResponse({
+                    'code': 200,
+                    'msg': 'success',
+                    'data': articles
+                })
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'msg': 'failed with no data'
+                })
+        else:
+            return JsonResponse({
+                'code': 404,
+                'msg': 'failed with no data'
+            })
+    else:
+        return JsonResponse({
+            'code': 301,
+            'msg': 'failed with wrong request action'
+        })
 
 
 @router.path('publish/')

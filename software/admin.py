@@ -8,7 +8,7 @@ from software.models import SoftWare
 class SoftWareAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'version', 'description', 'language', 'platform', 'run_os_version',
                     'category', 'link_adrive', 'link_baidu', 'link_123', 'link_direct', 'icon', 'state',
-                    'create_date', 'update_date']
+                    'created_time', 'updated_time']
 
 
 @admin.register(SoftWare.SoftwareScreenShots)

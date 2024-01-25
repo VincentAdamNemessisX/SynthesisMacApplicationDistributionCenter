@@ -1,3 +1,5 @@
+import('./general.js');
+// 用于获取API数据
 function get_notice_to_all() {
 	$.ajax({
 		url: "/announcements/api/notice/to/all/",
@@ -126,16 +128,4 @@ function get_notice_to_specific_app(app_id) {
 			}
 		}
 	})
-}
-
-function toDate(dateStr) {
-	let date = new Date(dateStr);
-	let year = date.getFullYear();
-	let month = date.getMonth() + 1;
-	let day = date.getDate();
-	let hour = date.getHours();
-	let minute = date.getMinutes();
-	let seconds = date.getSeconds();
-	return year + "年" + month + "月" + day + "日"
-		+ hour + "时" + minute + "分" + seconds + "秒";
 }

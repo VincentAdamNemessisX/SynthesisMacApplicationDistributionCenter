@@ -19,8 +19,8 @@ class SoftWare(models.Model):
     icon = models.ImageField(upload_to='software')
     state = models.IntegerField(default=1, choices=((1, '未审核'), (2, '已审核'), (3, '已下架')))
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
-    create_date = models.DateTimeField(auto_now_add=True)
-    update_date = models.DateTimeField(auto_now=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    updated_time = models.DateTimeField(auto_now=True)
 
     class SoftwareScreenShots(models.Model):
         id = models.AutoField(primary_key=True)
@@ -35,7 +35,7 @@ class SoftWare(models.Model):
             return self.software.name
 
     class Meta:
-        ordering = ['-update_date']
+        ordering = ['-updated_time']
         verbose_name = '软件管理'
         verbose_name_plural = verbose_name
 

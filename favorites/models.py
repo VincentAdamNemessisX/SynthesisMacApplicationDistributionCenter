@@ -5,12 +5,14 @@ from django.db import models
 class Favorites(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE, null=True)
-    type = models.CharField(max_length=100, default='article', choices=(('article', 'article'), ('app', 'app')))
-    date = models.DateTimeField(auto_now_add=True)
+    correlation_article = models.ForeignKey('commentsWithArticles.Article', on_delete=models.CASCADE, null=True, blank=True)
+    correlation_software = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
+    created_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = '收藏管理'
         verbose_name_plural = verbose_name
+        unique_together = ('correlation_article', 'correlation_software')
 
     def __str__(self):
         return str(self.id)
