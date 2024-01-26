@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django_router import router
 
-from general.init_cache import get_software
+from general.init_cache import get_software_by_software_id
 from .models import SoftWare
 
 
@@ -53,7 +53,7 @@ def get_software_details(request):
                 'msg': 'failed with wrong params'
             })
         if software_id:
-            matched_software = get_software(software_id)
+            matched_software = get_software_by_software_id(software_id)
             if matched_software:
                 software = matched_software[0]
             else:

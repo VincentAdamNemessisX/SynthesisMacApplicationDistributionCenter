@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized all models.py fields name and finished 70 percent api tasks">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="renamed softwares to software">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentsWithArticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/favorites/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
@@ -149,7 +151,7 @@
       <workItem from="1706084577774" duration="711000" />
       <workItem from="1706173353627" duration="2578000" />
       <workItem from="1706192957389" duration="5860000" />
-      <workItem from="1706245471007" duration="480000" />
+      <workItem from="1706245471007" duration="11968000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -271,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706198800318</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="renamed softwares to software">
+      <option name="closed" value="true" />
+      <created>1706245965720</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1706245965720</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +306,8 @@
     <MESSAGE value="All database query method instead of redis cache;&#10;optimized some models.py fields" />
     <MESSAGE value="optimized database query results saved data structure to cache" />
     <MESSAGE value="optimized all models.py fields name and finished 70 percent api tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized all models.py fields name and finished 70 percent api tasks" />
+    <MESSAGE value="renamed softwares to software" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed softwares to software" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1705733396603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

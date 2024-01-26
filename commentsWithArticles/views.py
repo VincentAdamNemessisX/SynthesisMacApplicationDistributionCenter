@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST, require_http_methods
 from django_router import router
 
 from commentsWithArticles.models import Article
-from general.init_cache import get_comments, get_article as g_a, get_articles as g_as
+from general.init_cache import get_comments, get_matched_articles_by_article_id as g_a, get_all_articles as g_as
 
 
 @router.path(pattern='api/get/init/comments/')
