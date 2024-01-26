@@ -67,12 +67,12 @@ def get_software(software_id=None):
     return cache.get('software')
 
 
-def get_softwares():
-    softwares = cache.get('softwares')
-    if softwares is None:
-        softwares = list(SoftWare.objects.filter(state=2)
+def get_all_software():
+    all_software = cache.get('all_software')
+    if all_software is None:
+        all_software = list(SoftWare.objects.filter(state=2)
                          .select_related('user', 'category')
                          .prefetch_related('softwarescreenshots_set')
-                         .order_by('-update_date'))
-        cache.set('softwares', softwares, 180)
-    return cache.get('softwares')
+                         .order_by('-updated_time'))
+        cache.set('all_software', all_software, 180)
+    return cache.get('all_software')

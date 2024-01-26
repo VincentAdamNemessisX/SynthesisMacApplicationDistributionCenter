@@ -53,9 +53,9 @@ def get_software_details(request):
                 'msg': 'failed with wrong params'
             })
         if software_id:
-            softwares = get_software(software_id)
-            if softwares:
-                software = softwares[0]
+            matched_software = get_software(software_id)
+            if matched_software:
+                software = matched_software[0]
             else:
                 software = None
         else:

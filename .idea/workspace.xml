@@ -4,36 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized database query results saved data structure to cache">
-      <change afterPath="$PROJECT_DIR$/announcements/migrations/0004_auto_20240125_2324.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commentsWithArticles/migrations/0005_auto_20240125_2324.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/favorites/migrations/0002_auto_20240125_2324.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontenduser/migrations/0002_frontenduser_favorite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontenduser/migrations/0003_auto_20240125_2332.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontenduser/migrations/0004_auto_20240125_2339.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontenduser/migrations/0005_auto_20240125_2349.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontenduser/migrations/0006_rename_favorite_articles_frontenduser_favorite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontenduser/migrations/0007_remove_frontenduser_favorite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/migrations/0002_auto_20240125_2324.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/software/migrations/0004_auto_20240125_2324.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/extend_js/general.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized all models.py fields name and finished 70 percent api tasks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentsWithArticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/apis.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +148,8 @@
       <workItem from="1706002734834" duration="89000" />
       <workItem from="1706084577774" duration="711000" />
       <workItem from="1706173353627" duration="2578000" />
-      <workItem from="1706192957389" duration="5749000" />
+      <workItem from="1706192957389" duration="5860000" />
+      <workItem from="1706245471007" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -287,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706002808190</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="optimized all models.py fields name and finished 70 percent api tasks">
+      <option name="closed" value="true" />
+      <created>1706198800318</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706198800318</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +295,8 @@
     <MESSAGE value="restructured urls with views map from django_router module;&#10;optimized apis.js request url" />
     <MESSAGE value="All database query method instead of redis cache;&#10;optimized some models.py fields" />
     <MESSAGE value="optimized database query results saved data structure to cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized database query results saved data structure to cache" />
+    <MESSAGE value="optimized all models.py fields name and finished 70 percent api tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized all models.py fields name and finished 70 percent api tasks" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1705733396603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

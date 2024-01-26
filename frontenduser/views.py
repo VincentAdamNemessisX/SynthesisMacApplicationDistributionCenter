@@ -7,8 +7,29 @@ from django_router import router
 from .models import FrontEndUser
 
 
+@router.path(pattern='api/get/specific/favorite/articles/')
+# @require_POST
+def get_specific_user_favorite_articles(request):
+    # user = FrontEndUser.objects.get(username=request.user.username)
+    return JsonResponse({'code': 200, 'msg': 'success', 'data': []})
+
+
 @router.path(pattern='api/get/favorite/articles/')
 # @require_POST
-def get_favorite_article(request):
+def get_favorite_articles(request):
+
+    return JsonResponse({'code': 200, 'msg': 'success', 'data': []})
+
+
+@router.path(pattern='api/get/specific/favorite/software/')
+# @require_POST
+def get_specific_user_favorite_articles(request):
+    # user = FrontEndUser.objects.get(username=request.user.username)
+    return JsonResponse({'code': 200, 'msg': 'success', 'data': []})
+
+
+@router.path(pattern='api/get/favorite/software/')
+# @require_POST
+def get_specific_user_favorite_articles(request):
     # user = FrontEndUser.objects.get(username=request.user.username)
     return JsonResponse({'code': 200, 'msg': 'success', 'data': []})
