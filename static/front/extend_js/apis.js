@@ -1,4 +1,3 @@
-import('./general.js');
 // 用于获取API数据
 function get_notice_to_all() {
 	$.ajax({
@@ -12,13 +11,13 @@ function get_notice_to_all() {
 						Swal.fire({
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
-								toDate(data.data[0].date) + "</p>",
+								toDate(data.data[0].created_time) + "</p>",
 						})
 					} else {
 						Swal.fire({
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
-								toDate(data.data[0].date) + "</p>",
+								toDate(data.data[0].created_time) + "</p>",
 							width: 800,
 							padding: '3em',
 							imageUrl: data.data[0].image,
@@ -77,7 +76,7 @@ function get_notice_to_specific_app(app_id) {
 						Swal.fire({
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
-								toDate(data.data[0].date) + "</p>",
+								toDate(data.data[0].created_time) + "</p>",
 							width: 800,
 							padding: '3em',
 							confirmButtonText: '我已知晓！'
@@ -86,7 +85,7 @@ function get_notice_to_specific_app(app_id) {
 						Swal.fire({
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
-								toDate(data.data[0].date) + "</p>",
+								toDate(data.data[0].created_time) + "</p>",
 							width: 800,
 							padding: '3em',
 							imageUrl: data.data[0].image,

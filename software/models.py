@@ -32,7 +32,7 @@ class SoftWare(models.Model):
             verbose_name_plural = verbose_name
 
         def __str__(self):
-            return self.software.name
+            return str(self.id)
 
     class Meta:
         ordering = ['-updated_time']

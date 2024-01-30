@@ -13,4 +13,4 @@ class SoftWareAdmin(admin.ModelAdmin):
 
 @admin.register(SoftWare.SoftwareScreenShots)
 class SoftwareScreenShotsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'software', 'image']
+    list_display = ['id', 'image']

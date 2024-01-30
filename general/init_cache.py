@@ -3,13 +3,14 @@ from django.core.cache import cache
 from announcements.models import Announcements
 from commentsWithArticles.models import Comment, Article
 from favorites.models import Favorites
+from questions.models import Questions
 from software.models import SoftWare
 
 
 def get_notices():
     notices = cache.get('notices')
     if notices is None:
-        notices = list(Announcements.objects.all().order_by('-date'))
+        notices = list(Announcements.objects.all().order_by('-created_time'))
         cache.set('notices', notices, 600)
     return cache.get('notices')
 
@@ -177,3 +178,14 @@ def get_all_favorite_software():
                                      .order_by('-created_time'))
         cache.set('favorite_software', all_favorite_software, 45)
     return cache.get('favorite_software')
+
+
+def get_all_questions():
+    all_questions = cache.get('all_questions')
+    if all_questions is None:
+        all_questions = list(Questions.objects.all()
+                             .select_related('publisher')
+                             .order_by('updated_time')
+                             )
+        cache.set('all_questions', all_questions, 45)
+    return cache.get('all_questions')
