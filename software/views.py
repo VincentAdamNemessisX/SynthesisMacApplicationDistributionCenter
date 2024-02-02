@@ -1,6 +1,7 @@
 # Create your views here.
 from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+from django.shortcuts import render
+from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
 from general.init_cache import get_software_by_software_id, get_all_software
@@ -193,3 +194,16 @@ def get_some_software(request):
             'code': 403,
             'msg': 'failed with request action'
         })
+
+
+@require_GET
+def home(request):
+    if request.method == 'GET':
+        return render(request, 'home.html')
+
+
+# @require_POST
+def software_details(request):
+    # if request.method == 'POST'
+    if request.method == 'GET':
+        return render(request, 'frontenduser/software_details.html')

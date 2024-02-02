@@ -34,12 +34,9 @@ urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
                   url(r'^favicon.ico$', RedirectView.as_view(url=r'/static/favicon.ico')),
                   path('center/all/control/', admin.site.urls),
-                  path('', index),
-                  path('index/', index),
-                  path('generic/', generic),
-                  path('help/', help),
-                  path('elements/', elements),
+                  path('', home),
+                  path('index/', home),
                   path('analytics/', ana),
-                  path('temp/', temp),
+                  path('software/details/', software_details),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT

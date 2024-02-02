@@ -1,176 +1,280 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<!-- Meta -->
+<html lang="zh-CN">
+{% load static %}
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- SITE TITLE -->
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="shortcut icon" href={% static 'favicon.ico' %}>
-    <link rel="stylesheet" href="../../static/front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/front/fonts/google_font.css">
-    <link rel="stylesheet" href="../../static/front/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="../../static/front/fonts/themify-icons.css">
-    <link rel="stylesheet" href="../../static/front/owlcarousel/css/owl.carousel.css">
-    <link rel="stylesheet" href="../../static/front/owlcarousel/css/owl.theme.css">
-    <link rel="stylesheet" href="../../static/front/css/animate.css">
-    <link rel="stylesheet" href="../../static/front/css/slicknav.css">
-    <link rel="stylesheet" href="../../static/front/css/magnific-popup.css">
-    <link rel="stylesheet" href="../../static/front/css/slick.css">
-    <link rel="stylesheet" href="../../static/front/css/slick-theme.css">
-    <link rel="stylesheet" href="../../static/front/css/style.css">
-    <link rel="stylesheet" href="../../static/front/css/linearicons.css">
-    <link rel="stylesheet" href="../../static/front/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../static/front/css/nice-select.css">
-    <link rel="stylesheet" href="../../static/front/css/main.css">
-    <link rel="stylesheet" href="../../static/front/css/sweetalert2.css">
-    {% block extra_css %}{% endblock %}
+    <title>{% block title %}
+    {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#f9f9f9">
+    <meta name="robots" content="max-image-preview:large">
+    {% block meta %}
+    {% endblock %}
+    <!--[if IE]>
+    <script src="../../static/front/js/html5.js"></script><![endif]-->
+    <link rel="dns-prefetch" href="https://at.alicdn.com">
+    <link rel="stylesheet" id="uaf_client_css-css"
+          href="../../static/front/css/uaf.css?ver=1699649159" type="text/css" media="all">
+    <link rel="stylesheet" id="iconfont-css"
+          href="../../static/front/css/iconfont.css?ver=4.1031" type="text/css" media="all">
+    <link rel="stylesheet" id="iconfont-io-1-css" href="../../static/front/css/font_1620678_18rbnd2homc.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="iconfont-io-2-css" href="../../static/front/css/font_4184880_kci8o10x3ij.css"
+          type="text/css" media="all">
+    <link rel="stylesheet" id="iconfont-io-3-css" href="../../static/front/css/font_4263277_2axl22bwq06.css"
+          type="text/css" media="all">
+    <link rel="stylesheet" id="bootstrap-css"
+          href="../../static/front/css/bootstrap.min.css?ver=4.1031" type="text/css" media="all">
+    <link rel="stylesheet" id="lightbox-css"
+          href="../../static/front/css/jquery.fancybox.min.css?ver=4.1031" type="text/css"
+          media="all">
+    <link rel="stylesheet" id="style-css" href="../../static/front/css/style.min.css?ver=4.1031"
+          type="text/css" media="all">
+    <link rel="stylesheet" id="algolia-autocomplete-css"
+          href="../../static/front/css/algolia-autocomplete.css?ver=2.6.1"
+          type="text/css" media="all">
+    <link rel="stylesheet" href="../../static/front/css/loading.css">
+    {% block style %}
+    {% endblock %}
 </head>
-
-<body data-spy="scroll" data-offset="80">
-<!-- START PRELOADER -->
-<div class="preloader">
-    <div class="status">
-        <div class="status-mes"></div>
-    </div>
-</div>
-<!-- END PRELOADER -->
-<!-- START NAVBAR -->
-<div id="navigation" class="fixed-top navbar-light bg-faded site-navigation" style="background-color: #f54291">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-4">
-                <div class="site-logo">
-                    <a href="/index"><img src="../../static/front/img/logo.png" alt=""></a>
-                </div>
-            </div><!--- END Col -->
-
-            <div class="col-lg-10 col-md-9 col-sm-8">
-                <div class="header_right">
-                    <nav id="main-menu" class="ml-auto">
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#screenshots">Screenshots</a></li>
-                            <li><a href="#pricing">pricing</a></li>
-                            <li><a href="#blog">Blog</a></li>
-                            <li><a href="#download">Download</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </nav>
-                    <div id="mobile_menu"></div>
-                </div>
-            </div><!--- END Col -->
-        </div><!--- END ROW -->
-    </div><!--- END CONTAINER -->
-</div>
-<!-- END NAVBAR -->
-{% block content %}{% endblock %}
-<!-- START FOOTER TOP -->
-<div class="footer-top section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
-                 data-wow-offset="0">
-                <div class="footer_logo">
-                    <img src="../../static/front/img/logo.png" alt=""/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae risus nec dui venenatis
-                        dignissim.</p>
-                </div>
-                <div class="social_profile">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div><!--- END COL -->
-            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
-                 data-wow-offset="0">
-                <div class="single_footer">
-                    <h4>Frequently Asked Questions</h4>
-                    <ul>
-                        <li><a href="#">Privacy & Securty</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Communications</a></li>
-                        <li><a href="#">Referral Terms</a></li>
-                        <li><a href="#">Disclaimers</a></li>
-                    </ul>
-                </div>
-            </div><!--- END COL -->
-            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s"
-                 data-wow-offset="0">
-                <div class="single_footer single_footer_address">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">Licenses</a></li>
-                        <li><a href="#">market API</a></li>
-                        <li><a href="#">Careers and job</a></li>
-                        <li><a href="#">Emplois en France</a></li>
-                        <li><a href="#">Jobs in Deutschland </a></li>
-                    </ul>
-                </div>
-            </div><!--- END COL -->
-            <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s"
-                 data-wow-offset="0">
-                <div class="single_footer single_footer_address">
-                    <h4>Our Address</h4>
-                    <p>4380 Tea Berry Lane Eau Claire, WI 54701</p>
-                    <p>(+1) 517 397 7100</p>
-                    <p>Info@example.com</p>
-                    <p></p>
-                </div>
-            </div><!--- END COL -->
-        </div><!--- END ROW -->
-    </div><!--- END CONTAINER -->
-</div>
-<!-- END FOOTER TOP -->
-
-<!-- START FOOTER -->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-sm-12 col-xs-12 text-center">
-                <div class="single_footer">
-                    <p class="copyright">Copyright &copy; 2023.Vincent Adam Nemessis All rights reserved.</p>
-                </div>
-            </div><!--- END COL -->
-        </div><!--- END ROW -->
-    </div><!--- END CONTAINER -->
-</div>
-<!-- END FOOTER -->
-</body>
-<script src="../../static/front/extend_js/vendor/jquery-2.2.4.min.js"></script>
-<script src="../../static/front/extend_js/vendor/bootstrap.min.js"></script>
-<script src="../../static/front/extend_js/jquery.ajaxchimp.min.js"></script>
-<script src="../../static/front/extend_js/jquery.sticky.js"></script>
-<script src="../../static/front/extend_js/jquery.nice-select.min.js"></script>
-<script src="../../static/front/extend_js/jquery.magnific-popup.min.js"></script>
-<script src="../../static/front/extend_js/jquery.counterup.min.js"></script>
-<script src="../../static/front/js/jquery.inview.min.js"></script>
-<script src="../../static/front/js/jquery.slicknav.js"></script>
-<script src="../../static/front/js/jquery.nav.js"></script>
-<script src="../../static/front/js/form-contact.js"></script>
-<script src="../../static/front/js/modernizr-2.8.3.min.js"></script>
-<script src="../../static/front/js/smooth-scroll.js"></script>
-<script src="../../static/front/js/scrolltopcontrol.js"></script>
-<script src="../../static/front/js/slick.min.js"></script>
-<script src="../../static/front/js/wow.min.js"></script>
-<script src="../../static/front/js/scripts.js"></script>
-<script src="../../static/front/extend_js/popper.min.js"></script>
-<script src="../../static/front/extend_js/easing.min.js"></script>
-<script src="../../static/front/extend_js/hoverIntent.js"></script>
-<script src="../../static/front/extend_js/superfish.min.js"></script>
-<script src="../../static/front/extend_js/owl.carousel.min.js"></script>
-<script src="../../static/front/extend_js/parallax.min.js"></script>
-<script src="../../static/front/extend_js/waypoints.min.js"></script>
-<script src="../../static/front/extend_js/mail-script.js"></script>
-<script src="../../static/front/extend_js/main.js"></script>
-<script src="../../static/front/js/sweetalert2.all.min.js"></script>
-<script type="text/javascript" src="../../static/front/extend_js/apis.js"></script>
+{% block content %}
+{% endblock %}
 </html>
-{% block script %}{% endblock %}
+<script type="text/javascript" src="../../static/front/js/jquery.min.js?ver=4.1031"
+        id="jquery-js"></script>
+<script type="text/javascript" src="../../static/front/js/popper.min.js?ver=4.1031"
+        id="popper-js"></script>
+<script type="text/javascript" src="../../static/front/js/bootstrap.min.js?ver=4.1031"
+        id="bootstrap-js"></script>
+<script id="LA_CODELESS" src="../../static/front/js/js-sdk-event.min.js?u=3GEhfXqPAV16BrAS"
+        data-la-ev="3GEhfXqPAV16BrAS" crossorigin="anonymous" charset="UTF-8"></script>
+<script type="text/javascript"
+        src="../../static/front/js/theia-sticky-sidebar.js?ver=4.1031"
+        id="sidebar-js"></script>
+<script type="text/javascript" src="../../static/front/js/lazyload.min.js?ver=4.1031"
+        id="lazyload-js"></script>
+<script type="text/javascript"
+        src="../../static/front/js/jquery.fancybox.min.js?ver=4.1031"
+        id="lightbox-js-js"></script>
+<script type="text/javascript" src="../../static/front/js/underscore.min.js?ver=1.13.4"
+        id="underscore-js"></script>
+<script type="text/javascript" src="../../static/front/js/wp-util.min.js?ver=6.4.2"
+        id="wp-util-js"></script>
+<script type="text/javascript"
+        src="../../static/front/js/algoliasearch-lite.umd.js?ver=2.6.1"
+        id="algolia-search-js"></script>
+<script type="text/javascript"
+        src="../../static/front/js/autocomplete.min.js?ver=2.6.1"
+        id="algolia-autocomplete-js"></script>
+<script type="text/javascript"
+        src="../../static/front/js/autocomplete-noconflict.js?ver=2.6.1"
+        id="algolia-autocomplete-noconflict-js"></script>
+<script type="text/javascript" src="../../static/front/js/new-post.js?ver=4.1031" id="new-post-js"></script>
+<script>
+	$(document).ready(function () {
+		setTimeout(function () {
+			document.body.classList.add('animated', 'fadeIn');
+			document.body.style.visibility = 'visible';
+			document.getElementsByClassName('loading_container')[0].classList.add('animated', 'fadeOut');
+			document.getElementsByClassName('loading_container')[0].style.visibility = 'hidden';
+		}, 1500);
+	});
+</script>
+
+{# append main-content-footer into main-content#}
+<script>
+	$(document).ready(function () {
+		document.getElementsByClassName('main-content')[0].innerHTML += `
+		   <div class="main-footer footer-stick container container-fluid customize-width pt-4 pb-3 footer-type-big"
+             style="">
+            <div class="footer-inner card rounded-xl m-0">
+                <div class="footer-text card-body text-muted text-center text-md-left">
+                    <div class="row my-4">
+                        <div class="col-12 col-md-4 mb-4 mb-md-0">
+                            <a class="footer-logo" href="https://macwk.cn" title="MacWk">
+                                <img src="https://macwk.cn/wp-content/uploads/2023/10/macwklogo.png"
+                                     class="logo-light mb-3"
+                                     alt="MacWk" height="40">
+                                <img src="https://macwk.cn/wp-content/uploads/2023/10/macwklogo.png"
+                                     class="logo-dark d-none mb-3" alt="MacWk" height="40">
+                            </a>
+                            <div class="text-sm">
+                                MAC应用软件,每天更新大量精品mac软件,为您提供优质的mac软件,mac破解版软件下载
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 mb-4 mb-md-0">
+                            <div class="footer-social">
+                                <a class="rounded-circle bg-light qr-img" href="javascript:" data-toggle="tooltip"
+                                   data-placement="top" data-html="true" title=""
+                                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg' height='100' width='100'>">
+                                    <i class="iconfont icon-wechat"></i>
+                                </a><a class="rounded-circle bg-light" href="mailto:macwk@qq.com" target="_blank"
+                                       data-toggle="tooltip" data-placement="top" title=""
+                                       rel="external noopener nofollow"
+                                       data-original-title=" 联系站长">
+                                <i class="iconfont icon-email"></i>
+                            </a></div>
+                        </div>
+                        <div class="col-12 col-md-3 text-md-right mb-4 mb-md-0">
+                            <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="公众号">
+                                <p class="bg-light rounded-lg p-1">
+                                    <img class=" "
+                                         src="https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg"
+                                         alt="公众号MacWk">
+                                </p>
+                                <span class="text-muted text-ss mt-2">公众号</span>
+                            </div>
+                            <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="微信赞赏">
+                                <p class="bg-light rounded-lg p-1">
+                                    <img class=" " src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG18.jpg"
+                                         alt="微信赞赏MacWk">
+                                </p>
+                                <span class="text-muted text-ss mt-2">微信赞赏</span>
+                            </div>
+                            <div class="footer-mini-img" data-toggle="tooltip" title=""
+                                 data-original-title="支付宝捐助">
+                                <p class="bg-light rounded-lg p-1">
+                                    <img class=" " src="https://macwk.cn/wp-content/uploads/2023/10/zfb.jpg"
+                                         alt="支付宝捐助MacWk">
+                                </p>
+                                <span class="text-muted text-ss mt-2">支付宝捐助</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright text-xs">
+                        Copyright © 2024 <a href="https://macwk.cn" title="MacWk" class="" rel="home">MacWk</a>&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+		`;
+	})
+</script>
+
+{# append page footer into body#}
+<script>
+    function MiniOrNormalSidebar() {
+		let temp = document.body.classList;
+		if(temp.contains('mini-sidebar')) {
+			document.body.classList.remove('fadeOut');
+			document.body.classList.remove('mini-sidebar');
+			document.body.classList.add('fadeIn');
+        } else {
+			document.body.classList.remove('fadeIn');
+			document.body.classList.add('mini-sidebar');
+			document.body.classList.add('fadeOut');
+        }
+    }
+    
+	$(document).ready(function () {
+		document.getElementsByTagName('body')[0].innerHTML += `
+        <footer>
+            <div id="footer-tools" class="d-flex flex-column">
+                <a href="javascript:" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top"
+                   style="display: none;">
+                    <i class="iconfont icon-to-up"></i>
+                </a>
+                <a class="btn rounded-circle custom-tool0 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                   data-html="true"
+                   data-placement="left" title=""
+                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg' height='100' width='100'>">
+                    <i class="iconfont icon-wechat"></i>
+                </a><a class="btn rounded-circle custom-tool1 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                       data-html="true" data-placement="left" title=""
+                       data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/10/zfb.jpg' height='100' width='100'>">
+                <i class="iconfont icon-alipay"></i>
+            </a><a class="btn rounded-circle custom-tool2 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                   data-html="true"
+                   data-placement="left" title=""
+                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/07/WechatIMG18.jpg' height='100' width='100'>">
+                <i class="io io-dashang1"></i>
+            </a><a class="btn rounded-circle custom-tool3 m-1" href="mailto:macwk@qq.com" target="_blank"
+                   data-toggle="tooltip"
+                   data-placement="left" title="" rel="external noopener nofollow" data-original-title=" 联系站长">
+                <i class="iconfont icon-email"></i>
+            </a> <a href="javascript:" data-toggle="modal" data-target="#search-modal" class="btn rounded-circle m-1"
+                    rel="search">
+                <i class="iconfont icon-search"></i>
+            </a>
+            </div>
+        </footer>
+		`;
+	});
+</script>
+<script>
+	$(document).ready(function () {
+		document.getElementsByTagName('body')[0].innerHTML += `
+	<div class="modal fade search-modal" id="search-modal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="search" class="s-search mx-auto my-4">
+                        <div id="search-list" class="hide-type-list">
+                            <div class="s-type">
+                                <span></span>
+                                <div class="s-type-list">
+                                    <label for="m_type-1" data-page="home" data-id="group-1">MacWk</label></div>
+                            </div>
+                            <div class="search-group group-1 s-current"><span class="type-text text-muted">MacWk</span>
+                                <ul class="search-type">
+                                    <li><input checked="checked" hidden="" type="radio" name="type2" data-page="home"
+                                               id="m_type-1" value="https://macwk.cn/?post_type=app&amp;s="
+                                               data-placeholder=""><label for="m_type-1"><span
+                                            class="text-muted"> 搜索</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <form action="" method="get" target="_blank" class="super-search-fm">{% csrf_token %} 
+                            <label for="m_search-text"></label><input type="text" id="m_search-text"
+                                                                      class="form-control smart-tips search-key"
+                                                                      zhannei=""
+                                                                      autocomplete="off" placeholder=""
+                                                                      style="outline:0"
+                                                                      data-status="true">
+                            <button type="submit"><i class="iconfont icon-search"></i></button>
+                        </form>
+                        <div class="card search-smart-tips" style="display: none">
+                            <ul></ul>
+                        </div>
+                    </div>
+
+                    <div class="px-1 mb-3"><i class="text-xl iconfont icon-hot mr-1" style="color:#f1404b;"></i><span
+                            class="h6">热门推荐： </span></div>
+                    <div class="mb-3">
+                        <li id="menu-item-839"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-839"><a
+                                href="https://macwk.cn/app/93.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>Adob​​e PhotoShop</span></a></li>
+                        <li id="menu-item-840"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-840"><a
+                                href="https://macwk.cn/app/175.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>App Cleaner &amp; Uninstaller</span></a></li>
+                        <li id="menu-item-841"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-841"><a
+                                href="https://macwk.cn/app/586.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>CleanMyMac X</span></a></li>
+                        <li id="menu-item-842"
+                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-842"><a
+                                href="https://macwk.cn/app/256.html">
+                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                            <span>Final Cut Pro</span></a></li>
+                    </div>
+                </div>
+                <div style="position: absolute;bottom: -40px;width: 100%;text-align: center;"><a href="javascript:"
+                                                                                                 data-dismiss="modal"><i
+                        class="iconfont icon-close-circle icon-2x" style="color: #fff;"></i></a></div>
+            </div>
+        </div>
+    </div>
+		`;
+	});
+</script>
+{% block script %}
+{% endblock %}

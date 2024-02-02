@@ -4,44 +4,321 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="about finished all query logic with redis cache apis except frontenduser">
-      <change afterPath="$PROJECT_DIR$/media/announcements/1009_nO89LMT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SynthesisMacApplicationDistributionCenter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SynthesisMacApplicationDistributionCenter.iml" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="almost finished question cache with database query;&#10;optimized some logic">
+      <change afterPath="$PROJECT_DIR$/software/static/adview_pic_cpc_cpm_cpa_guanggao_gg_ads_300x250.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/analytics.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/axios.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/dayjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/hm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/js.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/js_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/share.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/style.v3.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/styles.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/swiper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/static/vue.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/software/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0002_alter_announcements_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0003_alter_announcements_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/0004_auto_20240125_2324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/migrations/0002_auto_20240123_1614.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/migrations/0003_auto_20240123_1618.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/migrations/0004_comment_correlation_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/migrations/0005_auto_20240125_2324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/0002_auto_20240125_2324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0002_frontenduser_favorite.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0003_auto_20240125_2332.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0004_auto_20240125_2339.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0005_auto_20240125_2349.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0006_rename_favorite_articles_frontenduser_favorite.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/0007_remove_frontenduser_favorite.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/migrations/0002_auto_20240125_2324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0002_rename_status_software_state.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0003_software_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/0004_auto_20240125_2324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/apis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/animate.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/bootstrap/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/bootstrap/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/bootstrap/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/content.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/dashicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/editor-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/editor.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/htmleaf-demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/jquery.DonutWidget.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/jquery.fancybox.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/jquery.fancybox.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/jquerysctipttop.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/linearicons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/magnific-popup.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/main.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/new-posts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/nice-select.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/owl.carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/skin.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/slick-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/slick.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/slicknav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/sweetalert2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/theme/pages.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/uaf.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/uaf.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/wp-content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/easing.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/hoverIntent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/jquery.ajaxchimp.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/jquery.counterup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/jquery.magnific-popup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/jquery.nice-select.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/jquery.sticky.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/mail-script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/parallax.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/slick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/superfish.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/superfish.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/vendor/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/vendor/jquery-2.2.4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/6697Mono.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/fonts/6697Mono.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/6697Mono.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/fonts/6697Mono.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/Linearicons-Free.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/Linearicons-Free.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/Linearicons-Free.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/Linearicons-Free.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/Linearicons-Free.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/google_font.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/slick.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/themify-icons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/themify.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/app-mockup-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/b1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/b2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/b3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/b4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/bg/bg-elements_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/bg/home-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/bg/promo_shape_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/blog/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/blog/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/blog/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/d1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/d2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/d3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/disabled-check.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/disabled-radio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/f8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/g8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/primary-check.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/primary-radio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/success-check.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/elements/success-radio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/f1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/f2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/f3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/f4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/feature.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/header-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/info-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/interface_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/iphone_img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/l1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/l2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/l3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/l4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/l5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/o1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/o2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/o3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/o4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/o5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/o6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/overview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/partner/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/partner/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/partner/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/partner/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/partner/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/partner/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/play-btn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/screenshot/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/screenshot/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/screenshot/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/screenshot/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/service-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/slider1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/t1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/t2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/t3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/t4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/team/team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/team/team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/team/team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/team/team-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/testimonial-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/testimonial/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/testimonial/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/testimonial/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/testimonial/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/user1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/user2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/video-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/a11y.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/comment-reply.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/comments-ajax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/core.201a35b2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/core.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/dom-ready.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/editor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/form-contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/forticket.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/hooks.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/i18n.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/jquery-1.11.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/jquery-1.12.4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/jquery.inview.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/jquery.magnific-popup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/jquery.nav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/jquery.slicknav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/log-reporter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/menu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/modernizr-2.8.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/nc-loader-2.13.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/plugin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/regenerator-runtime.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/scrolltopcontrol.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/slick.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/smooth-scroll.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/tinymce.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/wow.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/wp-polyfill-inert.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/wp-polyfill.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/wplink.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/owlcarousel/css/owl.carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/owlcarousel/css/owl.theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/owlcarousel/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_breadcrumb.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_button-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_close.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_code.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_custom-forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_dropdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_images.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_input-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_jumbotron.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_media.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_popover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_print.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_progress.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_root.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_tables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_transitions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_type.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_utilities.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/bootstrap-grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/bootstrap-reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_background-variant.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_border-radius.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_box-shadow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_caret.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_gradients.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_grid-framework.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_hover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_image.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_lists.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_nav-divider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_navbar-align.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_reset-text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_resize.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_size.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_table-row.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_text-emphasis.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_text-hide.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_text-truncate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_transition.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/mixins/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_align.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_background.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_borders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_display.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_embed.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_flex.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_position.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_screenreaders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_spacing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/bootstrap/utilities/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_elements.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_flexbox.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_footer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_header.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_home.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_reset.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/scss/theme/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/elements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/generic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/help.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/new_base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_article_and_software.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article_and_software.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/temp.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +345,10 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/static/front/css/jquery.DonutWidget.min.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/static/front/css/bootstrap.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/front/css/font-awesome.min.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/front/css/jquery.fancybox.min.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/front/css/style.min.css" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -87,47 +367,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.AllYouWantMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
-    &quot;Django Server.SynthesisMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.software_details.html.executor&quot;: &quot;Run&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/fonts&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.AllYouWantMacApplicationDistributionCenter.executor": "Run",
+    "Django Server.SynthesisMacApplicationDistributionCenter.executor": "Run",
+    "JavaScript Debug.software_details.html.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "Python.tests.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/js",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "watcher.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\fonts" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\extend_js" />
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\fonts" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\temp" />
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\software\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\software\templates" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\bootstrap5\fonts" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -187,7 +468,8 @@
       <workItem from="1706289038314" duration="5311000" />
       <workItem from="1706349991114" duration="60000" />
       <workItem from="1706361992876" duration="606000" />
-      <workItem from="1706605344806" duration="14910000" />
+      <workItem from="1706605344806" duration="15144000" />
+      <workItem from="1706896518405" duration="5713000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -333,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706294341604</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="almost finished question cache with database query;&#10;optimized some logic">
+      <option name="closed" value="true" />
+      <created>1706621458525</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1706621458525</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +651,8 @@
     <MESSAGE value="renamed softwares to software" />
     <MESSAGE value="appended get articles api" />
     <MESSAGE value="about finished all query logic with redis cache apis except frontenduser" />
-    <option name="LAST_COMMIT_MESSAGE" value="about finished all query logic with redis cache apis except frontenduser" />
+    <MESSAGE value="almost finished question cache with database query;&#10;optimized some logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost finished question cache with database query;&#10;optimized some logic" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1705733396603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
