@@ -202,8 +202,7 @@ def home(request):
         return render(request, 'home.html')
 
 
-# @require_POST
+@require_GET
 def software_details(request):
-    # if request.method == 'POST'
     if request.method == 'GET':
         return render(request, 'frontenduser/software_details.html')

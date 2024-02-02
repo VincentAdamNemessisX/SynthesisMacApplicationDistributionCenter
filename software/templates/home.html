@@ -11,23 +11,22 @@
     <meta name="wwads-cn-verify" content="eb160de1de89d9058fcb0b968dbbbd68">
     <title>Mac软件分享平台</title>
     <link rel="shortcut icon" href='{% static "favicon.ico" %}' type="image/x-icon">
-    <link href="../static/swiper.min.css" rel="stylesheet">
-    <link href="../static/share.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/styles.min.css">
-    <link rel="stylesheet" href="../static/style.v3.min.css">
-    <link rel="search" type="application/opensearchdescription+xml" title="精品MAC应用分享"
-          href="https://xclient.info/opensearch.xml">
-
+    <link href="{% static 'home/css/swiper.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home/css/share.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '' %}home/css/styles.min.css">
+    <link rel="stylesheet" href="{% static '' %}home/css/style.v3.min.css">
+    <link rel="stylesheet" href="../../static/front/css/loading.css">
     <meta name="description" itemprop="description"
           content="精品MAC应用分享，每天分享大量mac软件，为您提供优质的mac软件,免费软件下载服务">
     <meta name="keywords" itemprop="keywords"
           content="mac,osx,app,mac软件,苹果软件下载,mac软件下载,mac免费软件下载,精品mac应用,xclient">
-    <script type="text/javascript" async="" src="../static/js.js"></script>
-    <script src="../static/hm.js"></script>
-    <script src="../static/vue.min.js"></script>
-    <script src="../static/axios.min.js"></script>
-    <script src="../static/dayjs.min.js"></script>
-    <script async="" src="../static/js_1.js"></script>
+    <script type="text/javascript" async="" src="{% static '' %}home/js/js.js"></script>
+    <script src="{% static '' %}home/js/hm.js"></script>
+    <script src="{% static '' %}home/js/vue.min.js"></script>
+    <script src="{% static '' %}home/js/axios.min.js"></script>
+    <script src="{% static '' %}home/js/dayjs.min.js"></script>
+    <script async="" src="{% static '' %}home/js/js_1.js"></script>
+    <script src="{% static 'front/js/jquery.min.js' %}"></script>
     <script>
 		window.dataLayer = window.dataLayer || [];
 
@@ -142,7 +141,9 @@
     }</style>
 </head>
 <body>
-<!---->
+<div class="loading_container">
+    <div class="loading"><i></i><i></i><i></i><i></i></div>
+</div>
 <header id="header" class="header">
     <div class="container-xl">
         <div class="row clear">
@@ -229,7 +230,7 @@
             <div class="box">
                 <div class="box-inner">
                     <a href="https://www.better365.cn/apps.html?statId=5" target="_blank">
-                        <img src="../static/b199f60a-61df-fbf5-dd6e-7a5f032d191d.jpg"
+                        <img src="{% static '' %}b199f60a-61df-fbf5-dd6e-7a5f032d191d.jpg"
                              title="这8款Mac优秀App，装机必备、人人必备" alt="这8款Mac优秀App，装机必备、人人必备">
                         <span class="tit"><b>这8款Mac优秀App，装机必备、人人必备</b></span>
                     </a>
@@ -239,7 +240,7 @@
                 <div class="box-inner">
                     <a href="macappstore://itunes.apple.com/app/apple-store/id1470926410?pt=119209922&amp;ct=xclient_ad&amp;mt=12"
                        target="_blank">
-                        <img src="../static/35e713d9-f079-45b0-64e9-ba61f75ed16d.jpg"
+                        <img src="{% static '' %}35e713d9-f079-45b0-64e9-ba61f75ed16d.jpg"
                              title="最全音频/视频播放器Omniplayer" alt="最全音频/视频播放器Omniplayer">
                         <span class="tit"><b>最全音频/视频播放器Omniplayer</b></span>
                     </a>
@@ -257,7 +258,7 @@
             <div class="box">
                 <div class="box-inner">
                     <a href="https://zh.okaapps.com/product/1592987853?ref=xclient_ad" target="_blank">
-                        <img src="../static/6dffb0cc-419a-8aee-de26-ab6f44d3e052.jpg"
+                        <img src="{% static '' %}6dffb0cc-419a-8aee-de26-ab6f44d3e052.jpg"
                              title="Omi录屏专家——完全免费的录屏工具" alt="Omi录屏专家——完全免费的录屏工具">
                         <span class="tit"><b>Omi录屏专家——完全免费的录屏工具</b></span>
                     </a>
@@ -266,43 +267,20 @@
             <div class="box">
                 <div class="box-inner">
                     <a href="https://lemon.qq.com/" target="_blank">
-                        <img src="../static/4312eb1d-6222-3554-af7d-252bea109adc.png"
+                        <img src="{% static '' %}4312eb1d-6222-3554-af7d-252bea109adc.png"
                              title="腾讯柠檬清理-清理工具“新起之秀” " alt="腾讯柠檬清理-清理工具“新起之秀” ">
                         <span class="tit"><b>腾讯柠檬清理-清理工具“新起之秀” </b></span>
                     </a>
                 </div>
             </div>
         </div>
-        <!-- ad header -->
-
-        <div>
-            <div class="lim-ad">
-                <!-- 页面头尾部 -->
-
-                <!--
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1293127422149386"
-                         data-ad-slot="2491452150"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-             -->
-                <!--  <a target="_blank" href="https://www.amazon.cn/b/ref=as_li_ss_tl?_encoding=UTF8&camp=536&creative=3132&linkCode=ur2&node=1994506071&t=joyo01y-23&tag=xclient-23">
-                     <img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23a4gi225j30uk04gq9l.jpg" alt="">
-                 </a> -->
-            </div>
-        </div>
-
         <div id="limit_free" class="index-main row show" style="">
             <div class="col-12"><h2 class="col_title">最新正版限免</h2>
                 <ul class="post_list row">
                     <li class="col-6 col-6-m col-2-l col-2-xl">
                         <div class="main"><span class="icon-new"></span> <a
                                 href="https://gofans.cn/app/0fbe5997-1862-40b9-93a4-c60d52639c72" target="_blank"
-                                title="Speech"><img src="../static/192x192bb.png" alt="Speech"
+                                title="Speech"><img src="{% static '' %}192x192bb.png" alt="Speech"
                                                     class="lim-icon">
                             <div class="status_bar"><span class="item price">¥8.00</span> <span class="item date"><del>15.00</del></span>
                             </div>
@@ -321,7 +299,7 @@
                     <li class="col-6 col-6-m col-2-l col-2-xl">
                         <div class="main"><span class="icon-new"></span> <a
                                 href="https://gofans.cn/app/e1a36ec1-6fa7-43c5-8f10-1d4f78b989e3" target="_blank"
-                                title="三国志汉末霸业"><img src="../static/192x192bb(1).png"
+                                title="三国志汉末霸业"><img src="{% static '' %}192x192bb(1).png"
                                                             alt="三国志汉末霸业" class="lim-icon">
                             <div class="status_bar"><span class="item price">¥38.00</span> <span class="item date"><del>88.00</del></span>
                             </div>
@@ -346,7 +324,7 @@
                     <li class="col-6 col-6-m col-2-l col-2-xl">
                         <div class="main"><span class="icon-new"></span> <a
                                 href="https://gofans.cn/app/13df1054-1f76-48f3-8a52-380b267f36e0" target="_blank"
-                                title="Magic Hider"><img src="../static/192x192bb(2).png"
+                                title="Magic Hider"><img src="{% static '' %}192x192bb(2).png"
                                                          alt="Magic Hider" class="lim-icon">
                             <div class="status_bar"><span class="item price">¥15.00</span> <span class="item date"><del>22.00</del></span>
                             </div>
@@ -369,7 +347,7 @@
                     <li class="col-6 col-6-m col-2-l col-2-xl">
                         <div class="main"><span class="icon-new"></span> <a
                                 href="https://gofans.cn/app/86a766ee-e0a6-40ea-aa5b-5c4718effb54" target="_blank"
-                                title="JPEG Jackal"><img src="../static/192x192bb(3).png"
+                                title="JPEG Jackal"><img src="{% static '' %}192x192bb(3).png"
                                                          alt="JPEG Jackal" class="lim-icon">
                             <div class="status_bar"><span class="item price">¥15.00</span> <span class="item date"><del>22.00</del></span>
                             </div>
@@ -391,7 +369,7 @@
                         <div class="main"><span class="icon-new"></span> <a
                                 href="https://gofans.cn/app/237e495c-85dc-47f3-bac6-20d0bc209b2c" target="_blank"
                                 title="Any DVD Ripper-将DVD转换为MP4"><img
-                                src="../static/192x192bb(4).png" alt="Any DVD Ripper-将DVD转换为MP4"
+                                src="{% static '' %}192x192bb(4).png" alt="Any DVD Ripper-将DVD转换为MP4"
                                 class="lim-icon">
                             <div class="status_bar"><span class="item price">¥148.00</span> <span class="item date"><del>168.00</del></span>
                             </div>
@@ -412,7 +390,7 @@
                     <li class="col-6 col-6-m col-2-l col-2-xl">
                         <div class="main"><span class="icon-new"></span> <a
                                 href="https://gofans.cn/app/1f10fbe4-6748-4742-9bb3-d53e3885404a" target="_blank"
-                                title="三维地球"><img src="../static/192x192bb(5).png" alt="三维地球"
+                                title="三维地球"><img src="{% static '' %}192x192bb(5).png" alt="三维地球"
                                                       class="lim-icon">
                             <div class="status_bar"><span class="item price">¥3.00</span> <span class="item date"><del>22.00</del></span>
                             </div>
@@ -443,26 +421,6 @@
                 </ul>
                 <a href="https://gofans.cn/" target="_blank" class="index-more">更多限免应用</a></div>
         </div>
-        <div class="lim-ad">
-            <div class="wwads-cn wwads-horizontal" data-id="92" style="max-width:100%"><a
-                    href="https://wwads.cn/click/bait" target="_blank" rel="sponsored noopener"
-                    referrerpolicy="no-referrer-when-downgrade" style="display:none !important;"></a><a
-                    href="https://wwads.cn/click/bundle?code=CL1NYDx38XvesWcfu0Smj4yuUcTOUN"
-                    onclick="_IsTrustedClick(event)" class="wwads-img" target="_blank" rel="sponsored noopener"
-                    referrerpolicy="no-referrer-when-downgrade"><img
-                    src="../static/YfCPoriEO9l3kbw37XgTFOS5Cq2hfpTDlGWiLjwB.jpg" width="130"
-                    alt="万维广告联盟"></a>
-                <div class="wwads-content"><a href="https://wwads.cn/click/bundle?code=CL1NYDx38XvesWcfu0Smj4yuUcTOUN"
-                                              onclick="_IsTrustedClick(event)" class="wwads-text" target="_blank"
-                                              rel="sponsored noopener" referrerpolicy="no-referrer-when-downgrade">🎁<b>阿里云云服务器4核16G
-                    现在只要26.52元/月！快来体验吧！</b></a><a
-                        href="https://wwads.cn/?utm_source=property-117&amp;utm_medium=footer" class="wwads-poweredby"
-                        title="点击了解万维广告联盟" target="_blank"><img class="wwads-logo"><span
-                        class="wwads-logo-text">广告</span></a></div>
-                <a class="wwads-hide" onclick="parentNode.remove()" title="隐藏广告">
-                    <svg class="hide-svg"></svg>
-                </a></div>
-        </div>
         <div class="index-main row">
             <div class="col-12 col-8-m col-9-l">
                 <h2 class="col_title">最新应用</h2>
@@ -473,7 +431,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/fastzip.html" title="[免费精品] FastZip 多线程快速压缩工具">
                                 <img class="lim-icon"
-                                     src="../static/944692ce-7817-4bd8-54fb-6f4672578a0e.png"
+                                     src="{% static '' %}944692ce-7817-4bd8-54fb-6f4672578a0e.png"
                                      alt="[免费精品] FastZip 多线程快速压缩工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -500,7 +458,7 @@
                             <a href="https://xclient.info/s/ibar.html"
                                title="[免费精品] iBar 强大的Mac菜单栏图标管理工具">
                                 <img class="lim-icon"
-                                     src="../static/b6259dda-6e56-e1bf-85ef-7363ab2e35fd.png"
+                                     src="{% static '' %}b6259dda-6e56-e1bf-85ef-7363ab2e35fd.png"
                                      alt="[免费精品] iBar 强大的Mac菜单栏图标管理工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -527,7 +485,7 @@
                             <a href="https://xclient.info/s/vdown-1.html"
                                title="[免费精品] VDown 类似Downie的在线视频下载工具">
                                 <img class="lim-icon"
-                                     src="../static/ce19f589-34ae-0f2d-7eb4-f0b7d09c1742.png"
+                                     src="{% static '' %}ce19f589-34ae-0f2d-7eb4-f0b7d09c1742.png"
                                      alt="[免费精品] VDown 类似Downie的在线视频下载工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -554,7 +512,7 @@
                             <a href="https://xclient.info/s/tencent-lemon-cleaner.html"
                                title="[免费精品] Tencent Lemon Cleaner 腾讯柠檬清理">
                                 <img class="lim-icon"
-                                     src="../static/501f44cd-6f1d-2227-2967-aae72e6db920.png"
+                                     src="{% static '' %}501f44cd-6f1d-2227-2967-aae72e6db920.png"
                                      alt="[免费精品] Tencent Lemon Cleaner 腾讯柠檬清理">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -581,7 +539,7 @@
                             <a href="https://xclient.info/s/switchresx.html"
                                title="SwitchResX 4.13.3 屏幕分辨率修改工具">
                                 <img class="lim-icon"
-                                     src="../static/288b717b-5781-b08e-7040-4a381255eae4.png"
+                                     src="{% static '' %}288b717b-5781-b08e-7040-4a381255eae4.png"
                                      alt="SwitchResX 4.13.3 屏幕分辨率修改工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -606,7 +564,7 @@
                             <a href="https://xclient.info/s/coconutbattery.html"
                                title="coconutBattery 3.9.15 查看电池信息">
                                 <img class="lim-icon"
-                                     src="../static/fdd09b5b-60e7-1881-f533-9b4d24fe3286.png"
+                                     src="{% static '' %}fdd09b5b-60e7-1881-f533-9b4d24fe3286.png"
                                      alt="coconutBattery 3.9.15 查看电池信息">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -631,7 +589,7 @@
                             <a href="https://xclient.info/s/room-arranger-for-mac.html"
                                title="Room Arranger 9.8.2.644 布置你的房间">
                                 <img class="lim-icon"
-                                     src="../static/4d9608ba-bc20-e551-37bb-eead58afab07.png"
+                                     src="{% static '' %}4d9608ba-bc20-e551-37bb-eead58afab07.png"
                                      alt="Room Arranger 9.8.2.644 布置你的房间">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -657,7 +615,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/keka.html" title="Keka 1.3.7 好用的压缩工具">
                                 <img class="lim-icon"
-                                     src="../static/b3d57bad-4ce6-5a12-959b-df476027bb93.png"
+                                     src="{% static '' %}b3d57bad-4ce6-5a12-959b-df476027bb93.png"
                                      alt="Keka 1.3.7 好用的压缩工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -681,7 +639,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/keep-it.html" title="Keep It 2.4.0 内容收藏夹">
                                 <img class="lim-icon"
-                                     src="../static/b0b57261-155d-2e5a-e252-92cacb4bb028.png"
+                                     src="{% static '' %}b0b57261-155d-2e5a-e252-92cacb4bb028.png"
                                      alt="Keep It 2.4.0 内容收藏夹">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -707,7 +665,7 @@
                             <a href="https://xclient.info/s/debit-and-credit.html"
                                title="Debit &amp; Credit 6.3.1 个人财务管理">
                                 <img class="lim-icon"
-                                     src="../static/b32b8447-0e22-ec08-95be-1f8e6970313e.png"
+                                     src="{% static '' %}b32b8447-0e22-ec08-95be-1f8e6970313e.png"
                                      alt="Debit &amp; Credit 6.3.1 个人财务管理">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -732,7 +690,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/djay-pro.html" title="djay Pro AI 5.1.0 专业的DJ工具">
                                 <img class="lim-icon"
-                                     src="../static/9cc2b5bf-7619-0b75-2429-e6dd29d895f2.png"
+                                     src="{% static '' %}9cc2b5bf-7619-0b75-2429-e6dd29d895f2.png"
                                      alt="djay Pro AI 5.1.0 专业的DJ工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -757,7 +715,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/sound-siphon.html" title="Sound Siphon 3.6.6 音频处理软件">
                                 <img class="lim-icon"
-                                     src="../static/681b31fe-acd6-a250-772f-12c734847d1b.png"
+                                     src="{% static '' %}681b31fe-acd6-a250-772f-12c734847d1b.png"
                                      alt="Sound Siphon 3.6.6 音频处理软件">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -781,7 +739,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/dato.html" title="Dato 5.2.0 系统日历时间">
                                 <img class="lim-icon"
-                                     src="../static/929047ce-03a2-6882-6f3d-093c0f5c00d8.png"
+                                     src="{% static '' %}929047ce-03a2-6882-6f3d-093c0f5c00d8.png"
                                      alt="Dato 5.2.0 系统日历时间">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -805,7 +763,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/edgeview.html" title="EdgeView 4.4.8 图像查看器">
                                 <img class="lim-icon"
-                                     src="../static/c79d5c0a-8293-80e9-4692-c4eb69a104a7.png"
+                                     src="{% static '' %}c79d5c0a-8293-80e9-4692-c4eb69a104a7.png"
                                      alt="EdgeView 4.4.8 图像查看器">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -831,7 +789,7 @@
                             <a href="https://xclient.info/s/bartender.html"
                                title="Bartender 5.0.50-beta 一款实用的菜单栏管理工具">
                                 <img class="lim-icon"
-                                     src="../static/0bc54055-171c-d4f0-0307-1d0203fed625.png"
+                                     src="{% static '' %}0bc54055-171c-d4f0-0307-1d0203fed625.png"
                                      alt="Bartender 5.0.50-beta 一款实用的菜单栏管理工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -856,7 +814,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/omnifocus.html" title="OmniFocus 4.0.5 强大的任务管理软件">
                                 <img class="lim-icon"
-                                     src="../static/32cca01a-f0d1-a056-6c41-a2e4c61d2ade.png"
+                                     src="{% static '' %}32cca01a-f0d1-a056-6c41-a2e4c61d2ade.png"
                                      alt="OmniFocus 4.0.5 强大的任务管理软件">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -882,7 +840,7 @@
                             <a href="https://xclient.info/s/wondershare-uniconverter.html"
                                title="Wondershare UniConverter 15.5.0.868 视频编辑转换工具">
                                 <img class="lim-icon"
-                                     src="../static/010e7149-ed7f-5fd3-d6db-363a12bc54d5.png"
+                                     src="{% static '' %}010e7149-ed7f-5fd3-d6db-363a12bc54d5.png"
                                      alt="Wondershare UniConverter 15.5.0.868 视频编辑转换工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -908,7 +866,7 @@
                             <a href="https://xclient.info/s/abbyy-finereader-pro.html"
                                title="ABBYY FineReader Pro 15.2.14 超强OCR识别软件">
                                 <img class="lim-icon"
-                                     src="../static/9642b221-a603-1fb8-4341-0a3935991b8b.png"
+                                     src="{% static '' %}9642b221-a603-1fb8-4341-0a3935991b8b.png"
                                      alt="ABBYY FineReader Pro 15.2.14 超强OCR识别软件">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -934,7 +892,7 @@
                             <a href="https://xclient.info/s/fxfactory.html"
                                title="FxFactory Pro 8.0.12-7730 视觉特效插件包">
                                 <img class="lim-icon"
-                                     src="../static/14c15ab5-9cd9-ce26-1497-fa4552ee7c1b.png"
+                                     src="{% static '' %}14c15ab5-9cd9-ce26-1497-fa4552ee7c1b.png"
                                      alt="FxFactory Pro 8.0.12-7730 视觉特效插件包">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -960,7 +918,7 @@
                             <a href="https://xclient.info/s/navicat-for-mongodb.html"
                                title="Navicat for MongoDB 16.3.5 图形化MongoDB数据库管理工具">
                                 <img class="lim-icon"
-                                     src="../static/3ed8f5ca-6e90-0508-c63f-b401ea000fd9.png"
+                                     src="{% static '' %}3ed8f5ca-6e90-0508-c63f-b401ea000fd9.png"
                                      alt="Navicat for MongoDB 16.3.5 图形化MongoDB数据库管理工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -985,7 +943,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/ireal-pro.html" title="iReal Pro 2024.1 编曲软件">
                                 <img class="lim-icon"
-                                     src="../static/8e6d695a-1a24-d311-1f4f-99e1dec77c5d.png"
+                                     src="{% static '' %}8e6d695a-1a24-d311-1f4f-99e1dec77c5d.png"
                                      alt="iReal Pro 2024.1 编曲软件">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -1010,7 +968,7 @@
                             <a href="https://xclient.info/s/navicat-for-sql-server.html"
                                title="Navicat for SQL Server 16.3.5 图形化 SQL Server 数据库管理工具">
                                 <img class="lim-icon"
-                                     src="../static/1bcc3df2-8fb7-23de-d044-8c0cb7031640.png"
+                                     src="{% static '' %}1bcc3df2-8fb7-23de-d044-8c0cb7031640.png"
                                      alt="Navicat for SQL Server 16.3.5 图形化 SQL Server 数据库管理工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -1036,7 +994,7 @@
                             <a href="https://xclient.info/s/navicat-for-postgresql.html"
                                title="Navicat for PostgreSQL 16.3.5 图形化 PostgreSQL 数据库管理工具">
                                 <img class="lim-icon"
-                                     src="../static/917f574c-7123-5ee7-bb2c-ad83f4019236.png"
+                                     src="{% static '' %}917f574c-7123-5ee7-bb2c-ad83f4019236.png"
                                      alt="Navicat for PostgreSQL 16.3.5 图形化 PostgreSQL 数据库管理工具">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -1061,7 +1019,7 @@
                         <div class="main">
                             <a href="https://xclient.info/s/forklift.html" title="Forklift 4.0.7 远程/本地文件管理利器">
                                 <img class="lim-icon"
-                                     src="../static/808d8565-234b-53a8-7c63-9d3972c8e8a0.png"
+                                     src="{% static '' %}808d8565-234b-53a8-7c63-9d3972c8e8a0.png"
                                      alt="Forklift 4.0.7 远程/本地文件管理利器">
                                 <div class="status_bar">
                                                 <span class="item download">
@@ -1127,33 +1085,6 @@
                     </ul>
                     <a href="https://xclient.info/a/" class="more">更多</a>
                 </div>
-
-                <!-- ad sidebar.index -->
-
-                <div>
-                    <div class="lim-ad">
-                        <!-- sidebar.index -->
-                        <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-1293127422149386"
-                             data-ad-slot="2711778150"
-                             data-ad-format="auto"></ins>
-                        <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script> -->
-                        <!-- Begin BidVertiser code -->
-                        <!-- <SCRIPT data-cfasync="false" SRC="//bdv.bidvertiser.com/BidVertiser.dbm?pid=840010&bid=1990899" TYPE="text/javascript"></SCRIPT> -->
-                        <!-- End BidVertiser code -->
-
-
-                        <!--  <a target="_blank" href="https://www.amazon.cn/s/ref=as_li_ss_tl?_encoding=UTF8&camp=536&creative=3132&k=airpods2&linkCode=ur2&ref=nb_sb_noss_1&tag=xclient-23">
-                             <img style="max-width: 100%" src="https://ws3.sinaimg.cn/large/006tNc79ly1g1vm8i36mqj309q09qgmy.jpg" alt="">
-                         </a> -->
-
-                    </div>
-                </div>
-
                 <div class="side_app_box">
                     <b class="tit">热门应用</b>
                     <ul class="app_list">
@@ -1162,7 +1093,7 @@
                             <div class="main">
                                 <a href="https://xclient.info/s/deskx.html" title="DeskX-超级桌面助手">
                                     <img class="lim-icon"
-                                         src="../static/1c872527-1bfd-1f65-1e31-91c4c4b7b2eb.png"
+                                         src="{% static '' %}1c872527-1bfd-1f65-1e31-91c4c4b7b2eb.png"
                                          alt="DeskX-超级桌面助手">
                                     <div class="info">
                                         <h3>DeskX-超级桌面助手</h3>
@@ -1187,7 +1118,7 @@
                                 <a href="https://xclient.info/s/irightmouse.html"
                                    title="iRightMouse 最强大的右键菜单工具">
                                     <img class="lim-icon"
-                                         src="../static/27b85083-c994-bf48-a7e2-b75a4acf1183.png"
+                                         src="{% static '' %}27b85083-c994-bf48-a7e2-b75a4acf1183.png"
                                          alt="iRightMouse 最强大的右键菜单工具">
                                     <div class="info">
                                         <h3>iRightMouse 超级右键 最强大的右键菜单工具</h3>
@@ -1211,7 +1142,7 @@
                             <div class="main">
                                 <a href="https://xclient.info/s/sketch.html" title="Sketch 99.5 轻量易用的矢量设计工具">
                                     <img class="lim-icon"
-                                         src="../static/14490f9f-6145-4b56-1cca-5ceee670fcf8.png"
+                                         src="{% static '' %}14490f9f-6145-4b56-1cca-5ceee670fcf8.png"
                                          alt="Sketch 99.5 轻量易用的矢量设计工具">
 
                                     <div class="info">
@@ -1239,7 +1170,7 @@
                                 <a href="https://xclient.info/s/adobe-zii.html"
                                    title="Adobe Zii 2022 7.0.0 Adobe系列软件激活工具">
                                     <img class="lim-icon"
-                                         src="../static/28384fdb-2de2-304c-4fc5-e01981032d1f.png"
+                                         src="{% static '' %}28384fdb-2de2-304c-4fc5-e01981032d1f.png"
                                          alt="Adobe Zii 2022 7.0.0 Adobe系列软件激活工具">
 
                                     <div class="info">
@@ -1264,7 +1195,7 @@
                                 <a href="https://xclient.info/s/office-for-mac.html"
                                    title="Microsoft Office 2021 16.75 多国语言">
                                     <img class="lim-icon"
-                                         src="../static/e461dc36-bac8-26ef-36eb-0db3df7007c3.png"
+                                         src="{% static '' %}e461dc36-bac8-26ef-36eb-0db3df7007c3.png"
                                          alt="Microsoft Office 2021 16.75 多国语言">
 
                                     <div class="info">
@@ -1290,7 +1221,7 @@
                                 <a href="https://xclient.info/s/adobe-photoshop-cc.html"
                                    title="Adobe Photoshop CC 2024 25.3.1">
                                     <img class="lim-icon"
-                                         src="../static/0d7d02c8-5437-63f3-7314-7d0d943d7d5d.png"
+                                         src="{% static '' %}0d7d02c8-5437-63f3-7314-7d0d943d7d5d.png"
                                          alt="Adobe Photoshop CC 2024 25.3.1">
 
                                     <div class="info">
@@ -1318,7 +1249,7 @@
                                 <a href="https://xclient.info/s/navicat-premium.html"
                                    title="Navicat Premium 16.3.5 强大的数据库管理工具">
                                     <img class="lim-icon"
-                                         src="../static/2bb0036e-e91d-2625-cd90-d357d2e63432.png"
+                                         src="{% static '' %}2bb0036e-e91d-2625-cd90-d357d2e63432.png"
                                          alt="Navicat Premium 16.3.5 强大的数据库管理工具">
 
                                     <div class="info">
@@ -1352,6 +1283,14 @@
 </div>
 <!-- end #body -->
 <script>
+    	$(document).ready(function () {
+		setTimeout(function () {
+			document.body.classList.add('animated', 'fadeIn');
+			document.body.style.visibility = 'visible';
+			document.getElementsByClassName('loading_container')[0].classList.add('animated', 'fadeOut');
+			document.getElementsByClassName('loading_container')[0].style.visibility = 'hidden';
+		}, 1500);
+	});
 	var show_index_pop_ads = false;
 </script>
 
@@ -1391,21 +1330,12 @@
 		}
 	})
 </script>
-
-<!-- ad footer -->
-<!-- 
-<div class="container">
-    <div class="lim-ad">
-        <script>(function(v,d,o,ai){ai=d.createElement('script');ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, '//a.vdo.ai/core/xclient/vdo.ai.js?vdo=34');</script> 
-    </div> 
-</div>
- -->
 <footer id="footer" class="footer">
     <div class="container-xl">
         <div class="row">
             <div class="col-4-m col-12">
                 <a class="logo" href="https://xclient.info/" title="精品MAC应用分享">
-                    <img src="../static/logo.png" alt="精品MAC应用分享">
+                    <img src="{% static '' %}logo.png" alt="精品MAC应用分享">
                 </a>
                 <p class="statement">
                     本站并不以盈利为目的，所有软件均来源于网络，旨在推广苹果电脑在国内的应用，并为大家带来更好的下载体验。如本站的内容对您的权利造成了影响，请发邮件至service@xclient.info,我们会在第一时间将涉及版权的内容进行删除。
@@ -1446,54 +1376,5 @@
         </div>
     </div>
 </footer><!-- end #footer -->
-
-
-<!-- <script type="text/javascript" charset="utf-8" src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script> -->
-<script type="text/javascript"
-        src="../static/adview_pic_cpc_cpm_cpa_guanggao_gg_ads_300x250.js"></script>
-<script>
-	var XC = {
-		ID: '',
-		AT: 'index', //archive type
-		icon: 'https://img.xclient.info/img/not-found-1-1.svg',
-		cover: 'https://img.xclient.info/img/default_cover.png',
-		dl: 'https://xclient.info/action/service?do=download'
-	};
-	var header = new Vue({
-		el: '#header',
-		data: {
-			at: XC.AT,
-			subat: XC.ID
-		},
-		mounted: function () {
-
-		}
-	})
-	var abptip = new Vue({
-		el: '#abptip',
-		data: {
-			abptip_show: false
-		},
-		mounted: function () {
-
-		}
-	})
-
-
-	//abp
-	window.onload = function () {
-		if (typeof (killads) == 'undefined') {
-			abptip.abptip_show = true;
-		}
-		try {
-			if (pop_business) {
-				pop_business.winLoaded = true;
-			}
-		} catch (e) {
-		}
-
-	}
-</script>
-
 </body>
 </html>
