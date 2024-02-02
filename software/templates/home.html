@@ -15,6 +15,7 @@
     <link href="{% static 'home/css/share.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static '' %}home/css/styles.min.css">
     <link rel="stylesheet" href="{% static '' %}home/css/style.v3.min.css">
+    <link rel="stylesheet" href="{% static 'front/css/sweetalert2.all.min.js' %}">
     <link rel="stylesheet" href="../../static/front/css/loading.css">
     <meta name="description" itemprop="description"
           content="精品MAC应用分享，每天分享大量mac软件，为您提供优质的mac软件,免费软件下载服务">
@@ -27,6 +28,12 @@
     <script src="{% static '' %}home/js/dayjs.min.js"></script>
     <script async="" src="{% static '' %}home/js/js_1.js"></script>
     <script src="{% static 'front/js/jquery.min.js' %}"></script>
+    <script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
+    <script src="{% static 'front/extend_js/general.js' %}"></script>
+    <script src="{% static 'front/extend_js/apis.js' %}"></script>
+    <script>
+        get_notice_to_all();
+    </script>
     <script>
 		window.dataLayer = window.dataLayer || [];
 

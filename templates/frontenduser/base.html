@@ -21,7 +21,8 @@
           href="../../static/front/css/uaf.css?ver=1699649159" type="text/css" media="all">
     <link rel="stylesheet" id="iconfont-css"
           href="../../static/front/css/iconfont.css?ver=4.1031" type="text/css" media="all">
-    <link rel="stylesheet" id="iconfont-io-1-css" href="../../static/front/css/font_1620678_18rbnd2homc.css" type="text/css"
+    <link rel="stylesheet" id="iconfont-io-1-css" href="../../static/front/css/font_1620678_18rbnd2homc.css"
+          type="text/css"
           media="all">
     <link rel="stylesheet" id="iconfont-io-2-css" href="../../static/front/css/font_4184880_kci8o10x3ij.css"
           type="text/css" media="all">
@@ -37,6 +38,7 @@
     <link rel="stylesheet" id="algolia-autocomplete-css"
           href="../../static/front/css/algolia-autocomplete.css?ver=2.6.1"
           type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'front/css/sweetalert2.all.min.js' %}">
     <link rel="stylesheet" href="../../static/front/css/loading.css">
     {% block style %}
     {% endblock %}
@@ -74,6 +76,9 @@
         src="../../static/front/js/autocomplete-noconflict.js?ver=2.6.1"
         id="algolia-autocomplete-noconflict-js"></script>
 <script type="text/javascript" src="../../static/front/js/new-post.js?ver=4.1031" id="new-post-js"></script>
+<script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'front/extend_js/general.js' %}"></script>
+<script src="{% static 'front/extend_js/apis.js' %}"></script>
 <script>
 	$(document).ready(function () {
 		setTimeout(function () {
@@ -157,19 +162,19 @@
 
 {# append page footer into body#}
 <script>
-    function MiniOrNormalSidebar() {
+	function MiniOrNormalSidebar() {
 		let temp = document.body.classList;
-		if(temp.contains('mini-sidebar')) {
+		if (temp.contains('mini-sidebar')) {
 			document.body.classList.remove('fadeOut');
 			document.body.classList.remove('mini-sidebar');
 			document.body.classList.add('fadeIn');
-        } else {
+		} else {
 			document.body.classList.remove('fadeIn');
 			document.body.classList.add('mini-sidebar');
 			document.body.classList.add('fadeOut');
-        }
-    }
-    
+		}
+	}
+
 	$(document).ready(function () {
 		document.getElementsByTagName('body')[0].innerHTML += `
         <footer>

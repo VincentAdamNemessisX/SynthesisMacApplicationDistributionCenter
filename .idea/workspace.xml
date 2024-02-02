@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized all static files and appended home page instead of older one">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended loading animation to home page">
+      <change afterPath="$PROJECT_DIR$/static/front/css/sweetalert2.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/adview_pic_cpc_cpm_cpa_guanggao_gg_ads_300x250.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/analytics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/axios.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/dayjs.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/dayjs.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/hm.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/hm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/js_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/js_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/share.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/css/share.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/style.v3.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/css/style.v3.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/styles.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/css/styles.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/swiper.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/css/swiper.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/static/vue.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/software/static/home/js/vue.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/software/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +75,7 @@
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/js",
+    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/css",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -98,10 +88,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\extend_js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\fonts" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\software\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -170,7 +160,7 @@
       <workItem from="1706349991114" duration="60000" />
       <workItem from="1706361992876" duration="606000" />
       <workItem from="1706605344806" duration="15144000" />
-      <workItem from="1706896518405" duration="7892000" />
+      <workItem from="1706896518405" duration="8418000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -332,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706902383127</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="appended loading animation to home page">
+      <option name="closed" value="true" />
+      <created>1706904682925</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1706904682925</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +360,8 @@
     <MESSAGE value="about finished all query logic with redis cache apis except frontenduser" />
     <MESSAGE value="almost finished question cache with database query;&#10;optimized some logic" />
     <MESSAGE value="optimized all static files and appended home page instead of older one" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized all static files and appended home page instead of older one" />
+    <MESSAGE value="appended loading animation to home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended loading animation to home page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1705733396603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
