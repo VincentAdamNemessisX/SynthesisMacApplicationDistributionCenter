@@ -1,12 +1,15 @@
 # Create your views here.
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 from django_router import router
 from general.init_cache import get_notices
 
 
 @router.path(pattern='api/notice/to/all/')
+@require_POST
 def get_notice_to_all(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+    # if request.method == 'GET':
         notices = get_notices()
         notices = [notice for notice in notices if notice.type == 1]
         notices = [
@@ -28,22 +31,30 @@ def get_notice_to_all(request):
 
 
 @router.path(pattern='api/notice/to/specific/software/')
+@require_POST
 def get_specific_app_notice(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+    # if request.method == 'GET':
+        # software_id = request.GET.get('software_id')
+        software_id = request.POST.get('software_id')
+        try:
+            software_id = int(software_id)
+        except ValueError:
+            return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
+        except TypeError:
+            return JsonResponse({'code': 401, 'msg': 'failed with wrong params'})
         notices = get_notices()
-        notice = [notice for notice in notices
-                   if notice.type == 2 and
-                   notice.app.id == request.GET.get('software_id')]
+        notice = [notice for notice in notices if notice.type == 2]
         notice = [
             {
-                'id': notice.id,
-                'title': notice.title,
-                'content': notice.content,
-                'created_time': notice.created_time,
-                'image': notice.image.url if notice.image else None,
-                'app': notice.app.name if notice.app else None
+                'id': n.id,
+                'title': n.title,
+                'content': n.content,
+                'created_time': n.created_time,
+                'image': n.image.url if n.image else None,
+                'app': n.app.name if n.app else None
             }
-            for notice in notice
+            for n in notice
         ]
         if notices:
             return JsonResponse({'code': 200, 'msg': '获取成功', 'data': notice})

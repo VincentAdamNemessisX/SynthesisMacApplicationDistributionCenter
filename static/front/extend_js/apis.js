@@ -1,9 +1,12 @@
 // 用于获取API数据
-function get_notice_to_all() {
+function get_notice_to_all(csrftoken) {
 	$.ajax({
 		url: "/announcements/api/notice/to/all/",
-		type: "GET",
+		type: "POST",
 		dataType: "json",
+		data: {
+			csrfmiddlewaretoken: csrftoken
+		},
 		success: function (data) {
 			if (data.code === 200) {
 				if (data.data.length > 0) {
@@ -63,11 +66,14 @@ function get_notice_to_all() {
 	})
 }
 
-function get_notice_to_specific_app(app_id) {
+function get_notice_to_specific_app(csrftoken, software_id) {
 	$.ajax({
-		url: "/announcements/api/notice/to/specific/app/",
-		type: "GET",
-		data: {'app_id': app_id},
+		url: "/announcements/api/notice/to/specific/software/",
+		type: "POST",
+		data: {
+			csrfmiddlewaretoken: csrftoken,
+			software_id: software_id
+		},
 		dataType: "json",
 		success: function (data) {
 			if (data.code === 200) {

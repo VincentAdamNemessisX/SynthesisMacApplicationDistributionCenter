@@ -10,7 +10,7 @@ from software.models import SoftWare
 def get_notices():
     notices = cache.get('notices')
     if notices is None:
-        notices = list(Announcements.objects.all().order_by('-created_time'))
+        notices = list(Announcements.objects.filter().order_by('-created_time'))
         cache.set('notices', notices, 600)
     return cache.get('notices')
 

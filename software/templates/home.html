@@ -1291,12 +1291,13 @@
 <!-- end #body -->
 <script>
     	$(document).ready(function () {
-		setTimeout(function () {
-			document.body.classList.add('animated', 'fadeIn');
-			document.body.style.visibility = 'visible';
-			document.getElementsByClassName('loading_container')[0].classList.add('animated', 'fadeOut');
-			document.getElementsByClassName('loading_container')[0].style.visibility = 'hidden';
-		}, 1500);
+            get_notice_to_all('{{ csrf_token }}');
+            setTimeout(function () {
+                document.body.classList.add('animated', 'fadeIn');
+                document.body.style.visibility = 'visible';
+                document.getElementsByClassName('loading_container')[0].classList.add('animated', 'fadeOut');
+                document.getElementsByClassName('loading_container')[0].style.visibility = 'hidden';
+            }, 1500);
 	});
 	var show_index_pop_ads = false;
 </script>
