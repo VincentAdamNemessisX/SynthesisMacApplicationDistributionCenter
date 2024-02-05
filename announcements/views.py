@@ -44,7 +44,7 @@ def get_specific_app_notice(request):
         except TypeError:
             return JsonResponse({'code': 401, 'msg': 'failed with wrong params'})
         notices = get_notices()
-        notice = [notice for notice in notices if notice.type == 2]
+        notice = [notice for notice in notices if notice.type == 2 and notice.app.id == software_id]
         notice = [
             {
                 'id': n.id,
