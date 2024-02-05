@@ -1,0 +1,97 @@
+{% extends 'frontenduser/base.html' %}
+{% load static %}
+{% block style %}
+    <style>
+        #super-search-fm {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="loading_container">
+        <div class="loading"><i></i><i></i><i></i><i></i></div>
+    </div>
+    {% include 'frontenduser/sidebar.html' %}
+    <div class="main-content flex-fill">
+        {% include 'frontenduser/header-nav.html' %}
+        <div id="content" class="container mb-4 mb-md-5">
+            <div id="search" class="s-search mx-auto my-4">
+                <form name="formsearch" method="get" action="https://macwk.cn" id="super-search-fm">
+                    <input type="hidden" name="post_type" value="app">
+                    <label for="search-text"></label><input type="text" id="search-text" required="required" name="s"
+                                                            class="form-control search-keyword aa-input"
+                                                            placeholder="输入关键字搜索"
+                                                            style="outline: 0;" autocomplete="on" spellcheck="false"
+                                                            role="combobox"
+                                                            aria-autocomplete="list" aria-expanded="false"
+                                                            aria-owns="algolia-autocomplete-listbox-0"
+                                                            value="{{ search_str }}"
+                                                            dir="auto">
+                    <pre aria-hidden="true"
+                         style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0; letter-spacing: normal; text-indent: 0; text-rendering: auto; text-transform: none;"></pre>
+                    <button type="submit"><i class="iconfont icon-search "></i></button>
+                </form>
+            </div>
+            <main class="content" role="main">
+                <div class="content-wrap">
+                    <div class="content-layout">
+                        <div class="mb-4">
+                        </div>
+                        <h4 class="text-gray text-lg mb-4"><i class="iconfont icon-search mr-1"></i>“{{ search_str }}”的搜索结果
+                        </h4>
+
+                        <div class="row">
+
+
+                            <div class="col-4 col-md-3  col-xl-5a pb-1">
+                                <div class="card-app default list-item">
+                                    <div class="media p-0 app-rounded"
+                                         style="background-image: linear-gradient(130deg, transparent, transparent);">
+                                        <a class="media-content" href="https://macwk.cn/app/505.html" target="_blank"
+                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/09/1670940698_icon.webp)"
+                                           style="background-size: 100%; background-image: url(https://macwk.cn/wp-content/uploads/2023/09/1670940698_icon.webp);"
+                                           data-was-processed="true"></a>
+                                    </div>
+                                    <div class="list-content text-center pt-2">
+                                        <div class="list-body ">
+                                            <a href="https://macwk.cn/app/505.html" target="_blank"
+                                               class=" list-title text-md overflowClip_1">
+                                                Navicat Premium
+                                            </a>
+                                            <div class="mt-1">
+                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
+                                                    Navicat Premium 是一款非常强大的数据库管理工具，允许您在一个应用程序中同时连接到
+                                                    MySQL、SQLite、Oracle 和 PostgreSQL 数据库，使多种数据库类型的管理变得非常简单和方便。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="posts-nav mb-4">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+		{% if error %}
+			$(document).ready(function () {
+				Swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '{{ code }}:  {{ error }}!',
+					confirmButtonText: '我已了解！'
+				}).then(function () {
+					window.history.back();
+                })
+			})
+		{% endif %}
+    </script>
+{% endblock %}

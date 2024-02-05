@@ -274,3 +274,12 @@ def publish_article(request):
             'code': 401,
             'msg': '请求方式错误'
         })
+
+
+def articles_list(request):
+    if request.method == "GET":
+        return render(request, 'articles_list.html')
+    return JsonResponse({
+        'code': 405,
+        'msg': 'requested with wrong method'
+    })

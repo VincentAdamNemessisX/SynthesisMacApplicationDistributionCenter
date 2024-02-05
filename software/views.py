@@ -215,3 +215,20 @@ def software_details(request):
         return render(request, 'frontenduser/software_details.html', {
             'software_id': software_id
         })
+
+
+@require_GET
+def search_result(request):
+    if request.method == 'GET':
+        search_str = request.GET.get('s')
+        if search_str:
+            matched_software = SoftWare.objects.filter(name__contains=search_str, state=2)
+            return render(request, 'frontenduser/search_result.html', {
+                'search_str': search_str,
+                'matched_software': matched_software
+            })
+        else:
+            return render(request, 'frontenduser/search_result.html', {
+                'error': 'invalid params',
+                'code': 402
+            })

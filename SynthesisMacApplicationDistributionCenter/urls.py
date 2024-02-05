@@ -37,7 +37,9 @@ urlpatterns = [
                   path('', home),
                   path('index/', home),
                   path('analytics/', ana),
+                  path('articles/', articles_list),
                   path('rank/', rank),
+                  path('search/', search_result),
                   path('software/details/', software_details),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT

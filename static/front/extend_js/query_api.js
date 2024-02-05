@@ -1,5 +1,5 @@
 // 用于获取API数据
-function get_notice_to_all(csrftoken) {
+async function get_notice_to_all(csrftoken) {
 	$.ajax({
 		url: "/announcements/api/notice/to/all/",
 		type: "POST",
