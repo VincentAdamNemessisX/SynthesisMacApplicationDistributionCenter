@@ -80,6 +80,20 @@
 <script src="{% static 'front/extend_js/general.js' %}"></script>
 <script src="{% static 'front/extend_js/query_api.js' %}"></script>
 <script>
+	const channel = new BroadcastChannel('sync-sidebar');
+	channel.addEventListener('message', event => {
+		if (event.data === 'mini-sidebar') {
+			document.body.classList.remove('fadeIn');
+			document.body.classList.add('mini-sidebar');
+			document.body.classList.add('fadeOut');
+		} else if (event.data === 'normal-sidebar') {
+			if (document.body.classList.contains('mini-sidebar')) {
+				document.body.classList.remove('fadeOut');
+				document.body.classList.remove('mini-sidebar');
+				document.body.classList.add('fadeIn');
+			}
+		}
+	});
 	$(document).ready(function () {
 		setTimeout(function () {
 			document.body.classList.add('animated', 'fadeIn');
@@ -159,8 +173,6 @@
 		`;
 	})
 </script>
-
-{# append page footer into body#}
 <script>
 	function MiniOrNormalSidebar() {
 		let temp = document.body.classList;
@@ -168,13 +180,15 @@
 			document.body.classList.remove('fadeOut');
 			document.body.classList.remove('mini-sidebar');
 			document.body.classList.add('fadeIn');
+			channel.postMessage('normal-sidebar');
 		} else {
 			document.body.classList.remove('fadeIn');
 			document.body.classList.add('mini-sidebar');
 			document.body.classList.add('fadeOut');
+			channel.postMessage('mini-sidebar');
 		}
 	}
-
+	
 	$(document).ready(function () {
 		document.getElementsByTagName('body')[0].innerHTML += `
         <footer>

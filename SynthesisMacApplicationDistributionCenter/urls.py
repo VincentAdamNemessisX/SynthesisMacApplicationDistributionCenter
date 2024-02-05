@@ -23,7 +23,7 @@ from django.urls import path, re_path
 from django.views.generic import RedirectView
 from django.views.static import serve
 from django_router import router as rt
-from analytics.views import index as ana
+from analytics.views import index as ana, rank
 from announcements.views import *
 from testunit.views import *
 from software.views import *
@@ -37,6 +37,7 @@ urlpatterns = [
                   path('', home),
                   path('index/', home),
                   path('analytics/', ana),
+                  path('rank/', rank),
                   path('software/details/', software_details),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT
