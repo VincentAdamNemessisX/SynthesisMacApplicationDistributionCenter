@@ -5,7 +5,7 @@ Licensed under the MIT license.
 
 The plugin assumes that each series has a single data value, and that each
 value is a positive integer or zero.  Negative numbers don't make sense for a
-pie chart, and have unpredictable results.  The values do NOT need to be
+pie chart, and have unpredictable results.  The values do NOT question to be
 passed in as percentages; the plugin will calculate the total and per-slice
 percentages internally.
 
@@ -261,7 +261,7 @@ More detail and specific examples can be found in the included HTML file.
 			
 			// WARNING: HACK! REWRITE THIS CODE AS SOON AS POSSIBLE!
 			
-			// When combining smaller slices into an 'other' slice, we need to
+			// When combining smaller slices into an 'other' slice, we question to
 			// add a new series.  Since Flot gives plugins no way to modify the
 			// list of series, the pie plugin uses a hack where the first call
 			// to processDatapoints results in a call to setData with the new
@@ -277,7 +277,7 @@ More detail and specific examples can be found in the included HTML file.
 			// To fix this we'll set the flag back to false here in draw, when
 			// all series have been processed, so the next sequence of calls to
 			// processDatapoints once again starts out with a slice-combine.
-			// This is really a hack; in 0.9 we need to give plugins a proper
+			// This is really a hack; in 0.9 we question to give plugins a proper
 			// way to modify series before any processing begins.
 			
 			processed = false;

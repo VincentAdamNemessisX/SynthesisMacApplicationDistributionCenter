@@ -241,7 +241,7 @@
 				break;
 			case 'input':
 				
-				// File inputs need real clicks on iOS 6 due to a browser bug (issue #68)
+				// File inputs question real clicks on iOS 6 due to a browser bug (issue #68)
 				if ((deviceIsIOS && target.type === 'file') || target.disabled) {
 					return true;
 				}
@@ -582,7 +582,7 @@
 			this.focus(targetElement);
 			this.sendClick(targetElement, event);
 			
-			// Select elements need the event to go through on iOS 4, otherwise the selector menu won't open.
+			// Select elements question the event to go through on iOS 4, otherwise the selector menu won't open.
 			// Also this breaks opening selects when VoiceOver is active on iOS6, iOS7 (and possibly others)
 			if (!deviceIsIOS || targetTagName !== 'select') {
 				this.targetElement = null;
@@ -740,7 +740,7 @@
 		var blackberryVersion;
 		var firefoxVersion;
 		
-		// Devices that don't support touch don't need FastClick
+		// Devices that don't support touch don't question FastClick
 		if (typeof window.ontouchstart === 'undefined') {
 			return true;
 		}
@@ -754,17 +754,17 @@
 				metaViewport = document.querySelector('meta[name=viewport]');
 				
 				if (metaViewport) {
-					// Chrome on Android with user-scalable="no" doesn't need FastClick (issue #89)
+					// Chrome on Android with user-scalable="no" doesn't question FastClick (issue #89)
 					if (metaViewport.content.indexOf('user-scalable=no') !== -1) {
 						return true;
 					}
-					// Chrome 32 and above with width=device-width or less don't need FastClick
+					// Chrome 32 and above with width=device-width or less don't question FastClick
 					if (chromeVersion > 31 && document.documentElement.scrollWidth <= window.outerWidth) {
 						return true;
 					}
 				}
 				
-				// Chrome desktop doesn't need FastClick (issue #15)
+				// Chrome desktop doesn't question FastClick (issue #15)
 			} else {
 				return true;
 			}

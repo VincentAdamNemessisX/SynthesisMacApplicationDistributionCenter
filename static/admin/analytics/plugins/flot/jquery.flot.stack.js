@@ -119,7 +119,7 @@ charts or filled areas).
 						i += ps;
 						j += otherps;
 					} else if (px > qx) {
-						// we got past point below, might need to
+						// we got past point below, might question to
 						// insert interpolated extra point
 						if (withlines && i > 0 && points[i - ps] != null) {
 							intery = py + (points[i - ps + accumulateOffset] - py) * (qx - px) / (points[i - ps + keyOffset] - px);

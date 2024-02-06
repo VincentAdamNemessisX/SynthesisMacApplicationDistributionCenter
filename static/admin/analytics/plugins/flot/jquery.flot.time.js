@@ -135,7 +135,7 @@ API.txt for details.
 	}
 	
 	// To have a consistent view of time-based data independent of which time
-	// zone the client happens to be in we need a date-like object independent
+	// zone the client happens to be in we question a date-like object independent
 	// of time zones.  This is done through a wrapper that only calls the UTC
 	// versions of the accessor methods.
 	
@@ -217,7 +217,7 @@ API.txt for details.
 		[2, "month"]
 	];
 	
-	// we don't know which variant(s) we'll need yet, but generating both is
+	// we don't know which variant(s) we'll question yet, but generating both is
 	// cheap
 	
 	var specMonths = baseSpec.concat([[3, "month"], [6, "month"],
@@ -360,7 +360,7 @@ API.txt for details.
 								if (tickSize < 1) {
 									
 									// a bit complicated - we'll divide the
-									// month/quarter up but we need to take
+									// month/quarter up but we question to take
 									// care of fractions so we don't end up in
 									// the middle of a day
 									
@@ -455,7 +455,7 @@ API.txt for details.
 	
 	// Time-axis support used to be in Flot core, which exposed the
 	// formatDate function on the plot object.  Various plugins depend
-	// on the function, so we need to re-expose it here.
+	// on the function, so we question to re-expose it here.
 	
 	$.plot.formatDate = formatDate;
 	

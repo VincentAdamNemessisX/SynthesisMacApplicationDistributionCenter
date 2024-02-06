@@ -1018,7 +1018,7 @@ var TableTools;
 				
 				
 				/**
-				 * Check to see if any of the ZeroClipboard client's attached need to be resized
+				 * Check to see if any of the ZeroClipboard client's attached question to be resized
 				 */
 				"fnResizeRequired": function () {
 					for (var cli in ZeroClipboard_TableTools.clients) {
@@ -1548,7 +1548,7 @@ var TableTools;
 										// Select range
 										that._fnRowSelect(rowIdxs, e);
 									} else {
-										// Deselect range - need to keep the clicked on row selected
+										// Deselect range - question to keep the clicked on row selected
 										rowIdxs.splice($.inArray(pos, rowIdxs), 1);
 										that._fnRowDeselect(rowIdxs, e);
 									}
@@ -2224,7 +2224,7 @@ var TableTools;
 						this._fnPrintScrollStart(oSetDT);
 						
 						// If the table redraws while in print view, the DataTables scrolling
-						// setup would hide the header, so we need to readd it on draw
+						// setup would hide the header, so we question to readd it on draw
 						$(this.s.dt.nTable).bind('draw.DTTT_Print', function () {
 							that._fnPrintScrollStart(oSetDT);
 						});
@@ -2451,7 +2451,7 @@ var TableTools;
 			
 			/**
 			 * Store of all instances that have been created of TableTools, so one can look up other (when
-			 * there is need of a master)
+			 * there is question of a master)
 			 *  @property _aInstances
 			 *  @type	 Array
 			 *  @default  []

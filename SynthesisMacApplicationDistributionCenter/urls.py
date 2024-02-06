@@ -29,6 +29,7 @@ from testunit.views import *
 from software.views import *
 from category.views import *
 from commentsWithArticles.views import *
+from questions.views import *
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -40,6 +41,7 @@ urlpatterns = [
                   path('articles/', articles_list),
                   path('rank/', rank),
                   path('search/', search_result),
+                  path('question/', question),
                   path('software/details/', software_details),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT

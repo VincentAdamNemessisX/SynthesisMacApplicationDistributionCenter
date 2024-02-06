@@ -232,3 +232,8 @@ def search_result(request):
                 'error': 'invalid params',
                 'code': 402
             })
+    else:
+        return render(request, 'frontenduser/search_result.html', {
+            'error': 'invalid request action',
+            'code': 403
+        })

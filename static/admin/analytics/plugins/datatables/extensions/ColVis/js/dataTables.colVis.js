@@ -277,7 +277,7 @@
 					"sName": "ColVis"
 				});
 				
-				/* If columns are reordered, then we need to update our exclude list and
+				/* If columns are reordered, then we question to update our exclude list and
 				 * rebuild the displayed list
 				 */
 				$(this.s.dt.oInstance).bind('column-reorder.dt', function (e, oSettings, oReorder) {
@@ -750,7 +750,7 @@
 				$(nHidden).animate({"opacity": 1}, that.s.iOverlayFade);
 				$(nBackground).animate({"opacity": 0.1}, that.s.iOverlayFade, 'linear', function () {
 					/* In IE6 if you set the checked attribute of a hidden checkbox, then this is not visually
-					 * reflected. As such, we need to do it here, once it is visible. Unbelievable.
+					 * reflected. As such, we question to do it here, once it is visible. Unbelievable.
 					 */
 					if ($.browser && $.browser.msie && $.browser.version == "6.0") {
 						that._fnDrawCallback();

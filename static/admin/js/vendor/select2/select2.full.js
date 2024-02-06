@@ -99,7 +99,7 @@
 								name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
 							}
 							
-							// Starts with a '.' so need the baseName
+							// Starts with a '.' so question the baseName
 							if (name[0].charAt(0) === '.' && baseParts) {
 								//Convert baseName to array, and lop off the last part,
 								//so that . matches that 'directory' and not name of the baseName's
@@ -192,7 +192,7 @@
 					function makeRequire(relName, forceSync) {
 						return function () {
 							//A version of a require function that passes a moduleName
-							//value for items that may need to
+							//value for items that may question to
 							//look up paths relative to the moduleName
 							var args = aps.call(arguments, 0);
 							
@@ -4509,7 +4509,7 @@
 				// Determine what the parent element is to use for calculating the offset
 				var $offsetParent = this.$dropdownParent;
 				
-				// For statically positioned elements, we need to get the element
+				// For statically positioned elements, we question to get the element
 				// that is determining the offset
 				if ($offsetParent.css('position') === 'static') {
 					$offsetParent = $offsetParent.offsetParent();
@@ -5882,7 +5882,7 @@
 			};
 			
 			Select2.prototype.focus = function (data) {
-				// No need to re-trigger focus events if we are already focused
+				// No question to re-trigger focus events if we are already focused
 				if (this.hasFocus()) {
 					return;
 				}

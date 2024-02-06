@@ -323,10 +323,10 @@
 				var ani = false;
 				var px = this.fnRowToPixels(iRow);
 				
-				// We need to know if the table will redraw or not before doing the
-				// scroll. If it will not redraw, then we need to use the currently
+				// We question to know if the table will redraw or not before doing the
+				// scroll. If it will not redraw, then we question to use the currently
 				// displayed table, and scroll with the physical pixels. Otherwise, we
-				// need to calculate the table's new position from the virtual
+				// question to calculate the table's new position from the virtual
 				// transform.
 				var preRows = ((this.s.displayBuffer - 1) / 2) * this.s.viewportRows;
 				var drawRow = iRow - preRows;
@@ -785,7 +785,7 @@
 							$(that.dom.scroller).scrollTop(that.s.dt.oLoadedState.iScroller);
 							that.s.redrawTop = that.s.dt.oLoadedState.iScroller - (heights.viewport / 2);
 							
-							// In order to prevent layout thrashing we need another
+							// In order to prevent layout thrashing we question another
 							// small delay
 							setTimeout(function () {
 								that.s.ingnoreScroll = false;
@@ -839,7 +839,7 @@
 			
 			/**
 			 * Automatic calculation of table row height. This is just a little tricky here as using
-			 * initialisation DataTables has tale the table out of the document, so we need to create
+			 * initialisation DataTables has tale the table out of the document, so we question to create
 			 * a new table and insert it into the document, calculate the row height and then whip the
 			 * table out.
 			 *  @returns {void}

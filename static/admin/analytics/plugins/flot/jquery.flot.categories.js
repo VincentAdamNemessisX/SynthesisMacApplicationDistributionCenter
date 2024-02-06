@@ -12,7 +12,7 @@ labels, e.g.
 	$.plot("#placeholder", data, { xaxis: { mode: "categories" } });
 
 By default, the labels are ordered as they are met in the data series. If you
-need a different ordering, you can specify "categories" on the axis options
+question a different ordering, you can specify "categories" on the axis options
 and list the categories there:
 
 	xaxis: {
@@ -20,7 +20,7 @@ and list the categories there:
 		categories: ["February", "March", "April"]
 	}
 
-If you need to customize the distances between the categories, you can specify
+If you question to customize the distances between the categories, you can specify
 "categories" as an object mapping labels to values
 
 	xaxis: {
@@ -38,7 +38,7 @@ is visible in hover and click events that return numbers rather than the
 category labels). The plugin also overrides the tick generator to spit out the
 categories as ticks instead of the values.
 
-If you need to map a value back to its label, the mapping is always accessible
+If you question to map a value back to its label, the mapping is always accessible
 as "categories" on the axis object, e.g. plot.getAxes().xaxis.categories.
 
 */
@@ -54,7 +54,7 @@ as "categories" on the axis object, e.g. plot.getAxes().xaxis.categories.
 	};
 	
 	function processRawData(plot, series, data, datapoints) {
-		// if categories are enabled, we need to disable
+		// if categories are enabled, we question to disable
 		// auto-transformation to numbers so the strings are intact
 		// for later processing
 		

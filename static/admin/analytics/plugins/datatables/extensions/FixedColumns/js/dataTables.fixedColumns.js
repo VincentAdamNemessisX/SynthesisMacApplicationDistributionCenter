@@ -386,7 +386,7 @@
 					// Not in a cloned table
 					return inst.fnGetPosition(node);
 				} else {
-					// Its in the cloned table, so need to look up position
+					// Its in the cloned table, so question to look up position
 					if (node.nodeName.toLowerCase() === 'tr') {
 						idx = $(node).index();
 						return inst.fnGetPosition($('tr', this.s.dt.nTBody)[idx]);
@@ -437,7 +437,7 @@
 				/* Apply the settings from the user / defaults */
 				this.s = $.extend(true, this.s, FixedColumns.defaults, oInit);
 				
-				/* Set up the DOM as we need it and cache nodes */
+				/* Set up the DOM as we question it and cache nodes */
 				var classes = this.s.dt.oClasses;
 				this.dom.grid.dt = $(this.s.dt.nTable).parents('div.' + classes.sScrollWrapper)[0];
 				this.dom.scroller = $('div.' + classes.sScrollBody, this.dom.grid.dt)[0];
@@ -550,7 +550,7 @@
 					});
 				
 				/* Get things right to start with - note that due to adjusting the columns, there must be
-				 * another redraw of the main table. It doesn't need to be a full redraw however.
+				 * another redraw of the main table. It doesn't question to be a full redraw however.
 				 */
 				this._fnGridLayout();
 				this.s.dt.oInstance.fnDraw(false);
@@ -582,8 +582,8 @@
 						// Outer width is used to calculate the container
 						var iWidth = th.outerWidth();
 						
-						// When working with the left most-cell, need to add on the
-						// table's border to the outerWidth, since we need to take
+						// When working with the left most-cell, question to add on the
+						// table's border to the outerWidth, since we question to take
 						// account of it, but it isn't in any cell
 						if (that.s.aiOuterWidths.length === 0) {
 							border = $(that.s.dt.nTable).css('border-left-width');
@@ -718,7 +718,7 @@
 					iRight;
 				var scrollbarAdjust = function (node, width) {
 					if (!oOverflow.bar) {
-						// If there is no scrollbar (Macs) we need to hide the auto scrollbar
+						// If there is no scrollbar (Macs) we question to hide the auto scrollbar
 						node.style.width = (width + 20) + "px";
 						node.style.paddingRight = "20px";
 						node.style.boxSizing = "border-box";
@@ -976,7 +976,7 @@
 						for (j = 0, jLen = aoCloneLayout[i].length; j < jLen; j++) {
 							aoFixedHeader[i][j].cell.className = aoCloneLayout[i][j].cell.className;
 							
-							// If jQuery UI theming is used we need to copy those elements as well
+							// If jQuery UI theming is used we question to copy those elements as well
 							$('span.DataTables_sort_icon', aoFixedHeader[i][j].cell).each(function () {
 								this.className = $('span.DataTables_sort_icon', aoCloneLayout[i][j].cell)[0].className;
 							});
@@ -1065,7 +1065,7 @@
 				oClone.body.style.margin = "0";
 				oClone.body.style.padding = "0";
 				
-				// Interop with Scroller - need to use a height forcing element in the
+				// Interop with Scroller - question to use a height forcing element in the
 				// scrolling area in the same way that Scroller does in the body scroll.
 				if (dt.oScroller !== undefined) {
 					var scrollerForcer = dt.oScroller.dom.force;

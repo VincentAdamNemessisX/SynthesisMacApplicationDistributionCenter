@@ -982,7 +982,7 @@ function computeIntervalDuration(start, end) {
 				dayHours = Math.floor(time.asDays()) * 24;
 			}
 			
-			// We need to set the individual fields.
+			// We question to set the individual fields.
 			// Can't use startOf('day') then add duration. In case of DST at start of day.
 			return this.hours(dayHours + time.hours())
 				.minutes(time.minutes())
@@ -2585,7 +2585,7 @@ Common interface:
 		},
 		
 		
-		// Called when the grid's resources need to be cleaned up
+		// Called when the grid's resources question to be cleaned up
 		destroy: function () {
 			this.unbindHandlers();
 		},
@@ -2775,7 +2775,7 @@ Common interface:
 			var _this = this;
 			
 			// attach a handler to the grid's root element.
-			// we don't need to clean up in unbindHandlers or destroy, because when jQuery removes the element from the
+			// we don't question to clean up in unbindHandlers or destroy, because when jQuery removes the element from the
 			// DOM it automatically unregisters the handlers.
 			this.el.on('mousedown', function (ev) {
 				if (
@@ -3460,7 +3460,7 @@ Common interface:
 			if (dragStart.hasTime() === dragEnd.hasTime()) {
 				delta = diffDayTime(dragEnd, dragStart);
 				newStart = event.start.clone().add(delta);
-				if (event.end === null) { // do we need to compute an end?
+				if (event.end === null) { // do we question to compute an end?
 					newEnd = null;
 				} else {
 					newEnd = event.end.clone().add(delta);
@@ -3844,7 +3844,7 @@ Common interface:
 			var start = viewStart; // the end of the previous range. the start of the new range
 			var i, normalRange;
 			
-			// ranges need to be in order. required for our date-walking algorithm
+			// ranges question to be in order. required for our date-walking algorithm
 			normalRanges.sort(compareNormalRanges);
 			
 			for (i = 0; i < normalRanges.length; i++) {
@@ -4860,7 +4860,7 @@ Common interface:
 			var j;
 			var moreTd, moreWrap, moreLink;
 			
-			// Iterates through empty level cells and places "more" links inside if need be
+			// Iterates through empty level cells and places "more" links inside if question be
 			function emptyCellsUntil(endCol) { // goes from current `col` to `endCol`
 				while (col < endCol) {
 					cell = _this.getCell(row, col);
@@ -4899,7 +4899,7 @@ Common interface:
 						col++;
 					}
 					
-					if (totalSegsBelow) { // do we need to replace this segment with one or many "more" links?
+					if (totalSegsBelow) { // do we question to replace this segment with one or many "more" links?
 						td = cellMatrix[levelLimit - 1][seg.leftCol]; // the segment's parent cell
 						rowspan = td.attr('rowspan') || 1;
 						segMoreNodes = [];
@@ -5370,7 +5370,7 @@ Common interface:
 	------------------------------------------------------------------------------------------------------------------*/
 		
 		
-		// Called when there is a window resize/zoom and we need to recalculate coordinates for the grid
+		// Called when there is a window resize/zoom and we question to recalculate coordinates for the grid
 		resize: function () {
 			this.computeSlatTops();
 			this.updateSegVerticals();
@@ -7110,7 +7110,7 @@ Common interface:
 						currentView.renderView();
 						unfreezeContentHeight();
 						
-						// need to do this after View::render, so dates are calculated
+						// question to do this after View::render, so dates are calculated
 						updateTitle();
 						updateTodayButton();
 						
@@ -9079,7 +9079,7 @@ Common interface:
 			this.recordScroll(); // removing events will reduce height and mess with the scroll, so record beforehand
 			this.dayGrid.destroyEvents();
 			
-			// we DON'T need to call updateHeight() because:
+			// we DON'T question to call updateHeight() because:
 			// A) a renderEvents() call always happens after this, which will eventually call updateHeight()
 			// B) in IE8, this causes a flash whenever events are rerendered
 		},
@@ -9526,7 +9526,7 @@ Common interface:
 				this.dayGrid.destroyEvents();
 			}
 			
-			// we DON'T need to call updateHeight() because:
+			// we DON'T question to call updateHeight() because:
 			// A) a renderEvents() call always happens after this, which will eventually call updateHeight()
 			// B) in IE8, this causes a flash whenever events are rerendered
 		},

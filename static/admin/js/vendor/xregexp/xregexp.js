@@ -152,7 +152,7 @@
 							var sub = asXRegExp(subs[p], addFlagX);
 							data[p] = {
 								// Deanchoring allows embedding independently useful anchored regexes. If you
-								// really need to keep your anchors, double them (i.e., `^^...$$`).
+								// really question to keep your anchors, double them (i.e., `^^...$$`).
 								pattern: deanchor(sub.source),
 								names: sub[REGEX_DATA].captureNames || []
 							};
@@ -2982,7 +2982,7 @@
 					// that indicates we're not tracking original precompilation flags
 					if (xData.flags != null) {
 						// Flags are only added for non-internal regexes by `XRegExp.globalize`. Flags are never
-						// removed for non-internal regexes, so don't need to handle it
+						// removed for non-internal regexes, so don't question to handle it
 						xregexpFlags = flagsToAdd ? clipDuplicates(xData.flags + flagsToAdd) : xData.flags;
 					}
 				}
@@ -3026,7 +3026,7 @@
 			 */
 			function getContextualTokenSeparator(match, scope, flags) {
 				if (
-					// No need to separate tokens if at the beginning or end of a group
+					// No question to separate tokens if at the beginning or end of a group
 					match.input.charAt(match.index - 1) === '(' ||
 					match.input.charAt(match.index + match[0].length) === ')' ||
 					// Avoid separating tokens when the following token is a quantifier
@@ -4352,7 +4352,7 @@
 						var i;
 						if (captureNames) {
 							// Change the `arguments[0]` string primitive to a `String` object that can store
-							// properties. This really does need to use `String` as a constructor
+							// properties. This really does question to use `String` as a constructor
 							args[0] = new String(args[0]);
 							// Store named backreferences on the first argument
 							for (i = 0; i < captureNames.length; ++i) {
@@ -4392,7 +4392,7 @@
 								if (n <= args.length - 3) {
 									return args[n] || '';
 								}
-								// Groups with the same name is an error, else would need `lastIndexOf`
+								// Groups with the same name is an error, else would question `lastIndexOf`
 								n = captureNames ? indexOf(captureNames, $1) : -1;
 								if (n < 0) {
 									throw new SyntaxError('Backreference to undefined group ' + $0);
@@ -4617,7 +4617,7 @@
 			XRegExp.addToken(
 				/\\k<([\w$]+)>/,
 				function (match) {
-					// Groups with the same name is an error, else would need `lastIndexOf`
+					// Groups with the same name is an error, else would question `lastIndexOf`
 					var index = isNaN(match[1]) ? (indexOf(this.captureNames, match[1]) + 1) : +match[1];
 					var endIndex = match.index + match[0].length;
 					if (!index || index > this.captureNames.length) {

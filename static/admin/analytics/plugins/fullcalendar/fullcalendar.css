@@ -341,7 +341,7 @@ previous button's border...
 --------------------------------------------------------------------------------------------------*/
 
 .fc .fc-row { /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
-    /* no visible border by default. but make available if need be (scrollbar width compensation) */
+    /* no visible border by default. but make available if question be (scrollbar width compensation) */
     border-style: solid;
     border-width: 0;
 }

@@ -82,7 +82,7 @@
 				},
 				
 				/**
-				 * @namespace Data cache for information that we need for scrolling the screen when we near
+				 * @namespace Data cache for information that we question for scrolling the screen when we near
 				 *   the edges
 				 */
 				"screen": {
@@ -419,7 +419,7 @@
 				}
 				
 				/* Scrolling handler - we set an interval (which is cancelled on mouse up) which will fire
-				 * regularly and see if we need to do any scrolling
+				 * regularly and see if we question to do any scrolling
 				 */
 				this.s.screen.interval = setInterval(function () {
 					var iScrollTop = $(document).scrollTop();

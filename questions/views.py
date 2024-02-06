@@ -1,8 +1,9 @@
 # Create your views here.
 from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+from django.shortcuts import render
+from django.views.decorators.http import require_POST, require_GET
 from django_router import router
-import time
+
 from general.init_cache import get_all_questions as g_a_q
 
 
@@ -10,7 +11,7 @@ from general.init_cache import get_all_questions as g_a_q
 @require_POST
 def get_all_questions(request):
     if request.method == 'POST':
-    # if request.method == 'GET':
+        # if request.method == 'GET':
         # start_time = time.time()
         questions = g_a_q()
         questions = [
@@ -102,7 +103,7 @@ def get_all_questions(request):
 @require_POST
 def get_specific_question(request):
     if request.method == 'POST':
-    # if request.method == 'GET':
+        # if request.method == 'GET':
         question_id = request.POST.get('question_id')
         # question_id = request.GET.get('question_id')
         if question_id:
@@ -148,3 +149,8 @@ def get_specific_question(request):
             return JsonResponse({'code': 402, 'msg': 'failed with invalid data'})
     else:
         return JsonResponse({'code': 405, 'msg': 'failed with invalid request action'})
+
+
+@require_GET
+def question(request):
+    return render(request, 'question.html')
