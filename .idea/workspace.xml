@@ -4,62 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs">
-      <change afterPath="$PROJECT_DIR$/questions/static/question/ghshortcode.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/ghshortcode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/hm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/icons-2.6.18.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/jquery-3.6.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/jquery-migrate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/logindownstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/style-f.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/static/question/wpua.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/questions/templates/question.html" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended question.html">
+      <change afterPath="$PROJECT_DIR$/general/encrypt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/category/icons/10015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/extend_js/crypto-js.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/chartjs/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/chartjs/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/lang/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/lang/et.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/js/dataTables.responsive.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/js/dataTables.responsive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/jquery.dataTables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/daterangepicker/moment.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/daterangepicker/moment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fastclick/fastclick.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fastclick/fastclick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/excanvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/excanvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.fillbetween.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.fillbetween.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.pie.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.pie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.resize.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.resize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.selection.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.selection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.stack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.threshold.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.threshold.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.time.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.print.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.print.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/input-mask/jquery.inputmask.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/input-mask/jquery.inputmask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/jQueryUI/jquery-ui-1.10.3.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/jQueryUI/jquery-ui-1.10.3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/sparkline/jquery.sparkline.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/sparkline/jquery.sparkline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/general.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/general.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testunit/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/testunit/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,10 +30,10 @@
       <list>
         <option value="Setup Script" />
         <option value="CSS File" />
-        <option value="Python Script" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Less File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -121,7 +77,9 @@
     "JavaScript Debug.software_details.html.executor": "Run",
     "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
     "Notification.DoNotAsk-Database detector": "true",
+    "Python.encrypt.executor": "Run",
     "Python.tests.executor": "Run",
+    "Python.views.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -157,7 +115,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Django Server.SynthesisMacApplicationDistributionCenter">
-    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="encrypt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SynthesisMacApplicationDistributionCenter" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,12 +124,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testunit" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/general" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testunit/tests.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/general/encrypt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,7 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tests" />
+        <item itemvalue="Python.encrypt" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +208,10 @@
       <workItem from="1707114728275" duration="11565000" />
       <workItem from="1707161550069" duration="1629000" />
       <workItem from="1707205907734" duration="274000" />
-      <workItem from="1707206196765" duration="6314000" />
+      <workItem from="1707206196765" duration="6901000" />
+      <workItem from="1707244321645" duration="194000" />
+      <workItem from="1707244532380" duration="44000" />
+      <workItem from="1707244589915" duration="12510000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -460,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707157516724</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="appended question.html">
+      <option name="closed" value="true" />
+      <created>1707213052504</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1707213052504</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +438,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="optimized codes style and update admin style" />
     <MESSAGE value="try using pop-up notifications of third part, but met something I can't resolve" />
     <MESSAGE value="give up jquery dialog, try other pop-up dialog" />
     <MESSAGE value="integrated popup windows with announcement and implements home page's pop-up and specific app's pop-up window, finished announcement module for basic using" />
@@ -494,9 +462,12 @@
     <MESSAGE value="optimized notice to app's bug that warning to show" />
     <MESSAGE value="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status" />
     <MESSAGE value="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs" />
+    <MESSAGE value="appended question.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended question.html" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1707207217037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
+    <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$views.coverage" NAME="views Coverage Results" MODIFIED="1707251785530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/category" />
+    <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$encrypt.coverage" NAME="encrypt Coverage Results" MODIFIED="1707252398914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/general" />
   </component>
 </project>

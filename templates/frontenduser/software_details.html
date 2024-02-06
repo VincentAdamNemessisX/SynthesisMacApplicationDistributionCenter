@@ -198,7 +198,7 @@
     <body class="app-template-default single single-app postid-1428 sidebar_no app">
     {% include 'frontenduser/sidebar.html' %}
     <div class="main-content flex-fill">
-    {% include 'frontenduser/header-nav.html' %}
+        {% include 'frontenduser/header-nav.html' %}
         <div id="content" class="container my-4 my-md-5">
             <div class="background-fx"><img src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-01.svg"
                                             class="shape-01" alt=""><img
@@ -560,9 +560,9 @@
 		/* ]]> */
     </script>
     <script>
-        $(document).ready(function () {
-            get_notice_to_specific_app('{{ csrf_token }}',{{ software_id }});
-        });
+		$(document).ready(function () {
+			get_notice_to_specific_app('{{ csrf_token }}', {{ software_id }});
+		});
 		document.oncontextmenu = function (event) {
 			if (window.event) {
 				event = window.event;
@@ -929,5 +929,17 @@
 		});
 		/* ]]]]><![CDATA[> */
 		/* ]]> */
+		{% if error %}
+			$(document).ready(function () {
+				Swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '{{ code }}:  {{ error }}!',
+					confirmButtonText: '我已了解！'
+				}).then(function () {
+					window.history.back();
+				})
+			})
+		{% endif %}
     </script>
 {% endblock %}

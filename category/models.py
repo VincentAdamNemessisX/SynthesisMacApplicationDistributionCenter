@@ -8,6 +8,7 @@ class Category(models.Model):
     slug = models.CharField(max_length=200, null=True)
     icon = models.ImageField(upload_to='category/icons/', null=True)
     description = models.TextField(blank=True, null=True)
+    state = models.IntegerField(default=2, choices=((1, '停用'), (2, '正常')), db_index=True)
 
     class Meta:
         verbose_name = '软件分类'

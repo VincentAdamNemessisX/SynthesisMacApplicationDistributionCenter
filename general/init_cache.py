@@ -1,6 +1,7 @@
 from django.core.cache import cache
 
 from announcements.models import Announcements
+from category.models import Category
 from commentsWithArticles.models import Comment, Article
 from favorites.models import Favorites
 from questions.models import Questions
@@ -189,3 +190,11 @@ def get_all_questions():
                              )
         cache.set('all_questions', all_questions, 45)
     return cache.get('all_questions')
+
+
+def get_all_category():
+    categories = cache.get('categories')
+    if categories is None:
+        categories = list(Category.objects.filter(state=2).order_by('id').prefetch_related('software_set'))
+        cache.set('categories', categories, 180)
+    return cache.get('categories')
