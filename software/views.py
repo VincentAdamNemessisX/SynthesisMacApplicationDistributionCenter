@@ -206,12 +206,14 @@ def home(request):
 def software_details(request):
     if request.method == 'GET':
         software_id = request.GET.get('software_id')
-        try:
-            software_id = int(software_id)
-        except ValueError:
-            return render(request, 'frontenduser/software_details.html', {'error': 'invalid params'})
-        except TypeError:
-            return render(request, 'frontenduser/software_details.html', {'error': 'wrong params'})
+        # try:
+        software_id = software_id
+        # except ValueError:
+        #     return render(request, 'frontenduser/software_details.html',
+        #                   {'error': 'invalid params', 'code': 402})
+        # except TypeError:
+        #     return render(request, 'frontenduser/software_details.html',
+        #                   {'error': 'wrong params', 'code': 401})
         return render(request, 'frontenduser/software_details.html', {
             'software_id': software_id
         })

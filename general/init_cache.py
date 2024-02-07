@@ -196,7 +196,9 @@ def get_all_questions():
 def get_all_category():
     categories = cache.get('categories')
     if categories is None:
-        categories = list(Category.objects.filter(state=2).order_by('id').prefetch_related('software_set'))
+        categories = list(Category.objects.filter(state=2)
+                          .order_by('id')
+                          .prefetch_related('software_set'))
         cache.set('categories', categories, 180)
     return cache.get('categories')
 

@@ -284,7 +284,7 @@ def articles_list(request):
         return render(request, 'articles_list.html')
     return JsonResponse({
         'code': 405,
-        'msg': 'requested with wrong method'
+        'error': 'requested with wrong method'
     })
 
 
