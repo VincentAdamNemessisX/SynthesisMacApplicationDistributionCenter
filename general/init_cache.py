@@ -6,6 +6,7 @@ from commentsWithArticles.models import Comment, Article
 from favorites.models import Favorites
 from questions.models import Questions
 from software.models import SoftWare
+from .common_compute import get_hot_volume_of_article, get_hot_volume_of_software
 
 
 def get_notices():
@@ -198,3 +199,22 @@ def get_all_category():
         categories = list(Category.objects.filter(state=2).order_by('id').prefetch_related('software_set'))
         cache.set('categories', categories, 180)
     return cache.get('categories')
+
+
+def get_hot_articles_and_software():
+    hot_articles = cache.get('hot_articles')
+    hot_software = cache.get('hot_software')
+    if hot_articles is None:
+        hot_articles = list(Article.objects.filter(state=2))
+        for article in hot_articles:
+            article.hot_volume = get_hot_volume_of_article(article.id)
+        hot_articles.sort(key=lambda x: x.hot_volume, reverse=True)
+        cache.set('hot_articles', hot_articles[:10], 1)
+    if hot_software is None:
+        hot_software = list(SoftWare.objects.filter(state=2))
+        for software in hot_software:
+            software.hot_volume = get_hot_volume_of_software(software.id)
+        hot_software.sort(key=lambda x: x.hot_volume, reverse=True)
+        cache.set('hot_software', hot_software[:10], 1)
+    return cache.get('hot_articles'), cache.get('hot_software')
+

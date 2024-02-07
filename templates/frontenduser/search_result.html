@@ -80,18 +80,4 @@
     </div>
 {% endblock %}
 {% block script %}
-    <script>
-		{% if error %}
-			$(document).ready(function () {
-				Swal.fire({
-					icon: 'error',
-					title: '错误',
-					text: '{{ code }}:  {{ error }}!',
-					confirmButtonText: '我已了解！'
-				}).then(function () {
-					window.history.back();
-                })
-			})
-		{% endif %}
-    </script>
 {% endblock %}

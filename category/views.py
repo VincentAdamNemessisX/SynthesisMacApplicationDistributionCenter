@@ -20,20 +20,22 @@ def category(request):
                               'error': 'Cache init failed, please contact the administrator.',
                           })
         try:
-            category_id = request.GET.get('category_id').replace(' ', '+')
+            category_id = request.GET.get('category_id')
             if category_id is None:
                 return render(request, 'category.html',
                               {
                                   'code': 402,
                                   'error': 'wrong category_id',
                               })
-            category_id = int(decrypt(category_id))
-        # except ValueError:
-        #     return render(request, 'category.html',
-        #                   {
-        #                       'code': 401,
-        #                       'error': 'invalid category_id',
-        #                   })
+            else:
+                category_id = category_id.replace(' ', '+')
+                category_id = int(decrypt(category_id))
+        except ValueError:
+            return render(request, 'category.html',
+                          {
+                              'code': 401,
+                              'error': 'invalid category_id',
+                          })
         except TypeError:
             return render(request, 'category.html',
                           {

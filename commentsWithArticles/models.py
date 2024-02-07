@@ -29,6 +29,8 @@ class Article(models.Model):
     content = models.TextField()
     correlation_software = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
     state = models.IntegerField(default=1, choices=((1, '待审核'), (2, '正常'), (3, '拒绝')))
+    view_volume = models.BigIntegerField(default=0)
+    thumbs_volume = models.BigIntegerField(default=0)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
 

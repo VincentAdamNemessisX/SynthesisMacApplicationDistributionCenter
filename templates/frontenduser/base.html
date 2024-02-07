@@ -42,6 +42,12 @@
     <link rel="stylesheet" href="{% static '' %}front/css/loading.css">
     <script type="text/javascript" src="{% static '' %}front/js/jquery.min.js?ver=4.1031"
             id="jquery-js"></script>
+    <style>
+        #search form {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
     {% block style %}
     {% endblock %}
 </head>
@@ -225,6 +231,8 @@
 		`;
 	});
 </script>
+
+{#append search modal into body#}
 <script>
 	$(document).ready(function () {
 		document.getElementsByTagName('body')[0].innerHTML += `
@@ -237,18 +245,19 @@
                             <div class="s-type">
                                 <span></span>
                                 <div class="s-type-list">
-                                    <label for="m_type-1" data-page="home" data-id="group-1">MacWk</label></div>
+                                    <label for="m_type-1" data-page="home" data-id="group-1">MacApplicationDistribution</label></div>
                             </div>
-                            <div class="search-group group-1 s-current"><span class="type-text text-muted">MacWk</span>
+                            <div class="search-group group-1 s-current"><span class="type-text text-muted">Mac软件分享平台</span>
                                 <ul class="search-type">
                                     <li><input checked="checked" hidden="" type="radio" name="type2" data-page="home"
-                                               id="m_type-1" value="https://macwk.cn/?post_type=app&amp;s="
+                                               id="m_type-1" value=""
                                                data-placeholder=""><label for="m_type-1"><span
                                             class="text-muted"> 搜索</span></label></li>
                                 </ul>
                             </div>
                         </div>
-                        <form action="" method="get" target="_blank" class="super-search-fm">{% csrf_token %}
+                        <form action="" method="get" target="_blank" class="super-search-fm">
+
                             <label for="m_search-text"></label><input type="text" id="m_search-text"
                                                                       class="form-control smart-tips search-key"
                                                                       zhannei=""
@@ -261,30 +270,26 @@
                             <ul></ul>
                         </div>
                     </div>
-
                     <div class="px-1 mb-3"><i class="text-xl iconfont icon-hot mr-1" style="color:#f1404b;"></i><span
                             class="h6">热门推荐： </span></div>
                     <div class="mb-3">
-                        <li id="menu-item-839"
-                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-839"><a
-                                href="https://macwk.cn/app/93.html">
-                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
-                            <span>Adob​​e PhotoShop</span></a></li>
-                        <li id="menu-item-840"
-                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-840"><a
-                                href="https://macwk.cn/app/175.html">
-                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
-                            <span>App Cleaner &amp; Uninstaller</span></a></li>
-                        <li id="menu-item-841"
-                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-841"><a
-                                href="https://macwk.cn/app/586.html">
-                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
-                            <span>CleanMyMac X</span></a></li>
-                        <li id="menu-item-842"
-                            class="menu-item menu-item-type-post_type menu-item-object-app menu-item-842"><a
-                                href="https://macwk.cn/app/256.html">
-                            <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
-                            <span>Final Cut Pro</span></a></li>
+                        {% if request.hot_articles and request.hot_software %}
+                             {% for software in request.hot_software %}
+                                <li id="menu-item-{{ software.id }}"
+                                class="menu-item menu-item-type-post_type menu-item-object-app menu-item-839"><a
+                                    href="" onmousemove="encrypt_self(2, '{{ software.id }}')">
+                                <i class="iconfont icon-app-store-fill-b icon-fw icon-lg"></i>
+                                <span>{{ software.name }}</span></a></li>
+                            {% endfor %}
+                            {% for article in request.hot_articles %}
+                                <li id="menu-item-{{ article.id }}"
+                                class="menu-item menu-item-type-post_type menu-item-object-app menu-item-839"><a
+                                    href="" onmousemove="encrypt_self(1, '{{ article.id }}')">
+                                <i class="iconfont icon-book icon-fw icon-lg"></i>
+                                <span>{{ article.title }}</span></a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
                 <div style="position: absolute;bottom: -40px;width: 100%;text-align: center;"><a href="javascript:"
@@ -295,6 +300,29 @@
     </div>
 		`;
 	});
+</script>
+<script>
+	function encrypt_self(type, id) {
+		let current_element = event.target;
+		if (type === 1) {
+			current_element.href = "/article/details/?article_id=" + encrypt_param(id.toString());
+		} else if (type === 2) {
+			current_element.href = "/software/details/?software_id=" + encrypt_param(id.toString());
+		}
+	}
+	
+	{% if error %}
+		$(document).ready(function () {
+			Swal.fire({
+				icon: 'error',
+				title: '错误',
+				text: '{{ code }}:  {{ error }}!',
+				confirmButtonText: '我已了解！'
+			}).then(function () {
+				window.history.back();
+			})
+		})
+	{% endif %}
 </script>
 {% block script %}
 {% endblock %}

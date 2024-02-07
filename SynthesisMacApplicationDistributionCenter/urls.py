@@ -39,6 +39,7 @@ urlpatterns = [
                   path('index/', home),
                   path('analytics/', ana),
                   path('articles/', articles_list),
+                  path('article/details/', article_details),
                   path('rank/', rank),
                   path('search/', search_result),
                   path('question/', question),

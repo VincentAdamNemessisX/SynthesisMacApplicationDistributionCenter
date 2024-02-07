@@ -1,11 +1,13 @@
 # Create your views here.
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.views.decorators.http import require_POST, require_http_methods
+from django.views.decorators.http import require_POST, require_http_methods, require_GET
 from django_router import router
-
+from general.encrypt import decrypt
 from commentsWithArticles.models import Article
-from general.init_cache import get_comments, get_matched_articles_by_article_id as g_a, get_all_articles as g_as
+from general.init_cache import (get_comments,
+                                get_matched_articles_by_article_id as g_a,
+                                get_all_articles as g_as, get_hot_articles_and_software)
 
 
 @router.path(pattern='api/get/init/comments/')
@@ -276,6 +278,7 @@ def publish_article(request):
         })
 
 
+@require_GET
 def articles_list(request):
     if request.method == "GET":
         return render(request, 'articles_list.html')
@@ -283,3 +286,39 @@ def articles_list(request):
         'code': 405,
         'msg': 'requested with wrong method'
     })
+
+
+@require_GET
+def article_details(request):
+    if request.method == 'GET':
+        articles = g_as()
+        try:
+            article_id = request.GET.get('article_id')
+            if article_id is None:
+                raise ValueError
+            else:
+                article_id = article_id.replace(' ', '+')
+                article_id = int(decrypt(article_id))
+        except ValueError:
+            return render(request, 'article_details.html', {
+                'error': 'Invalid params',
+                'code': 402
+            })
+        except TypeError:
+            return render(request, 'article_details.html', {
+                'error': 'Invalid params',
+                'code': 401
+            })
+        matched_articles = [article for article in articles if article.id == article_id]
+        if len(matched_articles) > 0:
+            article = matched_articles[0]
+        else:
+            article = None
+        return render(request, 'article_details.html', {
+            'article': article
+        })
+    else:
+        return render(request, 'article_details.html', {
+            'error': 'Not allowed request action',
+            'code': 405
+        })

@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'personal_components.append_middleware.AppendMiddleware'
 ]
 
 ROOT_URLCONF = 'SynthesisMacApplicationDistributionCenter.urls'

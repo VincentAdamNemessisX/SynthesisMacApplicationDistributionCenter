@@ -19,6 +19,9 @@ class SoftWare(models.Model):
     icon = models.ImageField(upload_to='software')
     state = models.IntegerField(default=1, choices=((1, '未审核'), (2, '已审核'), (3, '已下架')))
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
+    view_volume = models.BigIntegerField(default=0)
+    thumbs_volume = models.BigIntegerField(default=0)
+    download_volume = models.BigIntegerField(default=0)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
 
