@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="facebook-domain-verification" content="14yui0t6bj9n8uz4d48a2snpt3cvnz">
+    <meta name="csrf-param" content="authenticity_token">
+    <meta name="csrf-token"
+          content="Ybsgc4y5BauGgYhf5n0WUDeHo9Z5XmWny4Equ3o2JRZFZspvWMkixoBiNBgcWlODe35uwBLPoxrdFkGDqW3Tvw==">
+    <title>
+        Mac软件分享平台 登录
+    </title>
+    <link rel="stylesheet" media="screen"
+          href="{% static 'login/css/' %}auth.css">
+    <link rel="stylesheet" href="{% static 'front/css/sweetalert2.css' %}">
+    <meta name="mixpanel-action" content="new">
+    <link href="{% static 'login/css/' %}css2.css" rel="stylesheet">
+</head>
+
+<body class="logged-out not-pro not-player not-self not-team not-on-team no-hiring  js-connect-with-application show-register-container connect-with-application">
+
+<div id="main-container">
+    <section class="auth-sidebar">
+        <div class="auth-sidebar-content">
+            <video playsinline="" class="auth-sidebar-video" autoplay="" loop="" muted=""
+                   src="{% static 'login/assets/login.mp4' %}" __idm_id__="1941505">
+            </video>
+        </div>
+    </section>
+    <section class="content" data-content-container="">
+        <main>
+
+
+            <div class="auth-content">
+                <h2 class="font-heading-2">Connect your <br> Google account</h2>
+                <div class="auth-register-container auth-form signup-form">
+                    <form class=" gen-form with-messages signup" id="new_user" action="https://dribbble.com/signup"
+                          accept-charset="UTF-8" method="post" data-gtm-form-interact-id="0"><input type="hidden"
+                                                                                                    name="authenticity_token"
+                                                                                                    value="Ybsgc4y5BauGgYhf5n0WUDeHo9Z5XmWny4Equ3o2JRZFZspvWMkixoBiNBgcWlODe35uwBLPoxrdFkGDqW3Tvw==">
+                        <div class="form-field hide">
+                            <fieldset>
+                                <label for="contact_surname">Surname</label>
+                                <input type="text" name="surname" id="surname">
+                            </fieldset>
+                        </div>
+
+
+                        <input type="hidden" name="product" id="product">
+
+
+                        <input type="hidden" name="user[bio]" id="user_bio">
+                        <input type="hidden" name="user[location]" id="user_location">
+
+                        <div class="form-field-group">
+                            <div class="form-field">
+                                <fieldset class="user_name"><label for="user_name">Name</label><input
+                                        autocomplete="name" class="text-input" type="text" value="Vincent AdamNemessis"
+                                        name="user[name]" id="user_name" data-gtm-form-interact-field-id="1"></fieldset>
+                            </div>
+
+                            <div class="form-field">
+                                <fieldset class="user_login"><label for="user_login">Username</label><input
+                                        autocorrect="off" autocapitalize="off" autocomplete="username"
+                                        class="text-input" type="text" name="user[login]" id="user_login"
+                                        data-gtm-form-interact-field-id="2"></fieldset>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <fieldset class="user_email"><label for="user_email">Email</label><input class="text-input"
+                                                                                                     type="text"
+                                                                                                     value="vincentadamnemessis@gmail.com"
+                                                                                                     name="user[email]"
+                                                                                                     id="user_email">
+                            </fieldset>
+                        </div>
+
+                        <div class="form-field">
+                            <fieldset class="user_password"><label for="user_password">Password</label><input
+                                    class="text-input" placeholder="6+ characters" type="password" name="user[password]"
+                                    id="user_password" aria-autocomplete="list" data-gtm-form-interact-field-id="0">
+                            </fieldset>
+                        </div>
+                        <div class="form-btns">
+                            <input type="submit" name="commit" value="Create Account"
+                                   class="btn2 btn2--large btn2--full-width margin-t-20"
+                                   data-disable-with="Create Account">
+                        </div>
+
+                        <p class="auth-link color-deep-blue-sea-light-20">
+                            Already have an account? <a href="https://dribbble.com/session/new">Sign In</a>
+                        </p>
+                        <div class="g-recaptcha" data-sitekey="6LdmBTIUAAAAAM4NIokaWu8p3BBuYEw3CxuDdyg_"
+                             data-callback="captchaCallback" data-size="invisible" data-badge="inline">
+                            <div class="grecaptcha-badge" data-style="inline"
+                                 style="width: 256px; height: 60px; box-shadow: gray 0px 0px 5px;">
+                                <div class="grecaptcha-logo">
+                                </div>
+                                <div class="grecaptcha-error"></div>
+                                <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                                          class="g-recaptcha-response"
+                                          style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="auth-connect-account-container">
+                    <p>Sign in with your Dribbble credentials to connect your Google account. You’ll be able to sign in
+                        with Google going forward.</p>
+                    <form action="https://dribbble.com/account/authentications" accept-charset="UTF-8" method="post">
+                        <input type="hidden" name="authenticity_token"
+                               value="Ybsgc4y5BauGgYhf5n0WUDeHo9Z5XmWny4Equ3o2JRZFZspvWMkixoBiNBgcWlODe35uwBLPoxrdFkGDqW3Tvw==">
+
+                        <div class="form-fields">
+                            <fieldset>
+                                <label for="login">Username or Email</label>
+                                <input type="text" name="login" id="login" tabindex="1" class="text-input"
+                                       autocorrect="off" autocapitalize="off">
+                            </fieldset>
+
+                            <fieldset>
+                                <label for="password">Password <a class="margin-l-8"
+                                                                  href="https://dribbble.com/password_resets/new">Forgot?</a></label>
+                                <input type="password" name="password" id="password" value="" tabindex="2"
+                                       class="text-input">
+                            </fieldset>
+                        </div>
+
+                        <input class="button form-sub" type="submit" value="Sign In" tabindex="3">
+                    </form>
+                </div>
+            </div>
+
+
+        </main>
+    </section>
+</div>
+
+<script src="{% static 'front/js/' %}jquery.min.js"></script>
+<!-- jquery failover -->
+<script>
+	if (typeof jQuery == 'undefined') {
+		document.write(unescape('%3Cscript src="https://cdn.dribbble.com/assets/jquery-3.2.1.min-53e3da38f323e0f6a546d64ae37b6c7634d01f1393ea50816b16ef9c79a88862.js">%3C/script>'))
+	}
+</script>
+
+
+<script>$("input:text:visible:first").trigger('focus');</script>
+<script>
+	// ensure namespace is available
+	Dribbble = window.Dribbble || {};
+	Dribbble.JsConfig = Dribbble.JsConfig || {};
+	Dribbble.isHistorySupported = () => (window.history && 'pushState' in window.history);
+
+	User = {
+		loggedIn: function () {
+			return !!document.querySelector('body.logged-in')
+		},
+		loggedOut: function () {
+			return !this.loggedIn()
+		},
+	};
+</script>
+<script src="{% static '' %}front/extend_js/crypto-js.min.js"></script>
+<script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'front/extend_js/general.js' %}"></script>
+<script src="{% static 'front/extend_js/query_api.js' %}"></script>
+{#<script src="{% static 'login/js/' %}global.js"></script>#}
+<script>
+	var config = Dribbble.JsConfig || {}
+	// the assign is so this partial can be called in other partials, e.g. modals
+	// without overriding parent instantiations of JsConfig
+	Dribbble.JsConfig = Object.assign(config, {
+		user: {
+			"isLoggedIn": false,
+			"reCaptchaSiteKey": "6LdmBTIUAAAAAM4NIokaWu8p3BBuYEw3CxuDdyg_",
+			"canPurchasePro": true,
+			"isHiringTrialEligible": false
+		},
+		hiringProfile: {},
+		features: {
+			"braintreeHiring": false,
+			"proDiscountToasty": false,
+			"collaborators": false,
+			"hiringBundleDiscount": true,
+			"purchaseFreelance": true,
+			"proTrial": false,
+			"jobBoardTrial": true,
+			"hideCohortSelection": true,
+			"shotFeedUpdates": false,
+			"caseStudiesLinkBlock": false
+		},
+		isRobot: null,
+		remoteIp: "109.166.37.99",
+		isProduction: true,
+		permissions: {"userPermissions": ["canBuyBoostWithBraintree", "canSeeThirdPartyPaymentMethods"]},
+		screenshot_boost: {
+			"buttonText": [{"label": "Buy Now", "value": "buy-now"}, {
+				"label": "Download",
+				"value": "download"
+			}, {"label": "Learn More", "value": "learn-more"}, {
+				"label": "Shop Now",
+				"value": "shop-now"
+			}, {"label": "Apply Now", "value": "apply-now"}, {
+				"label": "Try Now",
+				"value": "try-now"
+			}, {"label": "Get Offer", "value": "get-offer"}, {"label": "Contact Us", "value": "contact-us"}],
+			"tiers": {
+				"lowTier": {"daysToServe": 7, "range": {"lowerLimit": 0, "upperLimit": 10000}},
+				"midTier": {"daysToServe": 14, "range": {"lowerLimit": 10001, "upperLimit": 100000}},
+				"highTier": {"daysToServe": 28, "range": {"lowerLimit": 100001, "upperLimit": null}}
+			},
+			"pricePerImpression": "0.01",
+			"purchase": {"stripePublicKey": "pk_live_9EfFSEE6iTCgHghKqBqnixxR", "savedCreditCardInformation": null},
+			"discount": null,
+			"minimumImpressions": 2000,
+			"targetPlacements": {
+				"following": "Following Feed",
+				"popular": "Popular Feed",
+				"search": "Search Feed",
+				"goods": "Goods Feed",
+				"recent": "New \u0026 Noteworthy Feed",
+				"shot_modal": "Shot Modal",
+				"similar_work": "Similar Work",
+				"tags": "Tag Feed",
+				"popular_first": "Popular Feed First"
+			},
+			"priorities": ["self_serve", "sales", "remnant", "sales_priority"]
+		},
+	})
+</script>
+
+{#<script src="{% static 'login/js/' %}application.js"></script>#}
+<!-- Global site tag (gtag.js) -->
+{#<script async="" src="{% static 'login/js/' %}js_3.js"></script>#}
+<script>
+	window.dataLayer = window.dataLayer || [];
+	
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	
+	gtag('js', new Date());
+</script>
+
+<script>
+</script>
+
+
+<div style="visibility: hidden; position: absolute; width: 100%; top: -10000px; left: 0px; right: 0px; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0;">
+    <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.5;"></div>
+    <div style="margin: 0px auto; top: 0px; left: 0px; right: 0px; position: fixed; border: 1px solid rgb(204, 204, 204); z-index: 2000000000; background-color: rgb(255, 255, 255);">
+    </div>
+</div>
+</body>
+</html>

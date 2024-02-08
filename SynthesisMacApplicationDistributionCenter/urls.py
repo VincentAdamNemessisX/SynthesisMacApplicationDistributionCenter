@@ -30,6 +30,7 @@ from software.views import *
 from category.views import *
 from commentsWithArticles.views import *
 from questions.views import *
+from frontenduser.views import *
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
@@ -44,5 +45,6 @@ urlpatterns = [
                   path('search/', search_result),
                   path('question/', question),
                   path('software/details/', software_details),
+                  path('login/', login),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT

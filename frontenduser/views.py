@@ -1,6 +1,7 @@
 # Create your views here.
 from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+from django.shortcuts import render
+from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
 from general.init_cache import (get_specific_user_favorite_articles_by_username,
@@ -277,3 +278,9 @@ def get_all_favorite_software(request):
             return JsonResponse({'code': 200, 'msg': 'success', 'data': matched_favorite_software})
         return JsonResponse({'code': 404, 'msg': 'request succeed, failed with no matched articles'})
     return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'})
+
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'login.html')
+    return render(request, '404.html')
