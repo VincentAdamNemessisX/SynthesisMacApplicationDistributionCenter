@@ -312,24 +312,29 @@
                 <div class="footer-text card-body text-muted text-center text-md-left">
                     <div class="row my-4">
                         <div class="col-12 col-md-4 mb-4 mb-md-0">
-                            <a class="footer-logo" href="https://macwk.cn" title="MacWk">
-                                <img src="https://macwk.cn/wp-content/uploads/2023/10/macwklogo.png"
+                            <a class="footer-logo" href="/index/" title="MacApplicationDistribution">
+                                <img src="{% static 'front/img/logo.png' %}"
                                      class="logo-light mb-3"
-                                     alt="MacWk" height="40">
-                                <img src="https://macwk.cn/wp-content/uploads/2023/10/macwklogo.png"
-                                     class="logo-dark d-none mb-3" alt="MacWk" height="40">
+                                     style="max-width: 20rem; max-height: none;"
+                                     alt="MacApplicationDistribution">
+                                <img src="{% static 'front/img/logo.png' %}"
+                                     style="max-width: 20rem; max-height: none;"
+                                     class="logo-dark d-none mb-3" alt="MacApplicationDistribution">
                             </a>
-                            <div class="text-sm">
-                                MAC应用软件,每天更新大量精品mac软件,为您提供优质的mac软件,mac破解版软件下载
-                            </div>
+                            <div class="text-sm" style="text-wrap:balance; text-indent:2em;">本站提供了丰富的免费Mac软件资源，包括办公工具、媒体播放器、图形设计、开发工具等各个领域的应用程序。此外，网站还有平替Windows下常用软件的类Mac软件，Mac、Windows无缝衔接。您可以在该网站上找到所需的工具，无需支付费用。</div>
                         </div>
                         <div class="col-12 col-md-5 mb-4 mb-md-0">
                             <div class="footer-social">
-                                <a class="rounded-circle bg-light qr-img" href="javascript:" data-toggle="tooltip"
+                                <a class="rounded-circle bg-light qr-img" href="https://qm.qq.com/q/BSsTVZBCGO" data-toggle="tooltip"
                                    data-placement="top" data-html="true" title=""
-                                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg' height='100' width='100'>">
-                                    <i class="iconfont icon-wechat"></i>
-                                </a><a class="rounded-circle bg-light" href="mailto:macwk@qq.com" target="_blank"
+                                   data-original-title="<img src='{% static 'front/img/sponsor/qq.jpg' %}' height='100' width='100'>">
+                                    <i class="iconfont icon-qq"></i></a>
+                                <a class="rounded-circle bg-light qr-img" href="weixin://scanqrcode" data-toggle="tooltip"
+                                   data-placement="top" data-html="true" title=""
+                                   data-original-title="<img src='{% static 'front/img/sponsor/wechat_card.jpg' %}' height='100' width='100'>">
+                                    <i class="iconfont icon-wechat"></i></a>
+                                <a class="rounded-circle bg-light"
+                                       href="mailto:vincentadamnemessis@gmail.com" target="_blank"
                                        data-toggle="tooltip" data-placement="top" title=""
                                        rel="external noopener nofollow"
                                        data-original-title=" 联系站长">
@@ -337,33 +342,34 @@
                             </a></div>
                         </div>
                         <div class="col-12 col-md-3 text-md-right mb-4 mb-md-0">
-                            <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="公众号">
+                            <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="站长Q群">
                                 <p class="bg-light rounded-lg p-1">
-                                    <img class=" "
-                                         src="https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg"
-                                         alt="公众号MacWk">
+                                    <img class=""
+                                         src="{% static 'front/img/sponsor/qq.jpg' %}"
+                                         alt="站长Q群">
                                 </p>
-                                <span class="text-muted text-ss mt-2">公众号</span>
+                                <span class="text-muted text-ss mt-2">站长Q群</span>
                             </div>
                             <div class="footer-mini-img" data-toggle="tooltip" title="" data-original-title="微信赞赏">
                                 <p class="bg-light rounded-lg p-1">
-                                    <img class=" " src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG18.jpg"
-                                         alt="微信赞赏MacWk">
+                                    <img class=" " src="{% static 'front/img/sponsor/wechat.jpg' %}"
+                                         alt="微信赞赏">
                                 </p>
                                 <span class="text-muted text-ss mt-2">微信赞赏</span>
                             </div>
                             <div class="footer-mini-img" data-toggle="tooltip" title=""
                                  data-original-title="支付宝捐助">
                                 <p class="bg-light rounded-lg p-1">
-                                    <img class=" " src="https://macwk.cn/wp-content/uploads/2023/10/zfb.jpg"
-                                         alt="支付宝捐助MacWk">
+                                    <img class=" " src="{% static 'front/img/sponsor/alipay.jpg' %}"
+                                         alt="支付宝捐助">
                                 </p>
                                 <span class="text-muted text-ss mt-2">支付宝捐助</span>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-copyright text-xs">
-                        Copyright © 2024 <a href="https://macwk.cn" title="MacWk" class="" rel="home">MacWk</a>&nbsp;
+                    <div class="footer-copyright text-xs text-center">
+                        Copyright © 2024 <a href="/index/" title="MacApplicationDistribution"
+                         class="" rel="home">MacApplicationDistribution</a>&nbsp;
                     </div>
                 </div>
             </div>
@@ -387,29 +393,33 @@
 		}
 	}
 	
+	
+	{#append footer tools bar into body#}
 	$(document).ready(function () {
 		document.getElementsByTagName('body')[0].innerHTML += `
         <footer>
             <div id="footer-tools" class="d-flex flex-column">
-                <a href="javascript:" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top"
+                <a href="javascript:scrollTo(0,0)" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top"
                    style="display: none;">
                     <i class="iconfont icon-to-up"></i>
                 </a>
-                <a class="btn rounded-circle custom-tool0 m-1 qr-img" href="javascript:" data-toggle="tooltip"
+                <a class="btn rounded-circle custom-tool0 m-1 qr-img" 
+                    target=_blank
+                    href="https://qm.qq.com/q/rPCYqnWuie" data-toggle="tooltip"
                    data-html="true"
                    data-placement="left" title=""
-                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg' height='100' width='100'>">
-                    <i class="iconfont icon-wechat"></i>
+                   data-original-title="<img src='{% static 'front/img/sponsor/qq.jpg' %}' height='100' width='100'>">
+                    <i class="iconfont icon-qq"></i>
                 </a><a class="btn rounded-circle custom-tool1 m-1 qr-img" href="javascript:" data-toggle="tooltip"
                        data-html="true" data-placement="left" title=""
-                       data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/10/zfb.jpg' height='100' width='100'>">
+                       data-original-title="<img src='{% static 'front/img/sponsor/alipay.jpg' %}' height='100' width='100'>">
                 <i class="iconfont icon-alipay"></i>
             </a><a class="btn rounded-circle custom-tool2 m-1 qr-img" href="javascript:" data-toggle="tooltip"
                    data-html="true"
                    data-placement="left" title=""
-                   data-original-title="<img src='https://macwk.cn/wp-content/uploads/2023/07/WechatIMG18.jpg' height='100' width='100'>">
+                   data-original-title="<img src='{% static 'front/img/sponsor/wechat.jpg' %}' height='100' width='100'>">
                 <i class="io io-dashang1"></i>
-            </a><a class="btn rounded-circle custom-tool3 m-1" href="mailto:macwk@qq.com" target="_blank"
+            </a><a class="btn rounded-circle custom-tool3 m-1" href="mailto:vincentadamnemessis@gmail.com" target="_blank"
                    data-toggle="tooltip"
                    data-placement="left" title="" rel="external noopener nofollow" data-original-title=" 联系站长">
                 <i class="iconfont icon-email"></i>
@@ -834,11 +844,11 @@
 <script type="text/javascript" id="appjs-js-extra">
 	/* <![CDATA[ */
 	var theme = {
-		"ajaxurl": "https:\/\/macwk.cn\/wp-admin\/admin-ajax.php",
-		"uri": "https:\/\/macwk.cn\/wp-content\/themes\/onenav",
-		"loginurl": "https:\/\/macwk.cn\/wp-login.php?redirect_to=https%3A%2F%2Fmacwk.cn%2Fapp%2F1428.html",
-		"sitesName": "MacWk",
-		"addico": "https:\/\/macwk.cn\/wp-content\/themes\/onenav\/images\/add.png",
+		"ajaxurl": "https:\/\/MacApplicationDistribution.cn\/wp-admin\/admin-ajax.php",
+		"uri": "https:\/\/MacApplicationDistribution.cn\/wp-content\/themes\/onenav",
+		"loginurl": "https:\/\/MacApplicationDistribution.cn\/wp-login.php?redirect_to=https%3A%2F%2FMacApplicationDistribution.cn%2Fapp%2F1428.html",
+		"sitesName": "MacApplicationDistribution",
+		"addico": "https:\/\/MacApplicationDistribution.cn\/wp-content\/themes\/onenav\/images\/add.png",
 		"order": "asc",
 		"formpostion": "top",
 		"defaultclass": "io-grey-mode",
