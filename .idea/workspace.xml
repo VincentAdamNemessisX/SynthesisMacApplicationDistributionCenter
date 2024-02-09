@@ -5,25 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended login and register pages to frontenduser module">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SynthesisMacApplicationDistributionCenter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SynthesisMacApplicationDistributionCenter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/templates/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/templates/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentsWithArticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/favorites/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/common_compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/common_compute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal_components/append_middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/personal_components/append_middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/query_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/query_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,36 +69,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.AllYouWantMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
-    &quot;Django Server.SynthesisMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.software_details.html.executor&quot;: &quot;Run&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;Python.encrypt.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.views.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/frontenduser/templates&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.AllYouWantMacApplicationDistributionCenter.executor": "Run",
+    "Django Server.SynthesisMacApplicationDistributionCenter.executor": "Run",
+    "JavaScript Debug.software_details.html.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "Python.encrypt.executor": "Run",
+    "Python.tests.executor": "Run",
+    "Python.views.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/frontenduser/templates",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\templates" />
@@ -127,7 +119,6 @@
   <component name="RunManager" selected="Django Server.SynthesisMacApplicationDistributionCenter">
     <configuration name="encrypt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SynthesisMacApplicationDistributionCenter" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -150,7 +141,6 @@
     </configuration>
     <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SynthesisMacApplicationDistributionCenter" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -171,6 +161,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django Server.SynthesisMacApplicationDistributionCenter" />
+      <item itemvalue="Python.encrypt" />
+      <item itemvalue="Python.tests" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.tests" />
@@ -251,6 +246,7 @@
       <workItem from="1707378472013" duration="11102000" />
       <workItem from="1707414208743" duration="7638000" />
       <workItem from="1707463925198" duration="1622000" />
+      <workItem from="1707469503947" duration="1403000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />

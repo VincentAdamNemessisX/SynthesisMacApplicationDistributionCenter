@@ -101,15 +101,7 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 					}
 				}
 			}
-			else if (data.code === 404){}
-			else {
-				Swal.fire({
-					icon: 'error',
-					title: '出错了',
-					text: 'API返回数据异常，请联系站长!',
-					footer: '<a href="/help/">需要帮助</a>?'
-				})
-			}
+			else {}
 		}, error: function (data) {
 			if (data) {
 				Swal.fire({

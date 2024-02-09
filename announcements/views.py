@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django_router import router
 from general.init_cache import get_notices
+from general.encrypt import encrypt, decrypt
 
 
 @router.path(pattern='api/notice/to/all/')
@@ -38,7 +39,7 @@ def get_specific_app_notice(request):
         # software_id = request.GET.get('software_id')
         software_id = request.POST.get('software_id')
         try:
-            software_id = int(software_id)
+            software_id = int(decrypt(software_id))
         except ValueError:
             return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
         except TypeError:
@@ -47,7 +48,7 @@ def get_specific_app_notice(request):
         notice = [notice for notice in notices if notice.type == 2 and notice.app.id == software_id]
         notice = [
             {
-                'id': n.id,
+                'id': str(encrypt(str(n.id))),
                 'title': n.title,
                 'content': n.content,
                 'created_time': n.created_time,

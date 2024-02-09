@@ -11,6 +11,8 @@ class SoftWare(models.Model):
     run_os_version = models.CharField(max_length=200, null=True)
     description = models.TextField()
     category = models.ForeignKey('category.Category', on_delete=models.CASCADE, null=True)
+    tags = models.CharField(max_length=200, blank=True, null=True)
+    file_size = models.CharField(max_length=200, null=True)
     official_link = models.URLField(null=True, blank=True)
     link_adrive = models.URLField(null=True, blank=True)
     link_baidu = models.URLField(null=True, blank=True)

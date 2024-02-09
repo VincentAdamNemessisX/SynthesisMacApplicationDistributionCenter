@@ -7,7 +7,7 @@ from software.models import SoftWare
 @admin.register(SoftWare)
 class SoftWareAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'version', 'description', 'language', 'platform', 'run_os_version',
-                    'category', 'link_adrive', 'link_baidu', 'link_123', 'link_direct', 'icon', 'state',
+                    'category', 'tags', 'file_size', 'link_adrive', 'link_baidu', 'link_123', 'link_direct', 'icon', 'state',
                     'created_time', 'updated_time']
 
 

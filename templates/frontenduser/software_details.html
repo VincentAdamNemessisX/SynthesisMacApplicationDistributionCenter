@@ -361,7 +361,7 @@
 {% block script %}
     <script>
 		$(document).ready(function () {
-			get_notice_to_specific_app('{{ csrf_token }}', {{ software_id }});
+			get_notice_to_specific_app('{{ csrf_token }}', '{{ software_id }}');
 		});
     </script>
 {% endblock %}
