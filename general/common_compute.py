@@ -1,4 +1,4 @@
-from commentsWithArticles.models import Article
+from commentswitharticles.models import Article
 from software.models import SoftWare
 import datetime
 

@@ -1,2 +1,3 @@
 django~=3.2.15
 pymysql~=1.0.2
+djang-simpleui~=3.0.0

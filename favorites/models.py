@@ -6,7 +6,7 @@ class Favorites(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE, null=True)
     correlation_type = models.IntegerField(default=1, choices=((1, '文章'), (2, '软件')))
-    correlation_article = models.ForeignKey('commentsWithArticles.Article', on_delete=models.CASCADE, null=True, blank=True)
+    correlation_article = models.ForeignKey('commentswitharticles.Article', on_delete=models.CASCADE, null=True, blank=True)
     correlation_software = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True)
 

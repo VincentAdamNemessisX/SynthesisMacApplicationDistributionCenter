@@ -28,7 +28,7 @@ from announcements.views import *
 from testunit.views import *
 from software.views import *
 from category.views import *
-from commentsWithArticles.views import *
+from commentswitharticles.views import *
 from questions.views import *
 from frontenduser.views import *
 

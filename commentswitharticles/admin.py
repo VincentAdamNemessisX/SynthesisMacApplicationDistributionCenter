@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from commentsWithArticles.models import Comment, Article
+from commentswitharticles.models import Comment, Article
 
 
 # Register your models here.

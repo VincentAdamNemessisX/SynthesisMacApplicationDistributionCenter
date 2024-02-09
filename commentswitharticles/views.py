@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_http_methods, require_GET
 from django_router import router
 from general.encrypt import decrypt
-from commentsWithArticles.models import Article
+from commentswitharticles.models import Article
 from general.init_cache import (get_comments,
                                 get_matched_articles_by_article_id as g_a,
                                 get_all_articles as g_as, get_hot_articles_and_software)

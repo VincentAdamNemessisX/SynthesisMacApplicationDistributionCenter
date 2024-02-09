@@ -2,7 +2,7 @@ from django.core.cache import cache
 
 from announcements.models import Announcements
 from category.models import Category
-from commentsWithArticles.models import Comment, Article
+from commentswitharticles.models import Comment, Article
 from favorites.models import Favorites
 from questions.models import Questions
 from software.models import SoftWare
