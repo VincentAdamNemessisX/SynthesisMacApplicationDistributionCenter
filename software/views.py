@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
-
+from general.encrypt import decrypt
 from general.init_cache import get_software_by_software_id, get_all_software
 from .models import SoftWare
 
@@ -206,16 +206,19 @@ def home(request):
 def software_details(request):
     if request.method == 'GET':
         software_id = request.GET.get('software_id')
-        # try:
-        software_id = software_id
-        # except ValueError:
-        #     return render(request, 'frontenduser/software_details.html',
-        #                   {'error': 'invalid params', 'code': 402})
-        # except TypeError:
-        #     return render(request, 'frontenduser/software_details.html',
-        #                   {'error': 'wrong params', 'code': 401})
+        try:
+            software_id = str(software_id.replace(' ', '+'))
+            software_id = decrypt(software_id)
+        except ValueError:
+            return render(request, 'frontenduser/software_details.html',
+                          {'error': 'invalid params', 'code': 402})
+        except TypeError:
+            return render(request, 'frontenduser/software_details.html',
+                          {'error': 'wrong params', 'code': 401})
+        software = get_software_by_software_id(software_id)
         return render(request, 'frontenduser/software_details.html', {
-            'software_id': software_id
+            'software_id': software_id,
+            'software': software
         })
 
 
@@ -238,4 +241,55 @@ def search_result(request):
         return render(request, 'frontenduser/search_result.html', {
             'error': 'invalid request action',
             'code': 403
+        })
+
+
+@router.path(pattern='api/thumb/')
+@require_POST
+def thumb(request):
+    if request.method == 'POST':
+        try:
+            thumb_type = request.POST.get('type')
+            software_id = request.POST.get('software_id')
+            software_id = str(software_id.replace(' ', '+'))
+            software_id = decrypt(software_id)
+            software = SoftWare.objects.get(software_id=software_id)
+            if thumb_type == 'thumb':
+                if software:
+                    software.thumbs_volume += 1
+                    software.save()
+                    return JsonResponse({
+                        'code': 200
+                    })
+                else:
+                    return JsonResponse({
+                        'code': 404,
+                        'error': 'Error with not found software'
+                    })
+            elif thumb_type == 'de_thumb':
+                if software:
+                    software.thumbs_volume -= 1
+                    software.save()
+                    return JsonResponse({
+                        'code': 200
+                    })
+                else:
+                    return JsonResponse({
+                        'code': 404,
+                        'error': 'Error with not found software'
+                    })
+        except ValueError:
+            return JsonResponse({
+                'code': 401,
+                'error': 'Error with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 402,
+                'error': 'Error with wrong params'
+            })
+    else:
+        return JsonResponse({
+            'code': 405,
+            'error': 'Error with bad request action'
         })

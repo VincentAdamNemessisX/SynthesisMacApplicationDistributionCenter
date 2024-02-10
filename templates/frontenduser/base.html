@@ -33,6 +33,7 @@
     <link rel="stylesheet" id="lightbox-css"
           href="{% static '' %}front/css/jquery.fancybox.min.css?ver=4.1031" type="text/css"
           media="all">
+    <link rel="stylesheet" id="font-awesome icon" href="{% static 'front/css/font-awesome.min.css' %}">
     <link rel="stylesheet" id="style-css" href="{% static '' %}front/css/style.min.css?ver=4.1031"
           type="text/css" media="all">
     <link rel="stylesheet" id="algolia-autocomplete-css"
@@ -277,6 +278,7 @@
 <script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
 <script src="{% static 'front/extend_js/general.js' %}"></script>
 <script src="{% static 'front/extend_js/query_api.js' %}"></script>
+<script src="{% static 'front/extend_js/modify_api.js' %}"></script>
 <script>
 	const channel = new BroadcastChannel('sync-sidebar');
 	channel.addEventListener('message', event => {
@@ -511,7 +513,9 @@
 			current_element.href = "/software/details/?software_id=" + encrypt_param(id.toString());
 		} else if (type === 3) {
 			current_element.href = "/category/?category_id=" + encrypt_param(id.toString());
-		}
+		} else if(type === 4) {
+			current_element.onclick = encrypt_param(id.toString());
+        }
 	}
 	
 	{% if error %}

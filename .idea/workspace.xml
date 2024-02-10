@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended login and register pages to frontenduser module">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="renamed commentswitharticles app's name;&#10;repaired None data with hot articles or software handling;&#10;repaired search form's action error">
       <change beforePath="$PROJECT_DIR$/.idea/SynthesisMacApplicationDistributionCenter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SynthesisMacApplicationDistributionCenter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/SynthesisMacApplicationDistributionCenter.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/query_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/query_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/app.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -119,6 +118,7 @@
   <component name="RunManager" selected="Django Server.SynthesisMacApplicationDistributionCenter">
     <configuration name="encrypt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SynthesisMacApplicationDistributionCenter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -141,6 +141,7 @@
     </configuration>
     <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SynthesisMacApplicationDistributionCenter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -247,6 +248,7 @@
       <workItem from="1707414208743" duration="7638000" />
       <workItem from="1707463925198" duration="1622000" />
       <workItem from="1707469503947" duration="1403000" />
+      <workItem from="1707588604797" duration="5653000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />

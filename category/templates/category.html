@@ -72,12 +72,39 @@
                                                 </span></div>
                                                         <div class="flex-fill"></div>
                                                         <div class="text-muted text-xs text-center mr-1">
-                                                            <span class="down"><i
-                                                                    class="iconfont icon-down"></i> 39</span>
+                                                            <span class="view pl-2"><i
+                                                                    class="fa fa-eye"
+                                                                    style="font-size: unset"></i> {{ software.view_volume }}</span>
+                                                            <span class="down pl-2"><i
+                                                                    class="fa fa-download"
+                                                                    style="font-size: unset"></i> {{ software.download_volume }}</span>
                                                             <span class="home-like pl-2 " data-action="post_like"
-                                                                  data-id="1295"><i
-                                                                    class="iconfont icon-heart"></i> <span
-                                                                    class="home-like-1295">3</span></span></div>
+                                                                  data-id="1295" onclick=""><i
+                                                                    class="fa fa-thumbs-o-up" style="font-size: unset">
+                                                                <script>
+                                                                    function thumb_software() {
+	                                                                    software_id = encrypt_param('{{ software.id }}');
+	                                                                    if(thumb_software_or_not('{{ csrf_token }}', 'thumb', software_id)) {
+																			console.log('thumb success')
+                                                                        } else {
+																			console.log('thumb failed')
+                                                                        };
+                                                                    }
+
+                                                                    function de_thumb_software() {
+	                                                                    software_id = encrypt_param('{{ software.id }}');
+	                                                                    if(thumb_software_or_not('{{ csrf_token }}', 'de_thumb', software_id)) {
+																			console.log('de_thumb success')
+                                                                        } else {
+																			console.log('de_thumb failed')
+                                                                        }
+                                                                    }
+                                                                </script>
+                                                            </i>
+                                                                <span
+                                                                        class="home-like-1295">{{ software.thumbs_volume }}</span>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +113,7 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                            {% else %}
+                        {% else %}
                             <div class="col-12">
                                 <div class="alert alert-warning text-center" role="alert">
                                     <strong>抱歉，</strong> 该分类下暂无软件！
