@@ -78,28 +78,10 @@
                                                             <span class="down pl-2"><i
                                                                     class="fa fa-download"
                                                                     style="font-size: unset"></i> {{ software.download_volume }}</span>
-                                                            <span class="home-like pl-2 " data-action="post_like"
-                                                                  data-id="1295" onclick=""><i
+                                                            <span class="pl-2" style="cursor: pointer"
+                                                                  id="software-{{ software.id }}"
+                                                                  onclick="thumb_software('{{ software.id }}',1)"><i
                                                                     class="fa fa-thumbs-o-up" style="font-size: unset">
-                                                                <script>
-                                                                    function thumb_software() {
-	                                                                    software_id = encrypt_param('{{ software.id }}');
-	                                                                    if(thumb_software_or_not('{{ csrf_token }}', 'thumb', software_id)) {
-																			console.log('thumb success')
-                                                                        } else {
-																			console.log('thumb failed')
-                                                                        };
-                                                                    }
-
-                                                                    function de_thumb_software() {
-	                                                                    software_id = encrypt_param('{{ software.id }}');
-	                                                                    if(thumb_software_or_not('{{ csrf_token }}', 'de_thumb', software_id)) {
-																			console.log('de_thumb success')
-                                                                        } else {
-																			console.log('de_thumb failed')
-                                                                        }
-                                                                    }
-                                                                </script>
                                                             </i>
                                                                 <span
                                                                         class="home-like-1295">{{ software.thumbs_volume }}</span>
@@ -130,4 +112,17 @@
 {% endblock %}
 </body>
 {% block script %}
+    <script>
+		function thumb_software(software_id, type) {
+			let t = document.getElementById('software-' + software_id);
+			t.setAttribute('onclick', '');
+			if (type === 1) {
+				thumb_software_or_not('{{ csrf_token }}', 'thumb', software_id)
+			} else if (type === 2) {
+				thumb_software_or_not('{{ csrf_token }}', 'de_thumb', software_id)
+			} else {
+				console.log('invalid action')
+			}
+		}
+    </script>
 {% endblock %}

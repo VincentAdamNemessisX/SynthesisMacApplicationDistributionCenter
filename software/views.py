@@ -249,11 +249,12 @@ def search_result(request):
 def thumb(request):
     if request.method == 'POST':
         try:
-            thumb_type = request.POST.get('type')
+            thumb_type = request.POST.get('thumb_type')
             software_id = request.POST.get('software_id')
             software_id = str(software_id.replace(' ', '+'))
             software_id = decrypt(software_id)
-            software = SoftWare.objects.get(software_id=software_id)
+            software = SoftWare.objects.get(id=software_id)
+            print(thumb_type)
             if thumb_type == 'thumb':
                 if software:
                     software.thumbs_volume += 1
@@ -287,6 +288,16 @@ def thumb(request):
             return JsonResponse({
                 'code': 402,
                 'error': 'Error with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 400,
+                'error': 'Error with bad params'
+            })
+        else:
+            return JsonResponse({
+                'code': 406,
+                'error': 'Error with bad request headers'
             })
     else:
         return JsonResponse({
