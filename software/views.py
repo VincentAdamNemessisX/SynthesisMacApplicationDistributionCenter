@@ -254,7 +254,6 @@ def thumb(request):
             software_id = str(software_id.replace(' ', '+'))
             software_id = decrypt(software_id)
             software = SoftWare.objects.get(id=software_id)
-            print(thumb_type)
             if thumb_type == 'thumb':
                 if software:
                     software.thumbs_volume += 1

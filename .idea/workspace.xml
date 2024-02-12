@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="maybe ready for next with thumb and de_thumb api test">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished thumb function;&#10;finished de thumb function;">
+      <change afterPath="$PROJECT_DIR$/media/software/10010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10010_wtm0kdf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10035_f0hUipt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10050.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/10065.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,7 +254,8 @@
       <workItem from="1707463925198" duration="1622000" />
       <workItem from="1707469503947" duration="1403000" />
       <workItem from="1707588604797" duration="6154000" />
-      <workItem from="1707674387431" duration="5314000" />
+      <workItem from="1707674387431" duration="5951000" />
+      <workItem from="1707744538303" duration="7860000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -511,7 +521,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707594379889</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="finished thumbs function">
+      <option name="closed" value="true" />
+      <created>1707679994044</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1707679994044</updated>
+    </task>
+    <task id="LOCAL-00035" summary="finished thumb function;&#10;finished de thumb function;">
+      <option name="closed" value="true" />
+      <created>1707680019161</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1707680019161</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,8 +546,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="appended category.html and loading.css animation, and optimized static resources" />
-    <MESSAGE value="optimized comments_with_articles' models.py and views.py" />
     <MESSAGE value="appended publish_article_and_software.html page;&#10; extra the new_base.html;&#10; appended the fonts that iconfont.css needed;&#10; optimized static resources loading action" />
     <MESSAGE value="restructured urls with views map from django_router module;&#10;optimized apis.js request url" />
     <MESSAGE value="All database query method instead of redis cache;&#10;optimized some models.py fields" />
@@ -545,7 +569,9 @@
     <MESSAGE value="finished main-content footer data filled;&#10;finished footer data filled;&#10;optimized some styles" />
     <MESSAGE value="appended login and register pages to frontenduser module" />
     <MESSAGE value="maybe ready for next with thumb and de_thumb api test" />
-    <option name="LAST_COMMIT_MESSAGE" value="maybe ready for next with thumb and de_thumb api test" />
+    <MESSAGE value="finished thumbs function" />
+    <MESSAGE value="finished thumb function;&#10;finished de thumb function;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished thumb function;&#10;finished de thumb function;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1707414894868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

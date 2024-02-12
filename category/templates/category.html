@@ -26,7 +26,7 @@
                     <h4 class="text-gray text-lg mb-4">
                         <i class="site-tag iconfont icon-app icon-lg mr-1" id="音频"></i>{{ category.name }}</h4>
                     <div class="row">
-                        {% if category and software_set and software_set.count > 0 %}
+                        {% if category and software_set and software_set_count > 0 %}
                             {% for software in software_set %}
                                 <div class="io-px-2 col-12 col-md-6 col-lg-4 col-xxl-5a ajax-url">
                                     <div class="card-app card">
@@ -41,34 +41,21 @@
                                                    data-was-processed="true"></a>
                                             </div>
                                             <div class="app-content flex-fill pl-2 pr-1">
-                                                <div class="mb-2"><a href="/software/details/?software_id="
-                                                                     target="_blank"
+                                                <div class="mb-2"><a href=""
+                                                                     onmouseout="default_href()" onmouseleave="default_href()"
+                                                                     target="_blank" onmousemove="re_href_software('{{ software.id }}')"
                                                                      class="text-md overflowClip_1 software_link_{{ software.id }}">{{ software.name }}<span
                                                         class="text-xs"> - {{ software.version }}</span></a>
-                                                    <script>
-														$(document).ready(function () {
-															let software_links = document.getElementsByClassName('software_link_{{ software.id }}');
-															for (let i = 0; i < software_links.length; i++) {
-																software_links[i].href += encrypt_param('{{ software.id }}');
-															}
-														})
-                                                    </script>
                                                 </div>
                                                 <div class="text-muted text-xs overflowClip_1">{{ software.description }}</div>
                                                 <div class="app-like">
                                                     <div class="d-flex align-items-center" style="white-space: nowrap;">
                                                         <div class="tga text-xs">
-                                                <span class="mr-1"><a href="/category?category_id="
+                                                <span class="mr-1"><a href=""
+                                                                      onmouseout="default_href()" onmouseleave="default_href()"
+                                                                      onmousemove="re_href_category('{{ software.category.id }}')"
                                                                       class="category_link_{{ software.category.id }}"
                                                                       rel="tag">{{ software.category.name }}</a>
-                                                <script>
-                                                         $(document).ready(function () {
-	                                                         let software_links = document.getElementsByClassName('category_link_{{ software.category.id }}');
-	                                                         for (let i = 0; i < software_links.length; i++) {
-		                                                         software_links[i].href += encrypt_param('{{ software.category.id }}');
-	                                                         }
-                                                         })
-                                                </script>
                                                 </span></div>
                                                         <div class="flex-fill"></div>
                                                         <div class="text-muted text-xs text-center mr-1">
@@ -95,6 +82,17 @@
                                     </div>
                                 </div>
                             {% endfor %}
+                            {% if software_set_count > 10 %}
+                                {#                                loading more#}
+                                <div class="col-12">
+                                    <div class="text-center">
+                                        <button class="btn btn-outline-primary btn-sm" id="load_more_software"
+                                                onclick="load_left('{{ category.id }}')">
+                                            加载更多
+                                        </button>
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% else %}
                             <div class="col-12">
                                 <div class="alert alert-warning text-center" role="alert">
@@ -124,5 +122,111 @@
 				console.log('invalid action')
 			}
 		}
+		
+		function load_left(category_id) {
+			$.ajax({
+				url: '/category/load/left/',
+				type: 'POST',
+				data: {
+					'csrfmiddlewaretoken': '{{ csrf_token }}',
+					'category_id': encrypt_param(category_id.toString()),
+				},
+				success: function (data) {
+					if (data.code === 200) {
+						let layout_content = $('.row')[0];
+						layout_content.children[layout_content.children.length - 1].remove();
+						for (let i = 0; i < data.data.software_set_count; i++) {
+							layout_content.innerHTML += `
+                                <div class="io-px-2 col-12 col-md-6 col-lg-4 col-xxl-5a ajax-url">
+                                    <div class="card-app card">
+                                        <div class="card-body align-items-center d-flex flex-fill py-3">
+                                            <div class="media size-70 p-0 app-rounded"
+                                                 style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
+                                                <a class="media-content software_link_${data.data.software_set[i].id}"
+                                                   href="/software/details/software_id="
+                                                   target="_blank"
+                                                   data-bg="url(${data.data.software_set[i].icon})"
+                                                   style="background-size: 85%; background-image: url(${data.data.software_set[i].icon});"
+                                                   data-was-processed="true"></a>
+                                            </div>
+                                            <div class="app-content flex-fill pl-2 pr-1">
+                                                <div class="mb-2"><a href=""
+                                                                    onmouseout="default_href()" onmouseleave="default_href()"
+                                                                     target="_blank" onmousemove="re_href_software(${data.data.software_set[i].id})"
+                                                                     class="text-md overflowClip_1 software_link_${data.data.software_set[i].id}">${data.data.software_set[i].name}<span
+                                                        class="text-xs"> - ${data.data.software_set[i].version}</span></a>
+                                                </div>
+                                                <div class="text-muted text-xs overflowClip_1">${data.data.software_set[i].description}</div>
+                                                <div class="app-like">
+                                                    <div class="d-flex align-items-center" style="white-space: nowrap;">
+                                                        <div class="tga text-xs">
+                                                <span class="mr-1"><a href=""
+                                                                      onmouseout="default_href()"
+                                                                      onmouseleave="default_href()"
+                                                                      onmousemove="re_href_category(${data.data.category.id})"
+                                                                      class="category_link_${data.data.category.id}"
+                                                                      rel="tag">${data.data.category.name}</a>
+                                                </span></div>
+                                                        <div class="flex-fill"></div>
+                                                        <div class="text-muted text-xs text-center mr-1">
+                                                            <span class="view pl-2"><i
+                                                                    class="fa fa-eye"
+                                                                    style="font-size: unset"></i> ${data.data.software_set[i].view_volume}</span>
+                                                            <span class="down pl-2"><i
+                                                                    class="fa fa-download"
+                                                                    style="font-size: unset"></i> ${data.data.software_set[i].download_volume}</span>
+                                                            <span class="pl-2" style="cursor: pointer"
+                                                                  id="software-${data.data.software_set[i].id}"
+                                                                  onclick="thumb_software('${data.data.software_set[i].id}',1)"><i
+                                                                    class="fa fa-thumbs-o-up" style="font-size: unset">
+                                                            </i>
+                                                                <span
+                                                                        class="home-like-1295">${data.data.software_set[i].thumbs_volume}</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="app-platform"></div>
+                                        </div>
+                                    </div>
+                                </div>
+						`;
+						}
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: '服务器错误' + data.code + ': ' + data.error,
+							text: '请稍后重试！'
+						})
+					}
+				},
+				error: function (data) {
+					Swal.fire({
+						icon: 'error',
+						title: '服务器错误' + data.error,
+						text: '请稍后重试！'
+					})
+				}
+			})
+		}
+		
+		function re_href_software(software_id) {
+			let software_links = document.getElementsByClassName(`software_link_${software_id}`);
+			for (let i = 0; i < software_links.length; i++) {
+				software_links[i].href = "/software/details/?software_id=" + encrypt_param(`${software_id}`);
+			}
+		}
+		
+		function re_href_category(category_id) {
+			let category_links = document.getElementsByClassName(`category_link_${category_id}`);
+			for (let i = 0; i < category_links.length; i++) {
+				category_links[i].href = "/category?category_id=" + encrypt_param(`${category_id}`);
+			}
+		}
+
+		function default_href() {
+			event.target.href = '';
+        }
     </script>
 {% endblock %}
