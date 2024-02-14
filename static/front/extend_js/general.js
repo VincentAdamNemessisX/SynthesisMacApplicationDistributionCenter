@@ -55,3 +55,15 @@ function split_tags(tags) {
 		return t && t.trim();
 	});
 }
+
+function generateCurrentPageQrcode() {
+	// 生成当前页面二维码
+	return new QRCode(document.getElementById("qr_code"), {
+		text: window.location.href,
+		width: 128,
+		height: 128,
+		colorDark: "#000000",
+		colorLight: "#ffffff",
+		correctLevel: QRCode.CorrectLevel.H
+	});
+}

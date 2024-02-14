@@ -246,15 +246,18 @@ def software_details(request):
             software_id = str(software_id.replace(' ', '+'))
             software_id = decrypt(software_id)
             software = get_software_by_software_id(software_id)[0]
+            software.screenshots_set = software.softwarescreenshots_set.all()
+            software.screenshots_set.count = len(software.screenshots_set)
+            software.screenshots_set.count_list = [i for i in range(software.screenshots_set.count)]
         except ValueError:
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'invalid params', 'code': 402})
-        except TypeError:
-            return render(request, 'frontenduser/software_details.html',
-                          {'error': 'wrong params', 'code': 401})
-        except AttributeError:
-            return render(request, 'frontenduser/software_details.html',
-                          {'error': 'not found', 'code': 404})
+        # except TypeError:
+        #     return render(request, 'frontenduser/software_details.html',
+        #                   {'error': 'wrong params', 'code': 401})
+        # except AttributeError:
+        #     return render(request, 'frontenduser/software_details.html',
+        #                   {'error': 'not found', 'code': 404})
         return render(request, 'frontenduser/software_details.html', {
             'software_id': software_id,
             'software': software

@@ -4,6 +4,13 @@
     Mac软件分享平台
 {% endblock %}
 {% block style %}
+    <style>
+        .description-layout {
+            width: 70%;
+            text-indent: 2em;
+            margin: 0 auto;
+        }
+    </style>
 {% endblock %}
 {% block content %}
     <div class="loading_container">
@@ -15,29 +22,29 @@
         {% include 'frontenduser/header-nav.html' %}
         <div id="content" class="container my-4 my-md-5">
             <div class="background-fx">
-                <img 
-                        src="{%static 'front/img/software_details/background/' %}shape-01.svg"
-                                            class="shape-01" alt="">
-                <img 
-                        src="{%static 'front/img/software_details/background/' %}shape-02.svg" class="shape-02" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-03.svg" class="shape-03" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-01.svg"
+                        class="shape-01" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-04.svg" class="shape-04" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-02.svg" class="shape-02" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-05.svg" class="shape-05" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-03.svg" class="shape-03" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-06.svg" class="shape-06" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-04.svg" class="shape-04" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-07.svg" class="shape-07" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-05.svg" class="shape-05" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-08.svg" class="shape-08" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-06.svg" class="shape-06" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-09.svg" class="shape-09" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-07.svg" class="shape-07" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-10.svg" class="shape-10" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-08.svg" class="shape-08" alt="">
                 <img
-                    src="{%static 'front/img/software_details/background/' %}shape-11.svg" class="shape-11" alt="">
+                        src="{% static 'front/img/software_details/background/' %}shape-09.svg" class="shape-09" alt="">
+                <img
+                        src="{% static 'front/img/software_details/background/' %}shape-10.svg" class="shape-10" alt="">
+                <img
+                        src="{% static 'front/img/software_details/background/' %}shape-11.svg" class="shape-11" alt="">
             </div>
             <div class="row app-content py-5 mb-xl-5 mb-0 mx-xxxl-n5"><!-- software信息 -->
                 <div class="col">
@@ -47,27 +54,38 @@
                                 src="{{ software.icon.url }}"
                                 data-src="{{ software.icon.url }}" height="auto"
                                 width="128"
-                                alt="{{ software.name}}" data-was-processed="true"></div>
+                                alt="{{ software.name }}" data-was-processed="true"></div>
                         <div class="app-info"><h1 class="h3 text-center text-md-left mb-0">{{ software.name }}
                             <span class="text-md">- {{ software.version }}</span></h1>
                             <p class="text-xs text-center text-md-left my-1">{{ software.description|truncatechars:30 }}</p>
                             <div class="app-nature text-center text-md-left mb-5 mb-md-4"><span
                                     class="badge badge-pill vc-black mr-1"><i
                                     class="fa fa-language mr-2"></i>{{ software.language }}</span><span
-                                    class="badge badge-pill vc-black mr-1"><i class="fa fa-laptop mr-2"></i>{{ software.platform }}</span><span
                                     class="badge badge-pill vc-black mr-1"><i
-                                    class="iconfont icon-chakan-line mr-2"></i>{{ software.view_volume }}</span>
+                                    class="fa fa-laptop mr-2"></i>{{ software.platform }}</span><span
+                                    class="badge badge-pill vc-black mr-1"><i
+                                    class="iconfont icon-chakan-line mr-2"></i>
+                                {% if software.view_volume == 0 %}
+                                    1
+                                {% else %}
+                                    {{ software.view_volume }}
+                                {% endif %}
+                            </span>
                             </div>
-                            <p class="text-muted mb-4"><span class="info-term mr-3">更新日期：{{ software.updated_time|date }}</span>
+                            <p class="text-muted mb-4"><span
+                                    class="info-term mr-3">更新日期：{{ software.updated_time|date }}</span>
                                 <br/><span
-                                    class="info-term mr-3">标签：<span class="mr-2" id="tag-space" data-tags="{{ software.tags }}"></span></span>
+                                        class="info-term mr-3">标签：<span class="mr-2" id="tag-space"
+                                                                          data-tags="{{ software.tags }}"></span></span>
                                 <br/><span
-                                    class="info-term mr-3">运行系统版本：{{ software.run_os_version }}</span>
+                                        class="info-term mr-3">运行系统版本：{{ software.run_os_version }}</span>
                                 <br/><span
-                                    class="info-term mr-3">分类：<a class="category_link_{{ software.category.id }}"
-                                                                   onmouseleave="default_href()" onmouseout="default_href()"
-                                                                   onmousemove="re_href_category('{{ software.category.id }}')"
-                                                                   href="" >{{ software.category }}<i class="iconfont icon-wailian text-ss"></i></a></span></p>
+                                        class="info-term mr-3">分类：<a class="category_link_{{ software.category.id }}"
+                                                                       onmouseleave="default_href()"
+                                                                       onmouseout="default_href()"
+                                                                       onmousemove="re_href_category('{{ software.category.id }}')"
+                                                                       href="">{{ software.category }}<i
+                                        class="iconfont icon-wailian text-ss"></i></a></span></p>
                             <div class="mb-2 app-button">
                                 <button type="button"
                                         class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2 io-ajax-modal"
@@ -75,60 +93,77 @@
                                         data-action="get_app_down_btn" data-post_id="1428" data-id="1"><i
                                         class="iconfont icon-down mr-2"></i>立即下载
                                 </button>
-                                <button type="button" data-action="post_like" data-id="1428"
-                                        class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mb-2 btn-like ">
-                                    <i class="iconfont icon-like mr-2"></i> 赞 <span class="like-count ">{{ software.thumbs_volume }}</span>
+                                <button type="button" id="software-{{ software.id }}"
+                                        onclick="thumb_software('{{ software.id }}', 1)"
+                                        class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mb-2">
+                                    <i class="iconfont icon-like mr-2"></i> 赞 <span
+                                        class="like-count ">{{ software.thumbs_volume }}</span>
                                 </button>
                             </div>
-                            <p class="mb-0 text-muted text-sm"><span class="mr-2"><i
-                                    class="iconfont icon-zip"></i> <span>{{ software.file_size }}</span></span>
-                                <span class="mr-2"><i class="iconfont icon-qushitubiao"></i> <span
-                                        class="down-count-text count-a">{{ software.download_volume }}</span> 人已下载</span><span
-                                        class="mr-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
-                                        data-html="true" title=""
-                                        data-original-title="<img id='qr_code'>"><i
-                                        class="iconfont icon-phone"></i> 手机查看</span></p></div>
+                            <p class="mb-0 text-muted text-sm">
+                                <span class="mr-2">
+                                    <i class="fa fa-file-archive-o"></i>
+                                    <span>{{ software.file_size }}
+                                    </span>
+                                </span>
+                                <span class="mr-2">
+                                    <i class="iconfont icon-qushitubiao"></i>
+                                    <span class="down-count-text count-a">
+                                        {{ software.download_volume }}
+                                    </span> 人已下载
+                                </span>
+                            </p>
+                        </div>
                     </div>
-                </div><!-- app信息 END --><!-- 截图幻灯片 -->
-                <div class="col-12 col-xl-5">
-                    <div class="mx-auto screenshot-carousel rounded-lg">
-                        <div id="carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item">
-                                    <div class="img_wrapper"><a
-                                            href="https://macwk.cn/wp-content/uploads/2023/08/dashang.jpg"
-                                            class="text-center" data-fancybox="screen"
-                                            data-caption="JixiPix Artista Impresso Pro的使用截图[1]"><img
-                                            class="img-fluid lazy unfancybox loaded"
-                                            src="https://macwk.cn/wp-content/uploads/2023/08/dashang.jpg"
-                                            data-src="https://macwk.cn/wp-content/uploads/2023/08/dashang.jpg"
-                                            height="auto"
-                                            width="auto" alt="JixiPix Artista Impresso Pro的使用截图[1]"
-                                            data-was-processed="true"></a></div>
+                </div><!-- software信息 END -->
+                {% if software.screenshots_set.count > 0 %}
+                    <!-- 截图幻灯片 -->
+                    <div class="col-12 col-xl-5">
+                        <div class="mx-auto screenshot-carousel rounded-lg">
+                            <div id="carousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    {% for screenshot in software.screenshots_set %}
+                                        <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                            <div class="img_wrapper"><a
+                                                    href="{{ screenshot.image.url }}"
+                                                    class="text-center" data-fancybox="screen"
+                                                    data-caption="{{ software.name }}的使用截图[{{ screenshot.id }}]"><img
+                                                    class="img-fluid lazy unfancybox loaded"
+                                                    src="{{ screenshot.image.url }}"
+                                                    data-src="{{ screenshot.image.url }}"
+                                                    height="auto"
+                                                    width="auto"
+                                                    alt="{{ software.name }}的使用截图[{{ screenshot.id }}]"
+                                                    data-was-processed="true"></a></div>
+                                        </div>
+                                    {% endfor %}
                                 </div>
-                                <div class="carousel-item active">
-                                    <div class="img_wrapper"><a
-                                            href="https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg"
-                                            class="text-center" data-fancybox="screen"
-                                            data-caption="JixiPix Artista Impresso Pro的使用截图[2]"><img
-                                            class="img-fluid lazy unfancybox loaded"
-                                            src="https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg"
-                                            data-src="https://macwk.cn/wp-content/uploads/2023/09/qrcode_for_gh_f52af67e2068_430.jpg"
-                                            height="auto" width="auto" alt="JixiPix Artista Impresso Pro的使用截图[2]"
-                                            data-was-processed="true"></a></div>
-                                </div>
-                            </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel" data-slide-to="0" class=""></li>
-                                <li data-target="#carousel" data-slide-to="1" class="active"></li>
-                            </ol>
-                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"><i
-                                    class="iconfont icon-arrow-l icon-lg" aria-hidden="true"></i><span class="sr-only">Previous</span></a><a
-                                class="carousel-control-next" href="#carousel" role="button" data-slide="next"><i
-                                class="iconfont icon-arrow-r icon-lg" aria-hidden="true"></i><span
-                                class="sr-only">Next</span></a></div>
+                                {% if software.screenshots_set.count > 1 %}
+                                    <ol class="carousel-indicators">
+                                        {% with n=software.screenshots_set.count_list %}
+                                            {% for i in n %}
+                                                <li data-target="#carousel" data-slide-to="{{ forloop.counter0 }}"
+                                                    class="{% if forloop.counter == 1 %}active{% endif %}"></li>
+                                            {% endfor %}
+                                        {% endwith %}
+                                    </ol>
+                                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"><i
+                                            class="iconfont icon-arrow-l icon-lg" aria-hidden="true"></i><span
+                                            class="sr-only">上一个</span></a><a
+                                        class="carousel-control-next" href="#carousel" role="button"
+                                        data-slide="next"><i
+                                        class="iconfont icon-arrow-r icon-lg" aria-hidden="true"></i><span
+                                        class="sr-only">下一个</span></a></div>
+                                {% else %}
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                                    </ol>
+                                {% endif %}
+                        </div>
                     </div>
-                </div><!-- 截图幻灯片 END --></div>
+                    <!-- 截图幻灯片 END -->
+                {% endif %}
+            </div>
             <main class="content" role="main">
                 <div class="content-wrap">
                     <div class="content-layout">
@@ -136,16 +171,9 @@
                             <div class="card-body p-0">
                                 <div class="apd-bg">
                                 </div>
-                                <div class="panel-body single my-4 ">
-                                    <blockquote><p><strong>Artista Impresso
-                                        是一个有趣的程序，它可以让您将照片转换成印象派风格的精美画作，它们将包含逼真的笔触和令人印象深刻的色彩组合。借助注重最小细节的内置预设，您可以在几分钟内获得出色的结果。</strong>
-                                    </p>
-                                        <p><strong>请注意，该程序可以作为 Photoshop、Lightroom 和 Elements
-                                            等知名程序的插件。在这些功能中，值得注意的是透明度的存在，可以使用效果混合，可以使用插件滤镜，并且有批处理模式。</strong>
-                                        </p>
-                                        <p>
-                                            <strong>添加照片并在下方选择所需的预设后，您可以在右侧详细配置所有内容、调整滑块并充分利用所选模板。</strong>
-                                        </p></blockquote>
+                                <div class="panel-body single my-4 description-layout">
+                                    {{ software.description.length }}
+                                    {{ software.description }}
                                 </div>
                             </div>
                         </div>
@@ -385,7 +413,7 @@
 			for (let i = 0; i < tags.length; i++) {
 				tag_space.innerHTML += tags[i];
 				tag_space.innerHTML += '&nbsp;&nbsp;&nbsp;&nbsp;';
-            }
-        }
+			}
+		}
     </script>
 {% endblock %}
