@@ -14,46 +14,60 @@
     <div class="main-content flex-fill">
         {% include 'frontenduser/header-nav.html' %}
         <div id="content" class="container my-4 my-md-5">
-            <div class="background-fx"><img src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-01.svg"
-                                            class="shape-01" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-02.svg" class="shape-02" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-03.svg" class="shape-03" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-04.svg" class="shape-04" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-05.svg" class="shape-05" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-06.svg" class="shape-06" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-07.svg" class="shape-07" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-08.svg" class="shape-08" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-09.svg" class="shape-09" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-10.svg" class="shape-10" alt=""><img
-                    src="https://macwk.cn/wp-content/themes/onenav/images/fx/shape-11.svg" class="shape-11" alt="">
+            <div class="background-fx">
+                <img 
+                        src="{%static 'front/img/software_details/background/' %}shape-01.svg"
+                                            class="shape-01" alt="">
+                <img 
+                        src="{%static 'front/img/software_details/background/' %}shape-02.svg" class="shape-02" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-03.svg" class="shape-03" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-04.svg" class="shape-04" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-05.svg" class="shape-05" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-06.svg" class="shape-06" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-07.svg" class="shape-07" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-08.svg" class="shape-08" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-09.svg" class="shape-09" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-10.svg" class="shape-10" alt="">
+                <img
+                    src="{%static 'front/img/software_details/background/' %}shape-11.svg" class="shape-11" alt="">
             </div>
-            <div class="row app-content py-5 mb-xl-5 mb-0 mx-xxxl-n5"><!-- app信息 -->
+            <div class="row app-content py-5 mb-xl-5 mb-0 mx-xxxl-n5"><!-- software信息 -->
                 <div class="col">
                     <div class="d-md-flex mt-n3 mb-5 my-xl-0">
                         <div class="app-ico text-center mr-0 mr-md-2 mb-3 mb-md-0"><img
                                 class="app-rounded mr-0 mr-md-3 lazy unfancybox loaded"
-                                src="https://macwk.cn/wp-content/uploads/2023/11/yva.webp"
-                                data-src="https://macwk.cn/wp-content/uploads/2023/11/yva.webp" height="auto"
+                                src="{{ software.icon.url }}"
+                                data-src="{{ software.icon.url }}" height="auto"
                                 width="128"
-                                alt="JixiPix Artista Impresso Pro" data-was-processed="true"></div>
-                        <div class="app-info"><h1 class="h3 text-center text-md-left mb-0">JixiPix Artista Impresso
-                            Pro<span
-                                    class="text-md">1.8.24</span></h1>
-                            <p class="text-xs text-center text-md-left my-1">Artista Impresso
-                                是一个有趣的程序，它可以让您将照片转换成印象派风格的精美画作，它们将包含逼真的笔触和令人印象深刻的色彩组合。</p>
+                                alt="{{ software.name}}" data-was-processed="true"></div>
+                        <div class="app-info"><h1 class="h3 text-center text-md-left mb-0">{{ software.name }}
+                            <span class="text-md">- {{ software.version }}</span></h1>
+                            <p class="text-xs text-center text-md-left my-1">{{ software.description|truncatechars:30 }}</p>
                             <div class="app-nature text-center text-md-left mb-5 mb-md-4"><span
                                     class="badge badge-pill vc-black mr-1"><i
-                                    class="iconfont icon-version-Line mr-2"></i>官方版</span><span
-                                    class="badge badge-pill vc-black mr-1"><i class="iconfont icon-ad-line mr-2"></i>无广告</span><span
+                                    class="fa fa-language mr-2"></i>{{ software.language }}</span><span
+                                    class="badge badge-pill vc-black mr-1"><i class="fa fa-laptop mr-2"></i>{{ software.platform }}</span><span
                                     class="badge badge-pill vc-black mr-1"><i
-                                    class="iconfont icon-chakan-line mr-2"></i>2,960</span>
+                                    class="iconfont icon-chakan-line mr-2"></i>{{ software.view_volume }}</span>
                             </div>
-                            <p class="text-muted mb-4"><span class="info-term mr-3">更新日期：2023年 11月 9日</span><span
-                                    class="info-term mr-3">分类标签：<span class="mr-2"><a
-                                    href="https://macwk.cn/apps/tuxingsheji" rel="tag">图形设计</a><i
-                                    class="iconfont icon-wailian text-ss"></i></span></span><span
-                                    class="info-term mr-3">语言：英语</span><span
-                                    class="info-term mr-3">平台：没限制</span></p>
+                            <p class="text-muted mb-4"><span class="info-term mr-3">更新日期：{{ software.updated_time|date }}</span>
+                                <br/><span
+                                    class="info-term mr-3">标签：<span class="mr-2" id="tag-space" data-tags="{{ software.tags }}"></span></span>
+                                <br/><span
+                                    class="info-term mr-3">运行系统版本：{{ software.run_os_version }}</span>
+                                <br/><span
+                                    class="info-term mr-3">分类：<a class="category_link_{{ software.category.id }}"
+                                                                   onmouseleave="default_href()" onmouseout="default_href()"
+                                                                   onmousemove="re_href_category('{{ software.category.id }}')"
+                                                                   href="" >{{ software.category }}<i class="iconfont icon-wailian text-ss"></i></a></span></p>
                             <div class="mb-2 app-button">
                                 <button type="button"
                                         class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2 io-ajax-modal"
@@ -63,16 +77,16 @@
                                 </button>
                                 <button type="button" data-action="post_like" data-id="1428"
                                         class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mb-2 btn-like ">
-                                    <i class="iconfont icon-like mr-2"></i> 赞 <span class="like-count ">1</span>
+                                    <i class="iconfont icon-like mr-2"></i> 赞 <span class="like-count ">{{ software.thumbs_volume }}</span>
                                 </button>
                             </div>
                             <p class="mb-0 text-muted text-sm"><span class="mr-2"><i
-                                    class="iconfont icon-zip"></i> <span>117.23MB</span></span>
+                                    class="iconfont icon-zip"></i> <span>{{ software.file_size }}</span></span>
                                 <span class="mr-2"><i class="iconfont icon-qushitubiao"></i> <span
-                                        class="down-count-text count-a">26</span> 人已下载</span><span
+                                        class="down-count-text count-a">{{ software.download_volume }}</span> 人已下载</span><span
                                         class="mr-2 cursor-pointer" data-toggle="tooltip" data-placement="bottom"
                                         data-html="true" title=""
-                                        data-original-title="<img src='https://macwk.cn/qr/?text=https://macwk.cn/app/1428.html&amp;size=150&amp;margin=10' width='150'>"><i
+                                        data-original-title="<img id='qr_code'>"><i
                                         class="iconfont icon-phone"></i> 手机查看</span></p></div>
                     </div>
                 </div><!-- app信息 END --><!-- 截图幻灯片 -->
@@ -362,6 +376,16 @@
     <script>
 		$(document).ready(function () {
 			get_notice_to_specific_app('{{ csrf_token }}', '{{ software_id }}');
+			fill_in_tags();
 		});
+		
+		function fill_in_tags() {
+			let tag_space = $('#tag-space')[0];
+			tags = split_tags(tag_space.getAttribute('data-tags'));
+			for (let i = 0; i < tags.length; i++) {
+				tag_space.innerHTML += tags[i];
+				tag_space.innerHTML += '&nbsp;&nbsp;&nbsp;&nbsp;';
+            }
+        }
     </script>
 {% endblock %}

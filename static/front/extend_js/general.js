@@ -43,3 +43,15 @@ function decrypt_param(str) {
 // 	console.log(decryptedText);
 	return decryptedText;
 }
+
+
+function split_tags(tags) {
+	// 分词
+	let x = tags.split(';');
+	// 去重
+	x = [...new Set(x)];
+	// 去空
+	return x.filter(function (t) {
+		return t && t.trim();
+	});
+}

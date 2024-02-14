@@ -513,9 +513,9 @@
 			current_element.href = "/software/details/?software_id=" + encrypt_param(id.toString());
 		} else if (type === 3) {
 			current_element.href = "/category/?category_id=" + encrypt_param(id.toString());
-		} else if(type === 4) {
+		} else if (type === 4) {
 			current_element.onclick = encrypt_param(id.toString());
-        }
+		}
 	}
 	
 	{% if error %}
@@ -912,6 +912,31 @@
 	});
 	/* ]]]]><![CDATA[> */
 	/* ]]> */
+</script>
+
+<script>
+	function thumb_software(software_id, type) {
+		let t = document.getElementById('software-' + software_id);
+		t.setAttribute('onclick', '');
+		if (type === 1) {
+			thumb_software_or_not('{{ csrf_token }}', 'thumb', software_id)
+		} else if (type === 2) {
+			thumb_software_or_not('{{ csrf_token }}', 'de_thumb', software_id)
+		} else {
+			console.log('invalid action')
+		}
+	}
+	
+	function re_href_category(category_id) {
+		let category_links = document.getElementsByClassName(`category_link_${category_id}`);
+		for (let i = 0; i < category_links.length; i++) {
+			category_links[i].href = "/category?category_id=" + encrypt_param(`${category_id}`);
+		}
+	}
+	
+	function default_href() {
+		event.target.href = '';
+	}
 </script>
 {% block script %}
 {% endblock %}

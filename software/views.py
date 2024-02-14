@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
+
 from general.encrypt import decrypt
 from general.init_cache import get_software_by_software_id, get_all_software
 from .models import SoftWare
@@ -20,7 +21,6 @@ def publish_software(request):
         if software:
             return JsonResponse({
                 'code': 200,
-                'msg': 'success',
                 'data': {
                     'software_id': software.id
                 }
@@ -28,12 +28,12 @@ def publish_software(request):
         else:
             return JsonResponse({
                 'code': 400,
-                'msg': '发布失败'
+                'error': '发布失败'
             })
     else:
         return JsonResponse({
             'code': 401,
-            'msg': '请求方式错误'
+            'error': '请求方式错误'
         })
 
 
@@ -44,16 +44,22 @@ def get_software_details(request):
     if request.method == "POST":
         try:
             # software_id = int(request.GET.get('software_id'))
-            software_id = int(request.POST.get('software_id'))
+            software_id = request.POST.get('software_id')
+            software_id = int(decrypt(software_id))
         except ValueError:
             return JsonResponse({
                 'code': 402,
-                'msg': 'failed with invalid params'
+                'error': 'failed with invalid params'
             })
         except TypeError:
             return JsonResponse({
                 'code': 401,
-                'msg': 'failed with wrong params'
+                'error': 'failed with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 406,
+                'error': 'failed with unexpected error'
             })
         if software_id:
             matched_software = get_software_by_software_id(software_id)
@@ -64,19 +70,20 @@ def get_software_details(request):
         else:
             return JsonResponse({
                 'code': 401,
-                'msg': 'failed with wrong params'
+                'error': 'failed with wrong params'
             })
         if software:
             return JsonResponse({
                 'code': 200,
-                'msg': 'success',
+                'error': 'success',
                 'data': {
                     'software_id': software.id,
                     'name': software.name,
+                    'version': software.version,
+                    'language': software.language,
+                    'platform': software.platform,
+                    'run_os_version': software.run_os_version,
                     'description': software.description,
-                    'created_time': software.created_time,
-                    'updated_time': software.updated_time,
-                    'state': software.state,
                     'category': {
                         'id': software.category.id,
                         'name': software.category.name,
@@ -84,11 +91,25 @@ def get_software_details(request):
                         'icon': software.category.icon.url,
                         'description': software.category.description,
                     },
+                    'tags': software.tags,
+                    'file_size': software.file_size,
+                    'official_link': software.official_link,
+                    'link_adrive': software.link_adrive,
+                    'link_baidu': software.link_baidu,
+                    'link_direct': software.link_direct,
+                    'link_123': software.link_123,
+                    'icon': software.icon.url,
+                    'state': software.state,
                     'user': {
                         'id': software.user.id,
                         'username': software.user.username,
                         'email': software.user.email,
                     },
+                    'view_volume': software.view_volume,
+                    'thumbs_volume': software.thumbs_volume,
+                    'download_volume': software.download_volume,
+                    'created_time': software.created_time,
+                    'updated_time': software.updated_time,
                     'correlation_articles': [
                         {
                             'id': article.id,
@@ -109,12 +130,12 @@ def get_software_details(request):
         else:
             return JsonResponse({
                 'code': 404,
-                'msg': 'failed with no data'
+                'error': 'failed with no data'
             })
     else:
         return JsonResponse({
             'code': 401,
-            'msg': 'failed with invalid request action'
+            'error': 'failed with invalid request action'
         })
 
 
@@ -135,25 +156,26 @@ def get_some_software(request):
         except ValueError:
             return JsonResponse({
                 'code': 402,
-                'msg': 'failed with invalid params'
+                'error': 'failed with invalid params'
             })
         except TypeError:
             return JsonResponse({
                 'code': 401,
-                'msg': 'failed with wrong params'
+                'error': 'failed with wrong params'
             })
         if matched_software and len(matched_software) > 0:
             return JsonResponse({
                 'code': 200,
-                'msg': 'success',
+                'error': 'success',
                 'data': [
                     {
                         'software_id': software.id,
                         'name': software.name,
+                        'version': software.version,
+                        'language': software.language,
+                        'platform': software.platform,
+                        'run_os_version': software.run_os_version,
                         'description': software.description,
-                        'created_time': software.created_time,
-                        'updated_time': software.updated_time,
-                        'state': software.state,
                         'category': {
                             'id': software.category.id,
                             'name': software.category.name,
@@ -161,11 +183,25 @@ def get_some_software(request):
                             'icon': software.category.icon.url,
                             'description': software.category.description,
                         },
+                        'tags': software.tags,
+                        'file_size': software.file_size,
+                        'official_link': software.official_link,
+                        'link_adrive': software.link_adrive,
+                        'link_baidu': software.link_baidu,
+                        'link_direct': software.link_direct,
+                        'link_123': software.link_123,
+                        'icon': software.icon.url,
+                        'state': software.state,
                         'user': {
                             'id': software.user.id,
                             'username': software.user.username,
                             'email': software.user.email,
                         },
+                        'view_volume': software.view_volume,
+                        'thumbs_volume': software.thumbs_volume,
+                        'download_volume': software.download_volume,
+                        'created_time': software.created_time,
+                        'updated_time': software.updated_time,
                         'correlation_articles': [
                             {
                                 'id': article.id,
@@ -187,12 +223,12 @@ def get_some_software(request):
         else:
             return JsonResponse({
                 'code': 404,
-                'msg': 'failed with no data'
+                'error': 'failed with no data'
             })
     else:
         return JsonResponse({
             'code': 403,
-            'msg': 'failed with request action'
+            'error': 'failed with request action'
         })
 
 
@@ -209,13 +245,16 @@ def software_details(request):
         try:
             software_id = str(software_id.replace(' ', '+'))
             software_id = decrypt(software_id)
+            software = get_software_by_software_id(software_id)[0]
         except ValueError:
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'invalid params', 'code': 402})
         except TypeError:
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'wrong params', 'code': 401})
-        software = get_software_by_software_id(software_id)
+        except AttributeError:
+            return render(request, 'frontenduser/software_details.html',
+                          {'error': 'not found', 'code': 404})
         return render(request, 'frontenduser/software_details.html', {
             'software_id': software_id,
             'software': software
