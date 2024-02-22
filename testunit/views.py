@@ -1,25 +1,7 @@
 from django.shortcuts import render
-
+from django_router import router
 
 # Create your views here.
-def index(request):
-    return render(request, 'frontenduser/index.html')
-
-def dialog(request):
-    return render(request, 'frontenduser/dialog.html')
-
-
-def generic(request):
-    return render(request, 'frontenduser/generic.html')
-
-
-def help(request):
-    return render(request, 'frontenduser/help.html')
-
-
-def elements(request):
-    return render(request, 'frontenduser/elements.html')
-
-
-def temp(request):
-    return render(request, 'frontenduser/temp.html')
+@router.path(pattern='test/')
+def test_modal(request):
+    return render(request, 'frontenduser/test_for_download_modal.html')

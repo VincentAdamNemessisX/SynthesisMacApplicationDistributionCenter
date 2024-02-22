@@ -252,12 +252,12 @@ def software_details(request):
         except ValueError:
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'invalid params', 'code': 402})
-        # except TypeError:
-        #     return render(request, 'frontenduser/software_details.html',
-        #                   {'error': 'wrong params', 'code': 401})
-        # except AttributeError:
-        #     return render(request, 'frontenduser/software_details.html',
-        #                   {'error': 'not found', 'code': 404})
+        except TypeError:
+            return render(request, 'frontenduser/software_details.html',
+                          {'error': 'wrong params', 'code': 401})
+        except AttributeError:
+            return render(request, 'frontenduser/software_details.html',
+                          {'error': 'not found', 'code': 404})
         return render(request, 'frontenduser/software_details.html', {
             'software_id': software_id,
             'software': software

@@ -100,7 +100,7 @@ code {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 1080
+    z-index: 1000
 }
 
 .io {
@@ -479,7 +479,7 @@ a img.aligncenter {
     font-size: .875rem;
     width: 220px;
     height: 100vh;
-    z-index: 1081;
+    z-index: 1001;
     opacity: 1 !important
 }
 

@@ -10,6 +10,16 @@
             text-indent: 2em;
             margin: 0 auto;
         }
+
+        @media(min-height: 768px) {
+            .swal2-modal {
+                width: 100% !important;
+            }
+            
+            .swal2-modal::-webkit-scrollbar {
+                display: none !important;
+            }
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -87,10 +97,8 @@
                                                                        href="">{{ software.category }}<i
                                         class="iconfont icon-wailian text-ss"></i></a></span></p>
                             <div class="mb-2 app-button">
-                                <button type="button"
-                                        class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2 io-ajax-modal"
-                                        data-modal_size="modal-lg" data-modal_type="overflow-hidden"
-                                        data-action="get_app_down_btn" data-post_id="1428" data-id="1"><i
+                                <button type="button" onclick="download_modal(storage_software_info())"
+                                        class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2"><i
                                         class="iconfont icon-down mr-2"></i>立即下载
                                 </button>
                                 <button type="button" id="software-{{ software.id }}"
@@ -414,6 +422,18 @@
 				tag_space.innerHTML += tags[i];
 				tag_space.innerHTML += '&nbsp;&nbsp;&nbsp;&nbsp;';
 			}
+		}
+
+		function storage_software_info() {
+			let map = new Map();
+			map.set('id', '{{ software.id }}');
+			map.set('name', '{{ software.name }}');
+			map.set('version', '{{ software.version }}');
+			map.set('link_adrive', '{{ software.link_adrive }}');
+            map.set('link_baidu', '{{ software.link_baidu }}');
+			map.set('link_direct', '{{ software.link_direct }}');
+			map.set('link_123', '{{ software.link_123 }}');
+			return map;
 		}
     </script>
 {% endblock %}
