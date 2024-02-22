@@ -27,6 +27,7 @@ class Article(models.Model):
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
+    cover = models.ImageField(upload_to='article', default='article/default.png')
     correlation_software = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
     state = models.IntegerField(default=1, choices=((1, '待审核'), (2, '正常'), (3, '拒绝')))
     view_volume = models.BigIntegerField(default=0)

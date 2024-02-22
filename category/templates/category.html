@@ -303,12 +303,5 @@
 				}
 			})
 		}
-		
-		function re_href_software(software_id) {
-			let software_links = document.getElementsByClassName(`software_link_${software_id}`);
-			for (let i = 0; i < software_links.length; i++) {
-				software_links[i].href = "/software/details/?software_id=" + encrypt_param(`${software_id}`);
-			}
-		}
     </script>
 {% endblock %}

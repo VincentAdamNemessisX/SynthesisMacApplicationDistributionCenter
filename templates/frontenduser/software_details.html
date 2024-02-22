@@ -11,11 +11,11 @@
             margin: 0 auto;
         }
 
-        @media(min-height: 768px) {
+        @media (min-height: 768px) {
             .swal2-modal {
                 width: 100% !important;
             }
-            
+
             .swal2-modal::-webkit-scrollbar {
                 display: none !important;
             }
@@ -98,8 +98,9 @@
                                         class="iconfont icon-wailian text-ss"></i></a></span></p>
                             <div class="mb-2 app-button">
                                 <button type="button" onclick="download_modal(storage_software_info())"
-                                        class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2"><i
-                                        class="iconfont icon-down mr-2"></i>立即下载
+                                        class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2">
+                                    <i
+                                            class="iconfont icon-down mr-2"></i>立即下载
                                 </button>
                                 <button type="button" id="software-{{ software.id }}"
                                         onclick="thumb_software('{{ software.id }}', 1)"
@@ -180,167 +181,126 @@
                                 <div class="apd-bg">
                                 </div>
                                 <div class="panel-body single my-4 description-layout">
-                                    {{ software.description.length }}
-                                    {{ software.description }}
+                                    {{ software.description|safe }}
                                 </div>
                             </div>
                         </div>
-                        <h2 class="text-gray text-lg my-4"><i class="site-tag iconfont icon-tag icon-lg mr-1"></i>相关软件
+                        {#关联文章#}
+                        {% if related_articles_count > 0 %}
+                            <h2 class="text-gray text-lg my-4">
+                                <i class="site-tag fa fa-file-text-o mr-1"></i>
+                                关联文章
+                            </h2>
+                            <div class="io-edit-post-card-content">
+                                {% for article in related_articles %}
+                                    <div class="url-card shortcode-url site_0 mx-auto " style="max-width:600px">
+                                        <div class="card flex-fill mb-3">
+                                            <div class="row no-gutters">
+                                                <div class="col-4">
+                                                    <div class="media media-4x3 rounded-left">
+                                                        <a
+                                                                class="media-content article_link_{{ article.id }}"
+                                                                onmouseout="default_href()"
+                                                                onmouseleave="default_href()"
+                                                                onmousemove="re_href_software('{{ article.id }}')"
+                                                                data-was-processed="true"
+                                                                data-src="{{ article.cover.url }}"
+                                                                style="background-image: url({{ article.cover.url }});"></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="card-body list-content p-2" style="height: 100%;">
+                                                        <div class="list-body">
+                                                            <a href=""
+                                                               title="{{ article.title }}"
+                                                               onmouseout="default_href()"
+                                                               onmouseleave="default_href()"
+                                                               onmousemove="re_href_article('{{ article.id }}')"
+                                                               class="list-title no-c overflowClip_1 article_link_{{ article.id }}">
+                                                                {{ article.title }}
+                                                            </a>
+                                                            <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
+                                                                {{ article.content|truncatechars:20 }}
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="d-flex flex-fill align-items-center text-muted text-xs">
+                                                                <div class="flex-fill"></div>
+                                                                <div>
+                                                                    <time></time>
+                                                                    <script>
+                                                                        $(document).ready(function () {
+																			let time_block = document.getElementsByTagName('time');
+	                                                                        time_block[{{ forloop.counter0 }}].innerText = formatTimePeriod(Date.now() - Date.parse('{{ article.updated_time|date:"Y-m-d H:i:sO" }}'));
+                                                                        })
+                                                                    </script>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {#相关软件#}
+                        <h2 class="text-gray text-lg my-4">
+                            <i class="site-tag iconfont icon-tag icon-lg mr-1"></i>相关软件
                         </h2>
-                        <div class="row mb-n4">
-                            <div class="col-4 col-md-3 col-lg-2 pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1333.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/11/1673090717_icon.webp)"
-                                           style="background-size: 100%; background-image: url('https://macwk.cn/wp-content/uploads/2023/11/1673090717_icon.webp');"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/1333.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                EazyDraw
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                    EazyDraw 是表达和传递知识的高效工具。仅靠文字是不足以传达信息、概念和想法的。利用内置文本、符号和图表扩展您的创造力。
+                        {% if related_software_count > 0 %}
+                            <div class="row mb-n4">
+                                {% for software in related_software %}
+                                    <div class="col-4 col-md-3 col-lg-2 pb-1">
+                                        <div class="card-app default list-item">
+                                            <div class="media p-0 app-rounded"
+                                                 style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
+                                                <a class="media-content software_link_{{ software.id }}"
+                                                   onmouseout="default_href()"
+                                                   onmouseleave="default_href()"
+                                                   target="_blank"
+                                                   onmousemove="re_href_software('{{ software.id }}')"
+                                                   data-bg="url({{ software.icon.url }})"
+                                                   style="background-size: 100%; background-image: url('{{ software.icon.url }}');"
+                                                   data-was-processed="true"></a>
+                                            </div>
+                                            <div class="list-content text-center pt-2">
+                                                <div class="list-body">
+                                                    <a
+                                                            href=""
+                                                            onmouseout="default_href()"
+                                                            onmouseleave="default_href()"
+                                                            onmousemove="re_href_software('{{ software.id }}')"
+                                                            class="text-md overflowClip_1 software_link_{{ software.id }}">{{ software.name }}
+                                                    </a>
+                                                    <div class="mt-1">
+                                                        <div class="list-subtitle text-muted text-xs overflowClip_1">
+                                                            {{ software.description|truncatechars:20 }}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="nothing text-center color-d">暂无相关软件...</div>
                                 </div>
                             </div>
-                            <div class="col-4 col-md-3 col-lg-2 pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1115.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/icon-1.png)"
-                                           style="background-size: 85%; background-image: url('https://macwk.cn/wp-content/uploads/2023/10/icon-1.png');"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/1115.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                AYVY
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                    AYVY是一款美观、简单、快速、方便的图像查看器。我们已经涵盖了您需要的一切！
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2 pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/607.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/09/acadlogo.png)"
-                                           style="background-size: 100%; background-image: url('https://macwk.cn/wp-content/uploads/2023/09/acadlogo.png');"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/607.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                AutoCAD 2024
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2 pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1263.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/10/1670944015_icon.webp)"
-                                           style="background-size: 100%; background-image: url(https://macwk.cn/wp-content/uploads/2023/10/1670944015_icon.webp);"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/1263.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                SILKYPIX Developer Studio Pro
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                    SILKYPIX Developer Studio Pro 是一款可让您编辑、处理和转换各种格式的数码照片。
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2 pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1513.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/11/1627992300_live-home-3d-pro.png)"
-                                           style="background-size: 100%; background-image: url('https://macwk.cn/wp-content/uploads/2023/11/1627992300_live-home-3d-pro.png');"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/1513.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                Live Home 3D Pro
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                    Live Home 3D Pro
-                                                    是一款直观的应用程序，适用于公寓和房屋的室内设计以及几乎任何复杂的景观。专业版提供了一组扩展的工具和独特的导出质量。
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-3 col-lg-2 pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, #f9f9f9, #e8e8e8);">
-                                        <a class="media-content" href="https://macwk.cn/app/1636.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/12/12322.webp)"
-                                           style="background-size: 100%; background-image: url('https://macwk.cn/wp-content/uploads/2023/12/12322.webp');"
-                                           data-was-processed="true"></a>
-                                    </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/1636.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                HitPaw Photo Object Remover
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                    使用 HitPaw 照片对象删除器可以自动跟踪和识别对象，并帮助您通过几个简单的步骤从照片中删除您想要的任何内容。
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endif %}
 
                         <!-- comments -->
                         <div id="comments" class="comments">
                             <h2 id="comments-list-title" class="comments-title h5 mx-1 my-4">
                                 <i class="iconfont icon-comment"></i>
                                 <span class="noticom">
-			<a href="https://macwk.cn/app/1428.html#respond" class="comments-title">暂无评论</a> 
-		</span>
+			                        <a href="https://macwk.cn/app/1428.html#respond" class="comments-title">暂无评论</a> 
+		                        </span>
                             </h2>
                             <div class="card">
                                 <div class="card-body">
@@ -423,14 +383,14 @@
 				tag_space.innerHTML += '&nbsp;&nbsp;&nbsp;&nbsp;';
 			}
 		}
-
+		
 		function storage_software_info() {
 			let map = new Map();
 			map.set('id', '{{ software.id }}');
 			map.set('name', '{{ software.name }}');
 			map.set('version', '{{ software.version }}');
 			map.set('link_adrive', '{{ software.link_adrive }}');
-            map.set('link_baidu', '{{ software.link_baidu }}');
+			map.set('link_baidu', '{{ software.link_baidu }}');
 			map.set('link_direct', '{{ software.link_direct }}');
 			map.set('link_123', '{{ software.link_123 }}');
 			return map;

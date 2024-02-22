@@ -249,6 +249,12 @@ def software_details(request):
             software.screenshots_set = software.softwarescreenshots_set.all()
             software.screenshots_set.count = len(software.screenshots_set)
             software.screenshots_set.count_list = [i for i in range(software.screenshots_set.count)]
+            related_software = [temp for temp in get_all_software()
+                                            if temp.state == 2 and temp.category == software.category
+                                            and temp.id != software.id][:6]
+            related_software_length = len(related_software)
+            related_articles = software.article_set.all()
+            related_articles_length = len(related_articles)
         except ValueError:
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'invalid params', 'code': 402})
@@ -260,7 +266,11 @@ def software_details(request):
                           {'error': 'not found', 'code': 404})
         return render(request, 'frontenduser/software_details.html', {
             'software_id': software_id,
-            'software': software
+            'software': software,
+            'related_software': related_software,
+            'related_software_count': related_software_length,
+            'related_articles': related_articles,
+            'related_articles_count': related_articles_length,
         })
 
 

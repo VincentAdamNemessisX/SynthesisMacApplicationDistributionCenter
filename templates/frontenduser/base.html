@@ -159,81 +159,81 @@
     </style>
     <style>
         .media-title-bg:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        height: 80px;
-        right: 0;
-        bottom: 0;
-        background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 20%, transparent 80%);
-    }
-
-    /*.text-muted {
-        color: #54a2ff!important
-    }
-    */
-    .new-news ul li i {
-        background: rgba(0, 0, 0, 0);
-    }
-
-    @font-face {
-        font-family: 'io';  /* Project id 4184880 */
-        src: url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff2?t=1695309630232') format('woff2'),
-        url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff?t=1695309630232') format('woff'),
-        url('../../static/front/fonts/font_4184880_vhx4dqprsh.ttf?t=1695309630232') format('truetype');
-    }
-
-    .iconfont {
-        font-family: "iconfont", serif !important;
-        font-size: 16px;
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
-        -webkit-text-stroke-width: 0.2px;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    .icon-mac::before {
-        content: "\e6d1";
-    }
-
-    .icon-microsoft::before {
-        content: "\e6d2";
-    }
-
-    .card-app.card .app-platform {
-
-        opacity: 1;
-    }
-
-    .ls-css-a > div > span > li {
-        border: 4px #999 double;
-        border-radius: 5px;
-        padding: 0 5px;
-    }
-
-    .media-title {
-        color: #c6e6f9;
-        font-weight: bold;
-        text-shadow: 5px 5px 5px #000;
-    }
-
-    .customize-width {
-        max-width: 1900px
-    }
-
-    .sidebar-nav {
-        width: 220px
-    }
-
-    @media (min-width: 768px) {
-        .main-content {
-            margin-left: 220px;
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 80px;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 20%, transparent 80%);
         }
 
-        .main-content .page-header {
-            left: 220px;
+        /*.text-muted {
+            color: #54a2ff!important
         }
-    }</style>
+        */
+        .new-news ul li i {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        @font-face {
+            font-family: 'io';  /* Project id 4184880 */
+            src: url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff2?t=1695309630232') format('woff2'),
+            url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff?t=1695309630232') format('woff'),
+            url('../../static/front/fonts/font_4184880_vhx4dqprsh.ttf?t=1695309630232') format('truetype');
+        }
+
+        .iconfont {
+            font-family: "iconfont", serif !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-mac::before {
+            content: "\e6d1";
+        }
+
+        .icon-microsoft::before {
+            content: "\e6d2";
+        }
+
+        .card-app.card .app-platform {
+
+            opacity: 1;
+        }
+
+        .ls-css-a > div > span > li {
+            border: 4px #999 double;
+            border-radius: 5px;
+            padding: 0 5px;
+        }
+
+        .media-title {
+            color: #c6e6f9;
+            font-weight: bold;
+            text-shadow: 5px 5px 5px #000;
+        }
+
+        .customize-width {
+            max-width: 1900px
+        }
+
+        .sidebar-nav {
+            width: 220px
+        }
+
+        @media (min-width: 768px) {
+            .main-content {
+                margin-left: 220px;
+            }
+
+            .main-content .page-header {
+                left: 220px;
+            }
+        }</style>
     <style>
         .algolia-search-highlight {
             background-color: #fffbcc;
@@ -939,6 +939,20 @@
 	
 	function default_href() {
 		event.target.href = '';
+	}
+	
+	function re_href_software(software_id) {
+		let software_links = document.getElementsByClassName(`software_link_${software_id}`);
+		for (let i = 0; i < software_links.length; i++) {
+			software_links[i].href = "/software/details/?software_id=" + encrypt_param(`${software_id}`);
+		}
+	}
+	
+		function re_href_article(article_id) {
+		let article_links = document.getElementsByClassName(`article_link_${article_id}`);
+		for (let i = 0; i < article_links.length; i++) {
+			article_links[i].href = "/article/details/?article_id=" + encrypt_param(`${article_id}`);
+		}
 	}
 </script>
 {% block script %}
