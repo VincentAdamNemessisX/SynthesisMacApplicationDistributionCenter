@@ -178,11 +178,18 @@
                     <div class="content-layout">
                         <div class="panel site-content card transparent">
                             <div class="card-body p-0">
-                                <div class="apd-bg">
-                                </div>
+                                <div class="apd-bg"></div>
                                 <div class="panel-body single my-4 description-layout">
                                     {{ software.description|safe }}
                                 </div>
+                                {% if software.official_link %}
+                                    <div class="text-center">
+                                        <a href="{{ software.official_link }}" target="_blank"
+                                           class="btn btn-lg btn-outline-primary custom_btn-outline  text-lg radius-50 py-3 px-5 my-3">
+                                            去官方网站了解更多
+                                        </a>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                         {#关联文章#}
@@ -229,10 +236,10 @@
                                                                 <div>
                                                                     <time></time>
                                                                     <script>
-                                                                        $(document).ready(function () {
+																		$(document).ready(function () {
 																			let time_block = document.getElementsByTagName('time');
-	                                                                        time_block[{{ forloop.counter0 }}].innerText = formatTimePeriod(Date.now() - Date.parse('{{ article.updated_time|date:"Y-m-d H:i:sO" }}'));
-                                                                        })
+																			time_block[{{ forloop.counter0 }}].innerText = formatTimePeriod(Date.now() - Date.parse('{{ article.updated_time|date:"Y-m-d H:i:sO" }}'));
+																		})
                                                                     </script>
                                                                 </div>
                                                             </div>
