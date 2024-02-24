@@ -1,22 +1,34 @@
+{% load static %}
 <!-- comments -->
 <div id="comments" class="comments">
     <h2 id="comments-list-title" class="comments-title h5 mx-1 my-4">
         <i class="iconfont icon-comment"></i>
         <span class="noticom">
-			                        <a href="https://macwk.cn/app/1428.html#respond" class="comments-title">暂无评论</a> 
-		                        </span>
+            <a href="#respond" class="comments-title">评论</a>
+        </span>
     </h2>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body" id="comment-box">
             <div id="respond_box">
                 <div id="respond" class="comment-respond">
                     <form class="text-sm mb-4" method="post"
                           enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="visitor-avatar d-flex flex-fill mb-2">
-                            <img class="v-avatar rounded-circle"
-                                 src=""
-                                 alt="">
+
+                        <div id="comment-author-info" class="row  row-sm">
+                            <div class="visitor-avatar d-flex mb-2">
+                                <img class="v-avatar rounded-circle"
+                                     src="{% static 'favicon.ico' %}"
+                                     alt="">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <a class="pixel-btn user_link_2 text-center" href=""
+                                   onmouseout="default_href()" onmouseleave="default_href()"
+                                   onmousemove="re_href_user('2')"
+                                   style="display: block; cursor: pointer; width: 15rem;">
+                                    VincentAdamNemessis
+                                </a>
+                            </div>
                         </div>
                         <div class="comment-textarea mb-3">
                             <label for="comment"></label><textarea name="comment" id="comment"
@@ -33,84 +45,124 @@
                                    value="0">
                         </div>
                     </form>
-                    <div class="clear"></div>
                 </div>
             </div>
-            <div id="loading-comments"><span></span></div>
+        </div>
+    </div>
+</div><!-- comments end -->
+<script>
+	$(document).ready(function () {
+		let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}', 'software', encrypt_param('{{ software.id }}'))
+		comments_promise.then((data) => {
+			let comments_list = '';
+			if (data.length <= 0) {
+				comments_list = `
             <div class="not-comment card">
                 <div class="card-body nothing text-center color-d">暂无评论...</div>
             </div>
-            <ul class="comment-list">
-                <li class="comment even thread-even depth-1 comment" id="li-comment-4">
-                    <div id="comment-4" class="comment_body d-flex flex-fill">
-                        <div class="profile mr-2 mr-md-3">
-                            <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
-                                 width="96" height="96" alt="头像"
-                                 class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
-                        </div>
-                        <section class="comment-text d-flex flex-fill flex-column">
-                            <div class="comment-info d-flex align-items-center mb-1">
-                                <div class="comment-author text-sm w-100">xx <span class="rank"
-                                                                                   title="头衔：游客">游客</span>
-                                </div>
-                            </div>
-                            <div class="comment-content d-inline-block text-sm">
-                                <p>支持M1吗</p>
-
-                            </div>
-                            <div class="d-flex flex-fill text-xs text-muted pt-2">
-                                <div class="comment-meta">
-                                                            <span class="info mr-2"><i
-                                                                    class="iconfont icon-time mr-1"></i><time
-                                                                    itemprop="datePublished"
-                                                                    datetime="2023-07-26T15:21:56+08:00">7个月前</time></span>
-                                </div>
-                                <div class="flex-fill"></div>
-                                <a rel="nofollow" class="comment-reply-link" href="#respond"
-                                   data-commentid="4" data-postid="93"
-                                   data-belowelement="comment-4" data-respondelement="respond"
-                                   data-replyto="回复给xx" aria-label="回复给xx">回复</a></div>
-                        </section>
-                    </div>
-                    <ul class="children">
-                        <li class="comment byuser bypostauthor odd alt depth-2 comment"
-                            id="li-comment-5">
-                            <div id="comment-5" class="comment_body d-flex flex-fill">
+				`;
+			} else {
+				comments_list = `<ul class="comment-list">`;
+				for (let index in data.comments) {
+					if (data.comments[index].parent_id === encrypt_param('0')) {
+						let comment = `
+                        <li class="comment even thread-even depth-1 comment">
+                            <div class="comment_body d-flex flex-fill">
                                 <div class="profile mr-2 mr-md-3">
-                                    <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
+                                    <img src="${data.comments[index].user.head_icon}"
                                          width="96" height="96" alt="头像"
                                          class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
                                 </div>
                                 <section class="comment-text d-flex flex-fill flex-column">
                                     <div class="comment-info d-flex align-items-center mb-1">
-                                        <div class="comment-author text-sm w-100"><a
-                                                target="_blank" href="https://macwk.cn"
-                                                rel="nofollow noopener noreferrer" class="url">MacWk</a>
-                                            <span class="rank" title="头衔：管理员">管理员</span>
+                                        <div class="comment-author text-sm w-100">
+                                                <a    href='' class="user_link_${decrypt_param(data.comments[index].user.user_id.toString())}"
+                                                        onmouseout="default_href()"
+                                                        onmouseleave="default_href()"
+                                                        onmousemove="re_href_user(decrypt_param('${data.comments[index].user.user_id}'))"
+                                                        target="_blank"
+                                                        rel="nofollow noopener noreferrer" class="url">${data.comments[index].user.username}</a>
+                                                <span class="rank"
+                                                                                           title="角色：${data.comments[index].user.role}">${data.comments[index].user.role}</span>
                                         </div>
                                     </div>
                                     <div class="comment-content d-inline-block text-sm">
-                                        <p>有M1版本，但我还在整理中，后续会更新地址</p>
+                                        <p>${data.comments[index].content}</p>
                                     </div>
                                     <div class="d-flex flex-fill text-xs text-muted pt-2">
                                         <div class="comment-meta">
-                                                                    <span class="info mr-2"><i
-                                                                            class="iconfont icon-time mr-1"></i><time
-                                                                            itemprop="datePublished"
-                                                                            datetime="2023-07-26T15:37:28+08:00">7个月前</time></span>
+                                            <span class="info mr-2"><i
+                                                    class="iconfont icon-time mr-1"></i><time
+                                                    itemprop="datePublished"
+                                                    datetime="${data.comments[index].created_time}"></time>
+                                            </span>
                                         </div>
                                         <div class="flex-fill"></div>
-                                        <a rel="nofollow" class="comment-reply-link"
-                                           href="#respond"
-                                           onclick="encrypt_param('{{ comment.id }}')"
-                                        >回复</a>
+                                        <a rel="nofollow" class="comment-reply-link" href="#respond"
+                                           data-commentid="4" data-postid="93"
+                                           onclick=""
+                                           data-belowelement="comment-4" data-respondelement="respond"
+                                           data-replyto="回复给xx" aria-label="回复给xx">回复</a></div>
+                                </section>
+                            </div>
+                        `;
+						comment += load_children(data, data.comments[index].comment_id.toString());
+                        comment += '</li><!-- #comment-## -->';
+						comments_list += comment;
+					}
+				}
+				comments_list += '</ul>';
+			}
+			document.getElementById('comment-box').innerHTML += comments_list;
+			format_time_block();
+		})
+	})
+	
+	function load_children(data, id) {
+		let children_list = '<ul class="children">';
+		for (let index in data.comments) {
+			if (data.comments[index].parent_id === id && data.comments[index].comment_id !== id) {
+				children_list += `
+                        <li class="comment byuser bypostauthor odd alt depth-2 comment">
+                            <div class="comment_body d-flex flex-fill">
+                                <div class="profile mr-2 mr-md-3">
+                                    <img src="${data.comments[index].user.head_icon}"
+                                         width="96" height="96" alt="头像"
+                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
+                                </div>
+                                <section class="comment-text d-flex flex-fill flex-column">
+                                    <div class="comment-info d-flex align-items-center mb-1">
+                                        <div class="comment-author text-sm w-100">
+                                                <a    href='' class="user_link_${decrypt_param(data.comments[index].user.user_id.toString())}"
+                                                        onmouseout="default_href()"
+                                                        onmouseleave="default_href()"
+                                                        onmousemove="re_href_user(decrypt_param('${data.comments[index].user.user_id}'))"
+                                                        target="_blank"
+                                                        rel="nofollow noopener noreferrer" class="url">${data.comments[index].user.username}</a>
+                                                <span class="rank"
+                                                          title="角色：${data.comments[index].user.role}">${data.comments[index].user.role}</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content d-inline-block text-sm">
+                                        <p>${data.comments[index].content}</p>
+                                    </div>
+                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
+                                        <div class="comment-meta">
+                                            <span class="info mr-2"><i
+                                                    class="iconfont icon-time mr-1"></i><time
+                                                    itemprop="datePublished"
+                                                    datetime="${data.comments[index].created_time}"></time>
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill"></div>
                                     </div>
                                 </section>
                             </div>
                         </li><!-- #comment-## -->
-                    </ul><!-- .children -->
-                </li><!-- #comment-## -->
-            </ul>
-        </div>
-    </div>
-</div><!-- comments end -->
+				`;
+			}
+		}
+		children_list += '</ul><!-- .children -->';
+		return children_list;
+	}
+</script>

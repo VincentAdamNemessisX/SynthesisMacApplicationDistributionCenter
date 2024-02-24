@@ -234,12 +234,11 @@
                                                             <div class="d-flex flex-fill align-items-center text-muted text-xs">
                                                                 <div class="flex-fill"></div>
                                                                 <div>
-                                                                    <time></time>
+                                                                    <time datetime="'{{ article.updated_time|date:"Y-m-d H:i:sO" }}'"></time>
                                                                     <script>
 																		$(document).ready(function () {
-																			let time_block = document.getElementsByTagName('time');
-																			time_block[{{ forloop.counter0 }}].innerText = formatTimePeriod(Date.now() - Date.parse('{{ article.updated_time|date:"Y-m-d H:i:sO" }}'));
-																		})
+																			format_time_block();
+                                                                        })
                                                                     </script>
                                                                 </div>
                                                             </div>
@@ -301,7 +300,6 @@
                             </div>
                         {% endif %}
                     {#comments#}
-                    {{ csrf_token }}
                     {% include 'frontenduser/comments_list.html' %}
                     </div><!-- content-layout end -->
                 </div><!-- content-wrap end -->

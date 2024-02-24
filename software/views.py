@@ -244,7 +244,7 @@ def software_details(request):
         software_id = request.GET.get('software_id')
         try:
             software_id = str(software_id.replace(' ', '+'))
-            software_id = decrypt(software_id)
+            software_id = decrypt(software_id.encode())
             software = get_software_by_software_id(software_id)[0]
             software.screenshots_set = software.softwarescreenshots_set.all()
             software.screenshots_set.count = len(software.screenshots_set)

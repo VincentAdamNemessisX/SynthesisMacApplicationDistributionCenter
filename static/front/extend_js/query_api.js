@@ -134,7 +134,7 @@ async function get_comments_for_software_or_articles(csrftoken, type, query_id, 
 		query_id: query_id.toString(),
 		type: type.toString(),
 	};
-	const response = await fetch(url, {
+	let response = await fetch(url, {
 		method: 'POST', // 指定请求方法
 		mode: 'cors', // 请求的模式
 		cache: 'default', // 缓存模式
@@ -147,17 +147,16 @@ async function get_comments_for_software_or_articles(csrftoken, type, query_id, 
 		referrerPolicy: 'no-referrer', // 引用策略
 		body: JSON.stringify(data) // 请求的body
 	})
-		.then(response => response.json())
-		.then(full_data => {
-			if (full_data.code === 200) {
+		.then((response) => response.json())
+		.then((full_data) => {
+			if(parseInt(full_data.code) === 200) {
 				return full_data.data;
 			} else {
-				console.log(full_data.code + ':' + full_data.msg);
-				return full_data.code + ':' + full_data.msg;
+				return full_data.code + ":" + full_data.msg;
 			}
 		})
-		.catch(error => {
-			console.log(error.message + '/n' + error.stack);
-			return undefined;
+		.catch((error) => {
+			console.error("Error:", error);
 		});
+	return response;
 }

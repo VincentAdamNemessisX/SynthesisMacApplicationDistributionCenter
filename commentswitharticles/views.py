@@ -1,12 +1,11 @@
 # Create your views here.
 import json
-
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_http_methods, require_GET
 from django_router import router
-from general.encrypt import decrypt
+from general.encrypt import decrypt, encrypt
 from commentswitharticles.models import Article
 from general.init_cache import (get_comments,
                                 get_matched_articles_by_article_id as g_a,
@@ -19,7 +18,7 @@ def get_init_comments(request):
     comments = get_comments()
     if request.method == "POST":
         if comments:
-            # filter anything, just like specifc article or software
+            # filter specifc article or software
             try:
                 post_data = json.loads(request.body)
                 query_id = decrypt(post_data['query_id'].replace(' ', '+'))
@@ -46,13 +45,18 @@ def get_init_comments(request):
             comments = comments[:10]
             comments = [
                 {
-                    'comment_id': comment.id,
-                    'user': comment.user.username,
+                    'comment_id': encrypt(str(comment.id)).decode('utf-8'),
+                    'user': {
+                        'user_id': encrypt(str(comment.user.id)).decode('utf-8'),
+                        'username': comment.user.nickname if comment.user.nickname else comment.user.username,
+                        'head_icon': comment.user.head_icon.url,
+                        'role': comment.user.role,
+                    },
                     'content': comment.content,
                     'correlation_article': comment.correlation_article.title if comment.correlation_article else '',
                     'correlation_software': comment.correlation_software.name if comment.correlation_software else '',
-                    'created_time': comment.created_time,
-                    'parent': comment.parent
+                    'created_time': comment.created_time.strftime("%a, %d %b %Y %I:%M:%S%z"),
+                    'parent_id': encrypt(str(comment.parent.id)).decode('utf-8') if comment.parent else encrypt(str(0)).decode('utf-8')
                 }
                 for comment in comments
             ]
@@ -85,7 +89,7 @@ def load_more_comments(request):
             # filter anything, just like specifc article or software
             try:
                 post_data = json.loads(request.body)
-                query_id = decrypt(post_data['query_id'].replace(' ', '+'))
+                query_id = decrypt(post_data['query_id'].encode())
                 type = post_data['type']
             except ValueError:
                 return JsonResponse({
