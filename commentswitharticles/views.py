@@ -1,4 +1,7 @@
 # Create your views here.
+import json
+
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_http_methods, require_GET
@@ -16,16 +19,38 @@ def get_init_comments(request):
     comments = get_comments()
     if request.method == "POST":
         if comments:
-            comments = comments[:10]
             # filter anything, just like specifc article or software
+            try:
+                post_data = json.loads(request.body)
+                query_id = decrypt(post_data['query_id'].replace(' ', '+'))
+                type = post_data['type']
+            except ValueError:
+                return JsonResponse({
+                    'code': 402,
+                    'msg': 'failed with invalid params'
+                })
+            except TypeError:
+                return JsonResponse({
+                    'code': 407,
+                    'msg': 'failed with wrong params'
+                })
+            except AttributeError:
+                return JsonResponse({
+                    'code': 401,
+                    'msg': 'failed with bad request body'
+                })
+            if type == 'article':
+                comments = [comment for comment in comments if comment.correlation_article.id == int(query_id)]
+            if type == 'software':
+                comments = [comment for comment in comments if comment.correlation_software.id == int(query_id)]
+            comments = comments[:10]
             comments = [
                 {
                     'comment_id': comment.id,
                     'user': comment.user.username,
                     'content': comment.content,
-                    'correlation_model': comment.correlation_model,
-                    'correlation_article': comment.correlation_article,
-                    'correlation_software': comment.correlation_software,
+                    'correlation_article': comment.correlation_article.title if comment.correlation_article else '',
+                    'correlation_software': comment.correlation_software.name if comment.correlation_software else '',
                     'created_time': comment.created_time,
                     'parent': comment.parent
                 }
@@ -50,27 +75,47 @@ def get_init_comments(request):
         })
 
 
+@login_required
 @router.path(pattern='api/load/more/comments/')
 @require_POST
 def load_more_comments(request):
     comments = get_comments()
     if request.method == "POST":
-        try:
-            page_num = int(request.POST.get('page_num'))
-        except ValueError:
-            return JsonResponse({
-                'code': 402,
-                'msg': 'failed with invalid params'
-            })
-        if page_num and page_num > 0:
-            page_num = page_num - 1
+        if comments:
+            # filter anything, just like specifc article or software
+            try:
+                post_data = json.loads(request.body)
+                query_id = decrypt(post_data['query_id'].replace(' ', '+'))
+                type = post_data['type']
+            except ValueError:
+                return JsonResponse({
+                    'code': 402,
+                    'msg': 'failed with invalid params'
+                })
+            except TypeError:
+                return JsonResponse({
+                    'code': 407,
+                    'msg': 'failed with wrong params'
+                })
+            except AttributeError:
+                return JsonResponse({
+                    'code': 401,
+                    'msg': 'failed with bad request body'
+                })
+            if type == 'article':
+                comments = [comment for comment in comments if comment.correlation_article.id == int(query_id)]
+            if type == 'software':
+                comments = [comment for comment in comments if comment.correlation_software.id == int(query_id)]
+            if len(comments) < 10:
+                comments = None
+            else:
+                comments = comments[10:]
         else:
             return JsonResponse({
                 'code': 401,
                 'msg': 'failed with wrong params'
             })
         if comments:
-            comments = comments[int(page_num * 10):int((page_num + 1) * 10)]
             if comments:
                 comments = [
                     {
@@ -109,6 +154,11 @@ def load_more_comments(request):
 
 @router.path('api/leave/comment/')
 def leave_comment(request):
+    pass
+
+
+@router.path('api/reply/comment/')
+def reply_comment(request):
     pass
 
 

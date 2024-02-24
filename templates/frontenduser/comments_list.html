@@ -1,0 +1,116 @@
+<!-- comments -->
+<div id="comments" class="comments">
+    <h2 id="comments-list-title" class="comments-title h5 mx-1 my-4">
+        <i class="iconfont icon-comment"></i>
+        <span class="noticom">
+			                        <a href="https://macwk.cn/app/1428.html#respond" class="comments-title">暂无评论</a> 
+		                        </span>
+    </h2>
+    <div class="card">
+        <div class="card-body">
+            <div id="respond_box">
+                <div id="respond" class="comment-respond">
+                    <form class="text-sm mb-4" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="visitor-avatar d-flex flex-fill mb-2">
+                            <img class="v-avatar rounded-circle"
+                                 src=""
+                                 alt="">
+                        </div>
+                        <div class="comment-textarea mb-3">
+                            <label for="comment"></label><textarea name="comment" id="comment"
+                                                                   class="form-control"
+                                                                   placeholder="输入评论内容..."
+                                                                   tabindex="4" cols="50"
+                                                                   rows="5"></textarea>
+                        </div>
+                        <div class="com-footer d-flex justify-content-end flex-wrap">
+                            <button class="btn btn-dark custom_btn-d ml-2">发表评论
+                            </button>
+                            <input type="hidden" name="action" value="publish">
+                            <input type="hidden" name="comment_parent" id="comment_parent"
+                                   value="0">
+                        </div>
+                    </form>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div id="loading-comments"><span></span></div>
+            <div class="not-comment card">
+                <div class="card-body nothing text-center color-d">暂无评论...</div>
+            </div>
+            <ul class="comment-list">
+                <li class="comment even thread-even depth-1 comment" id="li-comment-4">
+                    <div id="comment-4" class="comment_body d-flex flex-fill">
+                        <div class="profile mr-2 mr-md-3">
+                            <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
+                                 width="96" height="96" alt="头像"
+                                 class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
+                        </div>
+                        <section class="comment-text d-flex flex-fill flex-column">
+                            <div class="comment-info d-flex align-items-center mb-1">
+                                <div class="comment-author text-sm w-100">xx <span class="rank"
+                                                                                   title="头衔：游客">游客</span>
+                                </div>
+                            </div>
+                            <div class="comment-content d-inline-block text-sm">
+                                <p>支持M1吗</p>
+
+                            </div>
+                            <div class="d-flex flex-fill text-xs text-muted pt-2">
+                                <div class="comment-meta">
+                                                            <span class="info mr-2"><i
+                                                                    class="iconfont icon-time mr-1"></i><time
+                                                                    itemprop="datePublished"
+                                                                    datetime="2023-07-26T15:21:56+08:00">7个月前</time></span>
+                                </div>
+                                <div class="flex-fill"></div>
+                                <a rel="nofollow" class="comment-reply-link" href="#respond"
+                                   data-commentid="4" data-postid="93"
+                                   data-belowelement="comment-4" data-respondelement="respond"
+                                   data-replyto="回复给xx" aria-label="回复给xx">回复</a></div>
+                        </section>
+                    </div>
+                    <ul class="children">
+                        <li class="comment byuser bypostauthor odd alt depth-2 comment"
+                            id="li-comment-5">
+                            <div id="comment-5" class="comment_body d-flex flex-fill">
+                                <div class="profile mr-2 mr-md-3">
+                                    <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
+                                         width="96" height="96" alt="头像"
+                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
+                                </div>
+                                <section class="comment-text d-flex flex-fill flex-column">
+                                    <div class="comment-info d-flex align-items-center mb-1">
+                                        <div class="comment-author text-sm w-100"><a
+                                                target="_blank" href="https://macwk.cn"
+                                                rel="nofollow noopener noreferrer" class="url">MacWk</a>
+                                            <span class="rank" title="头衔：管理员">管理员</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content d-inline-block text-sm">
+                                        <p>有M1版本，但我还在整理中，后续会更新地址</p>
+                                    </div>
+                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
+                                        <div class="comment-meta">
+                                                                    <span class="info mr-2"><i
+                                                                            class="iconfont icon-time mr-1"></i><time
+                                                                            itemprop="datePublished"
+                                                                            datetime="2023-07-26T15:37:28+08:00">7个月前</time></span>
+                                        </div>
+                                        <div class="flex-fill"></div>
+                                        <a rel="nofollow" class="comment-reply-link"
+                                           href="#respond"
+                                           onclick="encrypt_param('{{ comment.id }}')"
+                                        >回复</a>
+                                    </div>
+                                </section>
+                            </div>
+                        </li><!-- #comment-## -->
+                    </ul><!-- .children -->
+                </li><!-- #comment-## -->
+            </ul>
+        </div>
+    </div>
+</div><!-- comments end -->

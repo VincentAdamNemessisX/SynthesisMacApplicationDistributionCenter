@@ -300,74 +300,9 @@
                                 </div>
                             </div>
                         {% endif %}
-
-                        <!-- comments -->
-                        <div id="comments" class="comments">
-                            <h2 id="comments-list-title" class="comments-title h5 mx-1 my-4">
-                                <i class="iconfont icon-comment"></i>
-                                <span class="noticom">
-			                        <a href="https://macwk.cn/app/1428.html#respond" class="comments-title">暂无评论</a> 
-		                        </span>
-                            </h2>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div id="respond_box">
-                                        <div id="respond" class="comment-respond">
-                                            <form class="text-sm mb-4" method="post"
-                                                  enctype="multipart/form-data">
-                                                {% csrf_token %}
-                                                <div class="visitor-avatar d-flex flex-fill mb-2">
-                                                    <img class="v-avatar rounded-circle"
-                                                         src="https://macwk.cn/wp-content/themes/onenav/images/gravatar.jpg"
-                                                         alt="">
-                                                </div>
-                                                <div class="comment-textarea mb-3">
-                                                    <label for="comment"></label><textarea name="comment" id="comment"
-                                                                                           class="form-control"
-                                                                                           placeholder="输入评论内容..."
-                                                                                           tabindex="4" cols="50"
-                                                                                           rows="3"></textarea>
-                                                </div>
-
-                                                <div id="comment-author-info" class="row  row-sm">
-                                                    <div class="col-12 col-md-6 mb-3"><label for="author"></label><input
-                                                            type="text" name="author" id="author" class="form-control"
-                                                            value="" size="22" placeholder="昵称" tabindex="2"></div>
-                                                    <div class="col-12 col-md-6 mb-3"><label for="email"></label><label
-                                                            for="email"></label><input type="text" name="email"
-                                                                                       id="email"
-                                                                                       class="form-control" value=""
-                                                                                       size="22" placeholder="邮箱"
-                                                                                       tabindex="3"></div>
-                                                </div>
-                                                <div class="com-footer d-flex justify-content-end flex-wrap">
-                                                    <input type="hidden" id="_wpnonce" name="_wpnonce"
-                                                           value="23bd96acec"><input type="hidden"
-                                                                                     name="_wp_http_referer"
-                                                                                     value="/app/1428.html"> <a
-                                                        rel="nofollow" id="cancel-comment-reply-link"
-                                                        style="display: none;"
-                                                        href="javascript:"
-                                                        class="btn btn-light custom_btn-outline mx-2">再想想</a>
-                                                    <button class="btn btn-dark custom_btn-d ml-2">发表评论
-                                                    </button>
-                                                    <input type="hidden" name="action" value="ajax_comment">
-                                                    <input type="hidden" name="comment_post_ID" value="1428"
-                                                           id="comment_post_ID">
-                                                    <input type="hidden" name="comment_parent" id="comment_parent"
-                                                           value="0">
-                                                </div>
-                                            </form>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                    <div id="loading-comments"><span></span></div>
-                                    <div class="not-comment card">
-                                        <div class="card-body nothing text-center color-d">暂无评论...</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- comments end -->
+                    {#comments#}
+                    {{ csrf_token }}
+                    {% include 'frontenduser/comments_list.html' %}
                     </div><!-- content-layout end -->
                 </div><!-- content-wrap end -->
             </main>

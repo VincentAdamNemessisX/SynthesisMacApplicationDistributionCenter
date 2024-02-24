@@ -100,8 +100,8 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 						})
 					}
 				}
+			} else {
 			}
-			else {}
 		}, error: function (data) {
 			if (data) {
 				Swal.fire({
@@ -123,3 +123,41 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 }
 
 
+async function get_comments_for_software_or_articles(csrftoken, type, query_id, init = 1) {
+	let url = '';
+	if (init === 1) {
+		url = '/commentswitharticles/api/get/init/comments/';
+	} else if (init === 0) {
+		url = '/commentswitharticles/api/load/more/comments/';
+	}
+	let data = {
+		query_id: query_id.toString(),
+		type: type.toString(),
+	};
+	const response = await fetch(url, {
+		method: 'POST', // 指定请求方法
+		mode: 'cors', // 请求的模式
+		cache: 'default', // 缓存模式
+		credentials: 'same-origin', // 是否应该发送Cookie
+		headers: {
+			'Content-Type': 'application/json', // 请求的内容类型
+			'X-CSRFToken': csrftoken // CSRF令牌
+		},
+		redirect: 'follow', // 重定向模式
+		referrerPolicy: 'no-referrer', // 引用策略
+		body: JSON.stringify(data) // 请求的body
+	})
+		.then(response => response.json())
+		.then(full_data => {
+			if (full_data.code === 200) {
+				return full_data.data;
+			} else {
+				console.log(full_data.code + ':' + full_data.msg);
+				return full_data.code + ':' + full_data.msg;
+			}
+		})
+		.catch(error => {
+			console.log(error.message + '/n' + error.stack);
+			return undefined;
+		});
+}
