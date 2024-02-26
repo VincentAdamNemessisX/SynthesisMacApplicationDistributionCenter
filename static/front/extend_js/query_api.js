@@ -124,8 +124,8 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 
 
 async function get_comments_for_software_or_articles(csrftoken, type, query_id, init = 1) {
-	let url = '';
-	if (init === 1) {
+	let url = ''; //初始化url
+	if (init === 1) { //根据init参数决定请求的url
 		url = '/commentswitharticles/api/get/init/comments/';
 	} else if (init === 0) {
 		url = '/commentswitharticles/api/load/more/comments/';
@@ -133,8 +133,8 @@ async function get_comments_for_software_or_articles(csrftoken, type, query_id, 
 	let data = {
 		query_id: query_id.toString(),
 		type: type.toString(),
-	};
-	let response = await fetch(url, {
+	}; //封装请求体数据
+	return await fetch(url, { //返回promise供后续代码调用fetch得到的数据
 		method: 'POST', // 指定请求方法
 		mode: 'cors', // 请求的模式
 		cache: 'default', // 缓存模式
@@ -147,16 +147,16 @@ async function get_comments_for_software_or_articles(csrftoken, type, query_id, 
 		referrerPolicy: 'no-referrer', // 引用策略
 		body: JSON.stringify(data) // 请求的body
 	})
-		.then((response) => response.json())
-		.then((full_data) => {
-			if(parseInt(full_data.code) === 200) {
+		.then((response) => response.json()) //转化返回结果为json数据
+		.then((full_data) => { //取得json数据并根据数据提供的code代码决定返回数据或者异常字符串
+			if (parseInt(full_data.code) === 200) {
 				return full_data.data;
 			} else {
-				return full_data.code + ":" + full_data.msg;
+				console.log(full_data.code + ":" + full_data.msg);
+				return null;
 			}
 		})
-		.catch((error) => {
+		.catch((error) => { //捕获fetch过程中可能会碰到的异常并将其输出在控制台
 			console.error("Error:", error);
-		});
-	return response;
+		}); //返回promise以供后续代码使用promise链式访问其中数据
 }

@@ -145,7 +145,7 @@
             }
         }
 
-        a:hover {
+        #comment-author-info a:hover {
             text-decoration: none;
             color: white;
         }
@@ -658,23 +658,6 @@
 		}
 	}
 </script>
-<script>
-	document.onkeydown = function () {
-		if (window.event && window.event.keyCode === 123) {
-			alert("小子，别想扒站！");
-			event.keyCode = 0;
-			event.keyCode = 0;
-			event.returnValue = false;
-		}
-		if (window.event && window.event.keyCode === 13) {
-			window.event.keyCode = 505;
-		}
-		if (window.event && window.event.keyCode === 8) {
-			alert(str + "\n请使用Del键进行字符的删除操作！");
-			window.event.returnValue = false;
-		}
-	}
-</script>
 <script charset="UTF-8" id="LA_COLLECT" src="../../static/front/js/js-sdk-pro.min.js"></script>
 {#<script id="LA_CODELESS" src="https://sdk.51.la/event/js-sdk-event.min.js?u=3GEhfXqPAV16BrAS"#}
 {#        data-la-ev="3GEhfXqPAV16BrAS" crossorigin="anonymous" charset="UTF-8"></script>#}
@@ -1063,7 +1046,7 @@
 		try {
 			for (let timeBlockKey in time_block) {
 				let time = time_block[timeBlockKey].getAttribute('datetime');
-				time_block[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time));
+				time_block[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time + ' UTC'));
 			}
 		} catch (e) {}
 	}

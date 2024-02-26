@@ -90,12 +90,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'PORT': '3306',
-        # 'HOST': 'localhost',
-        # 'USER': 'root', # 'localhost database'
-        # 'PASSWORD': 'ic3344',
-        'HOST': 'vincentadam.icu', # 'remote database'
-        'USER': 'vincent',
-        'PASSWORD': '2',
+        'HOST': 'localhost',
+        'USER': 'root', # 'localhost database'
+        'PASSWORD': 'ic3344',
+        # 'HOST': 'vincentadam.icu', # 'remote database'
+        # 'USER': 'vincent',
+        # 'PASSWORD': '2',
         'NAME': 'synthesisyouwantmacapplicationdistributioncenter',  # database Name dismiss caps
     }
 }

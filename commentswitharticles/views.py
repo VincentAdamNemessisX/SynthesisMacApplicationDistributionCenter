@@ -1,17 +1,21 @@
 # Create your views here.
 import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_http_methods, require_GET
 from django_router import router
-from general.encrypt import decrypt, encrypt
+from software.models import SoftWare
 from commentswitharticles.models import Article
+from frontenduser.models import FrontEndUser
+from general.encrypt import decrypt, encrypt
 from general.init_cache import (get_comments,
                                 get_matched_articles_by_article_id as g_a,
-                                get_all_articles as g_as, get_hot_articles_and_software)
+                                get_all_articles as g_as)
 
 
+not_in_init_comments_parent = set()
 @router.path(pattern='api/get/init/comments/')
 @require_http_methods('POST')
 def get_init_comments(request):
@@ -55,11 +59,36 @@ def get_init_comments(request):
                     'content': comment.content,
                     'correlation_article': comment.correlation_article.title if comment.correlation_article else '',
                     'correlation_software': comment.correlation_software.name if comment.correlation_software else '',
-                    'created_time': comment.created_time.strftime("%a, %d %b %Y %I:%M:%S%z"),
-                    'parent_id': encrypt(str(comment.parent.id)).decode('utf-8') if comment.parent else encrypt(str(0)).decode('utf-8')
+                    'created_time': comment.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    'parent_id': encrypt(str(comment.parent.id)).decode('utf-8') if comment.parent else encrypt(
+                        str(0)).decode('utf-8')
                 }
                 for comment in comments
             ]
+            comments_id_list = [j['comment_id'] for j in comments]
+            comments_id_list.append(encrypt(str(0)).decode('utf-8'))
+            for i in comments:
+                if i['parent_id'] not in comments_id_list:
+                    not_in_init_comments_parent.add(i['parent_id'])
+            print(not_in_init_comments_parent)
+            for i in not_in_init_comments_parent:
+                t = [t for t in get_comments() if i == encrypt(str(t.id)).decode('utf8')][0]
+                t = {
+                    'comment_id': encrypt(str(t.id)).decode('utf-8'),
+                    'user': {
+                        'user_id': encrypt(str(t.user.id)).decode('utf-8'),
+                        'username': t.user.nickname if t.user.nickname else t.user.username,
+                        'head_icon': t.user.head_icon.url,
+                        'role': t.user.role,
+                    },
+                    'content': t.content,
+                    'correlation_article': t.correlation_article.title if t.correlation_article else '',
+                    'correlation_software': t.correlation_software.name if t.correlation_software else '',
+                    'created_time': t.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    'parent_id': encrypt(str(t.parent.id)).decode('utf-8') if t.parent else encrypt(str(0)).decode(
+                        'utf-8')
+                }
+                comments.append(t)
             return JsonResponse({
                 'code': 200,
                 'msg': 'success',
@@ -79,11 +108,11 @@ def get_init_comments(request):
         })
 
 
-@login_required
 @router.path(pattern='api/load/more/comments/')
 @require_POST
 def load_more_comments(request):
-    comments = get_comments()
+    comments = [t for t in get_comments() if encrypt(str(t.id)).decode('utf8')
+                not in not_in_init_comments_parent]
     if request.method == "POST":
         if comments:
             # filter anything, just like specifc article or software
@@ -123,21 +152,28 @@ def load_more_comments(request):
             if comments:
                 comments = [
                     {
-                        'id': comment.id,
-                        'user': comment.user.username,
+                        'comment_id': encrypt(str(comment.id)).decode('utf-8'),
+                        'user': {
+                            'user_id': encrypt(str(comment.user.id)).decode('utf-8'),
+                            'username': comment.user.nickname if comment.user.nickname else comment.user.username,
+                            'head_icon': comment.user.head_icon.url,
+                            'role': comment.user.role,
+                        },
                         'content': comment.content,
-                        'correlation_model': comment.correlation_model,
-                        'correlation_article': comment.correlation_article,
-                        'correlation_software': comment.correlation_software,
-                        'created_time': comment.created_time,
-                        'parent': comment.parent
+                        'correlation_article': comment.correlation_article.title if comment.correlation_article else '',
+                        'correlation_software': comment.correlation_software.name if comment.correlation_software else '',
+                        'created_time': comment.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                        'parent_id': encrypt(str(comment.parent.id)).decode('utf-8') if comment.parent else encrypt(
+                            str(0)).decode('utf-8')
                     }
                     for comment in comments
                 ]
                 return JsonResponse({
                     'code': 200,
                     'msg': 'success',
-                    'data': comments
+                    'data': {
+                        'comments': comments
+                    }
                 })
             else:
                 return JsonResponse({
@@ -156,14 +192,66 @@ def load_more_comments(request):
         })
 
 
-@router.path('api/leave/comment/')
+@login_required
+@require_POST
+@router.path('api/publish/comment/')
 def leave_comment(request):
-    pass
-
-
-@router.path('api/reply/comment/')
-def reply_comment(request):
-    pass
+    if request.method == 'POST':
+        try:
+            user = FrontEndUser.objects.get(username='vincent')
+            content = request.POST.get('comment')
+            correlation_article_id = int(decrypt(request.POST.get('article_id').encode('utf-8')))
+            correlation_software_id = int(decrypt(request.POST.get('software_id').encode('utf-8')))
+            parent_id = int(decrypt(request.POST.get('comment_parent').encode('utf-8')))
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'msg': 'failed with invalid params'
+            })
+        # except TypeError:
+        #     return JsonResponse({
+        #         'code': 401,
+        #         'msg': 'failed with wrong params'
+        #     })
+        except AttributeError:
+            return JsonResponse({
+                'code': 406,
+                'msg': 'failed with wrong request body'
+            })
+        if correlation_article_id:
+            correlation_article = Article.objects.get(id=correlation_article_id)
+        else:
+            correlation_article = None
+        if correlation_software_id:
+            correlation_software = SoftWare.objects.get(id=correlation_software_id)
+        else:
+            correlation_software = None
+        if parent_id:
+            parent = user.comment_set.get(id=parent_id)
+        else:
+            parent = None
+        comment = user.comment_set.create(content=content,
+                                          correlation_article=correlation_article,
+                                          correlation_software=correlation_software,
+                                          parent=parent)
+        if comment:
+            return JsonResponse({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'comment_id': encrypt(str(comment.id)).decode('utf-8')
+                }
+            })
+        else:
+            return JsonResponse({
+                'code': 400,
+                'msg': 'failed when inserting data to database'
+            })
+    else:
+        return JsonResponse({
+            'code': 301,
+            'msg': 'failed with invalid request action'
+        })
 
 
 @router.path(pattern='api/get/article/')

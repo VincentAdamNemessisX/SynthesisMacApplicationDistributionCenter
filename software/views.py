@@ -271,6 +271,7 @@ def software_details(request):
             'related_software_count': related_software_length,
             'related_articles': related_articles,
             'related_articles_count': related_articles_length,
+            'request_comment': 'software'
         })
 
 

@@ -11,10 +11,9 @@
         <div class="card-body" id="comment-box">
             <div id="respond_box">
                 <div id="respond" class="comment-respond">
-                    <form class="text-sm mb-4" method="post"
-                          enctype="multipart/form-data">
+                    <form class="text-sm mb-4" method="post" name="respond"
+                          enctype="multipart/form-data" onsubmit="submit_comment()">
                         {% csrf_token %}
-
                         <div id="comment-author-info" class="row  row-sm">
                             <div class="visitor-avatar d-flex mb-2">
                                 <img class="v-avatar rounded-circle"
@@ -25,8 +24,8 @@
                                 <a class="pixel-btn user_link_2 text-center" href=""
                                    onmouseout="default_href()" onmouseleave="default_href()"
                                    onmousemove="re_href_user('2')"
-                                   style="display: block; cursor: pointer; width: 15rem;">
-                                    VincentAdamNemessis
+                                   style="display: block; cursor: pointer; width: 15rem;" id="user-link">
+                                    VincentAdamNemessis{{ request.session.username }}
                                 </a>
                             </div>
                         </div>
@@ -38,11 +37,16 @@
                                                                    rows="5"></textarea>
                         </div>
                         <div class="com-footer d-flex justify-content-end flex-wrap">
-                            <button class="btn btn-dark custom_btn-d ml-2">发表评论
+                            <button type="button" class="btn btn-dark custom_btn-d ml-2" id="reset-btn">再想想
                             </button>
-                            <input type="hidden" name="action" value="publish">
-                            <input type="hidden" name="comment_parent" id="comment_parent"
-                                   value="0">
+                            <button class="btn btn-dark custom_btn-d ml-2" id="respond-btn">发表评论
+                            </button>
+                            <input type="hidden" id='action' name="action" value="publish">
+                            <input type="hidden" id="comment_parent" name="comment_parent" value="0">
+                            <input type="hidden" id="software_id" name="software_id"
+                                   value="{% if software.id %}{{ software.id }}{% else %}0{% endif %}">
+                            <input type="hidden" id="article_id" name="article_id"
+                                   value="{% if article.id %}{{ article.id }}{% else %}0{% endif %}">
                         </div>
                     </form>
                 </div>
@@ -52,18 +56,24 @@
 </div><!-- comments end -->
 <script>
 	$(document).ready(function () {
-		let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}', 'software', encrypt_param('{{ software.id }}'))
+		load_comments(1);
+	})
+	
+	function load_comments(init, remove_load_btn = 0) {
+		let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}', '{{ request_comment }}', encrypt_param('{{ software.id }}'), init)
 		comments_promise.then((data) => {
 			let comments_list = '';
-			if (data.length <= 0) {
-				comments_list = `
-            <div class="not-comment card">
-                <div class="card-body nothing text-center color-d">暂无评论...</div>
-            </div>
+			if (data === null) {
+				if (init === 1) {
+					comments_list = `
+                    <div class="not-comment card">
+                        <div class="card-body nothing text-center color-d">暂无评论...</div>
+                    </div>
 				`;
+				}
 			} else {
-				comments_list = `<ul class="comment-list">`;
-				for (let index in data.comments) {
+				comments_list = `<ul class="comment-list" id='comment-list'>`;
+				for (var index in data.comments) {
 					if (data.comments[index].parent_id === encrypt_param('0')) {
 						let comment = `
                         <li class="comment even thread-even depth-1 comment">
@@ -99,24 +109,43 @@
                                         </div>
                                         <div class="flex-fill"></div>
                                         <a rel="nofollow" class="comment-reply-link" href="#respond"
-                                           data-commentid="4" data-postid="93"
-                                           onclick=""
-                                           data-belowelement="comment-4" data-respondelement="respond"
-                                           data-replyto="回复给xx" aria-label="回复给xx">回复</a></div>
+                                           data-comment-id="${data.comments[index].comment_id}"
+                                           data-comment-content='${data.comments[index].content}'
+                                           aria-label="回复给 @${data.comments[index].user.username}">回复</a></div>
                                 </section>
                             </div>
                         `;
 						comment += load_children(data, data.comments[index].comment_id.toString());
-                        comment += '</li><!-- #comment-## -->';
+						comment += '</li><!-- #comment-## -->';
 						comments_list += comment;
 					}
 				}
 				comments_list += '</ul>';
+				try {
+					if (data !== null && data.comments.length >= 10) {
+						comments_list += `
+                            <div class="text-center">
+                                <button class="pixel-btn" id="load_more_comments"
+                                        onclick="load_comments(0, 1)">
+                                    加载更多
+                                </button>
+                            </div>
+                        `;
+					}
+				} catch (e) {
+				}
+			}
+			if (remove_load_btn === 1) {
+				try {
+					document.getElementById('load_more_comments').parentElement.remove();
+				} catch (e) {
+				}
 			}
 			document.getElementById('comment-box').innerHTML += comments_list;
 			format_time_block();
+			append_event();
 		})
-	})
+	}
 	
 	function load_children(data, id) {
 		let children_list = '<ul class="children">';
@@ -164,5 +193,102 @@
 		}
 		children_list += '</ul><!-- .children -->';
 		return children_list;
+	}
+	
+	function validate_comment() {
+		let comment = document.getElementById('comment').value;
+		let warning_msg = [];
+		if ($('#user-link').text() === '' || $('#user-link').text() === undefined) {
+			Swal.fire({
+				icon: 'error',
+				title: '请先登录！',
+			})
+			return false;
+		}
+		if (!/^[^<>][0-9A-Za-z\u4e00-\u9fa5]{5,150}$/.test(comment)) {
+			warning_msg[0] = '评论内容长度为5-200个字符的中文、数字或英文！';
+		}
+		if ($('#software_id').val() === '0' && $('#article_id').val() === '0') {
+			warning_msg['1'] = '评论对象不存在！';
+		}
+		if ($('#action').val() !== 'publish' && $('#action').val() !== 'reply') {
+			warning_msg['2'] = '评论操作不合法！';
+		}
+		if ($('#comment_parent').val() !== '0') {
+			try {
+				decrypt_param($('#comment_parent').val());
+			} catch (e) {
+				warning_msg['3'] = '评论对象不存在！';
+			}
+		}
+		if (warning_msg.length > 0) {
+			Swal.fire({
+				icon: 'error',
+				title: warning_msg.join('\n'),
+			})
+			return false;
+		}
+		return true;
+	}
+	
+	function append_event() {
+		$('.comment-reply-link').on('click', function () {
+			$('#respond-btn').text('回复评论');
+			$('#action').val('reply');
+			$('#comment_parent').val(decrypt_param($(this).attr('data-comment-id')));
+			$('#comment').attr('placeholder', $(this).attr('aria-label') + ' ' + $(this).attr('data-comment-content'));
+		});
+		$('#reset-btn').on('click', function () {
+			$('#respond-btn').text('发表评论');
+			$('#action').val('publish');
+			$('#comment_parent').val('0');
+			$('#comment').attr('placeholder', '输入评论内容...');
+		});
+	}
+	
+	$(document).ready(function () {
+		append_event();
+	})
+	
+	function submit_comment() {
+		event.preventDefault();
+		if (!validate_comment()) {
+			return;
+		} else {
+			$('#software_id').val(encrypt_param($('#software_id').val()));
+			$('#article_id').val(encrypt_param($('#article_id').val()));
+			$('#comment_parent').val(encrypt_param($('#comment_parent').val()));
+		}
+		let options = {
+			url: '/commentswitharticles/api/publish/comment/',
+			type: 'post',
+			dataType: 'json',
+			data: $("#respond").children('form').serialize(),
+			success: function (data) {
+				if (data.code === 200) {
+					Swal.fire({
+						icon: 'success',
+						title: '评论已提交，审核后方可展示！',
+					})
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: '评论提交失败！',
+						text: data.code + ': ' + data.msg
+					})
+				}
+			},
+			error: function (error) {
+				Swal.fire({
+					icon: 'error',
+					title: error.code + ": " + error.msg
+				})
+			}
+		}
+		$.ajax(options);
+		$('#software_id').val(decrypt_param($('#software_id').val()));
+		$('#article_id').val(decrypt_param($('#article_id').val()));
+		$('#comment_parent').val(decrypt_param($('#comment_parent').val()));
+		{#comment_form.submit();#}
 	}
 </script>
