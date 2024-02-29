@@ -43,10 +43,17 @@ def get_init_comments(request):
                     'msg': 'failed with bad request body'
                 })
             if type == 'article':
-                comments = [comment for comment in comments if comment.correlation_article.id == int(query_id)]
+                comments = [comment for comment in comments
+                            if comment.correlation_article and comment.correlation_article.id == int(query_id)]
             if type == 'software':
-                comments = [comment for comment in comments if comment.correlation_software.id == int(query_id)]
+                comments = [comment for comment in comments
+                            if comment.correlation_software and comment.correlation_software.id == int(query_id)]
             comments = comments[:10]
+            if len(comments) <= 0:
+                return JsonResponse({
+                    'code': 404,
+                    'msg': 'failed with no data'
+                })
             comments = [
                 {
                     'comment_id': encrypt(str(comment.id)).decode('utf-8'),
@@ -70,9 +77,11 @@ def get_init_comments(request):
             for i in comments:
                 if i['parent_id'] not in comments_id_list:
                     not_in_init_comments_parent.add(i['parent_id'])
-            print(not_in_init_comments_parent)
             for i in not_in_init_comments_parent:
-                t = [t for t in get_comments() if i == encrypt(str(t.id)).decode('utf8')][0]
+                if type == 'article':
+                    t = [t for t in get_comments() if i == encrypt(str(t.id)).decode('utf8') and t.correlation_article.id == int(query_id)][0]
+                if type == 'software':
+                    t = [t for t in get_comments() if i == encrypt(str(t.id)).decode('utf8') and t.correlation_software.id == int(query_id)][0]
                 t = {
                     'comment_id': encrypt(str(t.id)).decode('utf-8'),
                     'user': {
@@ -136,9 +145,11 @@ def load_more_comments(request):
                     'msg': 'failed with bad request body'
                 })
             if type == 'article':
-                comments = [comment for comment in comments if comment.correlation_article.id == int(query_id)]
+                comments = [comment for comment in comments
+                            if comment.correlation_article and comment.correlation_article.id == int(query_id)]
             if type == 'software':
-                comments = [comment for comment in comments if comment.correlation_software.id == int(query_id)]
+                comments = [comment for comment in comments
+                            if comment.correlation_software and comment.correlation_software.id == int(query_id)]
             if len(comments) < 10:
                 comments = None
             else:
@@ -208,11 +219,11 @@ def leave_comment(request):
                 'code': 402,
                 'msg': 'failed with invalid params'
             })
-        # except TypeError:
-        #     return JsonResponse({
-        #         'code': 401,
-        #         'msg': 'failed with wrong params'
-        #     })
+        except TypeError:
+            return JsonResponse({
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
         except AttributeError:
             return JsonResponse({
                 'code': 406,
@@ -457,10 +468,73 @@ def article_details(request):
         else:
             article = None
         return render(request, 'article_details.html', {
-            'article': article
+            'article': article,
+            'respond_comment': 'article'
         })
     else:
         return render(request, 'article_details.html', {
             'error': 'Not allowed request action',
             'code': 405
+        })
+
+
+@router.path(pattern='api/thumb/article/')
+@require_POST
+def thumb(request):
+    if request.method == 'POST':
+        try:
+            post_data = json.loads(request.body)
+            thumb_type = post_data['thumb_type']
+            article_id = post_data['article_id']
+            article_id = str(article_id.replace(' ', '+'))
+            article_id = decrypt(article_id)
+            article = Article.objects.get(id=article_id)
+            if thumb_type == 'thumb':
+                if article:
+                    article.thumbs_volume += 1
+                    article.save()
+                    return JsonResponse({
+                        'code': 200
+                    })
+                else:
+                    return JsonResponse({
+                        'code': 404,
+                        'error': 'Error with not found article'
+                    })
+            elif thumb_type == 'de_thumb':
+                if article:
+                    article.thumbs_volume -= 1
+                    article.save()
+                    return JsonResponse({
+                        'code': 200
+                    })
+                else:
+                    return JsonResponse({
+                        'code': 404,
+                        'error': 'Error with not found article'
+                    })
+        except ValueError:
+            return JsonResponse({
+                'code': 401,
+                'error': 'Error with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 402,
+                'error': 'Error with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 400,
+                'error': 'Error with bad params'
+            })
+        else:
+            return JsonResponse({
+                'code': 406,
+                'error': 'Error with bad request headers'
+            })
+    else:
+        return JsonResponse({
+            'code': 405,
+            'error': 'Error with bad request action'
         })

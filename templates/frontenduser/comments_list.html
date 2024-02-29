@@ -60,7 +60,10 @@
 	})
 	
 	function load_comments(init, remove_load_btn = 0) {
-		let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}', '{{ request_comment }}', encrypt_param('{{ software.id }}'), init)
+		let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}',
+			'{{ respond_comment }}',
+			encrypt_param('{% if software %}{{ software.id }}{% elif article %}{{ article.id }}{% endif %}'),
+			init)
 		comments_promise.then((data) => {
 			let comments_list = '';
 			if (data === null) {
@@ -74,6 +77,16 @@
 			} else {
 				comments_list = `<ul class="comment-list" id='comment-list'>`;
 				for (var index in data.comments) {
+					if ('{{ respond_comment }}' === 'software') {
+						if (data.comments[index].correlation_software === '') {
+							continue;
+						}
+					}
+					if ('{{ respond_comment }}' === 'article') {
+						if (data.comments[index].correlation_article === '') {
+							continue;
+						}
+					}
 					if (data.comments[index].parent_id === encrypt_param('0')) {
 						let comment = `
                         <li class="comment even thread-even depth-1 comment">
@@ -142,14 +155,24 @@
 				}
 			}
 			document.getElementById('comment-box').innerHTML += comments_list;
-			format_time_block();
 			append_event();
+			format_time_block();
 		})
 	}
 	
 	function load_children(data, id) {
 		let children_list = '<ul class="children">';
 		for (let index in data.comments) {
+			if ('{{ respond_comment }}' === 'software') {
+				if (data.comments[index].correlation_software === '') {
+					continue;
+				}
+			}
+			if ('{{ respond_comment }}' === 'article') {
+				if (data.comments[index].correlation_article === '') {
+					continue;
+				}
+			}
 			if (data.comments[index].parent_id === id && data.comments[index].comment_id !== id) {
 				children_list += `
                         <li class="comment byuser bypostauthor odd alt depth-2 comment">

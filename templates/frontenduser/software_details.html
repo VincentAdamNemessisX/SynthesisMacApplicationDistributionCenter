@@ -11,7 +11,17 @@
             margin: 0 auto;
         }
 
-        @media (min-height: 350px) {
+        @media (min-height: 700px) {
+            .swal2-modal {
+                width: 70% !important;
+            }
+
+            .swal2-modal::-webkit-scrollbar {
+                display: none !important;
+            }
+        }
+
+        @media (max-height: 350px) {
             .swal2-modal {
                 width: 100% !important;
             }
@@ -83,7 +93,7 @@
                             </span>
                             </div>
                             <p class="text-muted mb-4"><span
-                                    class="info-term mr-3">更新日期：{{ software.updated_time|date }}</span>
+                                    class="info-term mr-3">更新时间：{{ software.updated_time|date:"Y年m月d日" }}</span>
                                 <br/><span
                                         class="info-term mr-3">标签：<span class="mr-2" id="tag-space"
                                                                           data-tags="{{ software.tags }}"></span></span>
@@ -234,11 +244,11 @@
                                                             <div class="d-flex flex-fill align-items-center text-muted text-xs">
                                                                 <div class="flex-fill"></div>
                                                                 <div>
-                                                                    <time datetime="'{{ article.updated_time|date:"Y-m-d H:i:sO" }}'"></time>
+                                                                    <time datetime="{{ article.updated_time|date:"Y-m-d H:i:s" }}"></time>
                                                                     <script>
 																		$(document).ready(function () {
-																			format_time_block();
-                                                                        })
+																			format_time_block(0);
+																		})
                                                                     </script>
                                                                 </div>
                                                             </div>
@@ -299,8 +309,8 @@
                                 </div>
                             </div>
                         {% endif %}
-                    {#comments#}
-                    {% include 'frontenduser/comments_list.html' %}
+                        {#comments#}
+                        {% include 'frontenduser/comments_list.html' %}
                     </div><!-- content-layout end -->
                 </div><!-- content-wrap end -->
             </main>
@@ -311,7 +321,7 @@
 {% block script %}
     <script>
 		$(document).ready(function () {
-			get_notice_to_specific_app('{{ csrf_token }}', '{{ software_id }}');
+			get_notice_to_specific_app('{{ csrf_token }}', '{{ software.id }}');
 			fill_in_tags();
 		});
 		

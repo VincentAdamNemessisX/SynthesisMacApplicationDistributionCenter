@@ -149,6 +149,10 @@
             text-decoration: none;
             color: white;
         }
+        
+        #footer-tools {
+            right: -0.75rem !important;
+        }
     </style>
     <style id="classic-theme-styles-inline-css">
         /*! This file is auto-generated */
@@ -378,6 +382,7 @@
 <script src="{% static 'front/extend_js/query_api.js' %}"></script>
 <script src="{% static 'front/extend_js/modify_api.js' %}"></script>
 <script src="{% static 'front/extend_js/custom-modal.js' %}"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
 <script>
 	const channel = new BroadcastChannel('sync-sidebar');
 	channel.addEventListener('message', event => {
@@ -1009,6 +1014,18 @@
 		}
 	}
 	
+		function thumb_article(article_id, type) {
+		let t = document.getElementById('article-' + article_id);
+		t.setAttribute('onclick', '');
+		if (type === 1) {
+			thumb_article_or_not('{{ csrf_token }}', 'thumb', article_id)
+		} else if (type === 2) {
+			thumb_article_or_not('{{ csrf_token }}', 'de_thumb', article_id)
+		} else {
+			console.log('invalid action')
+		}
+	}
+	
 	function re_href_category(category_id) {
 		let category_links = document.getElementsByClassName(`category_link_${category_id}`);
 		for (let i = 0; i < category_links.length; i++) {
@@ -1042,13 +1059,19 @@
 	}
 
 	function format_time_block() {
-		let time_block = document.getElementsByTagName('time');
+		let time_blocks = $('time');
 		try {
-			for (let timeBlockKey in time_block) {
-				let time = time_block[timeBlockKey].getAttribute('datetime');
-				time_block[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time + ' UTC'));
+			for (let timeBlockKey = 0; timeBlockKey < time_blocks.length; timeBlockKey++) {
+				let time = time_blocks[timeBlockKey].getAttribute('datetime');
+				if(time_blocks[timeBlockKey].getAttribute('data-type') === 'local'){
+				    time_blocks[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time));
+                } else {
+                    time_blocks[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time + ' UTC'));
+                }
 			}
-		} catch (e) {}
+		} catch (e) {
+			console.error(e);
+        }
 	}
 </script>
 {% block script %}

@@ -21,7 +21,7 @@ async function get_notice_to_all(csrftoken) {
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
 								toDate(data.data[0].created_time) + "</p>",
-							width: 800,
+							width: '70%',
 							padding: '3em',
 							imageUrl: data.data[0].image,
 							imageAlt: '公告图片',
@@ -72,7 +72,7 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 		type: "POST",
 		data: {
 			csrfmiddlewaretoken: csrftoken,
-			software_id: software_id
+			software_id: encrypt_param(software_id.toString())
 		},
 		dataType: "json",
 		success: function (data) {
@@ -83,7 +83,7 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
 								toDate(data.data[0].created_time) + "</p>",
-							width: 800,
+							width: '70%',
 							padding: '3em',
 							confirmButtonText: '我已知晓！'
 						})
@@ -92,7 +92,7 @@ function get_notice_to_specific_app(csrftoken, software_id) {
 							title: data.data[0].title,
 							html: data.data[0].content + "<br/><p style='color: #999999'>更新时间：" +
 								toDate(data.data[0].created_time) + "</p>",
-							width: 800,
+							width: '70%',
 							padding: '3em',
 							imageUrl: data.data[0].image,
 							imageAlt: '公告图片',
@@ -129,6 +129,18 @@ async function get_comments_for_software_or_articles(csrftoken, type, query_id, 
 		url = '/commentswitharticles/api/get/init/comments/';
 	} else if (init === 0) {
 		url = '/commentswitharticles/api/load/more/comments/';
+	}
+	if (csrftoken === '' || csrftoken === null || csrftoken === undefined) {
+		console.error('csrftoken missed')
+		return null;
+	}
+	if(type === '' || type === null || type === undefined){
+		console.error('request type missed')
+		return null;
+	}
+	if(query_id === '' || query_id === null || query_id === undefined){
+		console.log('request query id missed')
+		return null;
 	}
 	let data = {
 		query_id: query_id.toString(),

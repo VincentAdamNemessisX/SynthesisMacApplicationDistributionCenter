@@ -3,7 +3,6 @@ from django.core.cache import cache
 from announcements.models import Announcements
 from category.models import Category
 from commentswitharticles.models import Comment, Article
-from favorites.models import Favorites
 from questions.models import Questions
 from software.models import SoftWare
 from .common_compute import get_hot_volume_of_article, get_hot_volume_of_software
@@ -61,34 +60,34 @@ def get_specific_user_articles_by_username(username=None):
     return cache.get('specific_user_articles')
 
 
-def get_specific_user_favorite_articles_by_username(username=None):
-    specific_user_articles = cache.get('specific_user_favorite_articles')
-    if specific_user_articles is None:
-        if username is None:
-            cache.set('specific_user_favorite_articles', None, 1)
-        else:
-            specific_user_articles = list(Favorites.objects.filter(user__username=username, correlation_type=1)
-                                          .select_related('user', 'correlation_article').filter(
-                correlation_article__state=2)
-                                          .order_by('-created_time'))
-            cache.set('specific_user_favorite_articles', specific_user_articles, 1)
-    elif username and len(specific_user_articles) > 0 and specific_user_articles[0].user.username != username:
-        specific_user_articles = list(Favorites.objects.filter(user__username=username, correlation_type=1)
-                                      .select_related('user', 'correlation_article').filter(
-            correlation_article__state=2)
-                                      .order_by('-created_time'))
-        cache.set('specific_user_favorite_articles', specific_user_articles, 1)
-    return cache.get('specific_user_favorite_articles')
+# def get_specific_user_favorite_articles_by_username(username=None):
+#     specific_user_articles = cache.get('specific_user_favorite_articles')
+#     if specific_user_articles is None:
+#         if username is None:
+#             cache.set('specific_user_favorite_articles', None, 1)
+#         else:
+#             specific_user_articles = list(Favorites.objects.filter(user__username=username, correlation_type=1)
+#                                           .select_related('user', 'correlation_article').filter(
+#                 correlation_article__state=2)
+#                                           .order_by('-created_time'))
+#             cache.set('specific_user_favorite_articles', specific_user_articles, 1)
+#     elif username and len(specific_user_articles) > 0 and specific_user_articles[0].user.username != username:
+#         specific_user_articles = list(Favorites.objects.filter(user__username=username, correlation_type=1)
+#                                       .select_related('user', 'correlation_article').filter(
+#             correlation_article__state=2)
+#                                       .order_by('-created_time'))
+#         cache.set('specific_user_favorite_articles', specific_user_articles, 1)
+#     return cache.get('specific_user_favorite_articles')
 
 
-def get_all_favorite_articles():
-    favorite_articles = cache.get('favorite_articles')
-    if favorite_articles is None:
-        favorite_articles = list(Favorites.objects.filter(correlation_type=1, correlation_article__state=2)
-                                 .select_related('user', 'correlation_article')
-                                 .order_by('-created_time'))
-        cache.set('favorite_articles', favorite_articles, 45)
-    return cache.get('favorite_articles')
+# def get_all_favorite_articles():
+#     favorite_articles = cache.get('favorite_articles')
+#     if favorite_articles is None:
+#         favorite_articles = list(Favorites.objects.filter(correlation_type=1, correlation_article__state=2)
+#                                  .select_related('user', 'correlation_article')
+#                                  .order_by('-created_time'))
+#         cache.set('favorite_articles', favorite_articles, 45)
+#     return cache.get('favorite_articles')
 
 
 def get_all_articles():
@@ -148,38 +147,38 @@ def get_specific_user_software_by_username(username=None):
     return cache.get('specific_user_software')
 
 
-def get_specific_user_favorite_software_by_username(username=None):
-    """
-    @param username: 用户名
-    @return: 用户收藏的软件
-    """
-    specific_user_software = cache.get('specific_user_favorite_software')
-    if specific_user_software is None:
-        if username is None:
-            cache.set('specific_user_software', None, 1)
-        else:
-            specific_user_software = list(Favorites.objects.filter(user__username=username, state=2)
-                                          .select_related('user', 'category', 'correlation_software')
-                                          .prefetch_related('article_set')
-                                          .order_by('-updated_time'))
-            cache.set('specific_user_favorite_software', specific_user_software, 1)
-    elif username and len(specific_user_software) > 0 and specific_user_software[0].user.username != username:
-        specific_user_software = list(Favorites.objects.filter(user__username=username, state=2)
-                                      .select_related('user', 'category', 'correlation_software')
-                                      .prefetch_related('article_set')
-                                      .order_by('-updated_time'))
-        cache.set('specific_user_favorite_software', specific_user_software, 1)
-    return cache.get('specific_user_favorite_software')
+# def get_specific_user_favorite_software_by_username(username=None):
+#     """
+#     @param username: 用户名
+#     @return: 用户收藏的软件
+#     """
+#     specific_user_software = cache.get('specific_user_favorite_software')
+#     if specific_user_software is None:
+#         if username is None:
+#             cache.set('specific_user_software', None, 1)
+#         else:
+#             specific_user_software = list(Favorites.objects.filter(user__username=username, state=2)
+#                                           .select_related('user', 'category', 'correlation_software')
+#                                           .prefetch_related('article_set')
+#                                           .order_by('-updated_time'))
+#             cache.set('specific_user_favorite_software', specific_user_software, 1)
+#     elif username and len(specific_user_software) > 0 and specific_user_software[0].user.username != username:
+#         specific_user_software = list(Favorites.objects.filter(user__username=username, state=2)
+#                                       .select_related('user', 'category', 'correlation_software')
+#                                       .prefetch_related('article_set')
+#                                       .order_by('-updated_time'))
+#         cache.set('specific_user_favorite_software', specific_user_software, 1)
+#     return cache.get('specific_user_favorite_software')
 
 
-def get_all_favorite_software():
-    all_favorite_software = cache.get('favorite_software')
-    if all_favorite_software is None:
-        all_favorite_software = list(Favorites.objects.filter(correlation_type=2, correlation_software__state=2)
-                                     .select_related('user', 'correlation_software')
-                                     .order_by('-created_time'))
-        cache.set('favorite_software', all_favorite_software, 45)
-    return cache.get('favorite_software')
+# def get_all_favorite_software():
+#     all_favorite_software = cache.get('favorite_software')
+#     if all_favorite_software is None:
+#         all_favorite_software = list(Favorites.objects.filter(correlation_type=2, correlation_software__state=2)
+#                                      .select_related('user', 'correlation_software')
+#                                      .order_by('-created_time'))
+#         cache.set('favorite_software', all_favorite_software, 45)
+#     return cache.get('favorite_software')
 
 
 def get_all_questions():
@@ -219,4 +218,3 @@ def get_hot_articles_and_software():
         hot_software.sort(key=lambda x: x.hot_volume, reverse=True)
         cache.set('hot_software', hot_software[:10], 1)
     return cache.get('hot_articles'), cache.get('hot_software')
-

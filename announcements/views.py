@@ -37,13 +37,13 @@ def get_specific_app_notice(request):
     if request.method == 'POST':
     # if request.method == 'GET':
         # software_id = request.GET.get('software_id')
-        software_id = request.POST.get('software_id')
-        try:
-            software_id = int(decrypt(software_id))
-        except ValueError:
-            return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
-        except TypeError:
-            return JsonResponse({'code': 401, 'msg': 'failed with wrong params'})
+        software_id = request.POST.get('software_id') if request.POST.get('software_id') else 0
+        # try:
+        software_id = int(decrypt(str(software_id).encode('utf-8')))
+        # except ValueError:
+        #     return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
+        # except TypeError:
+        #     return JsonResponse({'code': 401, 'msg': 'failed with wrong params'})
         notices = get_notices()
         notice = [notice for notice in notices if notice.type == 2 and notice.app.id == software_id]
         notice = [

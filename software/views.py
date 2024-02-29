@@ -108,15 +108,15 @@ def get_software_details(request):
                     'view_volume': software.view_volume,
                     'thumbs_volume': software.thumbs_volume,
                     'download_volume': software.download_volume,
-                    'created_time': software.created_time,
-                    'updated_time': software.updated_time,
+                    'created_time': software.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                    'updated_time': software.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
                     'correlation_articles': [
                         {
                             'id': article.id,
                             'title': article.title,
                             'content': article.content,
-                            'created_time': article.created_time,
-                            'updated_time': article.updated_time,
+                            'created_time': article.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                            'updated_time': article.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
                         } for article in software.article_set.all()
                     ],
                     'screenshots': [
@@ -200,15 +200,15 @@ def get_some_software(request):
                         'view_volume': software.view_volume,
                         'thumbs_volume': software.thumbs_volume,
                         'download_volume': software.download_volume,
-                        'created_time': software.created_time,
-                        'updated_time': software.updated_time,
+                        'created_time': software.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                        'updated_time': software.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
                         'correlation_articles': [
                             {
                                 'id': article.id,
                                 'title': article.title,
                                 'content': article.content,
-                                'created_time': article.created_time,
-                                'updated_time': article.updated_time,
+                                'created_time': article.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+                                'updated_time': article.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
                             } for article in software.article_set.all()
                         ],
                         'screenshots': [
@@ -271,7 +271,7 @@ def software_details(request):
             'related_software_count': related_software_length,
             'related_articles': related_articles,
             'related_articles_count': related_articles_length,
-            'request_comment': 'software'
+            'respond_comment': 'software'
         })
 
 
@@ -280,7 +280,7 @@ def search_result(request):
     if request.method == 'GET':
         search_str = request.GET.get('s')
         if search_str:
-            matched_software = SoftWare.objects.filter(name__contains=search_str, state=2)
+            matched_software = get_all_software()
             return render(request, 'frontenduser/search_result.html', {
                 'search_str': search_str,
                 'matched_software': matched_software
