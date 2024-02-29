@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'announcements.apps.AnnouncementsConfig',
     'category.apps.CategoryConfig',
     'commentswitharticles.apps.CommentsWithArticlesConfig',
-    'favorites.apps.FavoritesConfig',
+    # 'favorites.apps.FavoritesConfig',
     'frontenduser.apps.FrontEndUserConfig',
     'questions.apps.QuestionsConfig',
     'software.apps.SoftwareConfig',

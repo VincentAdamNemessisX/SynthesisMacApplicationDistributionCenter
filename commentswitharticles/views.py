@@ -462,6 +462,14 @@ def article_details(request):
                 'error': 'Invalid params',
                 'code': 401
             })
+        related_articles = [article for article in articles if article.id != article_id]
+        related_software = [article.correlation_software for article in articles if article.id == article_id]
+        context_articles = []
+        index = 0
+        for i in range(len(articles)):
+            if articles[i].id == article_id:
+                index = i
+                break
         matched_articles = [article for article in articles if article.id == article_id]
         if len(matched_articles) > 0:
             article = matched_articles[0]
@@ -469,6 +477,9 @@ def article_details(request):
             article = None
         return render(request, 'article_details.html', {
             'article': article,
+            'context_articles': context_articles,
+            'related_articles': related_articles,
+            'related_software': related_software,
             'respond_comment': 'article'
         })
     else:

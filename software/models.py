@@ -27,6 +27,18 @@ class SoftWare(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
 
+    def short_name(self):
+        max_length = 15
+        if len(self.name) > max_length:
+            return f"{self.name[:max_length]}..."
+        return self.name
+
+    def short_description(self):
+        max_length = 20
+        if len(self.name) > max_length:
+            return f"{self.name[:max_length]}..."
+        return self.name
+
     class SoftwareScreenShots(models.Model):
         id = models.AutoField(primary_key=True)
         software = models.ForeignKey('SoftWare', on_delete=models.CASCADE)

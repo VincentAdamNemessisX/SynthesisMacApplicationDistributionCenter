@@ -12,6 +12,12 @@ class Comment(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True)
 
+    def short_content(self):
+        max_length = 20
+        if len(self.content) > max_length:
+            return f"{self.content[:max_length]}..."
+        return self.content
+
     class Meta:
         ordering = ['-created_time']
         verbose_name = '评论审核中心'
@@ -34,6 +40,18 @@ class Article(models.Model):
     thumbs_volume = models.BigIntegerField(default=0)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
+
+    def short_title(self):
+        max_length = 15
+        if len(self.title) > max_length:
+            return f"{self.title[:max_length]}..."
+        return self.title
+
+    def short_content(self):
+        max_length = 20
+        if len(self.content) > max_length:
+            return f"{self.content[:max_length]}..."
+        return self.content
 
     class Meta:
         ordering = ['-updated_time']

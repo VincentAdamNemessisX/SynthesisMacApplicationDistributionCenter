@@ -51,43 +51,33 @@
                                     </div>
                                 </div>
                                 <div class="panel-body single mt-2">
-                                    <blockquote>
-                                        <p style="text-align: center;"><span style="color: #ff6600;"><strong>网盘改版！请注意查看！如遇到误选择收费形式请留言整改！</strong></span>
-                                        </p>
-                                        <p style="text-align: center;"><span style="color: #ff6600;"><strong>网盘通知大文件后期免登录下载有可能改动！</strong></span>
-                                        </p>
-                                        <p style="text-align: center;"><span style="color: #ff6600;"><strong>如遇收费，强制登录等情况！请留言！站内会选着其他下载渠道！</strong></span>
-                                        </p>
-                                    </blockquote>
-                                    <a class="js" href="https://macwk.cn/wp-content/uploads/2023/10/tz.png"
-                                       data-fancybox="fancybox" data-caption="通知：网盘改版！请注意查看！"><img
-                                            fetchpriority="high" decoding="async"
-                                            class="size-full wp-image-1313 aligncenter loaded"
-                                            data-src="https://macwk.cn/wp-content/uploads/2023/10/tz.png"
-                                            src="https://macwk.cn/wp-content/uploads/2023/10/tz.png"
-                                            alt="通知：网盘改版！请注意查看！" width="553" height="356"
-                                            data-was-processed="true"></a>
+                                    {{ article.content|safe }}
                                 </div>
-                                <div class="post-tags my-3"><i class="iconfont icon-tags mr-2"></i><a
-                                        href="https://macwk.cn/shiyongjiaocheng"
-                                        class="btn  btn-sm text-xs text-height-xs m-1 rounded-pill" rel="tag"
-                                        title="查看更多文章"># 使用教程</a></div>
-                                <div class="text-xs text-muted">
-                                    <div><span>©</span> 版权声明</div>
+                                <div class="text-xs text-muted" style="text-align: right">
+                                    <div style="padding-right: 10%"><span>©</span> 版权声明</div>
                                     <div class="posts-copyright">文章版权归作者所有，未经允许请勿转载。</div>
                                 </div>
                             </div>
                         </div>
                         <div class="near-navigation rounded mt-4 py-2">
                             <div class="nav previous border-right border-color">
-                                <a class="near-permalink" href="https://macwk.cn/1298.html">
+                                <a class="near-permalink"
+                                   href="" onmouseout="default_href()"
+                                   onmouseleave="default_href()"
+                                   onmousemove="re_href_article('{{ previous_article.id }}')"
+                                >
                                     <span>上一篇</span>
-                                    <h4 class="near-title">Adobe Photoshop 2024 M2版本安装教程</h4>
+                                    <h4 class="near-title">{{ previous_article.title }}</h4>
                                 </a>
                             </div>
                             <div class="nav none border-left border-color" style="text-align: right;">
-                                <span>下一篇</span>
-                                <h4 class="near-title">没有更多了...</h4>
+                                <a class="near-permalink"
+                                   href="" onmouseout="default_href()"
+                                   onmouseleave="default_href()"
+                                   onmousemove="re_href_article('{{ next_article.id }}')">
+                                    <span>下一篇</span>
+                                    <h4 class="near-title">{{ next_article.title }}</h4>
+                                </a>
                             </div>
                         </div>
                         <h4 class="text-gray text-lg my-4"><i class="site-tag iconfont icon-book icon-lg mr-1"></i>相关文章

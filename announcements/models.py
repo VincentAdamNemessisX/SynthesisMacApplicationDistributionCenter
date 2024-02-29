@@ -19,6 +19,18 @@ class Announcements(models.Model):
             self.author = kwargs.pop('request').user
         super().save(*args, **kwargs)
 
+    def short_title(self):
+        max_length = 15
+        if len(self.title) > max_length:
+            return f"{self.title[:max_length]}..."
+        return self.title
+
+    def short_content(self):
+        max_length = 20
+        if len(self.content) > max_length:
+            return f"{self.content[:max_length]}..."
+        return self.content
+
     class Meta:
         ordering = ['-created_time']
         verbose_name = '公告管理'

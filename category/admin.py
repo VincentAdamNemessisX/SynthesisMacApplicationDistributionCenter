@@ -6,4 +6,4 @@ import category.models
 # Register your models here.
 @admin.register(category.models.Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'slug', 'icon', 'description']
+    list_display = ['id', 'short_name', 'slug', 'icon', 'short_description']

@@ -10,6 +10,18 @@ class Category(models.Model):
     description = models.TextField(blank=True, null=True)
     state = models.IntegerField(default=2, choices=((1, '停用'), (2, '正常')), db_index=True)
 
+    def short_name(self):
+        max_length = 15
+        if len(self.name) > max_length:
+            return f"{self.name[:max_length]}..."
+        return self.name
+
+    def short_description(self):
+        max_length = 20
+        if len(self.description) > max_length:
+            return f"{self.description[:max_length]}..."
+        return self.description
+
     class Meta:
         verbose_name = '软件分类'
         verbose_name_plural = verbose_name

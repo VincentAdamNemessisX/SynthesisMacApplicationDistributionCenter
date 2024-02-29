@@ -1073,6 +1073,12 @@
 			console.error(e);
         }
 	}
+	
+	function hide_ck_editor_label() {
+		try{
+		    $('.ck-powered-by').attr('style', 'display: none;');
+        } catch (e){}
+    }
 </script>
 {% block script %}
 {% endblock %}
