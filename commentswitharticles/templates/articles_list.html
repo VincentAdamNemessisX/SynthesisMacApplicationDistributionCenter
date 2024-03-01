@@ -1,6 +1,6 @@
 {% extends 'frontenduser/base.html' %}
 {% load static %}
-{% block title%}
+{% block title %}
     文章列表
 {% endblock %}
 {% block content %}
@@ -22,151 +22,175 @@
                         <p class="text-secondary text-sm">
                         </p>
                     </div>
-                    <div class="cat_list">
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/1312.html"
-                                       title="通知：网盘改版！请注意查看！"
-                                       data-src="https://macwk.cn/wp-content/uploads/2023/10/tz.png"
-                                       data-was-processed="true"
-                                       style="background-image: url(https://macwk.cn/wp-content/uploads/2023/10/tz.png);"></a>
+                    {% if articles_count > 0 %}
+                        <div class="cat_list">
+                            {% for article in articles %}
+                                <div class="list-grid list-grid-padding">
+                                    <div class="list-item card">
+                                        <div class="media media-3x2 rounded col-4 col-md-4">
+                                            <a class="media-content article_link_{{ article.id }}" href=""
+                                               title="{{ article.title }}" onmouseout="default_href()"
+                                               onmouseleave="default_href()"
+                                               onmousemove="re_href_article('{{ article.id }}')"
+                                               data-src="{{ article.cover.url }}"
+                                               data-was-processed="true"
+                                               style="background-image: url({{ article.cover.url }});"></a>
+                                        </div>
+                                        <div class="list-content">
+                                            <div class="list-body">
+                                                <h2>
+                                                    <a href="" onmouseout="default_href()"
+                                                       onmouseleave="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       title="{{ article.title }}"
+                                                       class="list-title text-lg overflowClip_2 article_link_{{ article.id }}">
+                                                        {{ article.title }}
+                                                    </a>
+                                                </h2>
+                                                <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
+                                                    <div style="height: 7rem">
+                                                        {{ article.plain_content|truncatechars:200 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="list-footer">
+                                                <div class="d-flex flex-fill align-items-center text-muted text-xs">
+                                                <span><i class="fa fa-user-secret"></i>
+                                                    <a href="" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       class="user_link_{{ article.user.id }}"
+                                                       onmousemove="re_href_user('{{ article.user.id }}')">
+                                                        {% if article.user.nickname %}
+                                                            {{ article.user.nickname }}
+                                                        {% else %}
+                                                            {{ article.user.username }}
+                                                        {% endif %}
+                                                    </a>
+                                                </span>
+                                                    <div class="flex-fill"></div>
+                                                    <div>
+                                                        <time class="mx-1" data-type="local"
+                                                              datetime="{{ article.updated_time|date:'Y-m-d H:i:sO' }}"></time>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/1312.html" title="通知：网盘改版！请注意查看！"
-                                               class="list-title text-lg overflowClip_2">通知：网盘改版！请注意查看！</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 ">网盘改版！请注意查看！如遇到误选择收费形式请留言整改！
-                                                网盘通知大文件后期免登录下载有可能改动！ 如遇收费，强制登录等情况！请留言！站内会选着其他下...
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">3个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
+                            {% endfor %}
+                        </div>
+                        {% if articles_count > 6 %}
+                            {#loading more#}
+                            <div class="col-12">
+                                <div class="text-center">
+                                    <button class="pixel-btn" id="load_more_articles"
+                                            onclick="load_left_articles()">
+                                        加载更多
+                                    </button>
                                 </div>
                             </div>
+                        {% endif %}
+                    {% else %}
+                        <div>
+                            <h2>暂无文章！</h2>
                         </div>
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/1298.html"
-                                       title="Adobe Photoshop 2024 M2版本安装教程"
-                                       data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg" data-was-processed="true"
-                                       style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/1298.html"
-                                               title="Adobe Photoshop 2024 M2版本安装教程"
-                                               class="list-title text-lg overflowClip_2">Adobe Photoshop 2024
-                                                M2版本安装教程</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 ">﻿﻿﻿</div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">3个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/1081.html"
-                                       title="iTerm2配色及插件留言贴"
-                                       data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg" data-was-processed="true"
-                                       style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/1081.html" title="iTerm2配色及插件留言贴"
-                                               class="list-title text-lg overflowClip_2">iTerm2配色及插件留言贴</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 "></div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">4个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/546.html"
-                                       title="Adob​​e PhotoShop 2021 激活教程"
-                                       data-src="//macwk.cn/wp-content/uploads/2023/07/banner-1.jpg"
-                                       data-was-processed="true"
-                                       style="background-image: url(//macwk.cn/wp-content/uploads/2023/07/banner-1.jpg);"></a>
-                                </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/546.html" title="Adob​​e PhotoShop 2021 激活教程"
-                                               class="list-title text-lg overflowClip_2">Adob​​e PhotoShop 2021
-                                                激活教程</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 ">﻿</div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">5个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="posts-nav">
-                    </div>
+                    {% endif %}
+                </div>
+                <div class="posts-nav">
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block script %}
+    <script>
+		$(document).ready(function () {
+			format_time_block();
+		})
+
+		async function load_left_articles() {
+			let url = '/commentswitharticles/api/load/left/articles/'; //初始化url
+			return await fetch(url, { //返回promise供后续代码调用fetch得到的数据
+				method: 'POST', // 指定请求方法
+				mode: 'cors', // 请求的模式
+				cache: 'default', // 缓存模式
+				credentials: 'same-origin', // 是否应该发送Cookie
+				headers: {
+					'Content-Type': 'application/json', // 请求的内容类型
+					'X-CSRFToken': '{{ csrf_token }}' // CSRF令牌
+				},
+				redirect: 'follow', // 重定向模式
+				referrerPolicy: 'no-referrer', // 引用策略
+			})
+				.then((response) => response.json()) //转化返回结果为json数据
+				.then((full_data) => { //取得json数据并根据数据提供的code代码决定返回数据或者异常字符串
+					let returned_code = parseInt(full_data.code);
+					if (returned_code === 200) {
+						let data = full_data.data;
+						let html = '';
+						for(let i = 0; i < data.length; i++) {
+							html += `
+                                <div class="list-grid list-grid-padding">
+                                    <div class="list-item card">
+                                        <div class="media media-3x2 rounded col-4 col-md-4">
+                                            <a class="media-content article_link_${data[i].id}" href=""
+                                               title="${data[i].title}" onmouseout="default_href()"
+                                               onmouseleave="default_href()"
+                                               onmousemove="re_href_article('${data[i].id}')"
+                                               data-src="${data[i].cover}"
+                                               data-was-processed="true"
+                                               style="background-image: url(${data[i].cover});"></a>
+                                        </div>
+                                        <div class="list-content">
+                                            <div class="list-body">
+                                                <h2>
+                                                    <a href="" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                         onmousemove="re_href_article('${data[i].id}')"
+                                                       title="${data[i].title }"
+                                                       class="list-title text-lg overflowClip_2 article_link_${data[i].id }">
+                                                        ${data[i].title }
+                                                    </a>
+                                                </h2>
+                                                <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
+                                                    <div style="height: 7rem">
+                                                        ${data[i].content}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="list-footer">
+                                                <div class="d-flex flex-fill align-items-center text-muted text-xs">
+                                                <span><i class="fa fa-user-secret"></i>
+                                                    <a href="" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       class="user_link_${data[i].user.id }"
+                                                       onmousemove="re_href_user('${data[i].user.id }')">
+                                                        ${data[i].user.username}
+                                                    </a>
+                                                </span>
+                                                    <div class="flex-fill"></div>
+                                                    <div>
+                                                        <time class="mx-1"
+                                                              datetime="${data[i].updated_time}"></time>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+			            `;
+                        }
+						$('#load_more_articles').remove();
+						$('.cat_list').append(html);
+						format_time_block();
+					} else {
+						Swal.fire({
+                            icon: 'error',
+                            title: '加载失败',
+                            text: full_data.code + ': ' + full_data.msg,
+                        })
+					}
+				})
+		}
+    </script>
 {% endblock %}

@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended some functions to implement show short content with a very long field's value;">
-      <change afterPath="$PROJECT_DIR$/media/article/default_6Zv1w3Q.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/article/default_vkB442h.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PythonSceneConfigState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonSceneConfigState.xml" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended similarity computing function to implement related software or articles;&#10;finished article details page;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/common_compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/common_compute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/software_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/img/logo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +276,7 @@
       <workItem from="1709172197431" duration="3890000" />
       <workItem from="1709202424918" duration="6749000" />
       <workItem from="1709209386099" duration="2245000" />
-      <workItem from="1709260626656" duration="9617000" />
+      <workItem from="1709260626656" duration="21200000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -652,7 +646,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709205054810</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="appended similarity computing function to implement related software or articles;&#10;finished article details page;">
+      <option name="closed" value="true" />
+      <created>1709270631784</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1709270631784</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +663,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="restored notice showing to home page" />
     <MESSAGE value="appended security request method instead of unsecure request method to request notices" />
     <MESSAGE value="optimized notice to app's bug that warning to show" />
     <MESSAGE value="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status" />
@@ -686,7 +687,8 @@
     <MESSAGE value="finished common components with comment_list;&#10;finished publish comment function;&#10;finished reply comment function;&#10;fixed some known bugs;&#10;fixed datetime format to show;" />
     <MESSAGE value="finished thumbs function in article details;&#10;fixed comments loaded dirty data;&#10;deleted favorite model;" />
     <MESSAGE value="appended some functions to implement show short content with a very long field's value;" />
-    <option name="LAST_COMMIT_MESSAGE" value="appended some functions to implement show short content with a very long field's value;" />
+    <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1708738676399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

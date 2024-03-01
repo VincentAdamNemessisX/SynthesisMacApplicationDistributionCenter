@@ -438,11 +438,55 @@ def publish_article(request):
 @require_GET
 def articles_list(request):
     if request.method == "GET":
-        return render(request, 'articles_list.html')
-    return JsonResponse({
+        articles = g_as()
+        articles_count = len(articles)
+        return render(request, 'articles_list.html',
+                      {
+                            'articles': articles[:6],
+                            'articles_count': articles_count
+                      })
+    return render(request, '500.html', {
         'code': 405,
         'error': 'requested with wrong method'
     })
+
+
+@require_POST
+@router.path(pattern='api/load/left/articles/')
+def load_left_articles(request):
+    if request.method == 'POST':
+        articles = g_as()[6:]
+        articles = [{
+            'id': article.id,
+            'title': article.title,
+            'content': article.plain_content()[:200],
+            'cover': article.cover.url,
+            'correlation_software': article.correlation_software,
+            'created_time': article.created_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'updated_time': article.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'user': {
+                'id': article.user.id,
+                'username': article.user.nickname if article.user.nickname else article.user.username,
+                'email': article.user.email,
+            }
+        } for article in articles]
+        if len(articles):
+            return JsonResponse({
+                'code': 200,
+                'msg': 'success',
+                'data': articles
+            })
+        else:
+            return JsonResponse({
+                'code': 404,
+                'msg': 'failed with no data'
+            })
+    else:
+        return JsonResponse({
+            'code': 405,
+            'msg': 'failed with wrong request action'
+        })
+
 
 
 @require_GET
