@@ -35,9 +35,9 @@ class SoftWare(models.Model):
 
     def short_description(self):
         max_length = 20
-        if len(self.name) > max_length:
-            return f"{self.name[:max_length]}..."
-        return self.name
+        if len(self.description) > max_length:
+            return f"{self.description[:max_length]}..."
+        return self.description
 
     class SoftwareScreenShots(models.Model):
         id = models.AutoField(primary_key=True)

@@ -1,5 +1,5 @@
 from django.db import models
-
+import bs4
 
 # Create your models here.
 class Comment(models.Model):
@@ -47,11 +47,15 @@ class Article(models.Model):
             return f"{self.title[:max_length]}..."
         return self.title
 
+    def plain_content(self):
+        soup = bs4.BeautifulSoup(self.content, 'html.parser')
+        return soup.get_text()
+
     def short_content(self):
         max_length = 20
-        if len(self.content) > max_length:
-            return f"{self.content[:max_length]}..."
-        return self.content
+        if len(self.plain_content()) > max_length:
+            return f"{self.plain_content()[:max_length]}..."
+        return self.plain_content()
 
     class Meta:
         ordering = ['-updated_time']

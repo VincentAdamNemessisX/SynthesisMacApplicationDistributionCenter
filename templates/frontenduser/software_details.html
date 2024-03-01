@@ -219,7 +219,7 @@
                                                                 class="media-content article_link_{{ article.id }}"
                                                                 onmouseout="default_href()"
                                                                 onmouseleave="default_href()"
-                                                                onmousemove="re_href_software('{{ article.id }}')"
+                                                                onmousemove="re_href_article('{{ article.id }}')"
                                                                 data-was-processed="true"
                                                                 data-src="{{ article.cover.url }}"
                                                                 style="background-image: url({{ article.cover.url }});"></a>
@@ -237,14 +237,14 @@
                                                                 {{ article.title }}
                                                             </a>
                                                             <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                                                {{ article.content|truncatechars:20 }}
+                                                                {{ article.plain_content|truncatechars:20 }}
                                                             </div>
                                                         </div>
                                                         <div>
                                                             <div class="d-flex flex-fill align-items-center text-muted text-xs">
                                                                 <div class="flex-fill"></div>
                                                                 <div>
-                                                                    <time datetime="{{ article.updated_time|date:"Y-m-d H:i:s" }}"></time>
+                                                                    <time data-type="local" datetime="{{ article.updated_time|date:"Y-m-d H:i:sO" }}"></time>
                                                                     <script>
 																		$(document).ready(function () {
 																			format_time_block(0);

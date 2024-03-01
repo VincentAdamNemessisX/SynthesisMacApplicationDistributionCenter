@@ -13,9 +13,11 @@ from general.encrypt import decrypt, encrypt
 from general.init_cache import (get_comments,
                                 get_matched_articles_by_article_id as g_a,
                                 get_all_articles as g_as)
-
+from general.common_compute import get_context_articles, compute_similarity
 
 not_in_init_comments_parent = set()
+
+
 @router.path(pattern='api/get/init/comments/')
 @require_http_methods('POST')
 def get_init_comments(request):
@@ -79,9 +81,11 @@ def get_init_comments(request):
                     not_in_init_comments_parent.add(i['parent_id'])
             for i in not_in_init_comments_parent:
                 if type == 'article':
-                    t = [t for t in get_comments() if i == encrypt(str(t.id)).decode('utf8') and t.correlation_article.id == int(query_id)][0]
+                    t = [t for t in get_comments() if
+                         i == encrypt(str(t.id)).decode('utf8') and t.correlation_article.id == int(query_id)][0]
                 if type == 'software':
-                    t = [t for t in get_comments() if i == encrypt(str(t.id)).decode('utf8') and t.correlation_software.id == int(query_id)][0]
+                    t = [t for t in get_comments() if
+                         i == encrypt(str(t.id)).decode('utf8') and t.correlation_software.id == int(query_id)][0]
                 t = {
                     'comment_id': encrypt(str(t.id)).decode('utf-8'),
                     'user': {
@@ -462,24 +466,33 @@ def article_details(request):
                 'error': 'Invalid params',
                 'code': 401
             })
-        related_articles = [article for article in articles if article.id != article_id]
-        related_software = [article.correlation_software for article in articles if article.id == article_id]
-        context_articles = []
-        index = 0
-        for i in range(len(articles)):
-            if articles[i].id == article_id:
-                index = i
-                break
         matched_articles = [article for article in articles if article.id == article_id]
         if len(matched_articles) > 0:
             article = matched_articles[0]
         else:
             article = None
+        if article:
+            related_articles = [article for article in articles if article.id != article_id]
+            related_articles = sorted(related_articles,
+                                      key=lambda x: compute_similarity(article.plain_content(), x.plain_content()),
+                                      reverse=True)[:6]
+            related_software = [article.correlation_software for article in articles
+                                if article.id == article_id and article.correlation_software]
+            related_articles_count = len(related_articles)
+            related_software_count = len(related_software)
+            context_articles = get_context_articles(articles, article_id)
+        else:
+            return render(request, 'article_details.html', {
+                'error': 'Not found article',
+                'code': 404
+            })
         return render(request, 'article_details.html', {
             'article': article,
             'context_articles': context_articles,
             'related_articles': related_articles,
+            'related_articles_count': related_articles_count,
             'related_software': related_software,
+            'related_software_count': related_software_count,
             'respond_comment': 'article'
         })
     else:

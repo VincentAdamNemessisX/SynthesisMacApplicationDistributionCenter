@@ -3,6 +3,13 @@
 {% block title %}
     Mac软件分享平台 {{ article.title }}
 {% endblock %}
+{% block style %}
+    <style>
+        .panel-body {
+            min-height: 15rem;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <div class="loading_container">
         <div class="loading"><i></i><i></i><i></i><i></i></div>
@@ -25,7 +32,8 @@
                                          style="align-items: center">
                                         <span class="mr-3"><i class="iconfont icon-time"></i>
                                             <span>
-                                                <time data-type="local" datetime="{{ article.updated_time|date:"Y-m-d H:i:sO" }}"></time>
+                                                <time data-type="local"
+                                                      datetime="{{ article.updated_time|date:"Y-m-d H:i:sO" }}"></time>
                                             </span>
                                         </span>
                                         <span
@@ -51,146 +59,179 @@
                                     </div>
                                 </div>
                                 <div class="panel-body single mt-2">
-                                    {{ article.content|safe }}
+                                    <div class="article-content">{{ article.content|safe }}</div>
+                                    {% if related_software and related_software_count > 0 %}
+                                        <div class="related_software">
+                                            <h2 class="text-gray text-lg my-4">
+                                                <i class="site-tag fa fa-file-text-o mr-1"></i>
+                                                关联软件
+                                            </h2>
+                                            {% for software in related_software %}
+                                                <div class="io-edit-post-card-content">
+                                                    <div class="url-card shortcode-url site_0 mx-auto "
+                                                         style="max-width:600px">
+                                                        <div class="card flex-fill mb-3">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-4">
+                                                                    <div class="media media-4x3 rounded-left"
+                                                                         style="border-radius: 1rem">
+                                                                        <a class="media-content software_link_{{ software.id }}"
+                                                                           onmouseout="default_href()"
+                                                                           onmouseleave="default_href()"
+                                                                           onmousemove="re_href_software('{{ software.id }}')"
+                                                                           data-was-processed="false"
+                                                                           data-src="{{ software.icon.url }}"
+                                                                           style="background-image: url({{ software.icon.url }});"
+                                                                           href=""></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <div class="card-body list-content p-2"
+                                                                         style="height: 100%;">
+                                                                        <div class="list-body">
+                                                                            <a href="" title="{{ software.name }}"
+                                                                               onmouseout="default_href()"
+                                                                               onmouseleave="default_href()"
+                                                                               onmousemove="re_href_software('{{ software.id }}')"
+                                                                               class="list-title no-c overflowClip_1 software_link_{{ software.id }}">
+                                                                                {{ software.name }}
+                                                                            </a>
+                                                                            <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
+                                                                                {{ software.short_description }}
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="d-flex flex-fill align-items-center text-muted text-xs">
+                                                                                <div class="flex-fill"></div>
+                                                                                <div>
+                                                                                    <time datetime="{{ software.updated_time|date:'Y-m-d H:i:sO' }}">
+                                                                                    </time>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
                                 <div class="text-xs text-muted" style="text-align: right">
                                     <div style="padding-right: 10%"><span>©</span> 版权声明</div>
                                     <div class="posts-copyright">文章版权归作者所有，未经允许请勿转载。</div>
                                 </div>
+                                <div class="social-share">
+
+                                </div>
                             </div>
                         </div>
                         <div class="near-navigation rounded mt-4 py-2">
-                            <div class="nav previous border-right border-color">
-                                <a class="near-permalink"
-                                   href="" onmouseout="default_href()"
-                                   onmouseleave="default_href()"
-                                   onmousemove="re_href_article('{{ previous_article.id }}')"
-                                >
+                            {% if context_articles.previous %}
+                                <div class="nav prev border-right border-color" style="text-align: left;">
+                                    <a class="near-permalink article_link_{{ context_articles.previous.id }}"
+                                       href="" onmouseout="default_href()"
+                                       onmouseleave="default_href()"
+                                       onmousemove="re_href_article('{{ context_articles.previous.id }}')">
+                                        <span>上一篇</span>
+                                        <h4 class="near-title text-left">{{ context_articles.previous.title }}</h4>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="nav none border-right border-color" style="text-align: left;">
                                     <span>上一篇</span>
-                                    <h4 class="near-title">{{ previous_article.title }}</h4>
-                                </a>
-                            </div>
-                            <div class="nav none border-left border-color" style="text-align: right;">
-                                <a class="near-permalink"
-                                   href="" onmouseout="default_href()"
-                                   onmouseleave="default_href()"
-                                   onmousemove="re_href_article('{{ next_article.id }}')">
+                                    <h4 class="near-title text-left">没有更多了...</h4>
+                                </div>
+                            {% endif %}
+                            {% if context_articles.next %}
+                                <div class="nav next border-left border-color" style="text-align: right;">
+                                    <a class="near-permalink article_link_{{ context_articles.next.id }}"
+                                       href="" onmouseout="default_href()"
+                                       onmouseleave="default_href()"
+                                       onmousemove="re_href_article('{{ context_articles.next.id }}')">
+                                        <span>下一篇</span>
+                                        <h4 class="near-title">{{ context_articles.next.title }}</h4>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="nav none border-left border-color" style="text-align: right;">
                                     <span>下一篇</span>
-                                    <h4 class="near-title">{{ next_article.title }}</h4>
-                                </a>
-                            </div>
+                                    <h4 class="near-title text-right">没有更多了...</h4>
+                                </div>
+                            {% endif %}
                         </div>
-                        <h4 class="text-gray text-lg my-4"><i class="site-tag iconfont icon-book icon-lg mr-1"></i>相关文章
+                        <h4 class="text-gray text-lg my-4">
+                            <i class="site-tag iconfont icon-book icon-lg mr-1"></i>
+                            相关文章
                         </h4>
                         <div class="row mb-n4">
-                            <div class="col-6 col-md-4">
-                                <div class="card-post list-item">
-                                    <div class="media media-4x3 p-0 rounded">
-                                        <a class="media-content" href="https://macwk.cn/1081.html" target="_blank"
-                                           data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg"
-                                           data-was-processed="true"
-                                           style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                    </div>
-                                    <div class="list-content">
-                                        <div class="list-body">
-                                            <a href="https://macwk.cn/1081.html" target="_blank"
-                                               class="list-title text-md overflowClip_2">
-                                                iTerm2配色及插件留言贴 </a>
-                                        </div>
-                                        <div class="list-footer">
-                                            <div class="d-flex flex-fill align-items-center">
-                                                <a href="https://macwk.cn/author/1" class="flex-avatar mr-1"
-                                                   target="_blank">
-                                                    <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
-                                                         width="20" height="20" alt="头像"
-                                                         class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                            {% if related_articles_count > 0 %}
+                                {% for article in related_articles %}
+                                    <div class="col-6 col-md-4">
+                                        <div class="card-post list-item">
+                                            <div class="media media-4x3 p-0 rounded">
+                                                <a class="media-content article_link_{{ article.id }}" href=""
+                                                   onmouseout="default_href()" onmouseleave="default_href()"
+                                                   onmousemove="re_href_article('{{ article.id }}')"
+                                                   data-src="{{ article.cover.url }}"
+                                                   data-was-processed="true"
+                                                   style="background-image: url({{ article.cover.url }});">
                                                 </a>
-                                                <a href="https://macwk.cn/author/1"
-                                                   class="d-none d-md-inline-block text-xs" target="_blank">MacWk</a>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs">
-                                                    <span class="views mr-1"><i class="iconfont icon-chakan mr-1"></i>3,090</span>
-                                                    <a href="https://macwk.cn/1081.html"><i
-                                                            class="iconfont icon-heart mr-1"></i>3</a>
+                                            </div>
+                                            <div class="list-content">
+                                                <div class="list-body">
+                                                    <a href="" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class="list-title text-md overflowClip_2 article_link_{{ article.id }}">
+                                                        {{ article.title }} </a>
+                                                </div>
+                                                <div class="list-footer">
+                                                    <div class="d-flex flex-fill align-items-center">
+                                                        <a href=""
+                                                           class="flex-avatar mr-1 user_link_{{ article.user.id }}"
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_user('{{ article.user.id }}')"
+                                                           target="_blank">
+                                                            <img src="{{ article.user.head_icon.url }}"
+                                                                 width="20" height="20" alt="头像"
+                                                                 class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                        </a>
+                                                        <a href=""
+                                                           class="d-none d-md-inline-block text-xs user_link_{{ article.user.id }}"
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_user('{{ article.user.id }}')"
+                                                           target="_blank">
+                                                            {% if article.user.nickname %}
+                                                                {{ article.user.nickname }}
+                                                            {% else %}
+                                                                {{ article.user.username }}
+                                                            {% endif %}
+                                                        </a>
+                                                        <div class="flex-fill"></div>
+                                                        <div class="text-muted text-xs">
+                                                        <span class="views mr-1"><i
+                                                                class="iconfont icon-chakan mr-1"></i>
+                                                            {{ article.view_volume }}
+                                                        </span><i
+                                                                class="iconfont icon-like mr-1"></i>
+                                                            {{ article.thumbs_volume }}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="card-post list-item">
-                                    <div class="media media-4x3 p-0 rounded">
-                                        <a class="media-content" href="https://macwk.cn/1298.html" target="_blank"
-                                           data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg"
-                                           data-was-processed="true"
-                                           style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                    </div>
-                                    <div class="list-content">
-                                        <div class="list-body">
-                                            <a href="https://macwk.cn/1298.html" target="_blank"
-                                               class="list-title text-md overflowClip_2">
-                                                Adobe Photoshop 2024 M2版本安装教程 </a>
-                                        </div>
-                                        <div class="list-footer">
-                                            <div class="d-flex flex-fill align-items-center">
-                                                <a href="https://macwk.cn/author/1" class="flex-avatar mr-1"
-                                                   target="_blank">
-                                                    <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
-                                                         width="20" height="20" alt="头像"
-                                                         class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
-                                                </a>
-                                                <a href="https://macwk.cn/author/1"
-                                                   class="d-none d-md-inline-block text-xs" target="_blank">MacWk</a>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs">
-                                                    <span class="views mr-1"><i class="iconfont icon-chakan mr-1"></i>7,265</span>
-                                                    <a href="https://macwk.cn/1298.html"><i
-                                                            class="iconfont icon-heart mr-1"></i>3</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="col-12">
+                                    <div class="alert alert-warning" role="alert">
+                                        暂无相关文章
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="card-post list-item">
-                                    <div class="media media-4x3 p-0 rounded">
-                                        <a class="media-content" href="https://macwk.cn/546.html" target="_blank"
-                                           data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg"
-                                           data-was-processed="true"
-                                           style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                    </div>
-                                    <div class="list-content">
-                                        <div class="list-body">
-                                            <a href="https://macwk.cn/546.html" target="_blank"
-                                               class="list-title text-md overflowClip_2">
-                                                Adob​​e PhotoShop 2021 激活教程 </a>
-                                        </div>
-                                        <div class="list-footer">
-                                            <div class="d-flex flex-fill align-items-center">
-                                                <a href="https://macwk.cn/author/1" class="flex-avatar mr-1"
-                                                   target="_blank">
-                                                    <img src="https://macwk.cn/wp-content/uploads/2023/07/WechatIMG16.jpg"
-                                                         width="20" height="20" alt="头像"
-                                                         class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
-                                                </a>
-                                                <a href="https://macwk.cn/author/1"
-                                                   class="d-none d-md-inline-block text-xs" target="_blank">MacWk</a>
-                                                <div class="flex-fill"></div>
-                                                <div class="text-muted text-xs">
-                                                    <span class="views mr-1"><i class="iconfont icon-chakan mr-1"></i>5,884</span>
-                                                    <a href="https://macwk.cn/546.html"><i
-                                                            class="iconfont icon-heart mr-1"></i>2</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                            {% endif %}
                         </div>
 
                         <!-- comments -->

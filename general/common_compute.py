@@ -1,6 +1,7 @@
 from commentswitharticles.models import Article
 from software.models import SoftWare
-import datetime
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 def get_hot_volume_of_article(article_id):
@@ -36,3 +37,26 @@ def get_hot_volume_of_software(software_id):
     except AttributeError:
         pass
     return int(hot_volume)
+
+
+def get_context_articles(articles, article_id):
+    context_articles = {'previous': None, 'next': None}
+    index = 0
+    for i in range(len(articles)):
+        if articles[i].id == article_id:
+            index = i
+            break
+    if index > 0:
+        context_articles['previous'] = articles[index - 1]
+    if index < len(articles) - 1:
+        context_articles['next'] = articles[index + 1]
+    # print(context_articles)
+    return context_articles
+
+
+def compute_similarity(str1, str2):
+    vectorizer = TfidfVectorizer()
+    corpus = [str1, str2]
+    vectors = vectorizer.fit_transform(corpus)
+    similarity = cosine_similarity(vectors[0], vectors[1])
+    return similarity[0][0]

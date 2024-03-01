@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
+from general.common_compute import compute_similarity
 from general.encrypt import decrypt
 from general.init_cache import get_software_by_software_id, get_all_software
 from .models import SoftWare
@@ -250,8 +251,10 @@ def software_details(request):
             software.screenshots_set.count = len(software.screenshots_set)
             software.screenshots_set.count_list = [i for i in range(software.screenshots_set.count)]
             related_software = [temp for temp in get_all_software()
-                                            if temp.state == 2 and temp.category == software.category
-                                            and temp.id != software.id][:6]
+                                            if temp.state == 2 and temp.id != software.id]
+            related_software = sorted(related_software,
+                                      key=lambda x: compute_similarity(software.description, x.description),
+                                      reverse=True)[:6]
             related_software_length = len(related_software)
             related_articles = software.article_set.all()
             related_articles_length = len(related_articles)
