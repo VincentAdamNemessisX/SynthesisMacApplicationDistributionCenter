@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended similarity computing function to implement related software or articles;&#10;finished article details page;">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished article_list page;&#10;updated logo image to transparent;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/templates/rank.html" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/templates/rank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/common_compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/common_compute.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/front/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/img/logo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -276,7 +276,9 @@
       <workItem from="1709172197431" duration="3890000" />
       <workItem from="1709202424918" duration="6749000" />
       <workItem from="1709209386099" duration="2245000" />
-      <workItem from="1709260626656" duration="21200000" />
+      <workItem from="1709260626656" duration="21302000" />
+      <workItem from="1709350707816" duration="112000" />
+      <workItem from="1709374757746" duration="16895000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -654,7 +656,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709270631784</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="finished article_list page;&#10;updated logo image to transparent;">
+      <option name="closed" value="true" />
+      <created>1709298888531</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1709298888531</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +673,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="appended security request method instead of unsecure request method to request notices" />
     <MESSAGE value="optimized notice to app's bug that warning to show" />
     <MESSAGE value="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status" />
     <MESSAGE value="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs" />
@@ -688,7 +697,8 @@
     <MESSAGE value="finished thumbs function in article details;&#10;fixed comments loaded dirty data;&#10;deleted favorite model;" />
     <MESSAGE value="appended some functions to implement show short content with a very long field's value;" />
     <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
-    <option name="LAST_COMMIT_MESSAGE" value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
+    <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished article_list page;&#10;updated logo image to transparent;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1708738676399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

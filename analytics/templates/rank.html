@@ -1,12 +1,23 @@
 {% extends 'frontenduser/base.html' %}
 {% load static %}
+{% block title %}
+    排行榜
+{% endblock %}
+{% block style %}
+    <style>
+        .no-place {
+            font-size: smaller;
+            color: #999;
+        }
+    </style>
+{% endblock %}
 {% block content %}
     <div class="loading_container">
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
     {% include 'frontenduser/sidebar.html' %}
     <div class="main-content flex-fill">
-    {% include 'frontenduser/header-nav.html' %}
+        {% include 'frontenduser/header-nav.html' %}
         <div id="content" class="container container-lg my-3 my-md-4">
             <div class="card d-none d-md-block">
                 <div class="card-body py-2 text-center">软件热度排行榜</div>
@@ -16,90 +27,26 @@
                     <div id="app-1" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex d-block">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">软件今日点击榜</div>
+                                <div class="text-center tab-title">今日软件新秀榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/app/93.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="93">Adob​​e PhotoShop</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">185</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/app/668.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="668">Adobe Lightroom Classic</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">93</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/app/586.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="586">CleanMyMac X</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">83</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/app/390.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="390">Microsoft Office 2021 合集</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">80</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/app/529.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="529">ClashX Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">80</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/app/532.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="532">Parallels Desktop 19</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">80</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/app/677.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="677">Xmind Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">75</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/app/256.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="256">Final Cut Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">62</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/app/238.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="238">Downie 4 – Mac在线视频下载软件 支持主流视频网站</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">59</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/app/94.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="94">Adobe Premiere Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">57</span>
-                                    </li>
+                                    {% for software in today_up_and_coming_star_software %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if software %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class="ml-1 text-sm software_link_{{ software.id }}"
+                                                       data-id="93">{{ software.name }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -107,91 +54,27 @@
                     <div id="app-2" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">软件昨日点击榜</div>
+                                <div class="text-center tab-title">今日软件人气榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/app/93.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="93">Adob​​e PhotoShop</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">308</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/app/586.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="586">CleanMyMac X</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">172</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/app/238.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="238">Downie 4 – Mac在线视频下载软件 支持主流视频网站</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">153</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/app/390.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="390">Microsoft Office 2021 合集</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">151</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/app/532.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="532">Parallels Desktop 19</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">130</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/app/668.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="668">Adobe Lightroom Classic</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">129</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/app/256.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="256">Final Cut Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">121</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/app/1583.html" target="_blank"
-                                               class="ml-1 text-sm"
-                                               data-id="1583">MacGPT</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">113</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/app/677.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="677">Xmind Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">110</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/app/529.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="529">ClashX Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">96</span>
-                                    </li>
+                                    {% for software in today_popularity_software %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if software %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class="ml-1 text-sm software_link_{{ software.id }}"
+                                                       data-id="93">{{ software.name }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                            <span class="ml-auto text-sm">{{ software.popularity }}</span>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -199,90 +82,26 @@
                     <div id="app-3" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">软件本月点击榜</div>
+                                <div class="text-center tab-title">软件新秀总榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/app/93.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="93">Adob​​e PhotoShop</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">1.5K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/app/390.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="390">Microsoft Office 2021 合集</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">716</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/app/586.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="586">CleanMyMac X</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">698</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/app/238.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="238">Downie 4 – Mac在线视频下载软件 支持主流视频网站</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">573</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/app/532.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="532">Parallels Desktop 19</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">555</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/app/529.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="529">ClashX Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">552</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/app/668.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="668">Adobe Lightroom Classic</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">538</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/app/677.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="677">Xmind Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">503</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/app/256.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="256">Final Cut Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">497</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/app/505.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="505">Navicat Premium</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">465</span>
-                                    </li>
+                                    {% for software in all_time_up_and_coming_star_software %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if software %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class="ml-1 text-sm software_link_{{ software.id }}"
+                                                       data-id="93">{{ software.name }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -290,279 +109,61 @@
                     <div id="app-4" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">软件点击总榜</div>
+                                <div class="text-center tab-title">软件人气总榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/app/93.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="93">Adob​​e PhotoShop</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">47.3K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/app/586.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="586">CleanMyMac X</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">23.8K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/app/390.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="390">Microsoft Office 2021 合集</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">22.6K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/app/238.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="238">Downie 4 – Mac在线视频下载软件 支持主流视频网站</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">20.2K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/app/256.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="256">Final Cut Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">19.8K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/app/668.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="668">Adobe Lightroom Classic</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">17.4K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/app/529.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="529">ClashX Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">16.9K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/app/505.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="505">Navicat Premium</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">16.5K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/app/94.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="94">Adobe Premiere Pro</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">16.1K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/app/487.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="487">Adobe Illustrator</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">15.9K</span>
-                                    </li>
+                                    {% for software in all_time_popularity_software %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if software %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class="ml-1 text-sm software_link_{{ software.id }}"
+                                                       data-id="93">{{ software.name }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                            <span class="ml-auto text-sm">{{ software.popularity }}</span>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ranking-tab-button position-absolute w-100 t-0 d-block d-md-none">
-                    <div class="d-flex">
-                        <div class="ml-3 ranking-title">软件热度排行榜</div>
-                        <div class="ml-auto d-flex">
-                            <a href="javascript:" class="tab-button text-sm active" data-id="#app-1"
-                               data-tab="#app-tab">今</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#app-2" data-tab="#app-tab">昨</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#app-3" data-tab="#app-tab">月</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#app-4" data-tab="#app-tab">总</a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="card d-none d-md-block">
-                <div class="card-body py-2 text-center">书籍热度排行榜</div>
-            </div>
-            <div class="ranking position-relative">
-                <div id="book-tab" class="row mx-n2 ranking-tab-body">
-                    <div id="book-1" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex d-block">
-                        <div class="card flex-fill">
-                            <div class="card-header">
-                                <div class="text-center tab-title">书籍今日点击榜</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex h-100">
-                                    <div class="empty-list">
-                                        <i class="iconfont icon-nothing1"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="book-2" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
-                        <div class="card flex-fill">
-                            <div class="card-header">
-                                <div class="text-center tab-title">书籍昨日点击榜</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex h-100">
-                                    <div class="empty-list">
-                                        <i class="iconfont icon-nothing1"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="book-3" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
-                        <div class="card flex-fill">
-                            <div class="card-header">
-                                <div class="text-center tab-title">书籍本月点击榜</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex h-100">
-                                    <div class="empty-list">
-                                        <i class="iconfont icon-nothing1"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="book-4" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
-                        <div class="card flex-fill">
-                            <div class="card-header">
-                                <div class="text-center tab-title">书籍点击总榜</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex h-100">
-                                    <div class="empty-list">
-                                        <i class="iconfont icon-nothing1"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ranking-tab-button position-absolute w-100 t-0 d-block d-md-none">
-                    <div class="d-flex">
-                        <div class="ml-3 ranking-title">书籍热度排行榜</div>
-                        <div class="ml-auto d-flex">
-                            <a href="javascript:" class="tab-button text-sm active" data-id="#book-1"
-                               data-tab="#book-tab">今</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#book-2"
-                               data-tab="#book-tab">昨</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#book-3"
-                               data-tab="#book-tab">月</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#book-4"
-                               data-tab="#book-tab">总</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card d-none d-md-block">
-                <div class="card-body py-2 text-center">资讯热度排行榜</div>
+                <div class="card-body py-2 text-center">文章热度排行榜</div>
             </div>
             <div class="ranking position-relative">
                 <div id="post-tab" class="row mx-n2 ranking-tab-body">
                     <div id="post-1" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex d-block">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">资讯今日点击榜</div>
+                                <div class="text-center tab-title">文章今日新秀榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/1482.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1482">服务器迁移完成！Win 网站启用，逐步填充内容中！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">43</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/1298.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1298">Adobe Photoshop 2024 M2版本安装教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">29</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/1144.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1144">文件提示损坏解决办法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">19</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/546.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="546">Adob​​e PhotoShop 2021 激活教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">14</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/1312.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1312">通知：网盘改版！请注意查看！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">13</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/1274.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1274">通知：微信又被封了！暂停在线解决问题！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">12</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/879.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="879">Adobe Creative Cloud 2023
-                                                全家桶的新激活方法，目前仅支持英特尔机型</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">8</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/888.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="888">JetBrains 2023 系列开发者工具 macOS 版全家桶激活方法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">8</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/1075.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1075">绕过公证和应用签名方法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">7</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/194.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="194">Mac应用程序无法打开或文件损坏</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">6</span>
-                                    </li>
+                                    {% for article in today_up_and_coming_star_articles %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if article %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class="ml-1 text-sm article_link_{{ article.id }}"
+                                                       data-id="93">{{ article.title }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -570,91 +171,27 @@
                     <div id="post-2" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">资讯昨日点击榜</div>
+                                <div class="text-center tab-title">文章今日人气榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/1482.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1482">服务器迁移完成！Win 网站启用，逐步填充内容中！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">65</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/1144.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1144">文件提示损坏解决办法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">43</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/546.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="546">Adob​​e PhotoShop 2021 激活教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">40</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/1298.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1298">Adobe Photoshop 2024 M2版本安装教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">36</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/1312.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1312">通知：网盘改版！请注意查看！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">32</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/318.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="318">解决“抱歉此 Adob​​e 应用程序不可用“</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">19</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/1274.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1274">通知：微信又被封了！暂停在线解决问题！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">15</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/1081.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1081">iTerm2配色及插件留言贴</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">14</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/888.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="888">JetBrains 2023 系列开发者工具 macOS 版全家桶激活方法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">13</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/879.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="879">Adobe Creative Cloud 2023
-                                                全家桶的新激活方法，目前仅支持英特尔机型</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">12</span>
-                                    </li>
+                                    {% for article in today_popularity_articles %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if article %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class="ml-1 text-sm article_link_{{ article.id }}"
+                                                       data-id="93">{{ article.title }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                            <span class="ml-auto text-sm">{{ article.popularity }}</span>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -662,91 +199,26 @@
                     <div id="post-3" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">资讯本月点击榜</div>
+                                <div class="text-center tab-title">文章新秀总榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/1482.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1482">服务器迁移完成！Win 网站启用，逐步填充内容中！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">267</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/1298.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1298">Adobe Photoshop 2024 M2版本安装教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">201</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/1144.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1144">文件提示损坏解决办法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">192</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/546.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="546">Adob​​e PhotoShop 2021 激活教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">152</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/1312.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1312">通知：网盘改版！请注意查看！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">109</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/1274.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1274">通知：微信又被封了！暂停在线解决问题！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">71</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/888.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="888">JetBrains 2023 系列开发者工具 macOS 版全家桶激活方法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">65</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/879.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="879">Adobe Creative Cloud 2023
-                                                全家桶的新激活方法，目前仅支持英特尔机型</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">52</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/318.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="318">解决“抱歉此 Adob​​e 应用程序不可用“</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">50</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/1073.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1073">提示应用程序无法打开怎么办？！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">50</span>
-                                    </li>
+                                    {% for article in all_time_up_and_coming_star_articles %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if article %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class="ml-1 text-sm article_link_{{ article.id }}"
+                                                       data-id="93">{{ article.title }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -754,108 +226,29 @@
                     <div id="post-4" class="px-2 col-12 col-md-6 col-lg-3 d-none d-md-flex ">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <div class="text-center tab-title">资讯点击总榜</div>
+                                <div class="text-center tab-title">文章人气总榜</div>
                             </div>
                             <div class="card-body">
                                 <ul class="m-0 p-0">
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-1 text-xs text-center">1</span>
-                                            <a href="https://macwk.cn/1144.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1144">文件提示损坏解决办法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">9.3K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-2 text-xs text-center">2</span>
-                                            <a href="https://macwk.cn/1482.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1482">服务器迁移完成！Win 网站启用，逐步填充内容中！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">7.7K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-3 text-xs text-center">3</span>
-                                            <a href="https://macwk.cn/1298.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1298">Adobe Photoshop 2024 M2版本安装教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">7.2K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-4 text-xs text-center">4</span>
-                                            <a href="https://macwk.cn/546.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="546">Adob​​e PhotoShop 2021 激活教程</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">5.8K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-5 text-xs text-center">5</span>
-                                            <a href="https://macwk.cn/1312.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1312">通知：网盘改版！请注意查看！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">5.7K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-6 text-xs text-center">6</span>
-                                            <a href="https://macwk.cn/1274.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1274">通知：微信又被封了！暂停在线解决问题！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">5.1K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-7 text-xs text-center">7</span>
-                                            <a href="https://macwk.cn/1073.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="1073">提示应用程序无法打开怎么办？！</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">4.4K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-8 text-xs text-center">8</span>
-                                            <a href="https://macwk.cn/888.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="888">JetBrains 2023 系列开发者工具 macOS 版全家桶激活方法</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">4.1K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-9 text-xs text-center">9</span>
-                                            <a href="https://macwk.cn/879.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="879">Adobe Creative Cloud 2023
-                                                全家桶的新激活方法，目前仅支持英特尔机型</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">3.5K</span>
-                                    </li>
-                                    <li class="d-flex mb-3">
-                                        <div class="overflowClip_1 mr-1">
-                                            <span class="hot-rank hot-rank-10 text-xs text-center">10</span>
-                                            <a href="https://macwk.cn/737.html" target="_blank" class="ml-1 text-sm"
-                                               data-id="737">无法打开“XXXX”，因为Apple无法检查其是否包含恶意软件。怎么解决?</a>
-                                        </div>
-                                        <span class="ml-auto text-sm">3.5K</span>
-                                    </li>
+                                    {% for article in all_time_popularity_articles %}
+                                        <li class="d-flex mb-3">
+                                            <div class="overflowClip_1 mr-1">
+                                                <span class="hot-rank hot-rank-{{ forloop.counter }} text-xs text-center">{{ forloop.counter }}</span>
+                                                {% if article %}
+                                                    <a href="" target="_blank" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class="ml-1 text-sm article_link_{{ article.id }}"
+                                                       data-id="93">{{ article.title }}</a>
+                                                {% else %}
+                                                    <span class="no-place ml-1">虚位以待...</span>
+                                                {% endif %}
+                                            </div>
+                                            <span class="ml-auto text-sm">{{ article.popularity }}</span>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ranking-tab-button position-absolute w-100 t-0 d-block d-md-none">
-                    <div class="d-flex">
-                        <div class="ml-3 ranking-title">资讯热度排行榜</div>
-                        <div class="ml-auto d-flex">
-                            <a href="javascript:" class="tab-button text-sm active" data-id="#post-1"
-                               data-tab="#post-tab">今</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#post-2"
-                               data-tab="#post-tab">昨</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#post-3"
-                               data-tab="#post-tab">月</a>
-                            <a href="javascript:" class="tab-button text-sm" data-id="#post-4"
-                               data-tab="#post-tab">总</a>
                         </div>
                     </div>
                 </div>
