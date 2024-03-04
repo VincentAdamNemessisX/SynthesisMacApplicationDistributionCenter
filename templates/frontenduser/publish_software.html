@@ -1,0 +1,322 @@
+{% extends 'frontenduser/base.html' %}
+{% load static %}
+{% block title %}
+    投稿软件
+{% endblock %}
+{% block meta %}
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+{% endblock %}
+{% block style %}
+    <style>
+        .ck-editor__editable[role="textbox"] {
+            /* Editing area */
+            min-height: 20rem;
+        }
+
+        @media (min-width: 768px) {
+            .content-layout {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .content-layout .panel {
+                width: 60%;
+            }
+
+            .content-layout .sidebar {
+                width: 38% !important;
+                float: none !important;
+                margin-left: unset !important;
+            }
+        }
+
+        .screenshots_area {
+            display: flex;
+            flex-direction: row;
+            justify-content: normal;
+            column-gap: 1rem;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="loading_container">
+        <div class="loading"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <body class="page-template page-template-template-contribute page-template-template-contribute-php page page-id-31 sidebar_right">
+    {% include 'frontenduser/sidebar.html' %}
+    <div class="main-content flex-fill">
+        {% include 'frontenduser/header-nav.html' %}
+        <div id="content" class="container my-4 my-md-5">
+            <h1 id="comments-list-title" class="comments-title h5 mx-1 my-4">
+                <i class="iconfont icon-tishi mr-2"></i>投稿须知
+            </h1>
+            <div class="panel card">
+                <div class="card-body">
+                    <div class="panel-body single mt-2" style="text-indent: 2em" id="notice">
+                        这是一个Mac软件分享平台，欢迎开发者或用户分享各种类型和功能的Mac软件。
+                        投稿软件必须合法、无违法内容，经过充分测试，提供清晰的安装和使用说明，注
+                        明基本信息并上传至网站。审核通过后，软件将发布在平台上。沟通保持畅通，开
+                        发者需提供支持和更新。感谢对网站的支持和贡献，期待更多优秀作品的出现！
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mb-3">
+                <div class="tab-btn-group text-lg">
+                    <a href="/commentswitharticles/publish?type=1" onclick="switch_tab(1);"
+                       class="tab-btn active" id="article-btn">新文章</a>
+                    <a href="/commentswitharticles/publish?type=2" onclick="switch_tab(2);"
+                       class="tab-btn" id="app-btn">新软件</a>
+                </div>
+            </div>
+            <form class="post-tg tougao-form" method="post">
+                <div class="content-wrap">
+                    <div class="content-layout">
+                        <div class="panel card">
+                            <div class="card-body">
+                                <div class="my-2">
+                                    <label for="icon">图标:</label>
+                                    <div class="upload_img">
+                                        <div class="show_ico">
+                                            <img id="show_ico"
+                                                 src="{% static 'front/img/publication/add.png' %}"
+                                                 alt="图标">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               style="display: none;" onclick="remove_img(1)"></i>
+                                        </div>
+                                        <input type="file" id="icon" name="icon"
+                                               accept="image/*" onchange="preview_img(1)">
+                                    </div>
+                                </div>
+                                <div class="screenshots_area">
+                                    <label for="software_screenshots" style="margin-top: 4.5%">软件截图:</label>
+                                    <input type="hidden" value="" id="software_screenshots" class="tougao-sites"
+                                           name="software_screenshots">
+                                    <div class="upload_img">
+                                        <div class="show_ico">
+                                            <img id="show_ico" class="show-sites"
+                                                 src="{% static 'front/img/publication/add.png' %}"
+                                                 alt="截图">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               style="display: none;" onclick="remove_img(2)"></i>
+                                        </div>
+                                        <input type="file" id="upload_ico" class="upload-sites"
+                                               name="software_screenshot" accept="image/*"
+                                               onchange="preview_img(2)">
+                                    </div>
+                                </div>
+                                <div class="row row-sm">
+                                    <div class="col-12 my-2">
+                                        <div class="input-group count-tips" data-min="0" data-max="50">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="iconfont icon-name icon-fw"
+                                                                                  aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control sites-title" value=""
+                                                   name="name" placeholder="软件名" maxlength="50"
+                                                   oninput="update_tips()">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-code-fork icon-fw" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control sites-title" value=""
+                                                   name="version" placeholder="版本号" maxlength="30">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-globe icon-fw" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control" name="language">
+                                                <option value="多语言">多语言</option>
+                                                <option value="中文">中文</option>
+                                                <option value="英文">英文</option>
+                                                <option value="日文">日文</option>
+                                                <option value="韩文">韩文</option>
+                                                <option value="其他">其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-laptop icon-fw"
+                                                       aria-hidden="true"></i></span>
+                                            </div>
+                                            <select name="platform" class="form-control">
+                                                <option value="Mac">Mac</option>
+                                                <option value="Windows">Windows</option>
+                                                <option value="Linux">Linux</option>
+                                                <option value="Android">Android</option>
+                                                <option value="iOS">iOS</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group count-tips" data-min="0" data-max="60">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-apple icon-fw" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control sites-title" value=""
+                                                   name="run_os_version" placeholder="支持系统版本（英文;分隔）"
+                                                   maxlength="60" oninput="update_tips()">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="iconfont icon-url icon-fw"
+                                                       aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="url" class="form-control sites-title" value=""
+                                                   name="official_link" placeholder="官方链接" maxlength="30">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <textarea class="form-control text-sm" rows="8" cols="55"
+                                                  name="description" placeholder="软件描述"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar show-sidebar">
+                            <div class="card rounded-lg mb-3 relative">
+                                <div class="card-header widget-header">
+                                    <h3 class="text-md mb-0"><i class="iconfont icon-publish mr-2"></i>投稿选项</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted text-sm mb-2">分类</p>
+                                    <div class="form-select">
+                                        <select name="category" id="post_cat" class="form-control">
+                                            <option value="0" selected="selected">选择分类</option>
+                                            {% for category in request.categories %}
+                                                <option class="level-0"
+                                                        value="{{ category.id }}">{{ category.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <p class="text-muted text-sm mb-2 mt-3">标签（英文;分隔）</p>
+                                        <input type="text" class="form-control"
+                                               name="tags" placeholder="软件的标签">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card rounded-lg mb-3 relative">
+                                <div class="card-header widget-header">
+                                    <h3 class="text-md mb-0"><i class="iconfont icon-publish mr-2"></i>下载链接</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted text-sm mb-2">阿里云盘</p>
+                                    <div class="mb20">
+                                        <input type="url" class="form-control"
+                                               name="link_adrive" placeholder="阿里云盘下载链接">
+                                    </div>
+                                    <p class="text-muted text-sm mb-2 mt-3">百度云盘</p>
+                                    <input type="url" class="form-control"
+                                           name="link_baidu" placeholder="百度云盘下载链接">
+                                    <p class="text-muted text-sm mb-2 mt-3">123云盘</p>
+                                    <input type="url" class="form-control"
+                                           name="link_123" placeholder="123云盘下载链接">
+                                </div>
+                            </div>
+                            <input type="hidden" name="action" value="app">
+                            <div class="card rounded-lg relative">
+                                <div class="card-body">
+                                    <button type="submit" id="submit"
+                                            class="btn btn-danger custom_btn-d text-sm col-12 custom-submit"><i
+                                            class="iconfont icon-upload-wd mr-2"></i>提交审核
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- main-content end -->
+    </body>
+{% endblock %}
+{% block script %}
+    <script>
+		$(document).ready(function () {
+			switch_tab(2);
+		})
+		
+		function switch_tab(type) {
+			if (type === 1) {
+				document.querySelector('#app-btn').classList.remove('active');
+				document.querySelector('#article-btn').classList.add('active');
+			} else if (type === 2) {
+				document.querySelector('#article-btn').classList.remove('active');
+				document.querySelector('#app-btn').classList.add('active');
+			}
+		}
+		
+		function update_tips() {
+			let tg = event.target;
+			let tips = tg.parentElement;
+			let count = tg.value.length;
+			tips.setAttribute('data-min', count);
+		}
+		
+		function preview_img(type = 1) {
+			let tg = event.target;
+			let tg_parent = tg.parentElement.outerHTML;
+			let file = tg.files[0];
+			let reader = new FileReader();
+			if (type === 1) {
+				reader.onload = function () {
+					tg.parentElement.children[0].children[0].src = reader.result;
+					tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
+				};
+			} else if (type === 2) {
+				reader.onload = function () {
+					if (tg.parentElement.parentElement.children.length < 7) {
+						tg.parentElement.children[0].children[0].src = reader.result;
+						tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
+						tg.parentElement.parentElement.innerHTML += tg_parent;
+					} else if (tg.parentElement.parentElement.children.length === 7) {
+						tg.parentElement.children[0].children[0].src = reader.result;
+						tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: '最多上传5张截图',
+							showConfirmButton: true,
+							ConfirmButtonText: '我知道了',
+							timer: 1500
+						});
+						return false;
+					}
+				};
+			}
+			reader.readAsDataURL(file);
+		}
+		
+		function remove_img(type = 1) {
+			let tg = event.target;
+			if (type === 1) {
+				tg.parentElement.children[0].src = '{% static 'front/img/publication/add.png' %}';
+				tg.setAttribute('style', 'display: none');
+			} else if (type === 2) {
+				tg.parentElement.parentElement.remove();
+			}
+		}
+    </script>
+{% endblock %}

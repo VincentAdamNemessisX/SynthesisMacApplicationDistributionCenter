@@ -1,0 +1,157 @@
+{% extends 'frontenduser/base.html' %}
+{% load static %}
+{% block title %}
+    投稿文章
+{% endblock %}
+{% block meta %}
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+{% endblock %}
+{% block style %}
+    <style>
+        .ck-editor__editable[role="textbox"] {
+            /* Editing area */
+            min-height: 20rem;
+        }
+
+        @media (min-width: 768px) {
+            .content-layout {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .content-layout .panel {
+                width: 78%;
+            }
+
+            .content-layout .sidebar {
+                width: 20% !important;
+                float: none !important;
+                margin-left: unset !important;
+            }
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="loading_container">
+        <div class="loading"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <body class="page-template page-template-template-contribute page-template-template-contribute-php page page-id-31 sidebar_right">
+    {% include 'frontenduser/sidebar.html' %}
+    <div class="main-content flex-fill">
+        {% include 'frontenduser/header-nav.html' %}
+        <div id="content" class="container my-4 my-md-5">
+            <h1 id="comments-list-title" class="comments-title h5 mx-1 my-4">
+                <i class="iconfont icon-tishi mr-2"></i>投稿须知
+            </h1>
+            <div class="panel card">
+                <div class="card-body">
+                    <div class="panel-body single mt-2" style="text-indent: 2em" id="notice">
+                        这是一个Mac软件分享平台，欢迎用户分享关于Mac软件的原创或转载文章。
+			投稿需符合法律规定，质量高且无广告。配图和视频可提升可读性。提交审核后，通过则发布在网站上
+			。保持沟通，接受反馈并进行修改。感谢支持，期待精彩文章的出现！
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mb-3">
+                <div class="tab-btn-group text-lg">
+                    <a href="/commentswitharticles/publish?type=1" onclick="switch_tab(1);" class="tab-btn active" id="article-btn">新文章</a>
+                    <a href="/commentswitharticles/publish?type=2" onclick="switch_tab(2);" class="tab-btn" id="app-btn">新软件</a>
+                </div>
+            </div>
+            <form class="post-tg tougao-form" method="post">
+                <div class="content-wrap">
+                    <div class="content-layout">
+                        <div class="panel card">
+                            <div class="card-body">
+                                <div class="row row-sm">
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="iconfont icon-name icon-fw"
+                                                                              aria-hidden="true"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control sites-title" value=""
+                                                   name="post_title"
+                                                   placeholder="标题" maxlength="30">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div id="content-editor"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar show-sidebar" id="optional-options">
+                            <div class="card rounded-lg mb-3 relative">
+                                <div class="card-header widget-header">
+                                    <h3 class="text-md mb-0"><i class="iconfont icon-publish mr-2"></i>投稿选项</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted text-sm mb-2">关联软件</p>
+                                    <div class="form-select">
+                                        <select name="correlation_software" class="form-control">
+                                            <option value="0" selected="selected">选择关联软件</option>
+                                            <option class="level-0" value="0">不关联</option>
+                                            {% for software in all_software %}
+                                                <option class="level-0"
+                                                        value="{{ software.id }}">{{ software.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="action" value="article">
+                            <div class="card rounded-lg relative">
+                                <div class="card-body">
+                                    <button type="submit" id="submit"
+                                            class="btn btn-danger custom_btn-d text-sm col-12 custom-submit"><i
+                                            class="iconfont icon-upload-wd mr-2"></i>提交审核
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- main-content end -->
+    </body>
+{% endblock %}
+{% block script %}
+    <script>
+		$(document).ready(function () {
+			ClassicEditor
+				.create(document.querySelector('#content-editor'), {
+					simpleUpload: {
+						uploadUrl: '/commentswitharticles/api/upload/article/image/',
+						headers: {
+							'X-CSRF-TOKEN': '{{ csrf_token }}',
+						}
+					}
+				})
+				.then(editor => {
+					$('.ck-powered-by-balloon').on('load', function () {
+						$('.ck-powered-by-balloon').remove();
+					});
+					editor.setData('<h1>请在此输入文章内容....</h1>');
+					switch_tab(1);
+				})
+				.catch(error => {
+					console.error(error)
+				});
+		})
+		
+		function switch_tab(type) {
+			if (type === 1) {
+				document.querySelector('#app-btn').classList.remove('active');
+				document.querySelector('#article-btn').classList.add('active');
+			} else if (type === 2) {
+				document.querySelector('#article-btn').classList.remove('active');
+				document.querySelector('#app-btn').classList.add('active');
+			}
+		}
+    </script>
+{% endblock %}

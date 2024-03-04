@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished article_list page;&#10;updated logo image to transparent;">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished rank page and squared logo image">
+      <change afterPath="$PROJECT_DIR$/static/front/img/publication/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/templates/rank.html" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/templates/rank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/common_compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/common_compute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/new-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/new-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_article_and_software.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,24 +89,24 @@
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/media/user&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/templates/frontenduser&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\media\user" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\templates" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static\login" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\questions\static\question" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static\login\fonts" />
@@ -278,7 +282,14 @@
       <workItem from="1709209386099" duration="2245000" />
       <workItem from="1709260626656" duration="21302000" />
       <workItem from="1709350707816" duration="112000" />
-      <workItem from="1709374757746" duration="16895000" />
+      <workItem from="1709374757746" duration="17171000" />
+      <workItem from="1709429741268" duration="4000" />
+      <workItem from="1709433316351" duration="3864000" />
+      <workItem from="1709457594518" duration="1456000" />
+      <workItem from="1709459434439" duration="8002000" />
+      <workItem from="1709517162372" duration="3034000" />
+      <workItem from="1709550588055" duration="3333000" />
+      <workItem from="1709554168453" duration="7119000" />
     </task>
     <task id="LOCAL-00001" summary="optimized some warnings">
       <option name="closed" value="true" />
@@ -664,7 +675,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709298888531</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="finished rank page and squared logo image">
+      <option name="closed" value="true" />
+      <created>1709393022067</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1709393022067</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,7 +692,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="optimized notice to app's bug that warning to show" />
     <MESSAGE value="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status" />
     <MESSAGE value="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs" />
     <MESSAGE value="appended question.html" />
@@ -698,7 +716,8 @@
     <MESSAGE value="appended some functions to implement show short content with a very long field's value;" />
     <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
     <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished article_list page;&#10;updated logo image to transparent;" />
+    <MESSAGE value="finished rank page and squared logo image" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished rank page and squared logo image" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1708738676399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

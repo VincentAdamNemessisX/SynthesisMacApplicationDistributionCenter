@@ -54,48 +54,7 @@ function currentType(data) {
         $("#upload_"+doc_id).val("");
     });
 })(jQuery);
-function uploadImg(file) {
-    var doc_id = file.getAttribute("data-type");
-    if (file.files != null && file.files[0] != null) {
-        if (!/\.(jpg|jpeg|png|JPG|PNG)$/.test(file.files[0].name)) {
-            $("#show_"+doc_id).attr("src", theme.addico);    
-            $("#upload_"+doc_id).val("");
-            $("#remove_"+doc_id).hide();
-            showAlert({"status":3,"msg":tg_data.local.only_jpg});   
-            return false;    
-        } 
-        if(file.files[0].size > (tg_data.sites_img_max * 1024)){
-            $("#show_"+doc_id).attr("src", theme.addico);
-            $("#upload_"+doc_id).val("");
-            $("#remove_"+doc_id).hide();
-            showAlert({"status":3,"msg":tg_data.local.sites_img_max_msg});
-            return false;
-        }
-        var reader = new FileReader();
-        reader.readAsDataURL(file.files[0]);
-        reader.onload = function(arg) {
-            var image = new Image();
-            image.src = arg.target.result;
-            image.onload = function() { 
-                $("#show_"+doc_id).attr("src", image.src);
-                $("#remove_"+doc_id).show();
-            };
-            image.onerror = function() { 
-                $("#show_"+doc_id).attr("src", theme.addico);
-                $("#upload_"+doc_id).val("");
-                $("#remove_"+doc_id).hide();
-                showAlert({"status":3,"msg":tg_data.local.only_img});
-                return false;
-            }
-        }
-    }else{
-        $("#show_"+doc_id).attr("src", theme.addico);
-        $("#upload_"+doc_id).val("");
-        $("#remove_"+doc_id).hide();
-        showAlert({"status":2,"msg":tg_data.local.select_file});
-        return false;
-    }
-};
+
 
 function getUrlData(_url){
         $.post("//apiv2.iotheme.cn/webinfo/get.php", { url: _url, key:tg_data.theme_key },function(data,status){ 

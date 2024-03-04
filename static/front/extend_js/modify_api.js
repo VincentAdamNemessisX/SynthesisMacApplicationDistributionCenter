@@ -113,3 +113,11 @@ async function thumb_article_or_not(csrftoken, type, article_id) {
 		// 		})
 		// }); //返回promise以供后续代码使用promise链式访问其中数据
 }
+
+function load_img(file) {
+
+}
+
+function unload_img(src){
+
+}

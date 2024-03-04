@@ -149,7 +149,7 @@
             text-decoration: none;
             color: white;
         }
-        
+
         #footer-tools {
             right: -0.75rem !important;
         }
@@ -1014,7 +1014,7 @@
 		}
 	}
 	
-		function thumb_article(article_id, type) {
+	function thumb_article(article_id, type) {
 		let t = document.getElementById('article-' + article_id);
 		t.setAttribute('onclick', '');
 		if (type === 1) {
@@ -1050,35 +1050,36 @@
 			article_links[i].href = "/article/details/?article_id=" + encrypt_param(`${article_id}`);
 		}
 	}
-
+	
 	function re_href_user(user_id) {
 		let user_links = document.getElementsByClassName(`user_link_${user_id}`);
 		for (let i = 0; i < user_links.length; i++) {
 			user_links[i].href = "/user/details/?user_id=" + encrypt_param(`${user_id}`);
 		}
 	}
-
+	
 	function format_time_block() {
 		let time_blocks = $('time');
 		try {
 			for (let timeBlockKey = 0; timeBlockKey < time_blocks.length; timeBlockKey++) {
 				let time = time_blocks[timeBlockKey].getAttribute('datetime');
-				if(time_blocks[timeBlockKey].getAttribute('data-type') === 'local'){
-				    time_blocks[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time));
-                } else {
-                    time_blocks[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time + ' UTC'));
-                }
+				if (time_blocks[timeBlockKey].getAttribute('data-type') === 'local') {
+					time_blocks[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time));
+				} else {
+					time_blocks[timeBlockKey].innerText = formatTimePeriod(Date.now() - Date.parse(time + ' UTC'));
+				}
 			}
 		} catch (e) {
 			console.error(e);
-        }
+		}
 	}
 	
 	function hide_ck_editor_label() {
-		try{
-		    $('.ck-powered-by').attr('style', 'display: none;');
-        } catch (e){}
-    }
+		try {
+			$('.ck-powered-by').attr('style', 'display: none;');
+		} catch (e) {
+		}
+	}
 </script>
 {% block script %}
 {% endblock %}

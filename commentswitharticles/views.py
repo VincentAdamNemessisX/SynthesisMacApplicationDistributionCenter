@@ -6,14 +6,15 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_http_methods, require_GET
 from django_router import router
-from software.models import SoftWare
+
 from commentswitharticles.models import Article
 from frontenduser.models import FrontEndUser
+from general.common_compute import get_context_articles, compute_similarity
 from general.encrypt import decrypt, encrypt
 from general.init_cache import (get_comments,
                                 get_matched_articles_by_article_id as g_a,
-                                get_all_articles as g_as)
-from general.common_compute import get_context_articles, compute_similarity
+                                get_all_articles as g_as, get_all_software as g_a_s)
+from software.models import SoftWare
 
 not_in_init_comments_parent = set()
 
@@ -398,7 +399,28 @@ def get_articles(request):
 @router.path('publish/')
 def publish_article_and_software_page(request):
     if request.method == "GET":
-        return render(request, 'frontenduser/publish_article_and_software.html')
+        all_software = g_a_s()
+        try:
+            type = request.GET.get('type')
+            if int(type) == 1:
+                return render(request, 'frontenduser/publish_article.html', {
+                    'all_software': all_software
+                })
+            elif int(type) == 2:
+                return render(request, 'frontenduser/publish_software.html', {
+                })
+            else:
+                return render(request, '500.html', {
+                    'error': '请求参数错误'
+                })
+        except ValueError:
+            return render(request, '500.html', {
+                'error': '请求参数错误'
+            })
+        except TypeError:
+            return render(request, '500.html', {
+                'error': '请求参数错误'
+            })
 
 
 @router.path('api/publish/article/')
@@ -406,7 +428,7 @@ def publish_article_and_software_page(request):
 def publish_article(request):
     if request.method == "POST":
         try:
-            user = request.user
+            user = request.session.user
             title = str(request.POST.get('title'))
             content = str(request.POST.get('content'))
         except ValueError:
@@ -442,8 +464,8 @@ def articles_list(request):
         articles_count = len(articles)
         return render(request, 'articles_list.html',
                       {
-                            'articles': articles[:6],
-                            'articles_count': articles_count
+                          'articles': articles[:6],
+                          'articles_count': articles_count
                       })
     return render(request, '500.html', {
         'code': 405,
@@ -486,7 +508,6 @@ def load_left_articles(request):
             'code': 405,
             'msg': 'failed with wrong request action'
         })
-
 
 
 @require_GET
