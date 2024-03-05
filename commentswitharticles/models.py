@@ -1,5 +1,6 @@
-from django.db import models
 import bs4
+from django.db import models
+
 
 # Create your models here.
 class Comment(models.Model):

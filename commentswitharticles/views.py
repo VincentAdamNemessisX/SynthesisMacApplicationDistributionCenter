@@ -10,6 +10,7 @@ from django_router import router
 from commentswitharticles.models import Article
 from frontenduser.models import FrontEndUser
 from general.common_compute import get_context_articles, compute_similarity
+from general.data_handler import get_image_urls_from_md_str
 from general.encrypt import decrypt, encrypt
 from general.init_cache import (get_comments,
                                 get_matched_articles_by_article_id as g_a,
@@ -243,7 +244,7 @@ def leave_comment(request):
         else:
             correlation_software = None
         if parent_id:
-            parent = user.comment_set.get(id=parent_id)
+            parent = user.comment_set.get(id=parent_id).filter(state=2)
         else:
             parent = None
         comment = user.comment_set.create(content=content,
@@ -423,40 +424,6 @@ def publish_article_and_software_page(request):
             })
 
 
-@router.path('api/publish/article/')
-@require_POST
-def publish_article(request):
-    if request.method == "POST":
-        try:
-            user = request.session.user
-            title = str(request.POST.get('title'))
-            content = str(request.POST.get('content'))
-        except ValueError:
-            return JsonResponse({
-                'code': 402,
-                'msg': 'failed with invalid params'
-            })
-        article = Article.objects.create(user=user, title=title, content=content, state=2)
-        if article:
-            return JsonResponse({
-                'code': 200,
-                'msg': 'success',
-                'data': {
-                    'article_id': article.id
-                }
-            })
-        else:
-            return JsonResponse({
-                'code': 400,
-                'msg': '发布失败'
-            })
-    else:
-        return JsonResponse({
-            'code': 401,
-            'msg': '请求方式错误'
-        })
-
-
 @require_GET
 def articles_list(request):
     if request.method == "GET":
@@ -626,4 +593,67 @@ def thumb(request):
         return JsonResponse({
             'code': 405,
             'error': 'Error with bad request action'
+        })
+
+
+@router.path(pattern='api/publish/article/')
+@require_POST
+def publish_article(request):
+    if request.method == 'POST':
+        try:
+            user = FrontEndUser.objects.get(username='vincent')
+            title = request.POST.get('title')
+            content = request.POST.get('content')
+            cover = get_image_urls_from_md_str(content)
+            if cover is None or len(cover) <= 0:
+                cover = None
+            else:
+                cover = [c for c in cover if c.split('.')[-1] in ['jpg', 'jpeg', 'png', 'gif']]
+                if len(cover) > 0:
+                    cover = cover[0].replace('/media/', '')
+                else:
+                    cover = None
+            correlation_software_id = request.POST.get('correlation_software_id')
+            if correlation_software_id:
+                correlation_software = SoftWare.objects.get(id=correlation_software_id)
+            else:
+                correlation_software = None
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'msg': 'failed with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 401,
+                'msg': 'failed with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 400,
+                'msg': 'failed with bad request body'
+            })
+        if cover:
+            article = Article.objects.create(user=user, title=title, content=content,
+                                             cover=cover, correlation_software=correlation_software)
+        else:
+            article = Article.objects.create(user=user, title=title, content=content,
+                                             correlation_software=correlation_software)
+        if article:
+            return JsonResponse({
+                'code': 200,
+                'msg': 'success',
+                'data': {
+                    'article_id': article.id
+                }
+            })
+        else:
+            return JsonResponse({
+                'code': 400,
+                'msg': 'failed when inserting data to database'
+            })
+    else:
+        return JsonResponse({
+            'code': 301,
+            'msg': 'failed with wrong request action'
         })

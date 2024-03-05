@@ -32,7 +32,7 @@ def get_all_questions(request):
                         'respondent': answer.respondent.username,
                         'created_time': answer.created_time,
                     }
-                    for answer in question.answer_set.all()
+                    for answer in question.answer_set.all().filter(state=2)
                 ]
             }
             for question in questions
@@ -82,7 +82,7 @@ def get_all_questions(request):
                         'respondent': answer.respondent.username,
                         'created_time': answer.created_time,
                     }
-                    for answer in question.answer_set.all()
+                    for answer in question.answer_set.all().filter(state=2)
                 ]
             }
             for question in questions
@@ -139,7 +139,7 @@ def get_specific_question(request):
                             'respondent': answer.respondent.username,
                             'created_time': answer.created_time,
                         }
-                        for answer in question.answer_set.all()
+                        for answer in question.answer_set.all().filter(state=2)
                     ]
                 }
                 return JsonResponse({'code': 200, 'msg': 'succeed', 'data': question})

@@ -32,6 +32,14 @@
                 margin-left: unset !important;
             }
         }
+
+        .publish-form img {
+            max-width: 100%;
+        }
+
+        .notice-msg {
+            text-align: left;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -50,32 +58,34 @@
                 <div class="card-body">
                     <div class="panel-body single mt-2" style="text-indent: 2em" id="notice">
                         这是一个Mac软件分享平台，欢迎用户分享关于Mac软件的原创或转载文章。
-			投稿需符合法律规定，质量高且无广告。配图和视频可提升可读性。提交审核后，通过则发布在网站上
-			。保持沟通，接受反馈并进行修改。感谢支持，期待精彩文章的出现！
+                        投稿需符合法律规定，质量高且无广告。配图和视频可提升可读性。提交审核后，通过则发布在网站上
+                        。保持沟通，接受反馈并进行修改。感谢支持，期待精彩文章的出现！
                     </div>
                 </div>
             </div>
             <div class="text-center mb-3">
                 <div class="tab-btn-group text-lg">
-                    <a href="/commentswitharticles/publish?type=1" onclick="switch_tab(1);" class="tab-btn active" id="article-btn">新文章</a>
-                    <a href="/commentswitharticles/publish?type=2" onclick="switch_tab(2);" class="tab-btn" id="app-btn">新软件</a>
+                    <a href="/commentswitharticles/publish?type=1" onclick="switch_tab(1);" class="tab-btn active"
+                       id="article-btn">新文章</a>
+                    <a href="/commentswitharticles/publish?type=2" onclick="switch_tab(2);" class="tab-btn"
+                       id="app-btn">新软件</a>
                 </div>
             </div>
-            <form class="post-tg tougao-form" method="post">
+            <form class="post-tg publish-form" onsubmit="return false;">
                 <div class="content-wrap">
                     <div class="content-layout">
                         <div class="panel card">
                             <div class="card-body">
                                 <div class="row row-sm">
                                     <div class="col-12 my-2">
-                                        <div class="input-group">
+                                        <div class="input-group count-tips" data-min="0" data-max="80">
                                             <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="iconfont icon-name icon-fw"
                                                                               aria-hidden="true"></i></span>
                                             </div>
-                                            <input type="text" class="form-control sites-title" value=""
-                                                   name="post_title"
-                                                   placeholder="标题" maxlength="30">
+                                            <input type="text" class="form-control" value=""
+                                                   oninput="update_tips()" name="title"
+                                                   placeholder="标题" maxlength="80">
                                         </div>
                                     </div>
                                     <div class="col-12 my-2">
@@ -93,7 +103,7 @@
                                     <p class="text-muted text-sm mb-2">关联软件</p>
                                     <div class="form-select">
                                         <select name="correlation_software" class="form-control">
-                                            <option value="0" selected="selected">选择关联软件</option>
+                                            <option value="invalid" selected="selected">选择关联软件</option>
                                             <option class="level-0" value="0">不关联</option>
                                             {% for software in all_software %}
                                                 <option class="level-0"
@@ -103,10 +113,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" name="action" value="article">
                             <div class="card rounded-lg relative">
                                 <div class="card-body">
-                                    <button type="submit" id="submit"
+                                    <button type="button" id="submit"
                                             class="btn btn-danger custom_btn-d text-sm col-12 custom-submit"><i
                                             class="iconfont icon-upload-wd mr-2"></i>提交审核
                                     </button>
@@ -126,13 +135,14 @@
 			ClassicEditor
 				.create(document.querySelector('#content-editor'), {
 					simpleUpload: {
-						uploadUrl: '/commentswitharticles/api/upload/article/image/',
+						uploadUrl: '/components/api/upload/article/image/',
 						headers: {
-							'X-CSRF-TOKEN': '{{ csrf_token }}',
+							'X-CSRFToken': '{{ csrf_token }}',
 						}
 					}
 				})
 				.then(editor => {
+					window.editor = editor;
 					$('.ck-powered-by-balloon').on('load', function () {
 						$('.ck-powered-by-balloon').remove();
 					});
@@ -153,5 +163,99 @@
 				document.querySelector('#app-btn').classList.add('active');
 			}
 		}
+		
+		function update_tips() {
+			let tg = event.target;
+			let tips = tg.parentElement;
+			let count = tg.value.length;
+			tips.setAttribute('data-min', count);
+		}
+		
+		function validate_form() {
+			let title = document.querySelector('input[name="title"]').value;
+			let content = editor.getData();
+			let correlation_software = document.querySelector('select[name="correlation_software"]').value;
+			let msg = [];
+			if (!/^[\u4e00-\u9fa5A-Za-z0-9\s，。？！；：“”‘’（）《》【】—…`~!@#$%^&*()_\-+=<>?:\"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+=《》？：“”【】、；‘'，。、]{1,80}$/.test(title)) {
+				msg.push('标题格式错误，要求为长度不超过80个字符的中文、英文、数字和标点符号及其他特殊字符！');
+			}
+			if (content === '## 请在此输入文章内容....' || content.length < 5) {
+				msg.push('请填写文章内容');
+			}
+			if (!/^\d{1,5}$/.test(correlation_software)) {
+				msg.push('请选择正确的关联软件');
+			}
+			if (msg.length > 0) {
+				let msg_str = '<ul class="notice-msg">';
+				for (let i = 0; i < msg.length; i++) {
+					msg_str += "<li>" + msg[i] + '</li>';
+				}
+				msg_str += '</ul>';
+				Swal.fire({
+					icon: 'error',
+					title: '请检查填写信息',
+					html: msg_str,
+					showConfirmButton: true,
+					confirmButtonText: '我知道了'
+				});
+				return false;
+			}
+			return true;
+		}
+		
+		$(document).ready(function () {
+			$('#submit').click(function () {
+				if (validate_form()) {
+					$('.loading_container').css('display', 'flex');
+					let title = document.querySelector('input[name="title"]').value;
+					let content = editor.getData();
+					let correlation_software = document.querySelector('select[name="correlation_software"]').value;
+					$.ajax({
+						url: '/commentswitharticles/api/publish/article/',
+						type: 'post',
+						data: {
+							title: title,
+							content: content,
+							correlation_software: correlation_software,
+							csrfmiddlewaretoken: '{{ csrf_token }}'
+						},
+						success: function (data) {
+							$('.loading_container').css('display', 'none');
+							if (data.code === 200) {
+								Swal.fire({
+									icon: 'success',
+									title: '提交成功',
+									text: '您的文章已提交成功，我们会尽快审核！',
+									showConfirmButton: true,
+									confirmButtonText: '我知道了'
+								}).then((result) => {
+									if (result.value) {
+										window.location.href = '/commentswitharticles/publish?type=1';
+									}
+								});
+							} else {
+								Swal.fire({
+									icon: 'error',
+									title: '提交失败',
+									text: data.msg,
+									showConfirmButton: true,
+									confirmButtonText: '我知道了'
+								});
+							}
+						},
+						error: function (data) {
+							$('.loading_container').css('display', 'none');
+							Swal.fire({
+								icon: 'error',
+								title: '提交失败',
+								text: '网络错误，请稍后再试！',
+								showConfirmButton: true,
+								confirmButtonText: '我知道了'
+							});
+						}
+					});
+				}
+			})
+		})
     </script>
 {% endblock %}

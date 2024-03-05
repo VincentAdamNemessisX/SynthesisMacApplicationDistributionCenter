@@ -17,6 +17,7 @@ from .models import SoftWare
 def publish_software(request):
     if request.method == "POST":
         software = None
+        screen_shots_urls = []
         try:
             user = FrontEndUser.objects.get(username='vincent')
             name = request.POST.get('name')
@@ -35,14 +36,12 @@ def publish_software(request):
                 if request.POST.get('link_direct') else None
             link_123 = request.POST.get('link_123')
             icon_url = handle_uploaded_image(request.FILES.get('icon'),
-                                             'media/software/icon/')
-            screen_shots_urls = []
+                                             'software/icon/')
             for index in range(1, 6):
                 screen_shots_urls.append(
                     handle_uploaded_image(request.FILES.get('software_screenshot_' + str(index)),
-                                          'media/software/screenshots/')
+                                          'software/screenshots/')
                 )
-            print(icon_url, screen_shots_urls)
             software = SoftWare.objects.create(
                 name=name,
                 version=version,
@@ -61,34 +60,35 @@ def publish_software(request):
                 icon=icon_url,
                 user=user
             )
-            software = None
         except KeyError:
             pass
         except ValueError:
-            return JsonResponse({
-                'code': 402,
+            return render(request, '500.html', {
+                'code': 401,
                 'error': '参数错误'
             })
         except AttributeError:
-            return JsonResponse({
-                'code': 403,
-                'error': '请求方式错误'
+            return render(request, '500.html', {
+                'code': 400,
+                'error': '参数异常'
             })
         if software:
-            return JsonResponse({
-                'code': 200,
-                'data': {
-                    'software_id': software.id
-                }
+            for url in screen_shots_urls:
+                if url is None:
+                    continue
+                software.softwarescreenshots_set.create(software=software, image=url)
+            return render(request, 'frontenduser/publish_software.html', {
+                'msg': '发布成功',
+                'go_to': '/commentswitharticles/publish/?type=2'
             })
         else:
-            return JsonResponse({
-                'code': 400,
-                'error': '发布失败'
+            return render(request, '500.html', {
+                'code': 402,
+                'error': '数据库异常或未知错误'
             })
     else:
-        return JsonResponse({
-            'code': 401,
+        return render(request, '500.html', {
+            'code': 403,
             'error': '请求方式错误'
         })
 
@@ -173,7 +173,7 @@ def get_software_details(request):
                             'content': article.content,
                             'created_time': article.created_time.strftime('%Y-%m-%d %H:%M:%S'),
                             'updated_time': article.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
-                        } for article in software.article_set.all()
+                        } for article in software.article_set.all().filter(state=2)
                     ],
                     'screenshots': [
                         {
@@ -265,7 +265,7 @@ def get_some_software(request):
                                 'content': article.content,
                                 'created_time': article.created_time.strftime('%Y-%m-%d %H:%M:%S'),
                                 'updated_time': article.updated_time.strftime('%Y-%m-%d %H:%M:%S'),
-                            } for article in software.article_set.all()
+                            } for article in software.article_set.all().filter(state=2)
                         ],
                         'screenshots': [
                             {
@@ -311,7 +311,7 @@ def software_details(request):
                                       key=lambda x: compute_similarity(software.description, x.description),
                                       reverse=True)[:6]
             related_software_length = len(related_software)
-            related_articles = software.article_set.all()
+            related_articles = software.article_set.all().filter(state=2)
             related_articles_length = len(related_articles)
         except ValueError:
             return render(request, 'frontenduser/software_details.html',
@@ -320,6 +320,9 @@ def software_details(request):
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'wrong params', 'code': 401})
         except AttributeError:
+            return render(request, 'frontenduser/software_details.html',
+                          {'error': 'not found', 'code': 404})
+        except IndexError:
             return render(request, 'frontenduser/software_details.html',
                           {'error': 'not found', 'code': 404})
         return render(request, 'frontenduser/software_details.html', {

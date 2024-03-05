@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'frontenduser.apps.FrontEndUserConfig',
     'questions.apps.QuestionsConfig',
     'software.apps.SoftwareConfig',
-    "error_handler.apps.ErrorHandlerConfig"
+    "error_handler.apps.ErrorHandlerConfig",
+    "components.apps.ComponentsConfig"
 ]
 
 MIDDLEWARE = [
@@ -91,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'PORT': '3306',
         'HOST': 'localhost',
-        'USER': 'root', # 'localhost database'
+        'USER': 'root',  # 'localhost database'
         'PASSWORD': 'ic3344',
         # 'HOST': 'vincentadam.icu', # 'remote database'
         # 'USER': 'vincent',
@@ -103,7 +104,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://localhost:6379', # local redis
+        'LOCATION': 'redis://localhost:6379',  # local redis
         # 'LOCATION': 'redis://vincentadam.icu:6379', # remote redis
         'OPTIONS': {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
@@ -170,3 +171,4 @@ SIMPLEUI_HOME_PAGE = '/analytics/'
 SIMPLEUI_HOME_TITLE = '概览'
 SIMPLEUI_LOGO = '/static/favicon.ico'  # left top logo
 SIMPLEUI_DEFAULT_THEME = 'e-purple.css'  # default theme
+LOGIN_URL = '/login/'

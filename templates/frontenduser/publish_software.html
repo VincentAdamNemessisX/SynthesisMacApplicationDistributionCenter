@@ -9,11 +9,6 @@
 {% endblock %}
 {% block style %}
     <style>
-        .ck-editor__editable[role="textbox"] {
-            /* Editing area */
-            min-height: 20rem;
-        }
-
         @media (min-width: 768px) {
             .content-layout {
                 display: flex;
@@ -244,7 +239,8 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                    <i class="fa fa-code-fork icon-fw" aria-hidden="true"></i>
+                                                    <svg t="1709660489436" class="icon icon-fw icon-fw-append"
+                                                         viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5082" width="200" height="200"><path d="M672 64l224 219.008V896a64 64 0 0 1-64 64H192a64 64 0 0 1-64-64V128a64 64 0 0 1 64-64h480z m-96 64H192v768h640V352h-128a128 128 0 0 1-128-128V128z m233.568 160l-163.648-160H640v96a64 64 0 0 0 64 64h105.568z" fill="#3C414B" p-id="5083"></path><path d="M375.872 576v27.168H291.936l-4.928 51.68h0.736c5.408-5.792 11.648-10.016 18.72-12.672 6.4-2.624 13.536-3.968 21.408-3.968 16.576 0 30.016 5.792 40.384 17.408 10.496 11.776 15.744 27.776 15.744 48 0 19.328-6.88 35.264-20.672 47.744-12.8 11.072-27.904 16.608-45.28 16.608-15.904 0-29.632-4.672-41.12-13.984-12.64-10.208-19.616-24.096-20.928-41.664h28.32c1.312 10.368 5.088 18.016 11.328 22.944 5.568 4.384 13.12 6.592 22.656 6.592 10.496 0 19.296-3.424 26.336-10.272 7.04-7.04 10.592-16.256 10.592-27.68 0-12.48-3.04-22.432-9.12-29.792-5.728-7.2-14.432-10.816-26.08-10.816a41.28 41.28 0 0 0-19.68 4.224 33.6 33.6 0 0 0-14.272 14.496h-26.816l9.6-106.016h107.072zM480 576c20.448 0 36.384 8.96 47.808 26.912 10.784 17.088 16.192 40.096 16.192 69.088s-5.408 52-16.192 69.088c-11.616 17.952-27.552 26.912-47.808 26.912-20.608 0-36.544-8.96-47.808-26.912C421.408 724 416 700.992 416 672s5.408-52 16.192-69.088C443.296 584.96 459.232 576 480 576z m130.464 0l61.152 150.592h0.992L733.504 576h34.464v192h-29.44v-132.288h-0.992L684.704 768h-25.408l-52.832-132.288h-0.992V768h-29.44v-192h34.464zM480 608c-12.736 0-21.632 7.456-26.656 22.368-3.552 10.048-5.344 23.936-5.344 41.632 0 17.408 1.792 31.296 5.344 41.632 5.184 14.912 14.08 22.368 26.656 22.368 12.448 0 21.344-7.456 26.656-22.368 3.552-10.368 5.344-24.224 5.344-41.632 0-17.728-1.792-31.616-5.344-41.632-5.344-14.912-14.208-22.368-26.656-22.368z" fill="#F8D61D" p-id="5084"></path></svg>
                                                 </span>
                                             </div>
                                             <input type="text" class="form-control sites-title" value=""
@@ -376,6 +372,7 @@
 				tg.parentElement.children[0].src = '{% static 'front/img/publication/add.png' %}';
 				tg.setAttribute('style', 'display: none');
 			} else if (type === 2) {
+				tg.parentElement.parentElement.children[1].value = null;
 				tg.parentElement.parentElement.style = 'display: none';
 			}
 		}
@@ -400,14 +397,18 @@
 				msg.push('请上传软件图标！');
 			}
 			//check at least one screenshot upload
+			let count = 0;
 			for (let i = 1; i <= 5; i++) {
-				if (document.querySelector('input[name="software_screenshot_' + i + '"]').files.length < 1) {
-					break;
-				}
-				if (i === 5) {
-					msg.push('请上传至少一张软件截图！');
+				if (document.querySelector('input[name="software_screenshot_' + i + '"]').files.length >= 1) {
+					if (document.querySelector('input[name="software_screenshot_' + i + '"]').files[0] !== null) {
+						count++;
+					}
 				}
 			}
+			if (count < 2) {
+				msg.push('请至少上传两张软件截图！');
+			}
+			console.log(count);
 			//check software name
 			if (!/^[\u4e00-\u9fa5A-Za-z0-9\s]{1,50}$/.test(name)) {
 				msg.push('软件名格式错误，要求为长度不超过50个字符的中文、英文、数字和空格！');
@@ -461,21 +462,21 @@
 				msg.push('123云盘下载链接格式错误，要求为正确的123云盘分享链接！');
 			}
 			//check all links
-            if (link_adrive.length < 1 && link_baidu.length < 1 && link_123.length < 1) {
-                msg.push('请至少填写一个下载链接！');
-            }
+			if (link_adrive.length < 1 && link_baidu.length < 1 && link_123.length < 1) {
+				msg.push('请至少填写一个下载链接！');
+			}
 			if (msg.length > 0) {
 				let msg_str = '<ul class="notice-msg">';
 				for (let i = 0; i < msg.length; i++) {
-                    msg_str += "<li>" + msg[i] + '</li>';
-                }
+					msg_str += "<li>" + msg[i] + '</li>';
+				}
 				msg_str += '</ul>';
 				Swal.fire({
 					icon: 'error',
 					title: '请检查填写信息',
-                    html: msg_str,
+					html: msg_str,
 					showConfirmButton: true,
-                    confirmButtonText: '我知道了'
+					confirmButtonText: '我知道了'
 				});
 				return false;
 			}

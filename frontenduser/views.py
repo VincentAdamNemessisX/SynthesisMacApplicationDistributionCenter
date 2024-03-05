@@ -161,7 +161,7 @@ def get_specific_user_favorite_software(request):
                                 'article_created_time': article.created_time,
                                 'article_updated_time': article.updated_time,
                             }
-                            for article in soft_ware.article_set.all()],
+                            for article in soft_ware.article_set.all().filter(state=2)],
                     'software_user': {
                         'user_id': soft_ware.user.id,
                         'user_username': soft_ware.user.username,
@@ -211,7 +211,7 @@ def get_specific_user_favorite_software(request):
                                 'user_email': article.user.email,
                             }
                         }
-                        for article in software.article_set.all()
+                        for article in software.article_set.all().filter(state=2)
                     ],
                     'software_user': {
                         'user_id': software.user.id,
@@ -257,7 +257,7 @@ def get_specific_user_favorite_software(request):
 #                                     'user_email': article.user.email,
 #                                 }
 #                             }
-#                             for article in favorite.correlation_software.article_set.all()
+#                             for article in favorite.correlation_software.article_set.all().filter(state=2)
 #                         ],
 #                         'software_user': {
 #                             'user_id': favorite.correlation_software.user.id,

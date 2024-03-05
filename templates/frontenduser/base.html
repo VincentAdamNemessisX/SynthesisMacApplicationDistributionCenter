@@ -381,7 +381,7 @@
 <script src="{% static 'front/extend_js/query_api.js' %}"></script>
 <script src="{% static 'front/extend_js/modify_api.js' %}"></script>
 <script src="{% static 'front/extend_js/custom-modal.js' %}"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+<script src="{% static 'front/js/ckeditor.js' %}"></script>
 <script>
 	const channel = new BroadcastChannel('sync-sidebar');
 	channel.addEventListener('message', event => {
@@ -630,6 +630,17 @@
 				confirmButtonText: '我已了解！'
 			}).then(function () {
 				window.history.back();
+			})
+		})
+	{% endif %}
+	{% if msg %}
+		$(document).ready(function () {
+			Swal.fire({
+				icon: 'success',
+				title: '{{ msg }}',
+				confirmButtonText: '我已了解！'
+			}).then(function () {
+				window.location.href = '{{ go_to }}';
 			})
 		})
 	{% endif %}
