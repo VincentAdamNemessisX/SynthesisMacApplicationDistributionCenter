@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished rank page and squared logo image">
-      <change afterPath="$PROJECT_DIR$/static/front/img/publication/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/new-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/new-post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_article_and_software.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,15 +284,9 @@
       <workItem from="1709459434439" duration="8002000" />
       <workItem from="1709517162372" duration="3034000" />
       <workItem from="1709550588055" duration="3333000" />
-      <workItem from="1709554168453" duration="7119000" />
-    </task>
-    <task id="LOCAL-00001" summary="optimized some warnings">
-      <option name="closed" value="true" />
-      <created>1704820260004</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1704820260004</updated>
+      <workItem from="1709554168453" duration="7280000" />
+      <workItem from="1709562981174" duration="8298000" />
+      <workItem from="1709625177914" duration="7137000" />
     </task>
     <task id="LOCAL-00002" summary="optimized codes style and update admin style">
       <option name="closed" value="true" />
@@ -683,7 +672,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709393022067</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview">
+      <option name="closed" value="true" />
+      <created>1709561424962</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1709561424964</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +689,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status" />
     <MESSAGE value="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs" />
     <MESSAGE value="appended question.html" />
     <MESSAGE value="appended encrypt.py to category page by pass params;&#10;appended encrypt in general.js by using crypto-js.min.js" />
@@ -717,7 +713,8 @@
     <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
     <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
     <MESSAGE value="finished rank page and squared logo image" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished rank page and squared logo image" />
+    <MESSAGE value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1708738676399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

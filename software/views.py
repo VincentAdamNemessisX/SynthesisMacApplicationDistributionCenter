@@ -10,7 +10,7 @@ from general.init_cache import get_software_by_software_id, get_all_software
 from .models import SoftWare
 
 
-@router.path('api/publish/software/')
+@router.path('publish/')
 @require_POST
 def publish_software(request):
     if request.method == "POST":
@@ -19,6 +19,7 @@ def publish_software(request):
         software = SoftWare.objects.create(
             user=user, name=name, state=1,
         )
+        software = None
         if software:
             return JsonResponse({
                 'code': 200,

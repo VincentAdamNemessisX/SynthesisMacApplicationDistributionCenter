@@ -39,6 +39,14 @@
             justify-content: normal;
             column-gap: 1rem;
         }
+
+        .publish-form img {
+            max-width: 100%;
+        }
+
+        .notice-msg {
+            text-align: left;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -71,7 +79,10 @@
                        class="tab-btn" id="app-btn">新软件</a>
                 </div>
             </div>
-            <form class="post-tg tougao-form" method="post">
+            <form action="/software/publish/" onsubmit="return validate_form();"
+                  class="post-tg publish-form" enctype="multipart/form-data"
+                  method="post">
+                {% csrf_token %}
                 <div class="content-wrap">
                     <div class="content-layout">
                         <div class="panel card">
@@ -93,7 +104,7 @@
                                 </div>
                                 <div class="screenshots_area">
                                     <label for="software_screenshots" style="margin-top: 4.5%">软件截图:</label>
-                                    <input type="hidden" value="" id="software_screenshots" class="tougao-sites"
+                                    <input type="hidden" value="" id="software_screenshots"
                                            name="software_screenshots">
                                     <div class="upload_img">
                                         <div class="show_ico">
@@ -104,8 +115,60 @@
                                                class="iconfont icon-close-circle remove-ico remove-sites"
                                                style="display: none;" onclick="remove_img(2)"></i>
                                         </div>
-                                        <input type="file" id="upload_ico" class="upload-sites"
-                                               name="software_screenshot" accept="image/*"
+                                        <input type="file"
+                                               name="software_screenshot_1" accept="image/*"
+                                               onchange="preview_img(2)">
+                                    </div>
+                                    <div class="upload_img" style="display: none">
+                                        <div class="show_ico">
+                                            <img id="show_ico" class="show-sites"
+                                                 src="{% static 'front/img/publication/add.png' %}"
+                                                 alt="截图">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               style="display: none;" onclick="remove_img(2)"></i>
+                                        </div>
+                                        <input type="file"
+                                               name="software_screenshot_2" accept="image/*"
+                                               onchange="preview_img(2)">
+                                    </div>
+                                    <div class="upload_img" style="display: none">
+                                        <div class="show_ico">
+                                            <img id="show_ico" class="show-sites"
+                                                 src="{% static 'front/img/publication/add.png' %}"
+                                                 alt="截图">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               style="display: none;" onclick="remove_img(2)"></i>
+                                        </div>
+                                        <input type="file"
+                                               name="software_screenshot_3" accept="image/*"
+                                               onchange="preview_img(2)">
+                                    </div>
+                                    <div class="upload_img" style="display: none">
+                                        <div class="show_ico">
+                                            <img id="show_ico" class="show-sites"
+                                                 src="{% static 'front/img/publication/add.png' %}"
+                                                 alt="截图">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               style="display: none;" onclick="remove_img(2)"></i>
+                                        </div>
+                                        <input type="file"
+                                               name="software_screenshot_4" accept="image/*"
+                                               onchange="preview_img(2)">
+                                    </div>
+                                    <div class="upload_img" style="display: none">
+                                        <div class="show_ico">
+                                            <img id="show_ico" class="show-sites"
+                                                 src="{% static 'front/img/publication/add.png' %}"
+                                                 alt="截图">
+                                            <i id="remove_ico"
+                                               class="iconfont icon-close-circle remove-ico remove-sites"
+                                               style="display: none;" onclick="remove_img(2)"></i>
+                                        </div>
+                                        <input type="file"
+                                               name="software_screenshot_5" accept="image/*"
                                                onchange="preview_img(2)">
                                     </div>
                                 </div>
@@ -166,7 +229,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 my-2">
-                                        <div class="input-group count-tips" data-min="0" data-max="60">
+                                        <div class="input-group count-tips" data-min="0" data-max="100">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
                                                     <i class="fa fa-apple icon-fw" aria-hidden="true"></i>
@@ -174,7 +237,19 @@
                                             </div>
                                             <input type="text" class="form-control sites-title" value=""
                                                    name="run_os_version" placeholder="支持系统版本（英文;分隔）"
-                                                   maxlength="60" oninput="update_tips()">
+                                                   maxlength="100" oninput="update_tips()">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-code-fork icon-fw" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control sites-title" value=""
+                                                   name="file_size" placeholder="文件大小（单位：MB/KB/GB）"
+                                                   maxlength="30">
                                         </div>
                                     </div>
                                     <div class="col-12 my-2">
@@ -185,7 +260,7 @@
                                                        aria-hidden="true"></i></span>
                                             </div>
                                             <input type="url" class="form-control sites-title" value=""
-                                                   name="official_link" placeholder="官方链接" maxlength="30">
+                                                   name="official_link" placeholder="官方链接" maxlength="50">
                                         </div>
                                     </div>
                                     <div class="col-12 my-2">
@@ -277,33 +352,19 @@
 		
 		function preview_img(type = 1) {
 			let tg = event.target;
-			let tg_parent = tg.parentElement.outerHTML;
 			let file = tg.files[0];
 			let reader = new FileReader();
 			if (type === 1) {
-				reader.onload = function () {
+				reader.onloadend = function () {
 					tg.parentElement.children[0].children[0].src = reader.result;
 					tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
 				};
 			} else if (type === 2) {
-				reader.onload = function () {
-					if (tg.parentElement.parentElement.children.length < 7) {
-						tg.parentElement.children[0].children[0].src = reader.result;
-						tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
-						tg.parentElement.parentElement.innerHTML += tg_parent;
-					} else if (tg.parentElement.parentElement.children.length === 7) {
-						tg.parentElement.children[0].children[0].src = reader.result;
-						tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
-					} else {
-						Swal.fire({
-							icon: 'error',
-							title: '最多上传5张截图',
-							showConfirmButton: true,
-							ConfirmButtonText: '我知道了',
-							timer: 1500
-						});
-						return false;
-					}
+				let next_sibling = tg.parentElement.nextElementSibling;
+				reader.onloadend = function () {
+					tg.parentElement.children[0].children[0].src = reader.result;
+					tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
+					next_sibling.style = 'display: block';
 				};
 			}
 			reader.readAsDataURL(file);
@@ -315,8 +376,110 @@
 				tg.parentElement.children[0].src = '{% static 'front/img/publication/add.png' %}';
 				tg.setAttribute('style', 'display: none');
 			} else if (type === 2) {
-				tg.parentElement.parentElement.remove();
+				tg.parentElement.parentElement.style = 'display: none';
 			}
+		}
+		
+		function validate_form() {
+			let name = document.querySelector('input[name="name"]').value;
+			let version = document.querySelector('input[name="version"]').value;
+			let language = document.querySelector('select[name="language"]').value;
+			let platform = document.querySelector('select[name="platform"]').value;
+			let run_os_version = document.querySelector('input[name="run_os_version"]').value;
+			let file_size = document.querySelector('input[name="file_size"]').value;
+			let official_link = document.querySelector('input[name="official_link"]').value;
+			let description = document.querySelector('textarea[name="description"]').value;
+			let category = document.querySelector('select[name="category"]').value;
+			let tags = document.querySelector('input[name="tags"]').value;
+			let link_adrive = document.querySelector('input[name="link_adrive"]').value;
+			let link_baidu = document.querySelector('input[name="link_baidu"]').value;
+			let link_123 = document.querySelector('input[name="link_123"]').value;
+			let msg = [];
+			//check icon file upload
+			if (document.querySelector('input[name="icon"]').files.length < 1) {
+				msg.push('请上传软件图标！');
+			}
+			//check at least one screenshot upload
+			for (let i = 1; i <= 5; i++) {
+				if (document.querySelector('input[name="software_screenshot_' + i + '"]').files.length < 1) {
+					break;
+				}
+				if (i === 5) {
+					msg.push('请上传至少一张软件截图！');
+				}
+			}
+			//check software name
+			if (!/^[\u4e00-\u9fa5A-Za-z0-9\s]{1,50}$/.test(name)) {
+				msg.push('软件名格式错误，要求为长度不超过50个字符的中文、英文、数字和空格！');
+			}
+			//check version
+			if (!/^(?!.{31,})\d+\.\d+(?:\.\d+)*$/.test(version)) {
+				msg.push('版本号格式错误，要求为长度不超过30个字符的数字和英文点号！');
+			}
+			//check language
+			if (!/^(多语言|中文|英文|韩文|日文|其他)$/.test(language)) {
+				msg.push('请选择正确的软件语言！');
+			}
+			//check platform
+			if (!/^(Mac|Windows|Linux|Android|iOS)$/.test(platform)) {
+				msg.push('请选择正确的软件平台！');
+			}
+			//check run os version
+			if (!/^[A-Za-z0-9.\s;]{1,100}$/.test(run_os_version)) {
+				msg.push('支持系统版本格式错误，要求为长度不超过100个字符的英文、数字、空格、英文点号和分号！');
+			}
+			//check file size
+			if (!/^(?!.{31,})\d+(\.\d+)?\s?(MB|KB|GB)$/.test(file_size)) {
+				msg.push('文件大小格式错误，要求为长度不超过30个字符的数字、英文点号和单位MB/KB/GB！');
+			}
+			//check official link
+			if (!/^(http|https):\/\/[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,3}(\/\S*)?$/.test(official_link)) {
+				msg.push('官方链接格式错误，要求为正确的网址！');
+			}
+			//check description
+			if (!/[\u4e00-\u9fa5A-Za-z0-9\s，。？！；：“”‘’（）《》【】—…`~!@#$%^&*()_\-+=<>?:\"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+=《》？：“”【】、；‘'，。、]{3,1000}/.test(description)) {
+				msg.push('软件描述格式错误，要求为长度不超过1000个字符的中文、英文、数字和标点符号及其他特殊字符！');
+			}
+			//check category
+			if (!/^\d{1,5}$/.test(category)) {
+				msg.push('请选择正确的软件分类！');
+			}
+			//check tags
+			if (!/^([A-Za-z0-9\s;\u4e00-\u9fa5]{1,100})?$/.test(tags)) {
+				msg.push('软件标签格式错误，要求为长度不超过100个字符的英文、数字、空格和英文分号！');
+			}
+			//check link adrive
+			if (!/^(https:\/\/www\.aliyundrive\.com\/\S*)?$/.test(link_adrive)) {
+				msg.push('阿里云盘下载链接格式错误，要求为正确的阿里云盘分享链接！');
+			}
+			//check link baidu
+			if (!/^(https:\/\/pan\.baidu\.com\/\S*)?$/.test(link_baidu)) {
+				msg.push('百度云盘下载链接格式错误，要求为正确百度云盘的分享链接！');
+			}
+			//check link 123
+			if (!/^(https:\/\/www\.123yunpan\.com\/\S*)?$/.test(link_123)) {
+				msg.push('123云盘下载链接格式错误，要求为正确的123云盘分享链接！');
+			}
+			//check all links
+            if (link_adrive.length < 1 && link_baidu.length < 1 && link_123.length < 1) {
+                msg.push('请至少填写一个下载链接！');
+            }
+			if (msg.length > 0) {
+				let msg_str = '<ul class="notice-msg">';
+				for (let i = 0; i < msg.length; i++) {
+                    msg_str += "<li>" + msg[i] + '</li>';
+                }
+				msg_str += '</ul>';
+				Swal.fire({
+					icon: 'error',
+					title: '请检查填写信息',
+                    html: msg_str,
+					showConfirmButton: true,
+                    confirmButtonText: '我知道了'
+				});
+				return false;
+			}
+			return true;
 		}
     </script>
 {% endblock %}
