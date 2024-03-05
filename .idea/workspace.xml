@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished front end verified data;&#10;finished publish software front end all problems;">
+      <change afterPath="$PROJECT_DIR$/general/data_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-18-31-09-10030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-18-32-51-10030.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +25,9 @@
         <option value="Setup Script" />
         <option value="CSS File" />
         <option value="Less File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -286,15 +287,7 @@
       <workItem from="1709550588055" duration="3333000" />
       <workItem from="1709554168453" duration="7280000" />
       <workItem from="1709562981174" duration="8298000" />
-      <workItem from="1709625177914" duration="7137000" />
-    </task>
-    <task id="LOCAL-00002" summary="optimized codes style and update admin style">
-      <option name="closed" value="true" />
-      <created>1705140211622</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1705140211622</updated>
+      <workItem from="1709625177914" duration="9635000" />
     </task>
     <task id="LOCAL-00003" summary="try using pop-up notifications of third part, but met something I can't resolve">
       <option name="closed" value="true" />
@@ -680,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709561424964</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="finished front end verified data;&#10;finished publish software front end all problems;">
+      <option name="closed" value="true" />
+      <created>1709632592480</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1709632592481</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +690,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs" />
     <MESSAGE value="appended question.html" />
     <MESSAGE value="appended encrypt.py to category page by pass params;&#10;appended encrypt in general.js by using crypto-js.min.js" />
     <MESSAGE value="finished header-nav.html data filled;&#10;optimized some code logic" />
@@ -714,7 +714,8 @@
     <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
     <MESSAGE value="finished rank page and squared logo image" />
     <MESSAGE value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
+    <MESSAGE value="finished front end verified data;&#10;finished publish software front end all problems;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished front end verified data;&#10;finished publish software front end all problems;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1708738676399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

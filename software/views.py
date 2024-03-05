@@ -4,7 +4,9 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
+from frontenduser.models import FrontEndUser
 from general.common_compute import compute_similarity
+from general.data_handler import handle_uploaded_image
 from general.encrypt import decrypt
 from general.init_cache import get_software_by_software_id, get_all_software
 from .models import SoftWare
@@ -14,12 +16,64 @@ from .models import SoftWare
 @require_POST
 def publish_software(request):
     if request.method == "POST":
-        user = request.user
-        name = request.POST.get('name')
-        software = SoftWare.objects.create(
-            user=user, name=name, state=1,
-        )
         software = None
+        try:
+            user = FrontEndUser.objects.get(username='vincent')
+            name = request.POST.get('name')
+            version = request.POST.get('version')
+            language = request.POST.get('language')
+            platform = request.POST.get('platform')
+            run_os_version = request.POST.get('run_os_version')
+            file_size = request.POST.get('file_size')
+            official_link = request.POST.get('official_link')
+            description = request.POST.get('description')
+            category = request.POST.get('category')
+            tags = request.POST.get('tags')
+            link_adrive = request.POST.get('link_adrive')
+            link_baidu = request.POST.get('link_baidu')
+            link_direct = request.POST.get('link_direct') \
+                if request.POST.get('link_direct') else None
+            link_123 = request.POST.get('link_123')
+            icon_url = handle_uploaded_image(request.FILES.get('icon'),
+                                             'media/software/icon/')
+            screen_shots_urls = []
+            for index in range(1, 6):
+                screen_shots_urls.append(
+                    handle_uploaded_image(request.FILES.get('software_screenshot_' + str(index)),
+                                          'media/software/screenshots/')
+                )
+            print(icon_url, screen_shots_urls)
+            software = SoftWare.objects.create(
+                name=name,
+                version=version,
+                language=language,
+                platform=platform,
+                run_os_version=run_os_version,
+                file_size=file_size,
+                official_link=official_link,
+                description=description,
+                category_id=category,
+                tags=tags,
+                link_adrive=link_adrive,
+                link_baidu=link_baidu,
+                link_direct=link_direct,
+                link_123=link_123,
+                icon=icon_url,
+                user=user
+            )
+            software = None
+        except KeyError:
+            pass
+        except ValueError:
+            return JsonResponse({
+                'code': 402,
+                'error': '参数错误'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 403,
+                'error': '请求方式错误'
+            })
         if software:
             return JsonResponse({
                 'code': 200,
@@ -252,7 +306,7 @@ def software_details(request):
             software.screenshots_set.count = len(software.screenshots_set)
             software.screenshots_set.count_list = [i for i in range(software.screenshots_set.count)]
             related_software = [temp for temp in get_all_software()
-                                            if temp.state == 2 and temp.id != software.id]
+                                if temp.state == 2 and temp.id != software.id]
             related_software = sorted(related_software,
                                       key=lambda x: compute_similarity(software.description, x.description),
                                       reverse=True)[:6]
