@@ -2,7 +2,6 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
-
 from general.data_handler import handle_uploaded_image, unload_image_from_server
 from general.init_cache import get_all_software, get_all_articles, get_all_user
 
@@ -100,4 +99,17 @@ def search_result(request):
         return render(request, 'frontenduser/search_result.html', {
             'error': 'invalid request action',
             'code': 403
+        })
+
+
+@require_GET
+def home(request):
+    if request.method == 'GET':
+        all_software = get_all_software()
+        all_articles = get_all_articles()
+        latest_articles = sorted(all_articles, key=lambda x: x.created_time, reverse=True)[:10]
+        latest_articles_count = len(latest_articles)
+        return render(request, 'home.html', {
+            'latest_articles': latest_articles,
+            'latest_articles_count': latest_articles_count,
         })

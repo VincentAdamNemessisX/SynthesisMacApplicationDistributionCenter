@@ -289,12 +289,6 @@ def get_some_software(request):
 
 
 @require_GET
-def home(request):
-    if request.method == 'GET':
-        return render(request, 'home.html')
-
-
-@require_GET
 def software_details(request):
     if request.method == 'GET':
         software_id = request.GET.get('software_id')

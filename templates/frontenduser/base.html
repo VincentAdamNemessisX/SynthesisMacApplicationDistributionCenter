@@ -23,6 +23,7 @@
     <link rel="stylesheet" id="iconfont-io-1-css" href="{% static 'front/css/font_1620678_18rbnd2homc.css' %}"
           type="text/css"
           media="all">
+    <link rel="stylesheet" href="{% static 'front/css/font-awesome.min.css' %}">
     <link rel="stylesheet" id="iconfont-io-2-css" href="{% static 'front/css/font_4184880_kci8o10x3ij.css' %}"
           type="text/css" media="all">
     <link rel="stylesheet" id="iconfont-io-3-css" href="{% static 'front/css/font_4263277_2axl22bwq06.css' %}"
@@ -44,8 +45,13 @@
             flex-direction: row;
         }
 
+
+        .sidebar-logo {
+            height: 6rem !important;
+        }
+
         .sidebar-logo img {
-            max-width: 14rem;
+            max-width: 6rem;
             max-height: none;
         }
 
@@ -171,7 +177,7 @@
         .sidebar-logo {
             position: relative;
             overflow: hidden;
-            margin: 0 0 0 0
+            margin: 0 0 0 0;
         }
 
         .sidebar-logo:before {
@@ -346,7 +352,7 @@
 			window.addEventListener("load", func, false);
 		}
 	}
-	
+
 	/* ]]]]><![CDATA[> */
 	/* ]]> */
 </script>
@@ -530,16 +536,16 @@
                             <a class="footer-logo" href="/index/" title="MacApplicationDistribution">
                                 <img src="{% static 'front/img/logo.png' %}"
                                      class="logo-light mb-3"
-                                     style="max-width: 20rem; max-height: none;"
+                                     style="width: 10rem; margin-left: 14%;"
                                      alt="MacApplicationDistribution">
                                 <img src="{% static 'front/img/logo.png' %}"
-                                     style="max-width: 20rem; max-height: none;"
+                                     style="width: 10rem; margin-left: n14%;"
                                      class="logo-dark d-none mb-3" alt="MacApplicationDistribution">
                             </a>
                             <div class="text-sm" style="text-wrap:balance; text-indent:2em;">本站提供了丰富的免费Mac软件资源，包括办公工具、媒体播放器、图形设计、开发工具等各个领域的应用程序。此外，网站还有平替Windows下常用软件的类Mac软件，Mac、Windows无缝衔接。您可以在该网站上找到所需的工具，无需支付费用。</div>
                         </div>
                         <div class="col-12 col-md-5 mb-4 mb-md-0">
-                            <div class="footer-social" style="margin-top: 10%">
+                            <div class="footer-social" style="margin-top: 18%">
                                 <a class="rounded-circle bg-light qr-img" href="https://qm.qq.com/q/BSsTVZBCGO" data-toggle="tooltip"
                                    data-placement="top" data-html="true" title=""
                                    data-original-title="<img src='{% static 'front/img/sponsor/qq.jpg' %}' height='100' width='100'>">
@@ -595,17 +601,37 @@
 
 {#append sidebar tools bar with correct status into body#}
 <script>
+	function change_sidebar_logo_size(type = 1) {
+		if (type === 1) {
+			let imgs = document.querySelectorAll('.sidebar-logo img');
+			for (let i = 0; i <= imgs.length; i++) {
+				if (imgs[i] !== undefined && imgs[i] !== null) {
+					imgs[i].setAttribute('style', 'max-height: 4rem;max-width: 4rem');
+				}
+			}
+		} else if (type === 2) {
+			let imgs = document.querySelectorAll('.sidebar-logo img');
+			for (let i = 0; i <= imgs.length; i++) {
+				if (imgs[i] !== undefined && imgs[i] !== null) {
+					imgs[i].setAttribute('style', 'max-height: 6rem;max-width: 6rem');
+				}
+			}
+		}
+	}
+
 	function MiniOrNormalSidebar() {
 		let temp = document.body.classList;
 		if (temp.contains('mini-sidebar')) {
 			document.body.classList.remove('fadeOut');
 			document.body.classList.remove('mini-sidebar');
 			document.body.classList.add('fadeIn');
+			change_sidebar_logo_size(2);
 			channel.postMessage('normal-sidebar');
 		} else {
 			document.body.classList.remove('fadeIn');
 			document.body.classList.add('mini-sidebar');
 			document.body.classList.add('fadeOut');
+			change_sidebar_logo_size(1);
 			channel.postMessage('mini-sidebar');
 		}
 	}
@@ -831,7 +857,7 @@
 		} catch (e) {
 		}
 	}
-	
+
 	function share() {
 		let url = window.location.href;
 		if (url !== undefined && url !== '') {
