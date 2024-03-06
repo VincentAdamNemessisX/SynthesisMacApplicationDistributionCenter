@@ -1,6 +1,7 @@
 import os
-from datetime import datetime
 import re
+from datetime import datetime
+
 
 def handle_uploaded_image(file, upload_to):
     path = str("media/" + upload_to + datetime.now().strftime('%Y')
@@ -9,9 +10,12 @@ def handle_uploaded_image(file, upload_to):
         os.makedirs(path)
     if file is None:
         return None
+    file_name = file.name
+    if len(file_name) > 6:
+        file_name = file.name[-6:]
     path = (path + "/" +
             str(datetime.now().strftime('%Y-%m-%d-%H-%M-%S-'))
-            + file.name)
+            + file_name)
     with open(path, "wb") as destination:
         for chunk in file.chunks():
             destination.write(chunk)

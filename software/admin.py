@@ -17,9 +17,9 @@ class SoftWareAdmin(admin.ModelAdmin):
                 continue
             obj.state = 2
             obj.save()
-        self.message_user(request, '已全部审核通过！', level='success')
+        self.message_user(request, '已全部上架！', level='success')
 
-    pass_audit_batch.short_description = '审核'
+    pass_audit_batch.short_description = '上架'
 
     def reject_audit_batch(self, request, queryset):
         for obj in queryset:
@@ -27,9 +27,9 @@ class SoftWareAdmin(admin.ModelAdmin):
                 continue
             obj.state = 3
             obj.save()
-        self.message_user(request, '已全部拒绝！', level='warning')
+        self.message_user(request, '已全部下架！', level='warning')
 
-    reject_audit_batch.short_description = '拒绝'
+    reject_audit_batch.short_description = '下架'
 
 
 @admin.register(SoftWare.SoftwareScreenShots)
