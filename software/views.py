@@ -336,28 +336,6 @@ def software_details(request):
         })
 
 
-@require_GET
-def search_result(request):
-    if request.method == 'GET':
-        search_str = request.GET.get('s')
-        if search_str:
-            matched_software = get_all_software()
-            return render(request, 'frontenduser/search_result.html', {
-                'search_str': search_str,
-                'matched_software': matched_software
-            })
-        else:
-            return render(request, 'frontenduser/search_result.html', {
-                'error': 'invalid params',
-                'code': 402
-            })
-    else:
-        return render(request, 'frontenduser/search_result.html', {
-            'error': 'invalid request action',
-            'code': 403
-        })
-
-
 @router.path(pattern='api/thumb/')
 @require_POST
 def thumb(request):

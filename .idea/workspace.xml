@@ -4,158 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished image upload to server media">
-      <change afterPath="$PROJECT_DIR$/components/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-05-22-57-02-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-05-23-07-51-10027.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-06-00-18-52-10024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-06-00-55-52-10035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/1002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-19-46-47-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-20-23-29-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-20-28-01-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-20-48-46-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-20-49-20-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-21-21-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-22-25-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-22-33-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-28-20-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-28-22-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-28-25-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-28-44-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-30-20-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-31-49-10025.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-31-52-10025.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-34-50-10035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-21-36-10-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/10021.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-19-46-47-10045.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-20-23-29-10026.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-20-28-01-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-20-48-46-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-20-49-20-1006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-21-21-10015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-21-21-10035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-22-25-10015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-22-25-10035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-22-33-10015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-22-33-10035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-20-10011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-20-10029.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-22-10011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-22-10029.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-25-10011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-25-10029.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-44-10011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-28-44-10029.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-30-20-10011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-30-20-10029.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-31-49-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-31-49-10021.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-31-52-10010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-31-52-10021.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-34-50-10030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-34-50-1008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-36-10-10035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-21-36-10-10080.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/ckeditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/ckeditor.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/af.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ast.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/az.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/bg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/bn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/bs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/cs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/da.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/de-ch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/el.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/en-au.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/en-gb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/eo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/es-co.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/es.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/et.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/eu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/fa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/fi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/fr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/gl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/gu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/he.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/hi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/hr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/hu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/hy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/id.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/it.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ja.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/jv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/km.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/kn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ko.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ku.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/lt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/lv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/nb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/no.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/oc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/pl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/pt-br.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/pt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ru.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/si.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/sk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/sl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/sq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/sr-latn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/sr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/sv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/th.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/tk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/tr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/tt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/uk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/ur.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/uz.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/vi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/js/translations/zh.js" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished all publish pages;&#10;appended all state into any model that need;&#10;appended ckeditor with that needed plugins;&#10;optimized other icon shown bugs;">
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commentswitharticles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontenduser/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/data_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/data_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-18-31-09-10030.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-05-22-57-41-10030.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-18-32-51-10030.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-05-22-57-59-10030.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-18-34-16-10030.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-05-23-07-28-10030.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-05-18-35-18-10030.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/article/content/2024/03/2024-03-05-23-21-03-10030.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-05-18-35-18-10045.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/software/screenshots/10045.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/style.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/new-post.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/css/algolia-autocomplete.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/algoliasearch-lite.umd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/autocomplete-noconflict.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/autocomplete.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/search_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/search_result.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -436,15 +302,8 @@
       <workItem from="1709625177914" duration="9720000" />
       <workItem from="1709638762139" duration="5600000" />
       <workItem from="1709644514781" duration="14016000" />
-      <workItem from="1709659415436" duration="1330000" />
-    </task>
-    <task id="LOCAL-00004" summary="give up jquery dialog, try other pop-up dialog">
-      <option name="closed" value="true" />
-      <created>1705162509744</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1705162509744</updated>
+      <workItem from="1709659415436" duration="1590000" />
+      <workItem from="1709698512077" duration="9504000" />
     </task>
     <task id="LOCAL-00005" summary="integrated popup windows with announcement and implements home page's pop-up and specific app's pop-up window, finished announcement module for basic using">
       <option name="closed" value="true" />
@@ -830,7 +689,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709634978735</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="finished all publish pages;&#10;appended all state into any model that need;&#10;appended ckeditor with that needed plugins;&#10;optimized other icon shown bugs;">
+      <option name="closed" value="true" />
+      <created>1709661001030</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1709661001031</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -839,7 +706,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="appended encrypt.py to category page by pass params;&#10;appended encrypt in general.js by using crypto-js.min.js" />
     <MESSAGE value="finished header-nav.html data filled;&#10;optimized some code logic" />
     <MESSAGE value="finished sidebar.html data filled;&#10;optimized some display that show style are not common bugs;&#10;appended request data into append_middleware.py" />
     <MESSAGE value="finished main-content footer data filled;&#10;finished footer data filled;&#10;optimized some styles" />
@@ -864,7 +730,8 @@
     <MESSAGE value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
     <MESSAGE value="finished front end verified data;&#10;finished publish software front end all problems;" />
     <MESSAGE value="finished image upload to server media" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished image upload to server media" />
+    <MESSAGE value="finished all publish pages;&#10;appended all state into any model that need;&#10;appended ckeditor with that needed plugins;&#10;optimized other icon shown bugs;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished all publish pages;&#10;appended all state into any model that need;&#10;appended ckeditor with that needed plugins;&#10;optimized other icon shown bugs;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1709659427843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

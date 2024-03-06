@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body single mt-2">
-                                    <div class="article-content" id="content-article"></div>
+                                    <div class="article-content" id="content-article">{{ article.html_content|safe }}</div>
                                     {% if related_software and related_software_count > 0 %}
                                         <div class="related_software">
                                             <h2 class="text-gray text-lg my-4">
@@ -247,18 +247,18 @@
     <script>
 		$(document).ready(function () {
 			format_time_block();
-			ClassicEditor
-				.create(document.querySelector('#content-article'), {
-					toolbar: [],
-					isReadOnly: true,
-				}).then(editor => {
-				editor.enableReadOnlyMode("editor");
-				editor.setData(`{{ article.content|safe }}`);
-				document.querySelector('#content-article')
-					.nextSibling.children[1].style = 'display: none';
-				document.querySelector('#content-article')
-					.nextSibling.children[2].children[0].style = 'border: none';
-			})
+			{#ClassicEditor#}
+			{#	.create(document.querySelector('#content-article'), {#}
+			{#		toolbar: [],#}
+			{#		isReadOnly: true,#}
+			{#	}).then(editor => {#}
+			{#	editor.enableReadOnlyMode("editor");#}
+			{#	editor.setData(`{{ article.html_content|safe }}`);#}
+			{#	document.querySelector('#content-article')#}
+			{#		.nextSibling.children[1].style = 'display: none';#}
+			{#	document.querySelector('#content-article')#}
+			{#		.nextSibling.children[2].children[0].style = 'border: none';#}
+
 		})
     </script>
 {% endblock %}

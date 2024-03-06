@@ -1,5 +1,8 @@
 {% extends 'frontenduser/base.html' %}
 {% load static %}
+{% block title %}
+    “{{ search_str }}”的搜索结果
+{% endblock %}
 {% block style %}
     <style>
         #super-search-fm {
@@ -17,13 +20,14 @@
         {% include 'frontenduser/header-nav.html' %}
         <div id="content" class="container mb-4 mb-md-5">
             <div id="search" class="s-search mx-auto my-4">
-                <form name="formsearch" method="get" action="https://macwk.cn" id="super-search-fm">
+                <form name="formsearch" method="get" action="/search/"
+                      id="super-search-fm">
                     <input type="hidden" name="post_type" value="app">
-                    <label for="search-text"></label><input type="text" id="search-text" required="required" name="s"
+                    <label for="search-text"></label><input type="text" id="search-text" required="required"
                                                             class="form-control search-keyword aa-input"
                                                             placeholder="输入关键字搜索"
                                                             style="outline: 0;" autocomplete="on" spellcheck="false"
-                                                            role="combobox"
+                                                            role="combobox" name="s"
                                                             aria-autocomplete="list" aria-expanded="false"
                                                             aria-owns="algolia-autocomplete-listbox-0"
                                                             value="{{ search_str }}"
@@ -38,39 +42,186 @@
                     <div class="content-layout">
                         <div class="mb-4">
                         </div>
-                        <h4 class="text-gray text-lg mb-4"><i class="iconfont icon-search mr-1"></i>“{{ search_str }}”的搜索结果
+                        <h4 class="text-gray text-lg mb-4">
+                            <i class="iconfont icon-search mr-1"></i>“{{ search_str }}”的搜索结果
                         </h4>
-
-                        <div class="row">
-
-
-                            <div class="col-4 col-md-3  col-xl-5a pb-1">
-                                <div class="card-app default list-item">
-                                    <div class="media p-0 app-rounded"
-                                         style="background-image: linear-gradient(130deg, transparent, transparent);">
-                                        <a class="media-content" href="https://macwk.cn/app/505.html" target="_blank"
-                                           data-bg="url(https://macwk.cn/wp-content/uploads/2023/09/1670940698_icon.webp)"
-                                           style="background-size: 100%; background-image: url(https://macwk.cn/wp-content/uploads/2023/09/1670940698_icon.webp);"
-                                           data-was-processed="true"></a>
+                        {% if matched_software_count <= 0 and matched_user_count <= 0 and matched_articles_count <= 0 %}
+                            <row>
+                                <div class="col-12">
+                                    <div class="alert alert-warning text-center" role="alert">
+                                        <strong>抱歉，</strong> 暂无“{{ search_str }}”的相关内容！
                                     </div>
-                                    <div class="list-content text-center pt-2">
-                                        <div class="list-body ">
-                                            <a href="https://macwk.cn/app/505.html" target="_blank"
-                                               class=" list-title text-md overflowClip_1">
-                                                Navicat Premium
-                                            </a>
-                                            <div class="mt-1">
-                                                <div class="list-subtitle text-muted text-xs overflowClip_1">
-                                                    Navicat Premium 是一款非常强大的数据库管理工具，允许您在一个应用程序中同时连接到
-                                                    MySQL、SQLite、Oracle 和 PostgreSQL 数据库，使多种数据库类型的管理变得非常简单和方便。
+                                </div>
+                            </row>
+                        {% endif %}
+                        {% if matched_user_count > 0 %}
+                            <h2 class="text-gray text-lg my-4">
+                                <svg t="1709720004541" class="icon icon-fw icon-fw-append mr-1"
+                                     viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     p-id="8933" width="200" height="200">
+                                    <path d="M30.117647 1024l175.224471-327.951059 131.433411-54.543059 87.612236-163.990588h175.22447l87.612236 163.990588 131.433411 54.66353L993.882353 1024z"
+                                          fill="#7dc5eb" p-id="8934"></path>
+                                    <path d="M752.941176 301.176471l-30.117647 90.352941h-30.117647l-30.117647 90.352941-120.470588 90.352941h-60.235294l-120.470588-90.352941-30.117647-90.352941H301.176471l-30.117647-90.352941h60.235294L301.176471 120.470588l210.823529-120.470588 210.823529 120.470588-30.117647 180.705883z"
+                                          fill="#333303" p-id="8935"></path>
+                                </svg>
+                                相关用户
+                            </h2>
+                            <div class="row">
+                                {% for user in matched_user %}
+                                    <div class="col-4 col-md-3  col-xl-5a pb-1">
+                                        <div class="card-app default list-item">
+                                            <div class="media p-0 app-rounded"
+                                                 style="background-image: linear-gradient(130deg, transparent, transparent);">
+                                                <a class="media-content user_link_{{ user.id }}"
+                                                   href=""
+                                                   onmouseout="default_href()"
+                                                   onmouseleave="default_href()"
+                                                   onmousemove="re_href_user('{{ user.id }}')"
+                                                   target="_blank"
+                                                   data-bg="url({{ user.head_icon.url }})"
+                                                   style="background-size: 100%;
+                                                           background-image: url({{ user.head_icon.url }});"
+                                                   data-was-processed="true"></a>
+                                            </div>
+                                            <div class="list-content text-center pt-2">
+                                                <div class="list-body ">
+                                                    <a href="" onmouseout="default_href()"
+                                                       onmouseleave="default_href()" target="_blank"
+                                                       onmousemove="re_href_user('{{ user.id }}')"
+                                                       class=" list-title text-md overflowClip_1 user_link_{{ user.id }}">
+                                                        {% if user.nickname %}
+                                                            {{ user.nickname }}
+                                                        {% else %}
+                                                            {{ user.username }}
+                                                        {% endif %}
+                                                    </a>
+                                                    <div class="mt-1">
+                                                        <div class="list-subtitle text-muted text-xs overflowClip_1">
+                                                            {% if user.description %}
+                                                                {{ user.description }}
+                                                            {% else %}
+                                                                这个人很懒，什么都没留下!
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
+                                {% endfor %}
                             </div>
-                        </div>
+                        {% endif %}
+                        {% if matched_articles_count > 0 %}
+                            <h2 class="text-gray text-lg my-4">
+                                <svg t="1709719617013" class="icon icon-fw icon-fw-append mr-1"
+                                     viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     p-id="6100" width="200" height="200">
+                                    <path d="M16 856v56c0 52.8 43.2 96 96 96h800c52.8 0 96-43.2 96-96v-56H16z"
+                                          fill="#E1E6E9" p-id="6101"></path>
+                                    <path d="M912 1024H112C49.599 1024 0 974.399 0 912v-56c0-9.602 6.4-16.002 16-16.002h992.001c9.601 0 16.001 6.4 16.001 16.001V912C1024 974.4 974.4 1024 912 1024zM32 872v40c0 44.8 35.2 80 80 80h800c44.8 0 80-35.2 80-80v-40H32z"
+                                          fill="#193651" p-id="6102"></path>
+                                    <path d="M923.2 267.2H100.8c-27.2 0-48 20.801-48 48.001V856h916.8V315.2c1.6-25.6-20.8-47.998-46.4-47.998z"
+                                          fill="#2EA2DB" p-id="6103"></path>
+                                    <path d="M923.2 251.2H100.8c-35.2 0-63.999 28.8-63.999 64V856c0 9.6 6.4 16 16.001 16h916.8c9.6 0 16-6.4 16-16V315.2c1.597-35.2-27.202-64-62.403-64z m32 588.8H68.8V315.2c0-17.6 14.401-32 32-32h820.801c17.6 0 32 14.4 32 32v524.798h1.598z"
+                                          fill="#193651" p-id="6104"></path>
+                                    <path d="M117.44 331.873h788.8v460.8h-788.8z" fill="#FFFFFF" p-id="6105"></path>
+                                    <path d="M614.4 16h-312a57.358 57.358 0 0 0-57.6 57.6v603.2a57.358 57.358 0 0 0 57.6 57.6h452.799a57.358 57.358 0 0 0 57.599-57.6V214.4L614.4 16z"
+                                          fill="#E1E6E9" p-id="6106"></path>
+                                    <path d="M755.2 750.4H302.4c-40 0-73.6-33.601-73.6-73.601V73.6c0-40 33.6-73.6 73.6-73.6h312c4.8 0 8 1.6 11.2 4.8L824 203.2c3.2 3.2 4.799 6.4 4.799 11.199v462.4c1.6 40-32 73.6-73.598 73.6zM302.4 32c-22.401 0-41.601 19.2-41.601 41.6v603.2c0 22.402 19.2 41.602 41.6 41.602h452.8c22.4 0 41.6-19.2 41.6-41.601v-456L608 32H302.4z"
+                                          fill="#193651" p-id="6107"></path>
+                                    <path d="M308.8 670.399V80h300.8l140.8 140.8V670.4z" fill="#FFFFFF"
+                                          p-id="6108"></path>
+                                    <path d="M352 123.2h192v23.999H352z m0 81.6h192v24H352z" fill="#193651"
+                                          p-id="6109"></path>
+                                    <path d="M352 302.4h347.2v20.8H352z m0 97.6h347.2v20.8H352z m0 96h347.2v20.8H352z m0 97.6h174.401v20.8h-174.4z"
+                                          fill="#E1E6E9" p-id="6110"></path>
+                                    <path d="M609.6 33.6v132.8c0 30.4 24 54.4 54.401 54.4h132.8l-187.2-187.2z"
+                                          fill="#F16051" p-id="6111"></path>
+                                    <path d="M409.6 916.8h32v32h-32z m86.4 0h32v32h-32z m86.4 0h32v32h-32z"
+                                          fill="#193651" p-id="6112"></path>
+                                </svg>
+                                相关文章
+                            </h2>
+                            <div class="row">
+                                {% for article in matched_articles %}
+                                    <div class="col-4 col-md-3  col-xl-5a pb-1">
+                                        <div class="card-app default list-item">
+                                            <div class="media p-0 app-rounded"
+                                                 style="background-image: linear-gradient(130deg, transparent, transparent);">
+                                                <a class="media-content article_link_{{ article.id }}"
+                                                   target="_blank" onmouseleave="default_href()"
+                                                   onmouseout="default_href()" href=""
+                                                   onmousemove="re_href_article('{{ article.id }}')"
+                                                   data-bg="url({{ article.cover.url }})"
+                                                   style="background-size: 100%; background-image: url({{ article.cover.url }});"
+                                                   data-was-processed="true"></a>
+                                            </div>
+                                            <div class="list-content text-center pt-2">
+                                                <div class="list-body ">
+                                                    <a href="" target="_blank"
+                                                       onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class=" list-title text-md overflowClip_1 article_link_{{ article.id }}">
+                                                        {{ article.title }}
+                                                    </a>
+                                                    <div class="mt-1">
+                                                        <div class="list-subtitle text-muted text-xs overflowClip_1">
+                                                            {{ article.short_content }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% if matched_software_count > 0 %}
+                            <h2 class="text-gray text-lg my-4">
+                                <svg t="1709719930821" class="icon icon-fw icon-fw-append mr-1"
+                                     viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     p-id="7965" width="200" height="200">
+                                    <path d="M61.577 621.3V500.492c0-11.07 9.09-20.123 20.229-20.123h213.477l-92.945 161.063H81.805c-11.138 0-20.228-9.023-20.228-20.132z m152.068 247.375l-68.127 46.157c-9.167 6.24-15.65 2.279-14.379-8.715l9.09-78.98c1.266-10.993 10.187-15.497 19.832-9.99l52.725 30.12c9.631 5.527 10.027 15.206 0.86 21.408z m16.36-44.513l-52.724-30.12c-9.64-5.526-13.037-17.872-7.43-27.474L413.996 343.36c5.535-9.62 18.026-12.994 27.657-7.419l52.725 30.06c9.64 5.575 12.963 17.931 7.428 27.513l-244.14 423.247c-5.529 9.602-18.025 12.888-27.66 7.4z m185.816-182.73L508.76 480.37h53.517l75.475 161.062H415.82zM718.528 689.5c-21.107-10.53-126.229-252.003-153.16-315.007-26.962-63.002-108.376-230.71-82.044-243.751 18.74-9.361 85.994 122.701 136.41 201.972 50.349 79.29 155.634 283.715 168.588 306.997 12.886 23.338-12.404 42.794-26.469 48.609-14.075 5.837-22.228 11.633-43.325 1.18z m69.079 110.995l-31.762-49.962c-6.57-10.376-3.159-23.205 7.496-28.69l30.274-15.497c10.676-5.428 24.035-1.043 29.715 9.835l25.058 47.972c5.699 10.856 1.815 24.787-8.463 30.91l-21.648 12.888c-10.277 6.222-24.1 2.84-30.67-7.456z m116.896 131.029c-6.636-21.156-57.303-22.567-79.985-54.445-22.76-31.763-3.95-48.125 3.95-55.68 92.004-51.586 76.035 110.125 76.035 110.125zM951.847 621.3c0 11.11-9.09 20.132-20.229 20.132H824.76c-1.178-6.2-3.092-12.422-6.318-18.239-2.783-4.965-9.815-18.314-19.61-36.958-14.142-26.893-34.458-65.36-56.202-105.865h188.98c11.138 0 20.228 9.052 20.228 20.123V621.3h0.01z"
+                                          p-id="7966"></path>
+                                </svg>
+                                相关软件
+                            </h2>
+                            <div class="row">
+                                {% for software in matched_software %}
+                                    <div class="col-4 col-md-3  col-xl-5a pb-1">
+                                        <div class="card-app default list-item">
+                                            <div class="media p-0 app-rounded"
+                                                 style="background-image: linear-gradient(130deg, transparent, transparent);">
+                                                <a class="media-content software_link_{{ software.id }}"
+                                                   href="" target="_blank" data-bg="url({{ software.icon.url }})"
+                                                   onmouseout="default_href()"
+                                                   onmouseleave="default_href()"
+                                                   onmousemove="re_href_software('{{ software.id }}')"
+                                                   style="background-size: 100%; background-image: url({{ software.icon.url }});"
+                                                   data-was-processed="true"></a>
+                                            </div>
+                                            <div class="list-content text-center pt-2">
+                                                <div class="list-body ">
+                                                    <a href="" target="_blank"
+                                                       onmouseout="default_href()"
+                                                       onmouseleave="default_href()"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class=" list-title text-md overflowClip_1 software_link_{{ software.id }}">
+                                                        {{ software.name }}
+                                                    </a>
+                                                    <div class="mt-1">
+                                                        <div class="list-subtitle text-muted text-xs overflowClip_1">
+                                                            {{ software.short_description }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                         <div class="posts-nav mb-4">
                         </div>
                     </div>

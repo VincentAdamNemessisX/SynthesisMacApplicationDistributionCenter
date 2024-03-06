@@ -3,6 +3,7 @@ from django.core.cache import cache
 from announcements.models import Announcements
 from category.models import Category
 from commentswitharticles.models import Comment, Article
+from frontenduser.models import FrontEndUser
 from questions.models import Questions
 from software.models import SoftWare
 from .common_compute import get_hot_volume_of_article, get_hot_volume_of_software
@@ -145,6 +146,16 @@ def get_specific_user_software_by_username(username=None):
                                       .order_by('-updated_time'))
         cache.set('specific_user_software', specific_user_software, 1)
     return cache.get('specific_user_software')
+
+
+def get_all_user():
+    all_user = cache.get('all_user')
+    if all_user is None:
+        all_user = list(FrontEndUser.objects.filter(state=2)
+                        .select_related('django_user').order_by('-django_user__date_joined')
+                        )
+        cache.set('all_user', all_user, 180)
+    return cache.get('all_user')
 
 
 # def get_specific_user_favorite_software_by_username(username=None):

@@ -31,6 +31,7 @@ from category.views import *
 from commentswitharticles.views import *
 from questions.views import *
 from frontenduser.views import *
+from components.views import *
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

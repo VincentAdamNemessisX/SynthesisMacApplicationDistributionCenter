@@ -1,5 +1,6 @@
 import bs4
 from django.db import models
+import markdown
 
 
 # Create your models here.
@@ -48,8 +49,13 @@ class Article(models.Model):
             return f"{self.title[:max_length]}..."
         return self.title
 
+    def html_content(self):
+        md_content = markdown.markdown(self.content)
+        return md_content
+
     def plain_content(self):
-        soup = bs4.BeautifulSoup(self.content, 'html.parser')
+        html_content = markdown.markdown(self.content)
+        soup = bs4.BeautifulSoup(html_content, 'html.parser')
         return soup.get_text()
 
     def short_content(self):

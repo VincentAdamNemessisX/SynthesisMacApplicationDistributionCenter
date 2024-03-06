@@ -271,65 +271,6 @@ def leave_comment(request):
         })
 
 
-@router.path(pattern='api/get/article/')
-@require_POST
-def get_article_details(request):
-    if request.method == "POST":
-        # if request.method == "GET":
-        try:
-            article_id = int(request.POST.get('article_id'))
-            # article_id = int(request.GET.get('article_id'))
-        except ValueError:
-            return JsonResponse({
-                'code': 402,
-                'msg': 'failed with invalid params'
-            })
-        except TypeError:
-            return JsonResponse({
-                'code': 401,
-                'msg': 'failed with wrong params'
-            })
-        if article_id:
-            articles = g_a(article_id)
-            if articles:
-                article = articles[0]
-            else:
-                article = None
-        else:
-            return JsonResponse({
-                'code': 401,
-                'msg': 'failed with wrong params'
-            })
-        if article:
-            return JsonResponse({
-                'code': 200,
-                'msg': 'success',
-                'data': {
-                    'article_id': article.id,
-                    'title': article.title,
-                    'content': article.content,
-                    'user': {
-                        'user_id': article.user.id,
-                        'username': article.user.username,
-                        'email': article.user.email,
-                    },
-                    'correlation_software': article.correlation_software,
-                    'created_time': article.created_time,
-                    'updated_time': article.updated_time
-                }
-            })
-        else:
-            return JsonResponse({
-                'code': 404,
-                'msg': 'failed with no data'
-            })
-    else:
-        return JsonResponse({
-            'code': 301,
-            'msg': 'failed with wrong request action'
-        })
-
-
 @router.path(pattern='api/get/articles/')
 # @require_POST
 def get_articles(request):
