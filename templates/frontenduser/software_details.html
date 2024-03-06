@@ -109,14 +109,17 @@
                             <div class="mb-2 app-button">
                                 <button type="button" onclick="download_modal(storage_software_info())"
                                         class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2">
-                                    <i
-                                            class="iconfont icon-down mr-2"></i>立即下载
+                                    <i class="iconfont icon-down mr-2"></i>立即下载
                                 </button>
                                 <button type="button" id="software-{{ software.id }}"
                                         onclick="thumb_software('{{ software.id }}', 1)"
-                                        class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mb-2">
+                                        class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mr-3 mb-2">
                                     <i class="iconfont icon-like mr-2"></i> 赞 <span
                                         class="like-count ">{{ software.thumbs_volume }}</span>
+                                </button>
+                                <button type="button" onclick="share()"
+                                        class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mb-2">
+                                    <i class="iconfont icon-share mr-2"></i> 分享
                                 </button>
                             </div>
                             <p class="mb-0 text-muted text-sm">
@@ -244,7 +247,8 @@
                                                             <div class="d-flex flex-fill align-items-center text-muted text-xs">
                                                                 <div class="flex-fill"></div>
                                                                 <div>
-                                                                    <time data-type="local" datetime="{{ article.updated_time|date:"Y-m-d H:i:sO" }}"></time>
+                                                                    <time data-type="local"
+                                                                          datetime="{{ article.updated_time|date:"Y-m-d H:i:sO" }}"></time>
                                                                     <script>
 																		$(document).ready(function () {
 																			format_time_block(0);

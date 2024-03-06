@@ -8,6 +8,21 @@
         .panel-body {
             min-height: 15rem;
         }
+
+        .content-footer {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .social-share {
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            column-gap: 1rem;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -59,7 +74,8 @@
                                     </div>
                                 </div>
                                 <div class="panel-body single mt-2">
-                                    <div class="article-content" id="content-article">{{ article.html_content|safe }}</div>
+                                    <div class="article-content"
+                                         id="content-article">{{ article.html_content|safe }}</div>
                                     {% if related_software and related_software_count > 0 %}
                                         <div class="related_software">
                                             <h2 class="text-gray text-lg my-4">
@@ -120,12 +136,22 @@
                                         </div>
                                     {% endif %}
                                 </div>
-                                <div class="text-xs text-muted" style="text-align: right">
-                                    <div style="padding-right: 10%"><span>©</span> 版权声明</div>
-                                    <div class="posts-copyright">文章版权归作者所有，未经允许请勿转载。</div>
-                                </div>
-                                <div class="social-share">
-
+                                <div class="content-footer mt-lg-5">
+                                    <div class="social-share" data-initialized="true">
+                                        <button style="border: none; background: none" onclick="share()">
+                                            <svg t="1709734392398" class="icon icon-fw icon-fw-append"
+                                                 viewBox="0 0 1365 1024" version="1.1"
+                                                 xmlns="http://www.w3.org/2000/svg" p-id="10761" width="200"
+                                                 height="200">
+                                                <path d="M1194.666667 1024a170.666667 170.666667 0 0 1-163.84-123.448889L398.222222 721.92A227.555556 227.555556 0 1 1 227.555556 341.333333a227.555556 227.555556 0 0 1 157.013333 62.577778l386.275555-265.671111A170.666667 170.666667 0 0 1 938.666667 0a170.666667 170.666667 0 0 1 0 341.333333 56.888889 56.888889 0 0 1 0-113.777777 56.888889 56.888889 0 1 0-56.888889-65.991112 107.52 107.52 0 0 1-47.217778 71.111112L405.617778 527.36a56.888889 56.888889 0 0 1-83.057778-21.048889 113.777778 113.777778 0 1 0 0 123.448889 56.888889 56.888889 0 0 1 65.422222-27.875556l671.857778 187.164445A113.777778 113.777778 0 0 1 1137.777778 869.262222 56.888889 56.888889 0 1 0 1194.666667 796.444444a56.888889 56.888889 0 0 1 0-113.777777 170.666667 170.666667 0 0 1 0 341.333333z"
+                                                      fill="#3E2AD1" p-id="10762"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="text-xs text-muted">
+                                        <div class="text-center"><span>©</span> 版权声明</div>
+                                        <div class="posts-copyright">文章版权归作者所有，未经允许请勿转载。</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +260,6 @@
                                 </div>
                             {% endif %}
                         </div>
-
                         <!-- comments -->
                         {% include 'frontenduser/comments_list.html' %}
                     </div>
@@ -247,18 +272,6 @@
     <script>
 		$(document).ready(function () {
 			format_time_block();
-			{#ClassicEditor#}
-			{#	.create(document.querySelector('#content-article'), {#}
-			{#		toolbar: [],#}
-			{#		isReadOnly: true,#}
-			{#	}).then(editor => {#}
-			{#	editor.enableReadOnlyMode("editor");#}
-			{#	editor.setData(`{{ article.html_content|safe }}`);#}
-			{#	document.querySelector('#content-article')#}
-			{#		.nextSibling.children[1].style = 'display: none';#}
-			{#	document.querySelector('#content-article')#}
-			{#		.nextSibling.children[2].children[0].style = 'border: none';#}
-
 		})
     </script>
 {% endblock %}
