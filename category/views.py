@@ -6,7 +6,9 @@ from django.views.decorators.http import require_GET, require_POST
 from django_router import router
 
 from general.encrypt import decrypt
-from general.init_cache import get_all_category
+from general.init_cache import (get_all_category,
+                                get_category_tags as g_c_ts)
+from software.models import SoftWare
 
 
 @require_GET
@@ -133,3 +135,24 @@ def category(request):
             'code': 405,
             'error': 'invalid request action',
         })
+
+
+@router.path('api/get/category/tags/')
+@require_POST
+def get_category_tags(request):
+    if request.method == 'POST':
+        category_id = request.POST.get('category_id')
+        if category_id is None:
+            return JsonResponse({'code': 402, 'error': 'wrong category_id'})
+        else:
+            try:
+                category_id = int(decrypt(category_id))
+                if category_id <= 0:
+                    return JsonResponse({'code': 401, 'error': 'invalid category_id'})
+                category_tags = [{'name': tag} for tag in g_c_ts(category_id)]
+                return JsonResponse({
+                    'code': 200,
+                    'data': category_tags
+                })
+            except Exception as e:
+                return JsonResponse({'code': 500, 'error': str(e)})

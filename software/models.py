@@ -19,7 +19,7 @@ class SoftWare(models.Model):
     link_direct = models.URLField(null=True, blank=True)
     link_123 = models.URLField(null=True, blank=True)
     icon = models.ImageField(upload_to='software')
-    state = models.IntegerField(default=1, choices=((1, '未审核'), (2, '已审核'), (3, '已下架')))
+    state = models.IntegerField(default=1, choices=((1, '未审核'), (2, '已上架'), (3, '已下架')))
     user = models.ForeignKey('frontenduser.FrontEndUser', on_delete=models.CASCADE)
     view_volume = models.BigIntegerField(default=0)
     thumbs_volume = models.BigIntegerField(default=0)

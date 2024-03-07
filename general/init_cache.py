@@ -229,3 +229,16 @@ def get_hot_articles_and_software():
         hot_software.sort(key=lambda x: x.hot_volume, reverse=True)
         cache.set('hot_software', hot_software[:10], 1)
     return cache.get('hot_articles'), cache.get('hot_software')
+
+
+def get_category_tags(category_id):
+    # 尝试从缓存中获取tags列表
+    tags_cache_key = f'category_{category_id}_tags'
+    unique_tags = cache.get(tags_cache_key)
+    if unique_tags is None:
+        # 如果缓存中没有找到，执行数据库查询并缓存结果
+        unique_tags = list(SoftWare.objects.filter(category_id=category_id).values_list('tags', flat=True).distinct())
+        cache.set(tags_cache_key, unique_tags, timeout=60 * 60)  # 缓存1小时
+    else:
+        # 如果缓存中找到了
+        return unique_tags

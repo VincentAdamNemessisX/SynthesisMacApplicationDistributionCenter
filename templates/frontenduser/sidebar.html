@@ -28,7 +28,8 @@
                                 <li class="sidebar-item">
                                     <a href="" class="" 
                                        onmousemove="encrypt_self(3, {{ category.id }})">
-                                        <i class="io io-app icon-fw icon-lg"></i>
+                                        <img src="{{ category.icon.url }}" 
+                                             class="icon-fw icon-fw-append icon-lg" alt="{{ category.name }}">
                                         <span>{{ category.name }}</span>
                                     </a>
                                 </li>

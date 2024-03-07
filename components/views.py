@@ -2,8 +2,10 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
+
 from general.data_handler import handle_uploaded_image, unload_image_from_server
-from general.init_cache import get_all_software, get_all_articles, get_all_user
+from general.init_cache import get_all_software, get_all_articles, get_all_user, get_category_tags
+from software.models import SoftWare
 
 
 # Create your views here.
@@ -109,6 +111,9 @@ def home(request):
         all_articles = get_all_articles()
         latest_articles = sorted(all_articles, key=lambda x: x.created_time, reverse=True)[:10]
         latest_articles_count = len(latest_articles)
+        for cat in request.categories:
+            cat.software = [sof for sof in all_software if sof.category.id == cat.id][:20]
+            cat.software_count = len(cat.software)
         return render(request, 'home.html', {
             'latest_articles': latest_articles,
             'latest_articles_count': latest_articles_count,
