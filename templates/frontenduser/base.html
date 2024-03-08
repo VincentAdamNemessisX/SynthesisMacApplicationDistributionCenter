@@ -352,7 +352,7 @@
 			window.addEventListener("load", func, false);
 		}
 	}
-
+	
 	/* ]]]]><![CDATA[> */
 	/* ]]> */
 </script>
@@ -505,14 +505,53 @@
 			document.body.classList.remove('fadeIn');
 			document.body.classList.add('mini-sidebar');
 			document.body.classList.add('fadeOut');
+			change_sidebar_logo_size(1);
+			localStorage.setItem(encrypt_param('status'), encrypt_param('mini-sidebar'));
 		} else if (event.data === 'normal-sidebar') {
 			if (document.body.classList.contains('mini-sidebar')) {
 				document.body.classList.remove('fadeOut');
 				document.body.classList.remove('mini-sidebar');
 				document.body.classList.add('fadeIn');
+				change_sidebar_logo_size(2);
+				localStorage.setItem(encrypt_param('status'), encrypt_param('normal-sidebar'));
 			}
 		}
 	});
+	
+	function MiniOrNormalSidebar() {
+		let temp = document.body.classList;
+		if (temp.contains('mini-sidebar')) {
+			document.body.classList.remove('fadeOut');
+			document.body.classList.remove('mini-sidebar');
+			document.body.classList.add('fadeIn');
+			change_sidebar_logo_size(2);
+			channel.postMessage('normal-sidebar');
+			localStorage.setItem(encrypt_param('status'), encrypt_param('normal-sidebar'));
+		} else {
+			document.body.classList.remove('fadeIn');
+			document.body.classList.add('mini-sidebar');
+			document.body.classList.add('fadeOut');
+			change_sidebar_logo_size(1);
+			channel.postMessage('mini-sidebar');
+			localStorage.setItem(encrypt_param('status'), encrypt_param('mini-sidebar'));
+		}
+	}
+	
+	$(document).ready(function () {
+		let sidebar_status = localStorage.getItem(encrypt_param('status'));
+		if (sidebar_status === encrypt_param('mini-sidebar')) {
+			document.body.classList.remove('fadeIn');
+			document.body.classList.add('mini-sidebar');
+			document.body.classList.add('fadeOut');
+			change_sidebar_logo_size(1);
+		} else if (sidebar_status === encrypt_param('normal-sidebar')) {
+			document.body.classList.remove('fadeOut');
+			document.body.classList.remove('mini-sidebar');
+			document.body.classList.add('fadeIn');
+			change_sidebar_logo_size(2);
+		}
+	})
+	
 	$(document).ready(function () {
 		setTimeout(function () {
 			document.body.classList.add('animated', 'fadeIn');
@@ -616,23 +655,6 @@
 					imgs[i].setAttribute('style', 'max-height: 6rem;max-width: 6rem');
 				}
 			}
-		}
-	}
-
-	function MiniOrNormalSidebar() {
-		let temp = document.body.classList;
-		if (temp.contains('mini-sidebar')) {
-			document.body.classList.remove('fadeOut');
-			document.body.classList.remove('mini-sidebar');
-			document.body.classList.add('fadeIn');
-			change_sidebar_logo_size(2);
-			channel.postMessage('normal-sidebar');
-		} else {
-			document.body.classList.remove('fadeIn');
-			document.body.classList.add('mini-sidebar');
-			document.body.classList.add('fadeOut');
-			change_sidebar_logo_size(1);
-			channel.postMessage('mini-sidebar');
 		}
 	}
 	
@@ -857,7 +879,7 @@
 		} catch (e) {
 		}
 	}
-
+	
 	function share() {
 		let url = window.location.href;
 		if (url !== undefined && url !== '') {
