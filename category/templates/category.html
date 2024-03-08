@@ -52,13 +52,21 @@
                                                    data-was-processed="true"></a>
                                             </div>
                                             <div class="app-content flex-fill pl-2 pr-1">
-                                                <div class="mb-2"><a href=""
-                                                                     onmouseout="default_href()"
-                                                                     onmouseleave="default_href()"
-                                                                     target="_blank"
-                                                                     onmousemove="re_href_software('{{ software.id }}')"
-                                                                     class="text-md overflowClip_1 software_link_{{ software.id }}">{{ software.name }}<span
-                                                        class="text-xs"> - {{ software.version }}</span></a>
+                                                <div class="mb-2">
+                                                    <a href=""
+                                                       onmouseout="default_href()"
+                                                       onmouseleave="default_href()"
+                                                       target="_blank"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class="text-md overflowClip_1 software_link_{{ software.id }}">
+                                                        {% if software.is_recent %}
+                                                            <span style="vertical-align: middle"
+                                                                  class="badge vc-red text-ss mr-1" title="新">N</span>
+                                                        {% elif software.is_hot %}
+                                                            👍
+                                                        {% endif %}
+                                                        {{ software.name }}<span
+                                                            class="text-xs"> - {{ software.version }}</span></a>
                                                 </div>
                                                 <div class="text-muted text-xs overflowClip_1">{{ software.description }}</div>
                                                 <div class="app-like">
@@ -138,6 +146,12 @@
 						let layout_content = $('.row')[0];
 						layout_content.children[layout_content.children.length - 1].remove();
 						for (let i = 0; i < data.data.software_set_count; i++) {
+							let appended_tip = '';
+                            if(data.data.software_set[i].is_recent){
+                                appended_tip = '<span style="vertical-align: middle" class="badge vc-red text-ss mr-1" title="新">N</span>';
+                            }else if(data.data.software_set[i].is_hot > 30000){
+                                appended_tip = '👍';
+                            } else {appended_tip = '';}
 							layout_content.innerHTML += `
                                 <div class="io-px-2 col-12 col-md-6 col-lg-4 col-xxl-5a ajax-url">
                                     <div class="card-app card">
@@ -155,7 +169,7 @@
                                                 <div class="mb-2"><a href=""
                                                                     onmouseout="default_href()" onmouseleave="default_href()"
                                                                      target="_blank" onmousemove="re_href_software(${data.data.software_set[i].id})"
-                                                                     class="text-md overflowClip_1 software_link_${data.data.software_set[i].id}">${data.data.software_set[i].name}<span
+                                                                     class="text-md overflowClip_1 software_link_${data.data.software_set[i].id}">${appended_tip}${data.data.software_set[i].name}<span
                                                         class="text-xs"> - ${data.data.software_set[i].version}</span></a>
                                                 </div>
                                                 <div class="text-muted text-xs overflowClip_1">${data.data.software_set[i].description}</div>

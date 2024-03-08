@@ -1,13 +1,109 @@
 {% extends 'frontenduser/base.html' %}
 {% load static %}
 {% block title %}
-	Mac软件分享平台反馈中心
+    Mac软件分享平台反馈中心
 {% endblock %}
 {% block style %}
     <style>
         #super-search-fm {
             display: flex;
             flex-direction: row;
+        }
+    </style>
+    <style type="text/css">
+        .accordion_example11949.accordionjs {
+            position: relative;
+            margin: 0;
+            padding: 15px;
+            list-style: none;
+            margin: 0px;
+            background: repeat scroll 0 0;
+        }
+
+        .accordion_example11949.accordionjs .acc_section {
+            border: 1px solid #ffbc00 !important;
+            position: relative;
+            z-index: 10;
+            margin-top: 0px;
+            margin-bottom: 5px !important;
+            overflow: hidden;
+        }
+
+        .accordion_example11949.accordionjs .acc_section .acc_head {
+            position: relative;
+            background: #ffbc00 !important;
+            color: #000;
+            font-size: 15px;
+            text-align: left;
+            padding: 8px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .accordion_example11949 .acc_head_icons1949 {
+            color: #000;
+            float: left;
+            margin-right: 8px;
+            padding: 0 10px;
+        }
+
+        .accordion_example11949 span.plusicons1949 {
+            position: absolute;
+        }
+
+        .accordion_example11949 span.minusicons1949 {
+            position: relative;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        .accordion_example11949 .acc_active span.minusicons1949 {
+            visibility: visible;
+            position: relative;
+        }
+
+        .accordion_example11949 .acc_active span.plusicons1949 {
+            visibility: hidden;
+        }
+
+        .accordion_example11949.accordionjs .acc_section .acc_head h3 {
+            line-height: 1;
+            margin: 5px 0;
+        }
+
+        .accordion_example11949.accordionjs .acc_section .acc_content {
+            padding: 10px;
+        }
+
+        .accordion_example11949.accordionjs .acc_section:first-of-type,
+        .accordion_example11949.accordionjs .acc_section:first-of-type .acc_head {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .accordion_example11949.accordionjs .acc_section:last-of-type,
+        .accordion_example11949.accordionjs .acc_section:last-of-type .acc_content {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .accordion_example11949.accordionjs .acc_section.acc_active > .acc_content {
+            display: block;
+            background: #e0e5ec !important;
+        }
+
+        .accordion_example11949.accordionjs .acc_section.acc_active > .acc_content p {
+            color: #000;
+            font-size: 15px !important;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 10px;
+            line-height: 28px;
+        }
+
+        .accordion_example11949.accordionjs .acc_section.acc_active > .acc_head {
+            background: #F9F9F9;
+            border-bottom: 1px solid #ccc;
         }
     </style>
 {% endblock %}
@@ -17,184 +113,332 @@
     </div>
     {% include 'frontenduser/sidebar.html' %}
     <div class="main-content flex-fill">
-    {% include 'frontenduser/header-nav.html' %}
+        {% include 'frontenduser/header-nav.html' %}
         <div class="container container-fluid customize-width">
             <div class="no-search my-2 p-1"></div>
         </div>
-        <div id="content" class="container is_category">
-            <div class="content-wrap">
-                <div class="content-layout">
-
-                    <div class="site-title mb-4">
-
-                        <h1 class="text-gray text-lg mb-2">
-                            <i class="site-tag iconfont icon-tag icon-lg mr-1" id="使用教程"></i>使用教程 </h1>
-                        <p class="text-secondary text-sm">
-                        </p>
-
-
-                    </div>
-                    <div class="cat_list">
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/1312.html"
-                                       title="通知：网盘改版！请注意查看！"
-                                       data-src="https://macwk.cn/wp-content/uploads/2023/10/tz.png"
-                                       data-was-processed="true"
-                                       style="background-image: url(https://macwk.cn/wp-content/uploads/2023/10/tz.png);"></a>
+        <!-- comments -->
+        <div id="comments" class="comments">
+            <h2 id="comments-list-title" class="comments-title h5 mx-1 my-4">
+                <i class="iconfont icon-comment"></i>
+                <span class="noticom">
+                    <a href="#respond" class="comments-title">评论</a>
+                </span>
+            </h2>
+            <div class="card">
+                <div class="card-body" id="comment-box">
+                </div>
+                <div id="respond_box">
+                    <div id="respond" class="comment-respond">
+                        <form class="text-sm mb-4" method="post" name="respond"
+                              enctype="multipart/form-data" onsubmit="submit_comment()">
+                            {% csrf_token %}
+                            <div id="comment-author-info" class="row  row-sm">
+                                <div class="visitor-avatar d-flex mb-2">
+                                    <img class="v-avatar rounded-circle"
+                                         src="{% static 'favicon.ico' %}"
+                                         alt="">
                                 </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/1312.html" title="通知：网盘改版！请注意查看！"
-                                               class="list-title text-lg overflowClip_2">通知：网盘改版！请注意查看！</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 ">网盘改版！请注意查看！如遇到误选择收费形式请留言整改！
-                                                网盘通知大文件后期免登录下载有可能改动！ 如遇收费，强制登录等情况！请留言！站内会选着其他下...
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">3个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <a class="pixel-btn user_link_2 text-center" href=""
+                                       onmouseout="default_href()" onmouseleave="default_href()"
+                                       onmousemove="re_href_user('2')"
+                                       style="display: block; cursor: pointer; width: 15rem;"
+                                       id="user-link">
+                                        VincentAdamNemessis{{ request.session.user.username }}
+                                    </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/1298.html"
-                                       title="Adobe Photoshop 2024 M2版本安装教程"
-                                       data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg" data-was-processed="true"
-                                       style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/1298.html"
-                                               title="Adobe Photoshop 2024 M2版本安装教程"
-                                               class="list-title text-lg overflowClip_2">Adobe Photoshop 2024
-                                                M2版本安装教程</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 ">﻿﻿﻿</div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">3个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="comment-textarea mb-3">
+                                <label for="comment"></label>
+                                <textarea name="comment" id="comment"
+                                          class="form-control"
+                                          placeholder="输入评论内容..."
+                                          tabindex="4" cols="50"
+                                          rows="5"></textarea>
                             </div>
-                        </div>
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/1081.html"
-                                       title="iTerm2配色及插件留言贴"
-                                       data-src="//macwk.cn/wp-content/uploads/2023/09/bg.jpg" data-was-processed="true"
-                                       style="background-image: url(//macwk.cn/wp-content/uploads/2023/09/bg.jpg);"></a>
-                                </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/1081.html" title="iTerm2配色及插件留言贴"
-                                               class="list-title text-lg overflowClip_2">iTerm2配色及插件留言贴</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 "></div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">4个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="com-footer d-flex justify-content-end flex-wrap">
+                                <button type="button" class="btn btn-dark custom_btn-d ml-2"
+                                        id="reset-btn">再想想
+                                </button>
+                                <button class="btn btn-dark custom_btn-d ml-2" id="respond-btn">发表评论
+                                </button>
+                                <input type="hidden" id='action' name="action" value="publish">
+                                <input type="hidden" id="comment_parent" name="comment_parent"
+                                       value="0">
+                                <input type="hidden" id="software_id" name="software_id"
+                                       value="{% if software.id %}{{ software.id }}{% else %}0{% endif %}">
+                                <input type="hidden" id="article_id" name="article_id"
+                                       value="{% if article.id %}{{ article.id }}{% else %}0{% endif %}">
                             </div>
-                        </div>
-                        <div class="list-grid list-grid-padding">
-                            <div class="list-item card">
-                                <div class="media media-3x2 rounded col-4 col-md-4">
-                                    <a class="media-content" href="https://macwk.cn/546.html"
-                                       title="Adob​​e PhotoShop 2021 激活教程"
-                                       data-src="//macwk.cn/wp-content/uploads/2023/07/banner-1.jpg"
-                                       data-was-processed="true"
-                                       style="background-image: url(//macwk.cn/wp-content/uploads/2023/07/banner-1.jpg);"></a>
-                                </div>
-                                <div class="list-content">
-                                    <div class="list-body">
-                                        <h2>
-                                            <a href="https://macwk.cn/546.html" title="Adob​​e PhotoShop 2021 激活教程"
-                                               class="list-title text-lg overflowClip_2">Adob​​e PhotoShop 2021
-                                                激活教程</a>
-                                        </h2>
-                                        <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
-                                            <div class="overflowClip_2 ">﻿</div>
-                                        </div>
-                                    </div>
-                                    <div class="list-footer">
-                                        <div class="d-flex flex-fill align-items-center text-muted text-xs">
-                                                <span><i class="iconfont icon-classification"></i>
-                            <a href="https://macwk.cn/shiyongjiaocheng">使用教程</a>
-                        </span>
-
-                                            <div class="flex-fill"></div>
-                                            <div>
-                                                <time class="mx-1">5个月前</time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="posts-nav">
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div><!-- comments end -->
+        <script>
+			$(document).ready(function () {
+				load_comments(1);
+			})
+
+			function load_comments(init, remove_load_btn = 0) {
+				let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}',
+					'article',
+					encrypt_param('1'),
+					init)
+				comments_promise.then((data) => {
+					let comments_list = '';
+					if (data === null) {
+						if (init === 1) {
+							comments_list = `
+                    <div class="not-comment card">
+                        <div class="card-body nothing text-center color-d">暂无评论...</div>
+                    </div>
+				`;
+						}
+					} else {
+						comments_list = `<ul class="comment-list" id='comment-list'>`;
+						for (var index in data.comments) {
+							if ('{{ respond_comment }}' === 'software') {
+								if (data.comments[index].correlation_software === '') {
+									continue;
+								}
+							}
+							if ('{{ respond_comment }}' === 'article') {
+								if (data.comments[index].correlation_article === '') {
+									continue;
+								}
+							}
+							if (data.comments[index].parent_id === encrypt_param('0')) {
+								let comment = `
+                        <li class="comment even thread-even depth-1 comment">
+                            <div class="comment_body d-flex flex-fill">
+                                <div class="profile mr-2 mr-md-3">
+                                    <img src="${data.comments[index].user.head_icon}"
+                                         width="96" height="96" alt="头像"
+                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
+                                </div>
+                                <section class="comment-text d-flex flex-fill flex-column">
+                                    <div class="comment-info d-flex align-items-center mb-1">
+                                        <div class="comment-author text-sm w-100">
+                                                <a    href='' class="user_link_${decrypt_param(data.comments[index].user.user_id.toString())}"
+                                                        onmouseout="default_href()"
+                                                        onmouseleave="default_href()"
+                                                        onmousemove="re_href_user(decrypt_param('${data.comments[index].user.user_id}'))"
+                                                        target="_blank"
+                                                        rel="nofollow noopener noreferrer" class="url">${data.comments[index].user.username}</a>
+                                                <span class="rank"
+                                                                                           title="角色：${data.comments[index].user.role}">${data.comments[index].user.role}</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content d-inline-block text-sm">
+                                        <p>${data.comments[index].content}</p>
+                                    </div>
+                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
+                                        <div class="comment-meta">
+                                            <span class="info mr-2"><i
+                                                    class="iconfont icon-time mr-1"></i><time
+                                                    itemprop="datePublished"
+                                                    datetime="${data.comments[index].created_time}"></time>
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill"></div>
+                                        <a rel="nofollow" class="comment-reply-link" href="#respond"
+                                           data-comment-id="${data.comments[index].comment_id}"
+                                           data-comment-content='${data.comments[index].content}'
+                                           aria-label="回复给 @${data.comments[index].user.username}">回复</a></div>
+                                </section>
+                            </div>
+                        `;
+								comment += load_children(data, data.comments[index].comment_id.toString());
+								comment += '</li><!-- #comment-## -->';
+								comments_list += comment;
+							}
+						}
+						comments_list += '</ul>';
+						try {
+							if (data !== null && data.comments.length >= 10) {
+								comments_list += `
+                            <div class="text-center">
+                                <button class="pixel-btn" id="load_more_comments"
+                                        onclick="load_comments(0, 1)">
+                                    加载更多
+                                </button>
+                            </div>
+                        `;
+							}
+						} catch (e) {
+						}
+					}
+					if (remove_load_btn === 1) {
+						try {
+							document.getElementById('load_more_comments').parentElement.remove();
+						} catch (e) {
+						}
+					}
+					document.getElementById('comment-box').innerHTML += comments_list;
+					append_event();
+					format_time_block();
+				})
+			}
+
+			function load_children(data, id) {
+				let children_list = '<ul class="children">';
+				for (let index in data.comments) {
+					if ('{{ respond_comment }}' === 'software') {
+						if (data.comments[index].correlation_software === '') {
+							continue;
+						}
+					}
+					if ('{{ respond_comment }}' === 'article') {
+						if (data.comments[index].correlation_article === '') {
+							continue;
+						}
+					}
+					if (data.comments[index].parent_id === id && data.comments[index].comment_id !== id) {
+						children_list += `
+                        <li class="comment byuser bypostauthor odd alt depth-2 comment">
+                            <div class="comment_body d-flex flex-fill">
+                                <div class="profile mr-2 mr-md-3">
+                                    <img src="${data.comments[index].user.head_icon}"
+                                         width="96" height="96" alt="头像"
+                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
+                                </div>
+                                <section class="comment-text d-flex flex-fill flex-column">
+                                    <div class="comment-info d-flex align-items-center mb-1">
+                                        <div class="comment-author text-sm w-100">
+                                                <a    href='' class="user_link_${decrypt_param(data.comments[index].user.user_id.toString())}"
+                                                        onmouseout="default_href()"
+                                                        onmouseleave="default_href()"
+                                                        onmousemove="re_href_user(decrypt_param('${data.comments[index].user.user_id}'))"
+                                                        target="_blank"
+                                                        rel="nofollow noopener noreferrer" class="url">${data.comments[index].user.username}</a>
+                                                <span class="rank"
+                                                          title="角色：${data.comments[index].user.role}">${data.comments[index].user.role}</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content d-inline-block text-sm">
+                                        <p>${data.comments[index].content}</p>
+                                    </div>
+                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
+                                        <div class="comment-meta">
+                                            <span class="info mr-2"><i
+                                                    class="iconfont icon-time mr-1"></i><time
+                                                    itemprop="datePublished"
+                                                    datetime="${data.comments[index].created_time}"></time>
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill"></div>
+                                    </div>
+                                </section>
+                            </div>
+                        </li><!-- #comment-## -->
+				`;
+					}
+				}
+				children_list += '</ul><!-- .children -->';
+				return children_list;
+			}
+
+			function validate_comment() {
+				let comment = document.getElementById('comment').value;
+				let warning_msg = [];
+				if ($('#user-link').text() === '' || $('#user-link').text() === undefined) {
+					Swal.fire({
+						icon: 'error',
+						title: '请先登录！',
+					})
+					return false;
+				}
+				if (!/^[^<>][0-9A-Za-z\u4e00-\u9fa5]{5,150}$/.test(comment)) {
+					warning_msg[0] = '评论内容长度为5-200个字符的中文、数字或英文！';
+				}
+				if ($('#software_id').val() === '0' && $('#article_id').val() === '0') {
+					warning_msg['1'] = '评论对象不存在！';
+				}
+				if ($('#action').val() !== 'publish' && $('#action').val() !== 'reply') {
+					warning_msg['2'] = '评论操作不合法！';
+				}
+				if ($('#comment_parent').val() !== '0') {
+					try {
+						decrypt_param($('#comment_parent').val());
+					} catch (e) {
+						warning_msg['3'] = '评论对象不存在！';
+					}
+				}
+				if (warning_msg.length > 0) {
+					Swal.fire({
+						icon: 'error',
+						title: warning_msg.join('\n'),
+					})
+					return false;
+				}
+				return true;
+			}
+
+			function append_event() {
+				$('.comment-reply-link').on('click', function () {
+					$('#respond-btn').text('回复评论');
+					$('#action').val('reply');
+					$('#comment_parent').val(decrypt_param($(this).attr('data-comment-id')));
+					$('#comment').attr('placeholder', $(this).attr('aria-label') + ' ' + $(this).attr('data-comment-content'));
+				});
+				$('#reset-btn').on('click', function () {
+					$('#respond-btn').text('发表评论');
+					$('#action').val('publish');
+					$('#comment_parent').val('0');
+					$('#comment').attr('placeholder', '输入评论内容...');
+				});
+			}
+
+			$(document).ready(function () {
+				append_event();
+			})
+
+			function submit_comment() {
+				event.preventDefault();
+				if (!validate_comment()) {
+					return;
+				} else {
+					$('#software_id').val(encrypt_param($('#software_id').val()));
+					$('#article_id').val(encrypt_param($('#article_id').val()));
+					$('#comment_parent').val(encrypt_param($('#comment_parent').val()));
+				}
+				let options = {
+					url: '/commentswitharticles/api/publish/comment/',
+					type: 'post',
+					dataType: 'json',
+					data: $("#respond").children('form').serialize(),
+					success: function (data) {
+						if (data.code === 200) {
+							Swal.fire({
+								icon: 'success',
+								title: '评论已提交，审核后方可展示！',
+							})
+						} else {
+							Swal.fire({
+								icon: 'error',
+								title: '评论提交失败！',
+								text: data.code + ': ' + data.msg
+							})
+						}
+					},
+					error: function (error) {
+						Swal.fire({
+							icon: 'error',
+							title: error.code + ": " + error.msg
+						})
+					}
+				}
+				$.ajax(options);
+				$('#software_id').val(decrypt_param($('#software_id').val()));
+				$('#article_id').val(decrypt_param($('#article_id').val()));
+				$('#comment_parent').val(decrypt_param($('#comment_parent').val()));
+				{#comment_form.submit();#}
+			}
+        </script>
+        <!-- comments end -->
     </div>
 {% endblock %}
 {% block script %}
-    <script>
-		{% if error %}
-			$(document).ready(function () {
-				Swal.fire({
-					icon: 'error',
-					title: '错误',
-					text: '{{ code }}:  {{ error }}!',
-					confirmButtonText: '我已了解！'
-				}).then(function () {
-					window.history.back();
-				})
-			})
-		{% endif %}
-    </script>
 {% endblock %}

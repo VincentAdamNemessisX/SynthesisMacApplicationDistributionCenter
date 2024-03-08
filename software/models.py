@@ -1,4 +1,8 @@
+from datetime import timedelta
+from django.utils import timezone
+from zoneinfo import ZoneInfo
 from django.db import models
+from general.common_compute import get_hot_volume_of_software
 
 
 # Create your models here.
@@ -38,6 +42,18 @@ class SoftWare(models.Model):
         if len(self.description) > max_length:
             return f"{self.description[:max_length]}..."
         return self.description
+
+    def is_recent(self):
+        # 返回一个布尔值，表示该软件是否是在 24 小时内发布的
+        # 使用 timezone 模块和 zoneinfo 模块来处理时区信息
+        # 假设您的时区是 Asia/Shanghai
+        tz = ZoneInfo('Asia/Shanghai')
+        now = timezone.now().astimezone(tz)
+        return self.created_time.astimezone(tz) >= now - timedelta(days=1)
+
+    def is_hot(self):
+        # 返回一个布尔值，表示该软件是否是热门软件
+        return get_hot_volume_of_software(self, 1) > 30000
 
     class SoftwareScreenShots(models.Model):
         id = models.AutoField(primary_key=True)

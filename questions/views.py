@@ -153,4 +153,5 @@ def get_specific_question(request):
 
 @require_GET
 def question(request):
-    return render(request, 'question.html')
+    return render(request, 'question.html', {
+    })

@@ -120,6 +120,8 @@ def category(request):
                                 'view_volume': software.view_volume,
                                 'download_volume': software.download_volume,
                                 'thumbs_volume': software.thumbs_volume,
+                                'is_hot': software.is_hot(),
+                                'is_recent': software.is_recent(),
                             } for software in current_category.software_set.all().filter(state=2)[9:]
                         ],
                     'software_set_count': len(current_category.software_set.all().filter(state=2)[9:]),

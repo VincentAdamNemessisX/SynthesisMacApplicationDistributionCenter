@@ -152,6 +152,13 @@
                                                                        onmouseout="default_href()"
                                                                        onmousemove="re_href_software('{{ software.id }}')"
                                                                        class="text-md overflowClip_1 software_link_{{ software.id }}">
+                                                                        {% if software.is_recent %}
+                                                                            <span style="vertical-align: middle"
+                                                                                  class="badge vc-red text-ss mr-1"
+                                                                                  title="新">N</span>
+                                                                        {% elif software.is_hot %}
+                                                                            👍
+                                                                        {% endif %}
                                                                         {{ software.name }}
                                                                         <span class="text-xs"> - {{ software.version }}</span>
                                                                     </a>
@@ -182,7 +189,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="app-platform">
-{#                                                                {{ software.platform }}#}
+                                                                {#                                                                {{ software.platform }}#}
                                                             </div>
                                                         </div>
                                                     </div>
