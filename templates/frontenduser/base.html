@@ -553,19 +553,30 @@
 	})
 	
 	$(document).ready(function () {
-		setTimeout(function () {
-			document.body.classList.add('animated', 'fadeIn');
-			document.body.style.visibility = 'visible';
-			document.getElementsByClassName('loading_container')[0].classList.add('animated', 'fadeOut');
-			document.getElementsByClassName('loading_container')[0].style.visibility = 'hidden';
-		}, 1000);
+		try {
+			let timeOut = 0;
+			if (document.getElementsByClassName('loading_container').length >= 0) {
+				timeOut = 1000;
+				setTimeout(function () {
+					document.body.classList.add('animated', 'fadeIn');
+					document.body.style.visibility = 'visible';
+					let loading_container = document.getElementsByClassName('loading_container')[0];
+					if (loading_container !== undefined) {
+						loading_container.classList.add('animated', 'fadeOut');
+						loading_container.style.visibility = 'hidden';
+					}
+				}, timeOut);
+			}
+		} catch (e) {
+		}
 	});
 </script>
 
 {# append main-content-footer into main-content#}
 <script>
 	$(document).ready(function () {
-		document.getElementsByClassName('main-content')[0].innerHTML += `
+		try {
+			document.getElementsByClassName('main-content')[0].innerHTML += `
 		   <div class="main-footer footer-stick container container-fluid customize-width pt-4 pb-3 footer-type-big"
              style="">
             <div class="footer-inner card rounded-xl m-0">
@@ -635,6 +646,8 @@
             </div>
         </div>
 		`;
+		} catch (e) {
+		}
 	})
 </script>
 

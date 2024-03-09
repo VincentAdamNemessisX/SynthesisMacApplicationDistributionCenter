@@ -578,7 +578,7 @@ select {
     padding: 8px 32px 10px 16px;
     border: 1px solid #e7e7e9;
     background-color: #fff;
-    background-image: url(../fonts/'data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="9.419" y1="0.469661" x2="4.46925" y2="5.41941" stroke="%23999" stroke-width="1.5"/><line x1="5.53022" y1="5.4194" x2="0.580469" y2="0.469651" stroke="%23999" stroke-width="1.5"/></svg>');
+    background-image: url(../fonts/ 'data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="9.419" y1="0.469661" x2="4.46925" y2="5.41941" stroke="%23999" stroke-width="1.5"/><line x1="5.53022" y1="5.4194" x2="0.580469" y2="0.469651" stroke="%23999" stroke-width="1.5"/></svg>');
     background-repeat: no-repeat;
     background-position: calc(100% - 16px) 50%;
     background-size: 10px 6px;
@@ -5888,12 +5888,25 @@ main {
     padding: 0 20px
 }
 
+@media (min-width: 300px) {
+    .content {
+        height: 100%;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
 @media (min-width: 960px) {
     main {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-positive: 1;
         flex-grow: 1;
+        flex-direction: unset;
         -ms-flex-align: center;
         align-items: center;
         -ms-flex-pack: center;

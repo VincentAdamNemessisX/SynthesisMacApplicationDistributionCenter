@@ -1,76 +1,321 @@
+{% extends 'frontenduser/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="facebook-domain-verification" content="14yui0t6bj9n8uz4d48a2snpt3cvnz">
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token"
-          content="Ybsgc4y5BauGgYhf5n0WUDeHo9Z5XmWny4Equ3o2JRZFZspvWMkixoBiNBgcWlODe35uwBLPoxrdFkGDqW3Tvw==">
-    <title>
-        Mac软件分享平台 登录
-    </title>
+{% block title %}
+    Mac软件分享平台 登录
+{% endblock %}
+{% block style %}
     <link rel="stylesheet" media="screen"
           href="{% static 'login/css/' %}auth.css">
     <link rel="stylesheet" href="{% static 'front/css/sweetalert2.css' %}">
-    <meta name="mixpanel-action" content="new">
     <link href="{% static 'login/css/' %}css2.css" rel="stylesheet">
-</head>
-
-<body class="logged-out not-pro not-player not-self not-team not-on-team no-hiring  js-connect-with-application show-register-container connect-with-application">
-
-<div id="main-container">
-    <section class="auth-sidebar">
-        <div class="auth-sidebar-content">
-            <video playsinline="" class="auth-sidebar-video" autoplay="" loop="" muted=""
-                   src="{% static 'login/assets/login.mp4' %}">
-            </video>
-        </div>
-    </section>
-    <section class="content" data-content-container="">
-        <main>
-            <div class="auth-content">
-                <h2 class="font-heading-2" style="text-align: center">登录</h2>
-                <div class="auth-register-container auth-form signup-form">
-                    <form class=" gen-form with-messages signup"
-                          accept-charset="UTF-8" method="post">
-                        {% csrf_token %}
-                        <div class="form-field">
-                            <fieldset class="user_login">
-                                <label for="user_login">用户名</label>
-                                <input autocomplete="username"
-                                       autofocus
-                                       class="text-input" type="text"
-                                       name="login" id="user_login">
-                            </fieldset>
-                        </div>
-                        <div class="form-field">
-                            <fieldset class="user_password">
-                                <label for="user_password">密码</label><input
-                                    class="text-input" placeholder="请输入密码"
-                                    type="password" name="password"
-                                    autocomplete="password"
-                                    id="user_password">
-                            </fieldset>
-                        </div>
-                        <div class="form-btns">
-                            <input type="submit" name="commit" value="登录"
-                                   class="btn2 btn2--large btn2--full-width margin-t-20">
-                        </div>
-                        <p class="auth-link color-deep-blue-sea-light-20">
-                            还没有账号? <a href="" onclick="change_type(2)">注册</a>
-                        </p>
-                    </form>
-                </div>
+    <style>
+        .auth-link a {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="loading_container">
+        <div class="loading"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <body class="logged-out not-pro not-player not-self not-team not-on-team no-hiring  js-connect-with-application show-register-container connect-with-application">
+    <div id="main-container">
+        <section class="auth-sidebar">
+            <div class="auth-sidebar-content">
+                <video playsinline="" class="auth-sidebar-video" autoplay="" loop="" muted=""
+                       src="{% static 'login/assets/login.mp4' %}">
+                </video>
             </div>
-        </main>
-    </section>
-</div>
-<script src="{% static 'front/js/' %}jquery.min.js"></script>
-<script src="{% static '' %}front/extend_js/crypto-js.min.js"></script>
-<script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
-<script src="{% static 'front/extend_js/general.js' %}"></script>
-<script src="{% static 'front/extend_js/query_api.js' %}"></script>
-</body>
-</html>
+        </section>
+        <section class="content" data-content-container="">
+            <main>
+                <div class="auth-content">
+                    <h2 id='title' class="font-heading-2" style="text-align: center">登录</h2>
+                    <div class="auth-register-container auth-form signup-form">
+                        <form class=" gen-form with-messages signup" id="login"
+                              accept-charset="UTF-8" method="post">
+                            <div class="form-field">
+                                <fieldset class="user_login">
+                                    <label for="username">用户名</label>
+                                    <input autocomplete="username"
+                                           autofocus onfocusout="validate_username(this.value)"
+                                           class="text-input" type="text"
+                                           name="username" id="username">
+                                </fieldset>
+                            </div>
+                            <div class="form-field">
+                                <fieldset class="user_password">
+                                    <label for="user_password">密码</label><input
+                                        class="text-input password" placeholder="请输入密码"
+                                        type="password" name="password"
+                                        onfocusout="validate_password(this.value)"
+                                        autocomplete="password"
+                                        id="user_password">
+                                </fieldset>
+                            </div>
+                            <div class="form-btns">
+                                <input type="button" onclick="login()" value="登录"
+                                       class="btn2 btn2--large btn2--full-width margin-t-20">
+                            </div>
+                            <p class="auth-link color-deep-blue-sea-light-20">
+                                还没有账号? <a onclick="change_type(2)">去注册</a>
+                            </p>
+                        </form>
+                    </div>
+                    <div class="auth-register-container auth-form signup-form">
+                        <form class=" gen-form with-messages signup" id="register"
+                              accept-charset="UTF-8" method="post">
+                            {% csrf_token %}
+                            <div class="form-field">
+                                <fieldset class="user_login">
+                                    <label for="register_username">用户名</label>
+                                    <input autocomplete="username"
+                                           autofocus onfocusout="validate_username(this.value)"
+                                           class="text-input" type="text"
+                                           id="register_username" name="username">
+                                </fieldset>
+                            </div>
+                            <div class="form-field">
+                                <fieldset class="user_password">
+                                    <label for="user_password">密码</label><input
+                                        class="text-input" placeholder="请输入密码"
+                                        type="password" name="password"
+                                        autocomplete="password"
+                                        onfocusout="validate_password(this.value)"
+                                        id="register_password">
+                                </fieldset>
+                            </div>
+                            <div class="form-field">
+                                <fieldset class="user_password">
+                                    <label for="register_repeat_password">重复密码</label><input
+                                        class="text-input" placeholder="请输入密码"
+                                        type="password" name="password_repeat"
+                                        autocomplete="password"
+                                        onfocusout="validate_repeat_password(this.parentElement.parentElement.previousElementSibling.children[0].children[1].value, this.value)"
+                                        id="register_repeat_password">
+                                </fieldset>
+                            </div>
+                            <div class="form-btns">
+                                <input type="button" value="注册" onclick="register()"
+                                       class="btn2 btn2--large btn2--full-width margin-t-20">
+                            </div>
+                            <p class="auth-link color-deep-blue-sea-light-20">
+                                已有账号? <a onclick="change_type(1)">去登录</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'front/js/' %}jquery.min.js"></script>
+    <script src="{% static '' %}front/extend_js/crypto-js.min.js"></script>
+    <script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
+    <script src="{% static 'front/extend_js/general.js' %}"></script>
+    <script src="{% static 'front/extend_js/query_api.js' %}"></script>
+    <script>
+		function change_type(type = 1) {
+			let title = $('#title');
+			let login_form = $('#login');
+			let register_form = $('#register');
+			if (type === 1) {
+				title.text('登录');
+				login_form.attr('style', 'display: block');
+				register_form.attr('style', 'display: none');
+			} else if (type === 2) {
+				title.text('注册');
+				login_form.attr('style', 'display: none');
+				register_form.attr('style', 'display: block');
+			}
+		}
+
+		$(document).ready(e => {
+			change_type(1);
+			$('footer').remove();
+		})
+
+
+		function validate_username(username) {
+			if (username.length < 3) {
+				showAlert({status: 3, msg: '用户名长度不能小于3位'});
+				return false;
+			}
+			if (username.length > 20) {
+				showAlert({status: 3, msg: '用户名长度不能大于20位'});
+				return false;
+			}
+			if (!/^[a-zA-Z0-9@*%$#]+$/.test(username)) {
+				showAlert({status: 3, msg: '用户名只能包含字母、数字、@、*、%、$、#'});
+			}
+			return true;
+		}
+
+		function validate_password(password) {
+			if (password.length < 6) {
+				showAlert({status: 3, msg: '密码长度不能小于6位'})
+				return false;
+			}
+			if (password.length > 20) {
+				showAlert({status: 3, msg: '密码长度不能大于20位'})
+				return false;
+			}
+			if (!/^[a-zA-Z0-9@*%$#]+$/.test(password)) {
+				showAlert({status: 3, msg: '密码只能包含字母、数字、@、*、%、$、#'});
+				return false;
+			}
+			return true;
+		}
+
+		function validate_repeat_password(password, repeat_password) {
+			if (password !== repeat_password) {
+				showAlert({status: 3, msg: '两次密码不一致'})
+				return false;
+			}
+			return true;
+		}
+
+		function validate_email(email) {
+			if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9]+)+$/.test(email)) {
+				showAlert({status: 3, msg: '邮箱格式不正确'});
+				return false;
+			}
+			return true;
+		}
+
+		function validate_nickname(nickname) {
+			if (nickname.length < 3) {
+				showAlert({status: 3, msg: '昵称长度不能小于3位'})
+				return false;
+			}
+			if (nickname.length > 20) {
+				showAlert({status: 3, msg: '昵称长度不能大于20位'})
+				return false;
+			}
+			if (!/^[\u4e00-\u9fa5a-zA-Z0-9@*%$#]+$/.test(nickname)) {
+				showAlert({status: 3, msg: '昵称只能包含中文、字母、数字、@、*、%、$、#'});
+				return false;
+			}
+			return true;
+		}
+
+		function validate_head_icon(icon_element) {
+			let icon = icon_element.files[0];
+			if (icon.size > 1024 * 1024 * 10) {
+				showAlert({status: 3, msg: '头像大小不能超过10M'});
+				return false;
+			}
+			if (icon.type !== 'image/jpeg' && icon.type !== 'image/png') {
+				showAlert({status: 3, msg: '头像格式只能是jpg或png'});
+				return false;
+			}
+			return true;
+		}
+
+		function validate_login() {
+			let username = $('#username').val();
+			let password = $('#user_password').val();
+			let username_result = validate_username(username);
+			if (username_result !== true) {
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查用户名格式是否正确'
+				})
+				return false;
+			}
+			let password_result = validate_password(password);
+			if (password_result !== true) {
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查密码格式是否正确'
+				})
+				return false;
+			}
+			return true;
+		}
+
+		function validate_register() {
+			let username = $('#username_register').val();
+			let password = $('#user_password').val();
+			let repeat_password = $('#repeat_password').val();
+			let email = $('#email').val();
+			let nickname = $('#nickname').val();
+			let icon_element = $('#head_icon');
+			let username_result = validate_username(username);
+			if (username_result !== true) {
+				swal('错误', username_result, 'error');
+				return false;
+			}
+			let password_result = validate_password(password);
+			if (password_result !== true) {
+				swal('错误', password_result, 'error');
+				return false;
+			}
+			let repeat_password_result = validate_repeat_password(password, repeat_password);
+			if (repeat_password_result !== true) {
+				swal('错误', repeat_password_result, 'error');
+				return false;
+			}
+			let email_result = validate_email(email);
+			if (email_result !== true) {
+				swal('错误', email_result, 'error');
+				return false;
+			}
+			let nickname_result = validate_nickname(nickname);
+			if (nickname_result !== true) {
+				swal('错误', nickname_result, 'error');
+				return false;
+			}
+			let icon_result = validate_head_icon(icon_element);
+			if (icon_result !== true) {
+				swal('错误', icon_result, 'error');
+				return false;
+			}
+			return true;
+		}
+
+		function login() {
+			let result = validate_login();
+			if (result !== true) {
+				return false;
+			}
+			fetch('/frontenduser/api/login/', {
+				method: 'POST', // 指定请求方法
+				mode: 'cors', // 请求的模式
+				cache: 'default', // 缓存模式
+				credentials: 'same-origin', // 是否应该发送Cookie
+				headers: {
+					'Content-Type': 'application/json', // 请求的内容类型
+					'X-CSRFToken': '{{ csrf_token }}' // CSRF令牌
+				},
+				redirect: 'follow', // 重定向模式
+				referrerPolicy: 'no-referrer', // 引用策略
+				body: JSON.stringify({'username': encrypt_param($('input[name=username]').val()),
+                    'password': encrypt_param($('input[name=password]').val())}) // 请求的主体
+			}).then(response => response.json()).then(data => {
+				if (data.code === 200) {
+					swal.fire({
+						icon: 'success',
+						title: '成功',
+						text: '登录成功'
+					}).then(() => {
+						window.location.href = '{{ request.GET.redirect_to }}' || '/';
+					})
+				} else {
+					swal.fire({
+						icon: 'error',
+						title: '错误',
+						text: data.msg
+					})
+				}
+			})
+		}
+
+		function register() {
+		}
+
+    </script>
+{% endblock %}

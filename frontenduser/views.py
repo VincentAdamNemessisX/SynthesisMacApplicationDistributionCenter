@@ -1,10 +1,16 @@
 # Create your views here.
+import json
+from django.contrib.auth import login as django_login, logout as django_logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import make_password, check_password
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
-from general.init_cache import ( get_specific_user_articles_by_username,
+from frontenduser.models import FrontEndUser
+from general.encrypt import decrypt
+from general.init_cache import (get_specific_user_articles_by_username, get_all_user,
                                 get_specific_user_software_by_username)
 
 
@@ -279,7 +285,42 @@ def get_specific_user_favorite_software(request):
 #     return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'})
 
 
+@require_GET
 def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
     return render(request, '404.html')
+
+
+@require_GET
+@login_required
+def logout(request):
+    if request.method == 'GET':
+        redirect_to = request.GET.get('redirect_to', '/')
+        if request.session.get('logon_user'):
+            del request.session['logon_user']
+        return redirect(redirect_to)
+    return render(request, '404.html')
+
+
+@router.path('api/login/')
+@require_POST
+def login_handler(request):
+    if request.method == 'POST':
+        post_data = json.loads(request.body)
+        username = post_data.get('username')
+        password = post_data.get('password')
+        if username and password:
+            username, password = decrypt(username), decrypt(password)
+            user = [x for x in get_all_user() if x.username == username
+                    and check_password(password, x.django_user.password)]
+            if len(user) > 1:
+                return JsonResponse({'code': 401, 'msg': 'failed with wrong user or invalid params'}, status=401)
+            if len(user) <= 0:
+                return JsonResponse({'code': 404, 'msg': 'failed with no matched user or wrong password'}, status=401)
+            if len(user) == 1:
+                django_login(request, user[0].django_user)
+                request.session['logon_user'] = user[0]
+                return JsonResponse({'code': 200, 'msg': 'success'}, status=200)
+        return JsonResponse({'code': 401, 'msg': 'failed with invalid params'}, status=401)
+    return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'}, status=400)

@@ -47,5 +47,6 @@ urlpatterns = [
                   path('question/', question),
                   path('software/details/', software_details),
                   path('login/', login),
+                    path('logout/', logout),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT

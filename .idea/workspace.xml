@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended localstorage to save sidebar status">
-      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/03/2024-03-08-20-46-29-ls.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-08-20-46-29-3).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/software/screenshots/2024/03/2024-03-08-20-46-29-OS.png" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="attempted to filled question page but failed;&#10;optimized login and register page code">
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/category/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/static/login/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/static/login/css/auth.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontenduser/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/questions/templates/question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -307,15 +302,9 @@
       <workItem from="1709816469149" duration="9205000" />
       <workItem from="1709826710305" duration="7352000" />
       <workItem from="1709898863690" duration="8335000" />
-      <workItem from="1709907679600" duration="4390000" />
-    </task>
-    <task id="LOCAL-00012" summary="restructured urls with views map from django_router module;&#10;optimized apis.js request url">
-      <option name="closed" value="true" />
-      <created>1705750929687</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1705750929687</updated>
+      <workItem from="1709907679600" duration="4643000" />
+      <workItem from="1709969476945" duration="316000" />
+      <workItem from="1709982363083" duration="20020000" />
     </task>
     <task id="LOCAL-00013" summary="All database query method instead of redis cache;&#10;optimized some models.py fields">
       <option name="closed" value="true" />
@@ -701,7 +690,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709901320113</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="attempted to filled question page but failed;&#10;optimized login and register page code">
+      <option name="closed" value="true" />
+      <created>1709912285429</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1709912285430</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +707,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished thumb function;&#10;finished de thumb function;" />
     <MESSAGE value="overed category module" />
     <MESSAGE value="finished some software_details page content filled" />
     <MESSAGE value="cut down qrcode shown&#10;finished main content;&#10;with software_details page" />
@@ -735,7 +731,8 @@
     <MESSAGE value="updated handle image upload logic" />
     <MESSAGE value="finished home page" />
     <MESSAGE value="appended localstorage to save sidebar status" />
-    <option name="LAST_COMMIT_MESSAGE" value="appended localstorage to save sidebar status" />
+    <MESSAGE value="attempted to filled question page but failed;&#10;optimized login and register page code" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempted to filled question page but failed;&#10;optimized login and register page code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1709659427843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
