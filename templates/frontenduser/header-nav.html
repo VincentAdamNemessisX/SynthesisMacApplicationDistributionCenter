@@ -64,11 +64,12 @@
                 </div>
                 <ul class="nav navbar-menu text-xs order-1 order-md-2 position-relative">
                     {% if request.session.logon_user %}
-                        <li class="nav-search ml-3 ml-md-4">
+                        <li class="ml-3 ml-md-4">
                             <a href="" class="user_link_{{ request.session.logon_user.id }}"
                                onmouseout="default_href()" onmouseleave="default_href()"
                                onmousemove="re_href_user('{{ request.session.logon_user.id }}')">
-                                <img alt="head_icon" style="width: 1.8em; height: 1.8em; border-radius: 50%" class="icon icon-fw"
+                                <img alt="head_icon" style="width: 1.8em; height: 1.8em; border-radius: 50%"
+                                     class="icon icon-fw"
                                      src="{{ request.session.logon_user.head_icon.url }}">
                                 <span class="align-middle"
                                       style="font-size: 14px; font-weight: 650; color: black;">
@@ -80,9 +81,8 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-search ml-3 ml-md-4">
-                            <a href="/logout?redirect_to={{ request.path }}" data-toggle="modal"
-                               data-target="#search-modal">
+                        <li class="ml-3 ml-md-4">
+                            <a href="/logout?redirect_to={{ request.path }}">
                                 <svg t="1710002763211" style="width: 1.5em; height: 1.5em;" class="icon icon-fw"
                                      viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                      p-id="6033"
@@ -115,6 +115,7 @@
                             </a>
                         </li>
                     {% endif %}
+                    
                     <li class="nav-search ml-3 ml-md-4">
                         <a href="javascript:" data-toggle="modal" data-target="#search-modal"><i
                                 class="iconfont icon-search icon-lg"></i></a>
