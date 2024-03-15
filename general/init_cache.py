@@ -1,5 +1,6 @@
 from django.core.cache import cache
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from announcements.models import Announcements
 from category.models import Category
 from commentswitharticles.models import Comment, Article
@@ -242,3 +243,53 @@ def get_category_tags(category_id):
     else:
         # 如果缓存中找到了
         return unique_tags
+
+
+@receiver(post_save, sender=FrontEndUser)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在FrontEndUser保存后刷新相关缓存
+    cache.delete('specific_user_articles')
+    cache.delete('all_user')
+    cache.delete('specific_user_software')
+
+
+@receiver(post_save, sender=Announcements)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Announcements保存后刷新相关缓存
+    cache.delete('notices')
+
+
+@receiver(post_save, sender=Comment)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Comment保存后刷新相关缓存
+    cache.delete('comments')
+
+
+@receiver(post_save, sender=Article)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Article保存后刷新相关缓存
+    cache.delete('all_articles')
+    cache.delete('specific_user_articles')
+    cache.delete('hot_articles')
+
+
+@receiver(post_save, sender=SoftWare)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在SoftWare保存后刷新相关缓存
+    cache.delete('all_software')
+    cache.delete('specific_user_software')
+    cache.delete('hot_software')
+    cache.delete(f'category_{instance.category_id}_tags')
+
+
+@receiver(post_save, sender=Questions)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Questions保存后刷新相关缓存
+    cache.delete('all_questions')
+
+
+@receiver(post_save, sender=Category)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Category保存后刷新相关缓存
+    cache.delete('categories')
+    cache.delete(f'category_{instance.id}_tags')

@@ -12,6 +12,27 @@
         .auth-link a {
             cursor: pointer;
         }
+
+        .head_icon {
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        .head_icon img {
+            max-width: 100%;
+        }
+
+        .upload_img {
+            width: 96px;
+            height: 96px;
+            background-color: transparent;
+        }
+
+        .upload_img .show_ico {
+            width: 100%;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -31,6 +52,7 @@
             <main>
                 <div class="auth-content">
                     <h2 id='title' class="font-heading-2" style="text-align: center">登录</h2>
+                    {# login form #}
                     <div class="auth-register-container auth-form signup-form">
                         <form class=" gen-form with-messages signup" id="login"
                               accept-charset="UTF-8" method="post">
@@ -62,10 +84,23 @@
                             </p>
                         </form>
                     </div>
+                    {#register form#}
                     <div class="auth-register-container auth-form signup-form">
                         <form class=" gen-form with-messages signup" id="register"
-                              accept-charset="UTF-8" method="post">
+                              accept-charset="UTF-8" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
+                            <div class="form-field head_icon">
+                                <div class="upload_img">
+                                    <div class="show_ico">
+                                        <img id="show_ico" class="show-sites"
+                                             src="/static/front/img/publication/add.png" alt="截图">
+                                        <i id="remove_ico" class="iconfont icon-close-circle remove-ico remove-sites"
+                                           style="display: none;" onclick="remove_img()"></i>
+                                    </div>
+                                    <input type="file" id="head_icon" name="head_icon" accept="image/*"
+                                           onchange="preview_img(); validate_head_icon(this)">
+                                </div>
+                            </div>
                             <div class="form-field">
                                 <fieldset class="user_login">
                                     <label for="register_username">用户名</label>
@@ -76,13 +111,31 @@
                                 </fieldset>
                             </div>
                             <div class="form-field">
+                                <fieldset class="user_login">
+                                    <label for="register_nickname">昵称</label>
+                                    <input autocomplete="nickname"
+                                           onfocusout="validate_nickname(this.value)"
+                                           class="text-input" type="text"
+                                           id="register_nickname" name="nickname">
+                                </fieldset>
+                            </div>
+                            <div class="form-field">
+                                <fieldset class="user_login">
+                                    <label for="register_email">邮箱</label>
+                                    <input autocomplete="nickname"
+                                           onfocusout="validate_email(this.value)"
+                                           class="text-input" type="text"
+                                           id="register_email" name="email">
+                                </fieldset>
+                            </div>
+                            <div class="form-field">
                                 <fieldset class="user_password">
-                                    <label for="user_password">密码</label><input
-                                        class="text-input" placeholder="请输入密码"
-                                        type="password" name="password"
-                                        autocomplete="password"
-                                        onfocusout="validate_password(this.value)"
-                                        id="register_password">
+                                    <label for="user_password">密码</label>
+                                    <input class="text-input" placeholder="请输入密码"
+                                           type="password" name="password"
+                                           autocomplete="password"
+                                           onfocusout="validate_password(this.value)"
+                                           id="register_password">
                                 </fieldset>
                             </div>
                             <div class="form-field">
@@ -185,29 +238,32 @@
 		}
 
 		function validate_nickname(nickname) {
-			if (nickname.length < 3) {
-				showAlert({status: 3, msg: '昵称长度不能小于3位'})
-				return false;
-			}
-			if (nickname.length > 20) {
-				showAlert({status: 3, msg: '昵称长度不能大于20位'})
-				return false;
-			}
-			if (!/^[\u4e00-\u9fa5a-zA-Z0-9@*%$#]+$/.test(nickname)) {
-				showAlert({status: 3, msg: '昵称只能包含中文、字母、数字、@、*、%、$、#'});
+			if (!/^[\u4e00-\u9fa5a-zA-Z0-9@*%$#]{0,20}$/.test(nickname)) {
+				showAlert({status: 3, msg: '昵称只能包含中文、字母、数字、@、*、%、$、#，且长度为0-20位'});
 				return false;
 			}
 			return true;
 		}
 
 		function validate_head_icon(icon_element) {
+			let icon_element_value = '';
+			try {
+				icon_element_value = icon_element.value || icon_element.val();
+			} catch (e) {
+			}
+			if (icon_element_value === '') {
+				showAlert({status: 3, msg: '请选择头像'});
+				return false;
+			}
 			let icon = icon_element.files[0];
 			if (icon.size > 1024 * 1024 * 10) {
 				showAlert({status: 3, msg: '头像大小不能超过10M'});
+				remove_img();
 				return false;
 			}
 			if (icon.type !== 'image/jpeg' && icon.type !== 'image/png') {
 				showAlert({status: 3, msg: '头像格式只能是jpg或png'});
+				remove_img();
 				return false;
 			}
 			return true;
@@ -238,40 +294,64 @@
 		}
 
 		function validate_register() {
-			let username = $('#username_register').val();
-			let password = $('#user_password').val();
-			let repeat_password = $('#repeat_password').val();
-			let email = $('#email').val();
-			let nickname = $('#nickname').val();
-			let icon_element = $('#head_icon');
+			let username = $('#register_username').val();
+			let nickname = $('#register_nickname').val();
+			let email = $('#register_email').val();
+			let password = $('#register_password').val();
+			let repeat_password = $('#register_repeat_password').val();
+			let icon_element = document.querySelector('#head_icon');
+			let icon_result = validate_head_icon(icon_element);
+			if (icon_result !== true) {
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查头像'
+				})
+				return false;
+			}
 			let username_result = validate_username(username);
 			if (username_result !== true) {
-				swal('错误', username_result, 'error');
-				return false;
-			}
-			let password_result = validate_password(password);
-			if (password_result !== true) {
-				swal('错误', password_result, 'error');
-				return false;
-			}
-			let repeat_password_result = validate_repeat_password(password, repeat_password);
-			if (repeat_password_result !== true) {
-				swal('错误', repeat_password_result, 'error');
-				return false;
-			}
-			let email_result = validate_email(email);
-			if (email_result !== true) {
-				swal('错误', email_result, 'error');
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查用户名格式是否正确'
+				})
 				return false;
 			}
 			let nickname_result = validate_nickname(nickname);
 			if (nickname_result !== true) {
-				swal('错误', nickname_result, 'error');
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查昵称格式是否正确'
+				})
 				return false;
 			}
-			let icon_result = validate_head_icon(icon_element);
-			if (icon_result !== true) {
-				swal('错误', icon_result, 'error');
+			let email_result = validate_email(email);
+			if (email_result !== true) {
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查邮箱格式是否正确'
+				})
+				return false;
+			}
+			let password_result = validate_password(password);
+			if (password_result !== true) {
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查密码格式是否正确'
+				})
+				return false;
+			}
+			let repeat_password_result = validate_repeat_password(password, repeat_password);
+			if (repeat_password_result !== true) {
+				swal.fire({
+					icon: 'error',
+					title: '错误',
+					text: '请检查两次密码是否一致'
+				})
 				return false;
 			}
 			return true;
@@ -293,8 +373,10 @@
 				},
 				redirect: 'follow', // 重定向模式
 				referrerPolicy: 'no-referrer', // 引用策略
-				body: JSON.stringify({'username': encrypt_param($('input[name=username]').val()),
-                    'password': encrypt_param($('input[name=password]').val())}) // 请求的主体
+				body: JSON.stringify({
+					'username': encrypt_param($('input[name=username]').val()),
+					'password': encrypt_param($('input[name=password]').val())
+				}) // 请求的主体
 			}).then(response => response.json()).then(data => {
 				if (data.code === 200) {
 					swal.fire({
@@ -315,7 +397,68 @@
 		}
 
 		function register() {
+			let result = validate_register();
+			if (result !== true) {
+				return false;
+			}
+			$.ajax({
+				url: '/frontenduser/api/register/',
+				type: 'POST',
+				data: new FormData($('#register')[0]),
+				processData: false,
+				contentType: false,
+				success: function (data) {
+					if (data.code === 200) {
+						Swal.fire({
+							title: '注册成功，是否立即登录?',
+							text: "是否选择现在马上登录，或者您可以选择稍后登录!",
+							icon: 'success',
+							showCancelButton: true,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: '立即登录',
+                            cancelButtonText: '稍后登录'
+						}).then((result) => {
+							if (result.value) {
+								change_type(1);
+							} else {
+								window.location.href = '{{ request.GET.redirect_to }}' || '/';
+                            }
+						})
+					} else {
+						swal.fire({
+							icon: 'error',
+							title: '错误',
+							text: data.code + ": " + data.msg
+						})
+					}
+				},
+				error: function (data) {
+					swal.fire({
+						icon: 'error',
+						title: '错误',
+						text: "后端接口异常，请联系站长！"
+					})
+				}
+			})
 		}
 
+		function preview_img() {
+			let tg = event.target;
+			let file = tg.files[0];
+			let reader = new FileReader();
+			reader.onloadend = function () {
+				tg.parentElement.children[0].children[0].src = reader.result;
+				tg.parentElement.children[0].children[1].setAttribute('style', 'display: block');
+			};
+			reader.readAsDataURL(file);
+		}
+
+		function remove_img() {
+			let tg = document.querySelector('#remove_ico');
+			tg.parentElement.children[0].src = '{% static 'front/img/publication/add.png' %}';
+			tg.setAttribute('style', 'display: none');
+			tg.parentElement.parentElement.children[1].value = '';
+		}
     </script>
 {% endblock %}

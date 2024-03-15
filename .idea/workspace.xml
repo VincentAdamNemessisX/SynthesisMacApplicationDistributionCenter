@@ -4,20 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;&#10;be attention with search icon that need to fixed bug that the logout link is covered by it">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="fixed the problem of logout in header-nav">
+      <change afterPath="$PROJECT_DIR$/media/user/IOS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/user/head_icon/2024/03/2024-03-15-14-19-03-OS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/user/tools.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-02.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-03.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-04.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-05.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-06.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-07.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-08.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-09.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-10.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-11.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-02.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-03.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-04.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-05.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-06.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-07.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-08.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-09.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-10.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/img/software_details/background/shape-11.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/templates/login&amp;register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,46 +79,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.AllYouWantMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
-    &quot;Django Server.SynthesisMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.software_details.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.test.html.executor&quot;: &quot;Run&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;Python.encrypt.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.views.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/img/icon&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.AllYouWantMacApplicationDistributionCenter.executor": "Run",
+    "Django Server.SynthesisMacApplicationDistributionCenter.executor": "Run",
+    "JavaScript Debug.software_details.html.executor": "Run",
+    "JavaScript Debug.test.html.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "Python.encrypt.executor": "Run",
+    "Python.tests.executor": "Run",
+    "Python.views.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/img/software_details/background",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img\software_details\background" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img\icon" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\media\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\components" />
@@ -312,15 +320,11 @@
       <workItem from="1709982363083" duration="20291000" />
       <workItem from="1710199106387" duration="872000" />
       <workItem from="1710337203181" duration="280000" />
-      <workItem from="1710337699535" duration="281000" />
-    </task>
-    <task id="LOCAL-00015" summary="optimized all models.py fields name and finished 70 percent api tasks">
-      <option name="closed" value="true" />
-      <created>1706198800318</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1706198800318</updated>
+      <workItem from="1710337699535" duration="1194000" />
+      <workItem from="1710392469720" duration="729000" />
+      <workItem from="1710409785046" duration="16961000" />
+      <workItem from="1710510053849" duration="73000" />
+      <workItem from="1710510141656" duration="2020000" />
     </task>
     <task id="LOCAL-00016" summary="renamed softwares to software">
       <option name="closed" value="true" />
@@ -706,7 +710,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710008377231</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="fixed the problem of logout in header-nav">
+      <option name="closed" value="true" />
+      <created>1710338169065</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1710338169066</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,7 +727,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="cut down qrcode shown&#10;finished main content;&#10;with software_details page" />
     <MESSAGE value="finished core of software details page;&#10;finished download modal;" />
     <MESSAGE value="finished related software into software_details page;&#10;finished related articles into software_details page;&#10;appended cover into article model and set default cover" />
     <MESSAGE value="appended official link into software details page;" />
@@ -740,7 +751,8 @@
     <MESSAGE value="attempted to filled question page but failed;&#10;optimized login and register page code" />
     <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;" />
     <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;&#10;be attention with search icon that need to fixed bug that the logout link is covered by it" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;&#10;be attention with search icon that need to fixed bug that the logout link is covered by it" />
+    <MESSAGE value="fixed the problem of logout in header-nav" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the problem of logout in header-nav" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1709659427843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

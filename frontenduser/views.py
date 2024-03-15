@@ -1,15 +1,17 @@
 # Create your views here.
 import json
-from django.contrib.auth import login as django_login, logout as django_logout
+
+from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
-
 from frontenduser.models import FrontEndUser
 from general.encrypt import decrypt
+from general.data_handler import handle_uploaded_image
 from general.init_cache import (get_specific_user_articles_by_username, get_all_user,
                                 get_specific_user_software_by_username)
 
@@ -288,7 +290,7 @@ def get_specific_user_favorite_software(request):
 @require_GET
 def login(request):
     if request.method == 'GET':
-        return render(request, 'login.html')
+        return render(request, 'login&register.html')
     return render(request, '404.html')
 
 
@@ -323,4 +325,85 @@ def login_handler(request):
                 request.session['logon_user'] = user[0]
                 return JsonResponse({'code': 200, 'msg': 'success'}, status=200)
         return JsonResponse({'code': 401, 'msg': 'failed with invalid params'}, status=401)
+    return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'}, status=400)
+
+
+@router.path(pattern='api/register/')
+@require_POST
+def register(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        nickname = request.POST.get('nickname') if request.POST.get('nickname') else None
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        repeat_password = request.POST.get('password_repeat')
+        if username and password and email and repeat_password:
+            if len(FrontEndUser.objects.filter(username=username)) > 0:
+                return JsonResponse({'code': 401, 'msg': 'failed with existed user'})
+            if password != repeat_password:
+                return JsonResponse({'code': 401, 'msg': 'failed with different password'})
+            try:
+                User(username=username, email=email, password=make_password(password)).save()
+                user = FrontEndUser(username=username, nickname=nickname,
+                                    django_user=User.objects.get(username=username, email=email),
+                                    state=2, role='普通用户')
+                user.save()
+            except Exception as e:
+                return JsonResponse({'code': 401, 'msg': str(e)}, status=401)
+            created_user = FrontEndUser.objects.get(username=username)
+            head_icon_path = handle_uploaded_image(request.FILES.get('head_icon'), 'user/head_icon/')
+            created_user.head_icon = head_icon_path
+            created_user.save()
+            return JsonResponse({'code': 200, 'msg': 'success'}, status=200)
+        return JsonResponse({'code': 401, 'msg': 'failed with invalid params'}, status=401)
+    return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'}, status=400)
+
+
+@router.path(pattern='api/update/')
+@login_required
+@require_POST
+def update_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        nickname = request.POST.get('nickname') if request.POST.get('nickname') else None
+        email = request.POST.get('email')
+        if username and email:
+            if len(FrontEndUser.objects.filter(username=username)) == 1:
+                try:
+                    django_user = User.objects.get(username=username)
+                    django_user.email = email if django_user.email != email else django_user.email
+                    django_user.save()
+                    user = User.objects.filter(username=username)\
+                        if User.objects.filter(username=username).count() == 1 else None
+                    user.nickname = nickname if user.nickname != nickname else user.nickname
+                    user.save()
+                except Exception as e:
+                    return JsonResponse({'code': 401, 'msg': str(e)}, status=401)
+                updated_user = FrontEndUser.objects.get(username=username)
+                head_icon_path = handle_uploaded_image(request.FILES.get('head_icon'), 'user/head_icon/')
+                if head_icon_path:
+                    updated_user.head_icon = head_icon_path
+                    updated_user.save()
+            return JsonResponse({'code': 200, 'msg': 'success'}, status=200)
+        else:
+            return JsonResponse({'code': 401, 'msg': 'failed with invalid params'}, status=401)
+    return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'}, status=400)
+
+
+@router.path(pattern='api/delete/')
+@login_required
+@require_POST
+def cancel_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        if username:
+            if len(FrontEndUser.objects.filter(username=username)) == 1:
+                try:
+                    user = User.objects.get(username=username)
+                    user.delete()
+                except Exception as e:
+                    return JsonResponse({'code': 401, 'msg': str(e)}, status=401)
+            return JsonResponse({'code': 200, 'msg': 'success'}, status=200)
+        else:
+            return JsonResponse({'code': 401, 'msg': 'failed with invalid params'}, status=401)
     return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'}, status=400)
