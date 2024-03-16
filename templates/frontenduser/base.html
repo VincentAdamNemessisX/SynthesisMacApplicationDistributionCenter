@@ -795,7 +795,11 @@
 				text: '{{ code }}:  {{ error }}!',
 				confirmButtonText: '我已了解！'
 			}).then(function () {
-				window.history.back();
+				{% if go_to %}
+					window.location.href = '{{ go_to }}';
+				{% else %}
+					window.history.back();
+				{% endif %}
 			})
 		})
 	{% endif %}

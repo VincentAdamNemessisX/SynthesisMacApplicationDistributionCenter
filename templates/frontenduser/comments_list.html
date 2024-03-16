@@ -17,15 +17,26 @@
                         <div id="comment-author-info" class="row  row-sm">
                             <div class="visitor-avatar d-flex mb-2">
                                 <img class="v-avatar rounded-circle"
-                                     src="{% static 'favicon.ico' %}"
+                                     src="{% if request.session.logon_user %}
+                                                {{ request.session.logon_user.head_icon.url }}
+                                            {% else %}
+                                                {% static 'favicon.ico' %}
+                                            {% endif %}"
                                      alt="">
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <a class="pixel-btn user_link_2 text-center" href=""
+                                <a class="pixel-btn user_link_{{ request.session.logon_user.id }} text-center"
                                    onmouseout="default_href()" onmouseleave="default_href()"
-                                   onmousemove="re_href_user('2')"
+                                   {% if request.session.logon_user %}
+                                        href=""
+                                        onmousemove="re_href_user('{{ request.session.logon_user.id }}')"
+                                   {% endif %}
                                    style="display: block; cursor: pointer; width: 15rem;" id="user-link">
-                                    VincentAdamNemessis{{ request.session.username }}
+                                    {% if request.session.logon_user %}
+                                        {{ request.session.logon_user.username }}
+                                    {% else %}
+                                        匿名用户
+                                    {% endif %}
                                 </a>
                             </div>
                         </div>

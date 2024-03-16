@@ -8,12 +8,10 @@ from django.views.decorators.http import require_POST, require_http_methods, req
 from django_router import router
 
 from commentswitharticles.models import Article
-from frontenduser.models import FrontEndUser
 from general.common_compute import get_context_articles, compute_similarity
 from general.data_handler import get_image_urls_from_md_str
 from general.encrypt import decrypt, encrypt
-from general.init_cache import (get_comments,
-                                get_matched_articles_by_article_id as g_a,
+from general.init_cache import (get_comments, get_all_user,
                                 get_all_articles as g_as, get_all_software as g_a_s)
 from software.models import SoftWare
 
@@ -215,7 +213,15 @@ def load_more_comments(request):
 def leave_comment(request):
     if request.method == 'POST':
         try:
-            user = FrontEndUser.objects.get(username='vincent')
+            user = [mat_user for mat_user in get_all_user()
+                    if mat_user.username == request.user.username]
+            if len(user) == 1:
+                user = user[0]
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'msg': '请先登录'
+                })
             content = request.POST.get('comment')
             correlation_article_id = int(decrypt(request.POST.get('article_id').encode('utf-8')))
             correlation_software_id = int(decrypt(request.POST.get('software_id').encode('utf-8')))
@@ -542,7 +548,15 @@ def thumb(request):
 def publish_article(request):
     if request.method == 'POST':
         try:
-            user = FrontEndUser.objects.get(username='vincent')
+            user = [mat_user for mat_user in get_all_user()
+                    if mat_user.username == request.user.username]
+            if len(user) == 1:
+                user = user[0]
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'msg': '请先登录'
+                })
             title = request.POST.get('title')
             content = request.POST.get('content')
             cover = get_image_urls_from_md_str(content)

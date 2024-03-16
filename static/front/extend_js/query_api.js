@@ -164,6 +164,7 @@ async function get_comments_for_software_or_articles(csrftoken, type, query_id, 
 			if (parseInt(full_data.code) === 200) {
 				return full_data.data;
 			} else {
+				if(parseInt(full_data.code) === 404) {return  null;}
 				console.log(full_data.code + ":" + full_data.msg);
 				return null;
 			}

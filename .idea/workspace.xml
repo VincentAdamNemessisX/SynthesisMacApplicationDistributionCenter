@@ -4,28 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="fixed the problem of logout in header-nav">
-      <change afterPath="$PROJECT_DIR$/media/user/IOS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/user/head_icon/2024/03/2024-03-15-14-19-03-OS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/user/tools.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-02.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-03.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-04.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-05.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-06.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-07.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-08.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-09.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-10.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/front/img/software_details/background/shape-11.svg" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page">
+      <change afterPath="$PROJECT_DIR$/error_handler/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error_handler/templates/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/user/head_icon/2024/03/2024-03-16-14-33-36-OS.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/templates/login&amp;register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_handler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/error_handler/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/query_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/query_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/comments_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/comments_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +35,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Setup Script" />
-        <option value="HTML File" />
         <option value="Python Script" />
         <option value="Less File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -324,15 +320,9 @@
       <workItem from="1710392469720" duration="729000" />
       <workItem from="1710409785046" duration="16961000" />
       <workItem from="1710510053849" duration="73000" />
-      <workItem from="1710510141656" duration="2020000" />
-    </task>
-    <task id="LOCAL-00016" summary="renamed softwares to software">
-      <option name="closed" value="true" />
-      <created>1706245965720</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1706245965720</updated>
+      <workItem from="1710510141656" duration="3074000" />
+      <workItem from="1710567426349" duration="403000" />
+      <workItem from="1710567849745" duration="6244000" />
     </task>
     <task id="LOCAL-00017" summary="appended get articles api">
       <option name="closed" value="true" />
@@ -718,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710338169066</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page">
+      <option name="closed" value="true" />
+      <created>1710512564104</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1710512564105</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,7 +725,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished core of software details page;&#10;finished download modal;" />
     <MESSAGE value="finished related software into software_details page;&#10;finished related articles into software_details page;&#10;appended cover into article model and set default cover" />
     <MESSAGE value="appended official link into software details page;" />
     <MESSAGE value="finished common component that named comments_list comments init loaded and all loaded" />
@@ -752,7 +749,8 @@
     <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;" />
     <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;&#10;be attention with search icon that need to fixed bug that the logout link is covered by it" />
     <MESSAGE value="fixed the problem of logout in header-nav" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the problem of logout in header-nav" />
+    <MESSAGE value="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1709659427843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

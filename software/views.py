@@ -1,4 +1,5 @@
 # Create your views here.
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
@@ -8,18 +9,29 @@ from frontenduser.models import FrontEndUser
 from general.common_compute import compute_similarity
 from general.data_handler import handle_uploaded_image
 from general.encrypt import decrypt
-from general.init_cache import get_software_by_software_id, get_all_software
+from general.init_cache import (get_software_by_software_id,
+                                get_all_software, get_all_user)
 from .models import SoftWare
 
 
 @router.path('publish/')
+@login_required
 @require_POST
 def publish_software(request):
     if request.method == "POST":
         software = None
         screen_shots_urls = []
         try:
-            user = FrontEndUser.objects.get(username='vincent')
+            user = [mat_user for mat_user in get_all_user()
+                    if mat_user.username == request.session.get('logon_user').username]
+            if len(user) == 1:
+                user = user[0]
+            else:
+                return render(request, 'frontenduser/publish_software.html', {
+                    'code': 404,
+                    'error': '请先登录',
+                    'go_to': '/login/'
+                })
             name = request.POST.get('name')
             version = request.POST.get('version')
             language = request.POST.get('language')

@@ -408,7 +408,7 @@
 			if (count < 2) {
 				msg.push('请至少上传两张软件截图！');
 			}
-			console.log(count);
+			{#console.log(count);#}
 			//check software name
 			if (!/^[\u4e00-\u9fa5A-Za-z0-9\s]{1,50}$/.test(name)) {
 				msg.push('软件名格式错误，要求为长度不超过50个字符的中文、英文、数字和空格！');

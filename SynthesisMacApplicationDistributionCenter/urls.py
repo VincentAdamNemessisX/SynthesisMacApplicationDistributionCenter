@@ -32,6 +32,10 @@ from commentswitharticles.views import *
 from questions.views import *
 from frontenduser.views import *
 from components.views import *
+from error_handler.views import *
+
+handler404 = custom_404_view
+handler500 = custom_500_view
 
 urlpatterns = [
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

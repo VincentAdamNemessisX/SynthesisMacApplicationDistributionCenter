@@ -233,6 +233,18 @@
 										window.location.href = '/commentswitharticles/publish?type=1';
 									}
 								});
+							} else if (data.code === 404) {
+								Swal.fire({
+									icon: 'error',
+									title: '提交失败',
+									text: data.msg,
+									showConfirmButton: true,
+									confirmButtonText: '我知道了'
+								}).then(result => {
+									if (result.value) {
+										window.location.href = '/login/';
+                                    }
+                                });
 							} else {
 								Swal.fire({
 									icon: 'error',

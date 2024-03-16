@@ -1,7 +1,7 @@
 # Create your views here.
 import json
 
-from django.contrib.auth import login as django_login
+from django.contrib.auth import login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.models import User
@@ -301,6 +301,7 @@ def logout(request):
         redirect_to = request.GET.get('redirect_to', '/')
         if request.session.get('logon_user'):
             del request.session['logon_user']
+            django_logout(request)
         return redirect(redirect_to)
     return render(request, '404.html')
 
