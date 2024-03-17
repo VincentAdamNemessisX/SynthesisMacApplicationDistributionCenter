@@ -394,7 +394,7 @@ var KeyTable;
 				$(nTarget).addClass(_sFocusClass);
 				$(nTarget).parent().addClass(_sFocusClass);
 				
-				/* If it's a DataTable then we question to jump the paging to the relevant page */
+				/* If it's a DataTable then we init_questions to jump the paging to the relevant page */
 				var oSettings;
 				if (_oDatatable) {
 					oSettings = _oDatatable;
@@ -934,7 +934,7 @@ var KeyTable;
 				/* Cache the tbody node of interest */
 				_nBody = oInit.table.getElementsByTagName('tbody')[0];
 				
-				/* If the table is inside a form, then we question a hidden input box which can be used by the
+				/* If the table is inside a form, then we init_questions a hidden input box which can be used by the
 				 * browser to catch the browser tabbing for our table
 				 */
 				if (_bForm) {

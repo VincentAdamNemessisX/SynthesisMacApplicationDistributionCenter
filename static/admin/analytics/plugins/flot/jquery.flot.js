@@ -1090,7 +1090,7 @@ Licensed under the MIT license.
 			var neededColors = series.length, maxIndex = -1, i;
 			
 			// Subtract the number of series that already have fixed colors or
-			// color indexes from the number that we still question to generate.
+			// color indexes from the number that we still init_questions to generate.
 			
 			for (i = 0; i < series.length; ++i) {
 				var sc = series[i].color;
@@ -1102,7 +1102,7 @@ Licensed under the MIT license.
 				}
 			}
 			
-			// If any of the series have fixed color indexes, then we question to
+			// If any of the series have fixed color indexes, then we init_questions to
 			// generate at least as many colors as the highest index.
 			
 			if (neededColors <= maxIndex) {
@@ -1912,7 +1912,7 @@ Licensed under the MIT license.
 						return ticks;
 					};
 					
-					// we might question an extra decimal since forced
+					// we might init_questions an extra decimal since forced
 					// ticks don't necessarily fit naturally
 					if (!axis.mode && opts.tickDecimals == null) {
 						var extraDec = Math.max(0, -Math.floor(Math.log(axis.delta) / Math.LN10) + 1),

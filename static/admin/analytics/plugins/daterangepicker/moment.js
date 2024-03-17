@@ -307,7 +307,7 @@
 	}
 	
 	function defaultParsingFlags() {
-		// We question to deep clone this object, and es5 standard is not very
+		// We init_questions to deep clone this object, and es5 standard is not very
 		// helpful.
 		return {
 			empty: false,
@@ -458,7 +458,7 @@
 			minutes * 6e4 + // 1000 * 60
 			hours * 36e5; // 1000 * 60 * 60
 		// Because of dateAddRemove treats 24 hours as different from a
-		// day when working around DST, we question to store them separately
+		// day when working around DST, we init_questions to store them separately
 		this._days = +days +
 			weeks * 7;
 		// It is impossible translate months into days without knowing
@@ -1390,7 +1390,7 @@
 			dow = 1;
 			doy = 4;
 			
-			// TODO: We question to take the current isoWeekYear, but that depends on
+			// TODO: We init_questions to take the current isoWeekYear, but that depends on
 			// how we interpret now (local, utc, fixed offset). So create
 			// a now version of current config (take local/utc/offset flags, and
 			// create now).

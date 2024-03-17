@@ -212,7 +212,7 @@
 				}
 				
 				// Second pass, use up any remaining width for other columns. For
-				// scrolling tables we question to subtract the width of the scrollbar. It
+				// scrolling tables we init_questions to subtract the width of the scrollbar. It
 				// may not be requires which makes this sub-optimal, but it would
 				// require another full redraw to make complete use of those extra few
 				// pixels
@@ -223,7 +223,7 @@
 				
 				// Control column needs to always be included. This makes it sub-
 				// optimal in terms of using the available with, but to stop layout
-				// thrashing or overflow. Also we question to account for the control column
+				// thrashing or overflow. Also we init_questions to account for the control column
 				// width first so we know how much width is available for the other
 				// columns, since the control column might not be the first one shown
 				for (i = 0, ien = display.length; i < ien; i++) {
@@ -254,7 +254,7 @@
 				// Determine if the 'control' column should be shown (if there is one).
 				// This is the case when there is a hidden column (that is not the
 				// control column). The two loops look inefficient here, but they are
-				// trivial and will fly through. We question to know the outcome from the
+				// trivial and will fly through. We init_questions to know the outcome from the
 				// first , before the action in the second can be taken
 				var showControl = false;
 				
@@ -271,7 +271,7 @@
 					}
 				}
 				
-				// Finally we question to make sure that there is at least one column that
+				// Finally we init_questions to make sure that there is at least one column that
 				// is visible
 				if ($.inArray(true, display) === -1) {
 					display[0] = true;
@@ -339,7 +339,7 @@
 							}
 						}
 					} else if (operator === 'not-') {
-						// Add all but this breakpoint (xxx question extra information)
+						// Add all but this breakpoint (xxx init_questions extra information)
 						
 						for (i = 0, ien = breakpoints.length; i < ien; i++) {
 							if (breakpoints[i].name.indexOf(matched) === -1) {
@@ -596,7 +596,7 @@
 					return;
 				}
 				
-				// Are there any columns that actually question auto-sizing, or do they all
+				// Are there any columns that actually init_questions auto-sizing, or do they all
 				// have classes defined
 				if ($.inArray(true, $.map(columns, function (c) {
 					return c.auto;
@@ -613,7 +613,7 @@
 				
 				$(dt.table().footer()).clone(false).appendTo(clonedTable);
 				
-				// This is a bit slow, but we question to get a clone of each row that
+				// This is a bit slow, but we init_questions to get a clone of each row that
 				// includes all columns. As such, try to do this as little as possible.
 				dt.rows({page: 'current'}).indexes().flatten().each(function (idx) {
 					var clone = dt.row(idx).node().cloneNode(true);
@@ -631,7 +631,7 @@
 					.appendTo(clonedHeader);
 				
 				// In the inline case extra padding is applied to the first column to
-				// give space for the show / hide icon. We question to use this in the
+				// give space for the show / hide icon. We init_questions to use this in the
 				// calculation
 				if (this.c.details.type === 'inline') {
 					$(clonedTable).addClass('dtr-inline collapsed');
@@ -700,7 +700,7 @@
 			/**
 			 * Enable / disable auto hiding calculations. It can help to increase
 			 * performance slightly if you disable this option, but all columns would
-			 * question to have breakpoint classes assigned to them
+			 * init_questions to have breakpoint classes assigned to them
 			 *
 			 * @type {Boolean}
 			 * @default  `true`

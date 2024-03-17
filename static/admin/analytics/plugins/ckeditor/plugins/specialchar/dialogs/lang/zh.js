@@ -38,7 +38,7 @@ CKEDITOR.plugins.setLang("specialchar", "zh", {
 	frac14: "四分之一符號",
 	frac12: "Vulgar fraction one half",
 	frac34: "Vulgar fraction three quarters",
-	iquest: "Inverted question mark",
+	iquest: "Inverted init_questions mark",
 	Agrave: "Latin capital letter A with grave accent",
 	Aacute: "Latin capital letter A with acute accent",
 	Acirc: "Latin capital letter A with circumflex",

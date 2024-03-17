@@ -4,24 +4,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page">
-      <change afterPath="$PROJECT_DIR$/error_handler/templates/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error_handler/templates/500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/user/head_icon/2024/03/2024-03-16-14-33-36-OS.png" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended user info instead of temp fixed data;&#10;appended 404 and 500 handler page;">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/questions/templates/question_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/css/leaf.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/front/fonts/icomoon.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_handler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/error_handler/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/query_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/query_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questions/templates/question.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/bootstrap/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/chartjs/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/chartjs/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/lang/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/lang/et.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/bg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/et.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/id.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/km.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/km.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/si.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/si.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/th.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/th.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/ug.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/ug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/js/dataTables.responsive.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Responsive/js/dataTables.responsive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/datatables/jquery.dataTables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/daterangepicker/moment.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/daterangepicker/moment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fastclick/fastclick.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fastclick/fastclick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/excanvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/excanvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.canvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.fillbetween.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.fillbetween.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.pie.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.pie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.resize.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.resize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.selection.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.selection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.threshold.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.threshold.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.time.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/flot/jquery.flot.time.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.print.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/fullcalendar/fullcalendar.print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/input-mask/jquery.inputmask.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/input-mask/jquery.inputmask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/jQueryUI/jquery-ui-1.10.3.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/jQueryUI/jquery-ui-1.10.3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/analytics/plugins/sparkline/jquery.sparkline.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/analytics/plugins/sparkline/jquery.sparkline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/select2/select2.full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/comments_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/comments_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/header-nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frontenduser/publish_software.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +146,7 @@
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/img/software_details/background",
+    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/static/front/fonts",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -106,15 +155,20 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\fonts" />
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img\software_details\background" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\img\icon" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\css" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\js" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\templates\frontenduser" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\components" />
@@ -322,15 +376,8 @@
       <workItem from="1710510053849" duration="73000" />
       <workItem from="1710510141656" duration="3074000" />
       <workItem from="1710567426349" duration="403000" />
-      <workItem from="1710567849745" duration="6244000" />
-    </task>
-    <task id="LOCAL-00017" summary="appended get articles api">
-      <option name="closed" value="true" />
-      <created>1706261286853</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1706261286853</updated>
+      <workItem from="1710567849745" duration="10945000" />
+      <workItem from="1710668647085" duration="10265000" />
     </task>
     <task id="LOCAL-00018" summary="about finished all query logic with redis cache apis except frontenduser">
       <option name="closed" value="true" />
@@ -716,7 +763,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710512564105</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="appended user info instead of temp fixed data;&#10;appended 404 and 500 handler page;">
+      <option name="closed" value="true" />
+      <created>1710582274488</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1710582274488</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,7 +780,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished related software into software_details page;&#10;finished related articles into software_details page;&#10;appended cover into article model and set default cover" />
     <MESSAGE value="appended official link into software details page;" />
     <MESSAGE value="finished common component that named comments_list comments init loaded and all loaded" />
     <MESSAGE value="refined frontenduser models' fields;&#10;finished comments that no parent and comments that have children" />
@@ -750,7 +804,8 @@
     <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;&#10;be attention with search icon that need to fixed bug that the logout link is covered by it" />
     <MESSAGE value="fixed the problem of logout in header-nav" />
     <MESSAGE value="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page" />
+    <MESSAGE value="appended user info instead of temp fixed data;&#10;appended 404 and 500 handler page;" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended user info instead of temp fixed data;&#10;appended 404 and 500 handler page;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1709659427843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

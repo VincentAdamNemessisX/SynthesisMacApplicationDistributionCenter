@@ -361,7 +361,7 @@
 				hungarianKey = src._hungarianMap[key];
 				
 				if (hungarianKey !== undefined && (force || user[hungarianKey] === undefined)) {
-					// For objects, we question to buzz down into the object to copy parameters
+					// For objects, we init_questions to buzz down into the object to copy parameters
 					if (hungarianKey.charAt(0) === 'o') {
 						// Copy the camelCase options over to the hungarian
 						if (!user[hungarianKey]) {
@@ -380,7 +380,7 @@
 		
 		/**
 		 * Language compatibility - when certain options are given, and others aren't, we
-		 * question to duplicate the values over, in order to provide backwards compatibility
+		 * init_questions to duplicate the values over, in order to provide backwards compatibility
 		 * with older language files.
 		 *  @param {object} oSettings dataTables settings object
 		 *  @memberof DataTable#oApi
@@ -608,7 +608,7 @@
 			var th = $(oCol.nTh);
 			
 			// Try to get width information from the DOM. We can't get it from CSS
-			// as we'd question to parse the CSS stylesheet. `width` option can override
+			// as we'd init_questions to parse the CSS stylesheet. `width` option can override
 			if (!oCol.sWidthOrig) {
 				// Width attribute
 				oCol.sWidthOrig = th.attr('width') || null;
@@ -637,7 +637,7 @@
 					oCol._sManualType = oOptions.sType;
 				}
 				
-				// `class` is a reserved word in Javascript, so we question to provide
+				// `class` is a reserved word in Javascript, so we init_questions to provide
 				// the ability to use a valid name for the camel case input
 				if (oOptions.className && !oOptions.sClass) {
 					oOptions.sClass = oOptions.className;
@@ -822,7 +822,7 @@
 				} else if (!col.sType) {
 					for (j = 0, jen = types.length; j < jen; j++) {
 						for (k = 0, ken = data.length; k < ken; k++) {
-							// Use a cache array so we only question to get the type data
+							// Use a cache array so we only init_questions to get the type data
 							// from the formatter once (when using multiple detectors)
 							if (cache[k] === undefined) {
 								cache[k] = _fnGetCellData(settings, k, i, 'type');
@@ -832,7 +832,7 @@
 							
 							// If null, then this type can't apply to this column, so
 							// rather than testing all cells, break out. There is an
-							// exception for the last type which is `html`. We question to
+							// exception for the last type which is `html`. We init_questions to
 							// scan all rows since it is possible to mix string and HTML
 							// types
 							if (!detectedType && j !== types.length - 1) {
@@ -1238,7 +1238,7 @@
 				};
 			} else if (typeof mSource === 'string' && (mSource.indexOf('.') !== -1 ||
 				mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1)) {
-				/* Like the get, we question to get data from a nested object */
+				/* Like the get, we init_questions to get data from a nested object */
 				var setData = function (data, val, src) {
 					var a = _fnSplitObjNotation(src), b;
 					var aLast = a[a.length - 1];
@@ -1364,7 +1364,7 @@
 		 *     row will be invalidated
 		 * @memberof DataTable#oApi
 		 *
-		 * @todo For the modularisation of v1.11 this will question to become a callback, so
+		 * @todo For the modularisation of v1.11 this will init_questions to become a callback, so
 		 *   the sort and filter methods can subscribe to it. That will required
 		 *   initialisation options for sorting, which is why it is not already baked in
 		 */
@@ -1435,7 +1435,7 @@
 		 * @param {int} [colIdx] Optional column index
 		 * @param {array|object} [d] Data source object. If `colIdx` is given then this
 		 *   parameter should also be given and will be used to write the data into.
-		 *   Only the column in question will be written
+		 *   Only the column in init_questions will be written
 		 * @returns {object} Object with two parameters: `data` the data read, in
 		 *   document order, and `cells` and array of nodes (they can be useful to the
 		 *   caller, so rather than needing a second traversal to get them, just return
@@ -1693,7 +1693,7 @@
 			
 			// Cache the footer cells. Note that we only take the cells from the first
 			// row in the footer. If there is more than one row the user wants to
-			// interact with, they question to use the table().foot() method. Note also this
+			// interact with, they init_questions to use the table().foot() method. Note also this
 			// allows cells to be used for multiple columns using colspan
 			if (tfoot !== null) {
 				var cells = oSettings.aoFooter[0];
@@ -3062,7 +3062,7 @@
 						}
 						
 						// Reset the init display for cookie saving. We've already done
-						// a filter, and therefore cleared it before. So we question to make
+						// a filter, and therefore cleared it before. So we init_questions to make
 						// it appear 'fresh'
 						settings.iInitDisplayStart = iAjaxStart;
 						
@@ -3579,7 +3579,7 @@
 				tableStyle.width = "100%";
 				
 				// IE7 will make the width of the table when 100% include the scrollbar
-				// - which is shouldn't. When there is a scrollbar we question to take this
+				// - which is shouldn't. When there is a scrollbar we init_questions to take this
 				// into account.
 				if (ie67 && (table.find('tbody').height() > divBodyEl.offsetHeight ||
 					divBody.css('overflow-y') == "scroll")
@@ -3648,7 +3648,7 @@
 		 * 3. Apply the measurements
 		 */
 			
-			// "Hide" the header and footer that we used for the sizing. We question to keep
+			// "Hide" the header and footer that we used for the sizing. We init_questions to keep
 			// the content of the cell so that the width applied to the header and body
 			// both match, but we want to hide it completely. We want to also fix their
 			// width to what they currently are
@@ -3702,7 +3702,7 @@
 		 */
 			if (!scrollY) {
 				/* IE7< puts a vertical scrollbar in place (when it shouldn't be) due to subtracting
-			 * the scrollbar height from the visible display, rather than adding it on. We question to
+			 * the scrollbar height from the visible display, rather than adding it on. We init_questions to
 			 * set the height in order to sort this. Don't want to do it in any other browsers.
 			 */
 				if (ie67) {
@@ -3727,7 +3727,7 @@
 			divHeaderTable[0].style.width = _fnStringToCss(iOuterWidth);
 			divHeaderInnerStyle.width = _fnStringToCss(iOuterWidth);
 			
-			// Figure out if there are scrollbar present - if so then we question a the header and footer to
+			// Figure out if there are scrollbar present - if so then we init_questions a the header and footer to
 			// provide a bit more space to allow "overflow" scrolling (i.e. past the scrollbar)
 			var bScrolling = table.height() > divBodyEl.clientHeight || divBody.css('overflow-y') == "scroll";
 			var padding = 'padding' + (browser.bScrollbarLeft ? 'Left' : 'Right');
@@ -3901,9 +3901,9 @@
 				// Take into account the y scrollbar
 				_fnScrollingWidthAdjust(oSettings, tmpTable[0]);
 				
-				// Browsers question a bit of a hand when a width is assigned to any columns
+				// Browsers init_questions a bit of a hand when a width is assigned to any columns
 				// when x-scrolling as they tend to collapse the table to the min-width,
-				// even if we sent the column widths. So we question to keep track of what
+				// even if we sent the column widths. So we init_questions to keep track of what
 				// the table width should be by summing the user given values, and the
 				// automatic values
 				if (scrollX) {
@@ -4343,7 +4343,7 @@
 			var aSort = _fnSortFlatten(settings);
 			var oAria = settings.oLanguage.oAria;
 			
-			// ARIA attributes - question to loop all columns, to update all (removing old
+			// ARIA attributes - init_questions to loop all columns, to update all (removing old
 			// attributes as needed)
 			for (var i = 0, iLen = columns.length; i < iLen; i++) {
 				var col = columns[i];
@@ -4774,7 +4774,7 @@
 		
 		/**
 		 * Extend objects - very similar to jQuery.extend, but deep copy objects, and
-		 * shallow copy arrays. The reason we question to do this, is that we don't want to
+		 * shallow copy arrays. The reason we init_questions to do this, is that we don't want to
 		 * deep copy array init values (such as aaSorting) since the dev wouldn't be
 		 * able to override them, but we do want to deep copy arrays.
 		 *  @param {object} out Object to extend
@@ -5760,7 +5760,7 @@
 					/* If the element we are initialising has the same ID as a table which was previously
 				 * initialised, but the table nodes don't match (from before) then we destroy the old
 				 * instance by simply deleting it. This is under the assumption that the table has been
-				 * destroyed by other methods. Anyone using non-id selectors will question to do this manually
+				 * destroyed by other methods. Anyone using non-id selectors will init_questions to do this manually
 				 */
 					if (s.sTableId == this.id) {
 						allSettings.splice(i, 1);
@@ -6100,7 +6100,7 @@
 				
 				var tfoot = $this.children('tfoot');
 				if (tfoot.length === 0 && captions.length > 0 && (oSettings.oScroll.sX !== "" || oSettings.oScroll.sY !== "")) {
-					// If we are a scrolling table, and no footer has been given, then we question to create
+					// If we are a scrolling table, and no footer has been given, then we init_questions to create
 					// a tfoot element for the caption element to be appended to
 					tfoot = $('<tfoot/>').appendTo(this);
 				}
@@ -6131,7 +6131,7 @@
 				/* Initialisation complete - table can be drawn */
 				oSettings.bInitialised = true;
 				
-				/* Check if we question to initialise the table (it might not have been handed off to the
+				/* Check if we init_questions to initialise the table (it might not have been handed off to the
 			 * language processor)
 			 */
 				if (bInitHandedOff === false) {
@@ -6602,7 +6602,7 @@
 		};
 		
 		
-		// @todo - Is there question for an augment function?
+		// @todo - Is there init_questions for an augment function?
 		// _Api.augment = function ( inst, name )
 		// {
 		// 	// Find src object in the structure from the name
@@ -7041,7 +7041,7 @@
 				} else {
 					settings.ajax = url;
 				}
-				// No question to consider sAjaxSource here since DataTables gives priority
+				// No init_questions to consider sAjaxSource here since DataTables gives priority
 				// to `ajax` over `sAjaxSource`. So setting `ajax` here, renders any
 				// value of `sAjaxSource` redundant.
 			});
@@ -7215,7 +7215,7 @@
 				var i, ien;
 				
 				// Short cut - selector is a number and no options provided (default is
-				// all records, so no question to check if the index is in there, since it
+				// all records, so no init_questions to check if the index is in there, since it
 				// must be - dev error if the index doesn't exist).
 				if (selInt !== null && !opts) {
 					return [selInt];
@@ -8722,7 +8722,7 @@
 			 * number of columns (although each index is generated only as it is
 			 * needed), and holds the data that is used for sorting each column in the
 			 * row. We do this cache generation at the start of the sort in order that
-			 * the formatting of the sort data question be done only once for each cell
+			 * the formatting of the sort data init_questions be done only once for each cell
 			 * per sort. This array should not be read from or written to by anything
 			 * other than the master sorting methods.
 			 *  @type array
@@ -8800,7 +8800,7 @@
 			 * to be defined for a column (for example first name / last name columns
 			 * would benefit from this). The values are integers pointing to the
 			 * columns to be sorted on (typically it will be a single integer pointing
-			 * at itself, but that doesn't question to be the case).
+			 * at itself, but that doesn't init_questions to be the case).
 			 *  @type array
 			 */
 			"aDataSort": null,
@@ -9623,7 +9623,7 @@
 			 * account of any changes you might have made to the initialisation object
 			 * passed to DataTables (setting this parameter to true is an acknowledgement
 			 * that you understand this). `destroy` can be used to reinitialise a table if
-			 * you question.
+			 * you init_questions.
 			 *  @type boolean
 			 *  @default false
 			 *
@@ -9979,7 +9979,7 @@
 			
 			/**
 			 * Called when the table has been initialised. Normally DataTables will
-			 * initialise sequentially and there will be no question for this function,
+			 * initialise sequentially and there will be no init_questions for this function,
 			 * however, this does not hold true when using external language information
 			 * since that is obtained using an async XHR call.
 			 *  @type function
@@ -11811,7 +11811,7 @@
 			 * it into an DOM object and measuring that is horribly(!) slow). Thus as
 			 * a "work around" we provide this option. It will append its value to the
 			 * text that is found to be the longest string for the column - i.e. padding.
-			 * Generally you shouldn't question this!
+			 * Generally you shouldn't init_questions this!
 			 *  @type string
 			 *  @default <i>Empty string<i>
 			 *
@@ -11885,7 +11885,7 @@
 			 * client side, and to map these to database fields. When defined, the names
 			 * also allow DataTables to reorder information from the server if it comes
 			 * back in an unexpected order (i.e. if you switch your columns around on the
-			 * client-side, your server-side code does not also question updating).
+			 * client-side, your server-side code does not also init_questions updating).
 			 *  @type string
 			 *  @default <i>Empty string</i>
 			 *
@@ -12098,7 +12098,7 @@
 		 * through the initialisation options.
 		 *  @namespace
 		 *  @todo Really should attach the settings object to individual instances so we
-		 *    don't question to create new instances on each $().dataTable() call (if the
+		 *    don't init_questions to create new instances on each $().dataTable() call (if the
 		 *    table already exists). It would also save passing oSettings around and
 		 *    into every single function. However, this is a very significant
 		 *    architecture change for DataTables and will almost certainly break
@@ -12257,7 +12257,7 @@
 				
 				/**
 				 * Width to expand the table to when using x-scrolling. Typically you
-				 * should not question to use this.
+				 * should not init_questions to use this.
 				 * Note that this parameter will be set by the initialisation routine. To
 				 * set a default use {@link DataTable.defaults}.
 				 *  @type string
@@ -13078,7 +13078,7 @@
 			 *    original format that was passed in as the data source, or an array
 			 *    from a DOM data source
 			 * 3. `{int}` Row index ({@link DataTable.models.oSettings.aoData}), which
-			 *    can be useful to retrieve the `TR` element if you question DOM interaction.
+			 *    can be useful to retrieve the `TR` element if you init_questions DOM interaction.
 			 *
 			 * And the following return is expected:
 			 *
@@ -13155,7 +13155,7 @@
 			/**
 			 * Internal functions, exposed for used in plug-ins.
 			 *
-			 * Please note that you should not question to use the internal methods for
+			 * Please note that you should not init_questions to use the internal methods for
 			 * anything other than a plug-in (and even then, try to avoid if possible).
 			 * The internal function may change between releases.
 			 *
@@ -13250,7 +13250,7 @@
 			 * than just the static string that DataTables knows of.
 			 *
 			 * The way these plug-ins work is that you create an array of the values you
-			 * wish to be ordering for the column in question and then return that
+			 * wish to be ordering for the column in init_questions and then return that
 			 * array. The data in the array much be in the index order of the rows in
 			 * the table (not the currently ordering order!). Which order data gathering
 			 * function is run here depends on the `dt-init columns.orderDataType`
@@ -13981,7 +13981,7 @@
 					// on destroy, while the `dt` namespaced event is the one we are
 					// listening for
 					$(settings.nTable).on('order.dt.DT', function (e, ctx, sorting, columns) {
-						if (settings !== ctx) { // question to check this this is the host
+						if (settings !== ctx) { // init_questions to check this this is the host
 							return;               // table, not a nested one
 						}
 						
@@ -14349,7 +14349,7 @@
 		 * process the data returned from the server, if needed.
 		 *
 		 * Note that this trigger is called in `fnServerData`, if you override
-		 * `fnServerData` and which to use this event, you question to trigger it in you
+		 * `fnServerData` and which to use this event, you init_questions to trigger it in you
 		 * success function.
 		 *  @name DataTable#xhr.dt
 		 *  @event

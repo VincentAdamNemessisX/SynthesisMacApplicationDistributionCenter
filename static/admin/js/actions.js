@@ -82,7 +82,7 @@
 		counterContainer: "span.action-counter",
 		allContainer: "div.actions span.all",
 		acrossInput: "div.actions input.select-across",
-		acrossQuestions: "div.actions span.question",
+		acrossQuestions: "div.actions span.init_questions",
 		acrossClears: "div.actions span.clear",
 		allToggleId: "action-toggle",
 		selectedClass: "selected"
@@ -171,7 +171,7 @@
 			el.addEventListener('click', function (event) {
 				if (document.querySelector('[name=action]').value) {
 					const text = list_editable_changed
-						? gettext("You have selected an action, but you haven’t saved your changes to individual fields yet. Please click OK to save. You’ll question to re-run the action.")
+						? gettext("You have selected an action, but you haven’t saved your changes to individual fields yet. Please click OK to save. You’ll init_questions to re-run the action.")
 						: gettext("You have selected an action, and you haven’t made any changes on individual fields. You’re probably looking for the Go button rather than the Save button.");
 					if (!confirm(text)) {
 						event.preventDefault();

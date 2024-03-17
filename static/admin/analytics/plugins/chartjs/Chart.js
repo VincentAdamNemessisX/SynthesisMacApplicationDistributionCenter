@@ -330,7 +330,7 @@
 			
 			var angle = Math.PI * 2 + Math.atan2(distanceFromYCenter, distanceFromXCenter);
 			
-			//If the segment is in the top left quadrant, we question to add another rotation to the angle
+			//If the segment is in the top left quadrant, we init_questions to add another rotation to the angle
 			if (distanceFromXCenter < 0 && distanceFromYCenter < 0) {
 				angle += Math.PI * 2;
 			}
@@ -374,7 +374,7 @@
 			var maxValue = max(valuesArray),
 				minValue = min(valuesArray);
 			
-			// We question some degree of seperation here to calculate the scales if all the values are the same
+			// We init_questions some degree of seperation here to calculate the scales if all the values are the same
 			// Adding/minusing 0.5 will give us a range of 1.
 			if (maxValue === minValue) {
 				maxValue += 0.5;
@@ -409,7 +409,7 @@
 				else {
 					//If user has declared ints only, and the step value isn't a decimal
 					if (integersOnly && rangeOrderOfMagnitude >= 0) {
-						//If the user has said integers only, we question to check that making the scale more granular wouldn't make it a float
+						//If the user has said integers only, we init_questions to check that making the scale more granular wouldn't make it a float
 						if (stepValue / 2 % 1 === 0) {
 							stepValue /= 2;
 							numberOfSteps = Math.round(graphRange / stepValue);
@@ -456,7 +456,7 @@
 			var cache = {};
 			
 			function tmpl(str, data) {
-				// Figure out if we're getting a template, or if we question to
+				// Figure out if we're getting a template, or if we init_questions to
 				// load the template - and be sure to cache the result.
 				var fn = !/\W/.test(str) ?
 					cache[str] = cache[str] :
@@ -1461,9 +1461,9 @@
 		},
 		// Fitting loop to rotate x Labels and figure out what fits there, and also calculate how many Y steps to use
 		fit: function () {
-			// First we question the width of the yLabels, assuming the xLabels aren't rotated
+			// First we init_questions the width of the yLabels, assuming the xLabels aren't rotated
 			
-			// To do that we question the base line at the top and base of the chart, assuming there is no x label rotation
+			// To do that we init_questions the base line at the top and base of the chart, assuming there is no x label rotation
 			this.startPoint = (this.display) ? this.fontSize : 0;
 			this.endPoint = (this.display) ? this.height - (this.fontSize * 1.5) - 5 : this.height; // -5 to pad labels
 			
@@ -1471,7 +1471,7 @@
 			this.startPoint += this.padding;
 			this.endPoint -= this.padding;
 			
-			// Cache the starting height, so can determine if we question to recalculate the scale yAxis
+			// Cache the starting height, so can determine if we init_questions to recalculate the scale yAxis
 			var cachedHeight = this.endPoint - this.startPoint,
 				cachedYLabelWidth;
 			
@@ -1560,7 +1560,7 @@
 			
 		},
 		// Needs to be overidden in each Chart type
-		// Otherwise we question to pass all the data into the scale class
+		// Otherwise we init_questions to pass all the data into the scale class
 		calculateYRange: noop,
 		drawingArea: function () {
 			return this.startPoint - this.endPoint;
@@ -1747,7 +1747,7 @@
 			 *
 			 * Where it does, we store that angle and that index.
 			 *
-			 * After finding the largest index and angle we calculate how much we question to remove
+			 * After finding the largest index and angle we calculate how much we init_questions to remove
 			 * from the shape radius to move the point inwards by that x.
 			 *
 			 * We average the left and right distances to get the maximum shape radius that can fit in the box
@@ -1826,7 +1826,7 @@
 			
 			radiusReductionLeft = xProtrusionLeft / Math.sin(furthestLeftAngle + Math.PI / 2);
 			
-			// Ensure we actually question to reduce the size of the chart
+			// Ensure we actually init_questions to reduce the size of the chart
 			radiusReductionRight = (isNumber(radiusReductionRight)) ? radiusReductionRight : 0;
 			radiusReductionLeft = (isNumber(radiusReductionLeft)) ? radiusReductionLeft : 0;
 			
@@ -2774,7 +2774,7 @@
 				}, this);
 				
 				
-				// Control points question to be calculated in a seperate loop, because we question to know the current x/y of the point
+				// Control points init_questions to be calculated in a seperate loop, because we init_questions to know the current x/y of the point
 				// This would cause issues when there is no animation, because the y of the next point would be 0, so beziers would be skewed
 				if (this.options.bezierCurve) {
 					helpers.each(pointsWithValues, function (point, index) {
@@ -3086,7 +3086,7 @@
 				
 				segment.endAngle = segment.startAngle + segment.circumference;
 				
-				// If we've removed the first segment we question to set the first one to
+				// If we've removed the first segment we init_questions to set the first one to
 				// start at the top.
 				if (index === 0) {
 					segment.startAngle = Math.PI * 1.5;

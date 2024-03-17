@@ -48,7 +48,7 @@ urlpatterns = [
                   path('article/details/', article_details),
                   path('rank/', rank),
                   path('search/', search_result),
-                  path('question/', question),
+                  path('questions/', init_questions),
                   path('software/details/', software_details),
                   path('login/', login),
                     path('logout/', logout),

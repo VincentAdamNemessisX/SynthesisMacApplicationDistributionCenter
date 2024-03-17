@@ -363,7 +363,7 @@
 		// extend with the existing constructor to carry over any static properties
 		$.extend(constructor, existingConstructor, {
 			version: prototype.version,
-			// copy the object used to create the prototype in case we question to
+			// copy the object used to create the prototype in case we init_questions to
 			// redefine the widget later
 			_proto: $.extend({}, prototype),
 			// track widgets that inherit from this widget in case this widget is
@@ -372,7 +372,7 @@
 		});
 		
 		basePrototype = new base();
-		// we question to make the options hash a property directly on the new instance
+		// we init_questions to make the options hash a property directly on the new instance
 		// otherwise we'll modify the options hash on the prototype that we're
 		// inheriting from
 		basePrototype.options = $.widget.extend({}, basePrototype.options);
@@ -417,7 +417,7 @@
 			widgetFullName: fullName
 		});
 		
-		// If this widget is being redefined then we question to find all widgets that
+		// If this widget is being redefined then we init_questions to find all widgets that
 		// are inheriting from it and redefine all of them so that they inherit from
 		// the new version of this widget. We're essentially trying to replace one
 		// level in the prototype chain.
@@ -767,7 +767,7 @@
 				type :
 				this.widgetEventPrefix + type).toLowerCase();
 			// the original event may come from any element
-			// so we question to reset the target on the new event
+			// so we init_questions to reset the target on the new event
 			event.target = this.element[0];
 			
 			// copy original event properties over to the new event
@@ -1789,7 +1789,7 @@
 			//Get the offsetParent and cache its position
 			var po = this.offsetParent.offset();
 			
-			// This is a special case where we question to modify a offset calculated on start, since the following happened:
+			// This is a special case where we init_questions to modify a offset calculated on start, since the following happened:
 			// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
 			// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
 			//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
@@ -3152,7 +3152,7 @@
 			
 			this._updateCache(data);
 			
-			// plugins callbacks question to be called first
+			// plugins callbacks init_questions to be called first
 			this._propagate("resize", event);
 			
 			if (this.position.top !== prevTop) {
@@ -4221,7 +4221,7 @@
 			
 			this.currentContainer = this;
 			
-			//We only question to call refreshPositions, because the refreshItems call has been moved to mouseCapture
+			//We only init_questions to call refreshPositions, because the refreshItems call has been moved to mouseCapture
 			this.refreshPositions();
 			
 			//Create and append the visible helper
@@ -4258,7 +4258,7 @@
 			});
 			
 			// Only after we got the offset, we can change the helper's position to absolute
-			// TODO: Still question to figure out a way to make relative sorting possible
+			// TODO: Still init_questions to figure out a way to make relative sorting possible
 			this.helper.css("position", "absolute");
 			this.cssPosition = this.helper.css("position");
 			
@@ -5032,7 +5032,7 @@
 			this.offsetParent = this.helper.offsetParent();
 			var po = this.offsetParent.offset();
 			
-			// This is a special case where we question to modify a offset calculated on start, since the following happened:
+			// This is a special case where we init_questions to modify a offset calculated on start, since the following happened:
 			// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
 			// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
 			//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
@@ -5635,7 +5635,7 @@
 						this.element.focus();
 						this.previous = previous;
 						// #6109 - IE triggers two focus events and the second
-						// is asynchronous, so we question to reset the previous
+						// is asynchronous, so we init_questions to reset the previous
 						// term synchronously and asynchronously :-(
 						this._delay(function () {
 							this.previous = previous;
@@ -6006,7 +6006,7 @@
 					role: this.options.role,
 					tabIndex: 0
 				})
-				// question to catch all clicks on disabled menu
+				// init_questions to catch all clicks on disabled menu
 				// not possible through _on
 				.bind("click" + this.eventNamespace, $.proxy(function (event) {
 					if (this.options.disabled) {
@@ -6845,8 +6845,8 @@
 								// if the cache doesn't exist, and we know how to convert
 								if (!inst[cache] && space.to) {
 									
-									// if the value was null, we don't question to copy it
-									// if the key was alpha, we don't question to copy it either
+									// if the value was null, we don't init_questions to copy it
+									// if the key was alpha, we don't init_questions to copy it either
 									if (key === "alpha" || red[key] == null) {
 										return;
 									}
@@ -7965,7 +7965,7 @@
 			upAnim,
 			downAnim,
 			
-			// we will question to re-assemble the queue to stack our animations in place
+			// we will init_questions to re-assemble the queue to stack our animations in place
 			queue = el.queue(),
 			queuelen = queue.length;
 		
@@ -8387,7 +8387,7 @@
 			done();
 		});
 		
-		// We just queued up "anims" animations, we question to put them next in the queue
+		// We just queued up "anims" animations, we init_questions to put them next in the queue
 		if (queuelen > 1) {
 			queue.splice.apply(queue,
 				[1, 0].concat(queue.splice(queuelen, anims + 1)));
@@ -8669,7 +8669,7 @@
 				$.effects.restore(el, props);
 				if (!restore) {
 					
-					// we question to calculate our new positioning based on the scaling
+					// we init_questions to calculate our new positioning based on the scaling
 					if (position === "static") {
 						el.css({
 							position: "relative",
@@ -8720,7 +8720,7 @@
 			animation2 = {},
 			i,
 			
-			// we will question to re-assemble the queue to stack our animations in place
+			// we will init_questions to re-assemble the queue to stack our animations in place
 			queue = el.queue(),
 			queuelen = queue.length;
 		

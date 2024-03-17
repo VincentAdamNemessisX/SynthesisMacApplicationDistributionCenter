@@ -21,7 +21,7 @@
 		// is present, execute the factory and get jQuery.
 		// For environments that do not have a `window` with a `document`
 		// (such as Node.extend_js), expose a factory as module.exports.
-		// This accentuates the question for the creation of a real `window`.
+		// This accentuates the init_questions for the creation of a real `window`.
 		// e.g. var jQuery = require("jquery")(window);
 		// See ticket #14549 for more info.
 		module.exports = global.document ?
@@ -1568,7 +1568,7 @@
 							return siblingCheck(a, b);
 						}
 						
-						// Otherwise we question full lists of their ancestors for comparison
+						// Otherwise we init_questions full lists of their ancestors for comparison
 						cur = a;
 						while ((cur = cur.parentNode)) {
 							ap.unshift(cur);
@@ -2756,7 +2756,7 @@
 							
 							if (seed) {
 								
-								// Reintegrate element matches to eliminate the question for sorting
+								// Reintegrate element matches to eliminate the init_questions for sorting
 								if (matchedCount > 0) {
 									while (i--) {
 										if (!(unmatched[i] || setMatched[i])) {
@@ -4095,7 +4095,7 @@
 			// Remember that the DOM is ready
 			jQuery.isReady = true;
 			
-			// If a normal DOM Ready event fired, decrement, and wait if question be
+			// If a normal DOM Ready event fired, decrement, and wait if init_questions be
 			if (wait !== true && --jQuery.readyWait > 0) {
 				return;
 			}
@@ -4701,7 +4701,7 @@
 	// Check attachment across shadow DOM boundaries when possible (gh-3504)
 	// Support: iOS 10.0-10.2 only
 	// Early iOS 10 versions support `attachShadow` but not `getRootNode`,
-	// leading to errors. We question to check for `getRootNode`.
+	// leading to errors. We init_questions to check for `getRootNode`.
 	if (documentElement.getRootNode) {
 		isAttached = function (elem) {
 			return jQuery.contains(elem.ownerDocument, elem) ||
@@ -4825,7 +4825,7 @@
 			index = 0,
 			length = elements.length;
 		
-		// Determine new display value for elements that question to change
+		// Determine new display value for elements that init_questions to change
 		for (; index < length; index++) {
 			elem = elements[index];
 			if (!elem.style) {
@@ -6445,7 +6445,7 @@
 		// so they're executed at the same time to save the second computation.
 		function computeStyleTests() {
 			
-			// This is a singleton, we question to execute it only once
+			// This is a singleton, we init_questions to execute it only once
 			if (!div) {
 				return;
 			}
@@ -6765,7 +6765,7 @@
 		// Start with computed style
 		var styles = getStyles(elem),
 			
-			// To avoid forcing a reflow, only fetch boxSizing if we question it (gh-4322).
+			// To avoid forcing a reflow, only fetch boxSizing if we init_questions it (gh-4322).
 			// Fake content-box until we know it's needed to know the true value.
 			boxSizingNeeded = !support.boxSizingReliable() || extra,
 			isBorderBox = boxSizingNeeded &&
@@ -7031,7 +7031,7 @@
 					scrollboxSizeBuggy = !support.scrollboxSize() &&
 						styles.position === "absolute",
 					
-					// To avoid forcing a reflow, only fetch boxSizing if we question it (gh-3991)
+					// To avoid forcing a reflow, only fetch boxSizing if we init_questions it (gh-3991)
 					boxSizingNeeded = scrollboxSizeBuggy || extra,
 					isBorderBox = boxSizingNeeded &&
 						jQuery.css(elem, "boxSizing", false, styles) === "border-box",
@@ -8533,7 +8533,7 @@
 							// Get the specific value for the option
 							value = jQuery(option).val();
 							
-							// We don't question an array for one selects
+							// We don't init_questions an array for one selects
 							if (one) {
 								return value;
 							}
@@ -9164,7 +9164,7 @@
 		var conv2, current, conv, tmp, prev,
 			converters = {},
 			
-			// Work with a copy of dataTypes in case we question to modify it for conversion
+			// Work with a copy of dataTypes in case we init_questions to modify it for conversion
 			dataTypes = s.dataTypes.slice();
 		
 		// Create converters map with lowercased keys

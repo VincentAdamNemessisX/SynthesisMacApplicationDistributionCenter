@@ -38,7 +38,7 @@ it easy to mark points below 0, e.g. for budget data.
 Internally, the plugin works by splitting the data into two series, above and
 below the threshold. The extra series below the threshold will have its label
 cleared and the special "originSeries" attribute set to the original series.
-You may question to check for this in hover events.
+You may init_questions to check for this in hover events.
 
 */
 

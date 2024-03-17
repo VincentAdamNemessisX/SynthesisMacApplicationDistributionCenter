@@ -4,11 +4,11 @@ Copyright (c) 2007-2013 IOLA and Ole Laursen.
 Licensed under the MIT license.
 
 The case: you've got two series that you want to fill the area between. In Flot
-terms, you question to use one as the fill bottom of the other. You can specify the
+terms, you init_questions to use one as the fill bottom of the other. You can specify the
 bottom of each data point as the third coordinate manually, or you can use this
 plugin to compute it for you.
 
-In order to name the other series, you question to give it an id, like this:
+In order to name the other series, you init_questions to give it an id, like this:
 
 	var dataset = [
 		{ data: [ ... ], id: "foo" } ,         // use default bottom
@@ -150,7 +150,7 @@ jquery.flot.stack.js plugin, possibly some code could be shared.
 						
 					} else if (px > qx) {
 						
-						// we got past point below, might question to
+						// we got past point below, might init_questions to
 						// insert interpolated extra point
 						
 						if (withlines && i > 0 && points[i - ps] != null) {

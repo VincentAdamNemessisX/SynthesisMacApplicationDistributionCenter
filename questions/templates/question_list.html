@@ -1,0 +1,277 @@
+{% extends 'frontenduser/base.html' %}
+{% load static %}
+{% block title %}
+    Mac软件分享平台反馈中心
+{% endblock %}
+{% block style %}
+    <style type="text/css">
+        .main-timeline {
+            width: 80%;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .main-timeline:before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 100%;
+            background: rgba(100, 0, 0, 0.2);
+            margin: 0 0 0 -1px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+
+        .main-timeline .timeline {
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .main-timeline .timeline:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .main-timeline .timeline-content {
+            width: 40%;
+            float: left;
+            margin: 5px 0 0 0;
+            border-radius: 6px;
+        }
+
+        .main-timeline .date {
+            display: block;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #25303b;
+            padding: 5px 0;
+            margin: 0 0 0 -36px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 7px #25303b;
+        }
+
+        .main-timeline .date span {
+            display: block;
+            text-align: center;
+        }
+
+        .main-timeline .day,
+        .main-timeline .year {
+            font-size: 10px;
+        }
+
+        .main-timeline .month {
+            font-size: 18px;
+        }
+
+        .main-timeline .title {
+            padding: 15px;
+            margin: 0;
+            font-size: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+        }
+
+        .main-timeline .title:after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 20px;
+            right: -5px;
+            transform: rotate(-45deg);
+        }
+
+        .main-timeline .description {
+            padding: 15px;
+            margin: 0;
+            font-size: 14px;
+            color: #656565;
+            background: #fff;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .main-timeline .timeline:nth-child(2n+2) .timeline-content {
+            float: right;
+        }
+
+        .main-timeline .timeline:nth-child(2n+1) .timeline-content {
+            float: left;
+        }
+
+        .main-timeline .timeline:nth-child(2n+2) .title:after {
+            left: -5px;
+        }
+
+        .main-timeline .timeline:nth-child(2n+1) .title:after {
+            right: -5px;
+        }
+
+        .main-timeline .timeline:nth-child(2n+2) .title,
+        .main-timeline .timeline:nth-child(2n+2) .title:after {
+            background: #9f84c4;
+        }
+
+        .main-timeline .timeline:nth-child(2n+1) .title,
+        .main-timeline .timeline:nth-child(2n+1) .title:after {
+            background: orange;
+        }
+
+
+        @media only screen and (max-width: 990px) {
+            .main-timeline {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .main-timeline:before,
+            .main-timeline .date {
+                left: 6%;
+            }
+
+            .main-timeline .timeline-content {
+                width: 85%;
+                float: right;
+            }
+
+            .main-timeline .title:after {
+                left: -5px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .main-timeline:before,
+            .main-timeline .date {
+                left: 12%;
+            }
+
+            .main-timeline .timeline-content {
+                width: 75%;
+            }
+
+            .main-timeline .date {
+                width: 60px;
+                height: 60px;
+                margin-left: -30px;
+            }
+
+            .main-timeline .month {
+                font-size: 14px;
+            }
+        }
+
+        .timeline-content:hover {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="loading_container">
+        <div class="loading"><i></i><i></i><i></i><i></i></div>
+    </div>
+    {% include 'frontenduser/sidebar.html' %}
+    <body class="app-template-default single single-app postid-1428 sidebar_no app">
+    <div class="main-content flex-fill">
+        {% include 'frontenduser/header-nav.html' %}
+        <div class="container">
+            <div class="site-title mb-4 mt-4">
+                <h1 class="text-gray text-lg mb-2">
+                    <i class="site-tag fa fa-book icon-lg mr-1"></i>反馈列表 </h1>
+                <p class="text-secondary text-sm">
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% if questions_count > 0 %}
+                        <div class="main-timeline">
+                            {% for question in questions %}
+                                    <div class="timeline">
+                                        <div class="timeline-content" onclick="goto({{ question.id }})">
+                                        <span class="date">
+                                            <span class="day">{{ question.created_time.day }}日</span>
+                                            <span class="month">{{ question.created_time.month }}月</span>
+                                            <span class="year">{{ question.created_time.year }}年</span>
+                                        </span>
+                                            <h2 class="title">{{ question.title }}</h2>
+                                            <p class="description">{{ question.question }}</p>
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                        </div>
+                        {% if questions_count > 6 %}
+                            <div class="text-center">
+                                <button class="pixel-btn" id="load_more">
+                                    加载更多
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="alert alert-warning text-center" role="alert">
+                            <strong>暂无数据</strong>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+		$(function () {
+			var page = 2;
+			$('#load_more').click(function () {
+				$.ajax({
+					url: '/questions/api/get/left/questions/',
+					type: 'POST',
+					data: {
+						'csrfmiddlewaretoken': '{{ csrf_token }}',
+					},
+					success: function (data) {
+						if (data.code === 200) {
+							let x = document.querySelector('.main-timeline');
+							let inner = '';
+							for (q of data.questions) {
+								inner += `
+                                        <div class="timeline">
+                                            <div class="timeline-content" onclick='goto(${q.id})'>
+                                            <span class="date">
+                                                <span class="day">${q.created_day}日</span>
+                                                <span class="month">${q.created_month}月</span>
+                                                <span class="year">${q.created_year}年</span>
+                                            </span>
+                                                <h2 class="title">${q.title}</h2>
+                                                <p class="description">${q.question}</p>
+                                            </div>
+                                        </div>
+                                `
+							}
+							x.innerHTML += inner;
+							$('#load_more').hide();
+						} else {
+							showAlert({'status': 'error', 'message': data.msg});
+						}
+					}
+				})
+			})
+		})
+
+        function goto(id) {
+            window.location.href = '/questions/question/details/?question_id=' + id;
+        }
+    </script>
+{% endblock %}

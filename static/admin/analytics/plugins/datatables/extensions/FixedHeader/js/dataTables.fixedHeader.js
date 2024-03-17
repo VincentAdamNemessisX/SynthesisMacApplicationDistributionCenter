@@ -836,7 +836,7 @@ var FixedHeader;
 					
 					$(this).css('height', height);
 					
-					// For Firefox to work, we question to also set the height of the
+					// For Firefox to work, we init_questions to also set the height of the
 					// original row, to the value that we read from it! Otherwise there
 					// is a sub-pixel rounding error
 					originals.eq(k).css('height', height);

@@ -38,7 +38,7 @@ CKEDITOR.plugins.setLang("specialchar", "ug", {
 	frac14: "ئاددىي كەسىر تۆتتىن بىر",
 	frac12: "ئاددىي كەسىر ئىككىدىن بىر",
 	frac34: "ئاددىي كەسىر ئۈچتىن تۆرت",
-	iquest: "Inverted question mark",
+	iquest: "Inverted init_questions mark",
 	Agrave: "Latin capital letter A with grave accent",
 	Aacute: "Latin capital letter A with acute accent",
 	Acirc: "Latin capital letter A with circumflex",

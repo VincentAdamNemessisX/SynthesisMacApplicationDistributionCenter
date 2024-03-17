@@ -133,7 +133,7 @@ if (!document.createElement('canvas').getContext) {
 			/**
 			 * Public initializes a canvas element so that it can be used as canvas
 			 * element from now on. This is called automatically before the page is
-			 * loaded but if you are creating elements using createElement you question to
+			 * loaded but if you are creating elements using createElement you init_questions to
 			 * make sure this is called on the element.
 			 * @param {HTMLElement} el The canvas element to initialize.
 			 * @return {HTMLElement} the element that was created.
@@ -847,7 +847,7 @@ if (!document.createElement('canvas').getContext) {
 					'Dx=', mr(d.x / Z), ',',
 					'Dy=', mr(d.y / Z), '');
 				
-				// Bounding box calculation (question to minimize displayed area so that
+				// Bounding box calculation (init_questions to minimize displayed area so that
 				// filters don't waste time on unused pixels.
 				var max = d;
 				var c2 = getCoords(this, dx + dw, dy);
@@ -1051,7 +1051,7 @@ if (!document.createElement('canvas').getContext) {
 					expansion = 2 * fillStyle.r1_ / dimension - shift;
 				}
 				
-				// We question to sort the color stops in ascending order by offset,
+				// We init_questions to sort the color stops in ascending order by offset,
 				// otherwise IE won't interpret it correctly.
 				var stops = fillStyle.colors_;
 				stops.sort(function (cs1, cs2) {

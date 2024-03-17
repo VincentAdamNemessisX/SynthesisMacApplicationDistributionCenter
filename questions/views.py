@@ -4,154 +4,54 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
-from general.init_cache import get_all_questions as g_a_q
-
-
-@router.path(pattern='api/get/all/question/', name='get_all_questions')
-@require_POST
-def get_all_questions(request):
-    if request.method == 'POST':
-        # if request.method == 'GET':
-        # start_time = time.time()
-        questions = g_a_q()
-        questions = [
-            {
-                'question_id': question.id,
-                'question': question.question,
-                'question_state': question.question_state,
-                'publisher': {
-                    'username': question.publisher.username,
-                    'email': question.publisher.email,
-                },
-                'created_time': question.created_time,
-                'updated_time': question.updated_time,
-                'answers': [
-                    {
-                        'answer_id': answer.id,
-                        'content': answer.content,
-                        'respondent': answer.respondent.username,
-                        'created_time': answer.created_time,
-                    }
-                    for answer in question.answer_set.all().filter(state=2)
-                ]
-            }
-            for question in questions
-        ]
-        # print('get_all_questions used time: ', time.time() - start_time)
-        if questions:
-            if len(questions) > 0:
-                return JsonResponse({'code': 200, 'msg': 'succeed', 'data': questions})
-            else:
-                return JsonResponse({'code': 404, 'msg': 'failed with no data'})
-        else:
-            return JsonResponse({'code': 402, 'msg': 'failed with invalid data'})
-    else:
-        return JsonResponse({'code': 405, 'msg': 'failed with invalid request action'})
-
-
-@router.path(pattern='api/get/specific/user/question/', name='get_specific_user_questions')
-# @require_POST
-def get_all_questions(request):
-    # if request.method == 'POST':
-    if request.method == 'GET':
-        # start_time = time.time()
-        # username = request.POST.get('username')
-        try:
-            username = str(request.GET.get('username'))
-        except ValueError:
-            return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
-        except TypeError:
-            return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
-        questions = g_a_q()
-        questions = [quest for quest in questions if quest.publisher.username == username]
-        questions = [
-            {
-                'question_id': question.id,
-                'question': question.question,
-                'question_state': question.question_state,
-                'publisher': {
-                    'username': question.publisher.username,
-                    'email': question.publisher.email,
-                },
-                'created_time': question.created_time,
-                'updated_time': question.updated_time,
-                'answers': [
-                    {
-                        'answer_id': answer.id,
-                        'content': answer.content,
-                        'respondent': answer.respondent.username,
-                        'created_time': answer.created_time,
-                    }
-                    for answer in question.answer_set.all().filter(state=2)
-                ]
-            }
-            for question in questions
-        ]
-        # print('get_all_questions used time: ', time.time() - start_time)
-        if questions:
-            if len(questions) > 0:
-                return JsonResponse({'code': 200, 'msg': 'succeed', 'data': questions})
-            else:
-                return JsonResponse({'code': 404, 'msg': 'failed with no data'})
-        else:
-            return JsonResponse({'code': 402, 'msg': 'failed with invalid data'})
-    else:
-        return JsonResponse({'code': 405, 'msg': 'failed with invalid request action'})
-
-
-@router.path(pattern='api/get/single/question/', name='get_specific_question')
-@require_POST
-def get_specific_question(request):
-    if request.method == 'POST':
-        # if request.method == 'GET':
-        question_id = request.POST.get('question_id')
-        # question_id = request.GET.get('question_id')
-        if question_id:
-            try:
-                question_id = int(question_id)
-                if question_id < 0:
-                    raise ValueError
-            except ValueError:
-                return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
-            except TypeError:
-                return JsonResponse({'code': 402, 'msg': 'failed with invalid params'})
-        else:
-            return JsonResponse({'code': 405, 'msg': 'failed with invalid request action'})
-        questions = g_a_q()
-        if questions and len(questions) > 0:
-            question = [quest for quest in questions if quest.id == question_id]
-            if question and len(question) > 0:
-                question = question[0]
-                question = {
-                    'question_id': question.id,
-                    'question': question.question,
-                    'question_state': question.question_state,
-                    'publisher': {
-                        'username': question.publisher.username,
-                        'email': question.publisher.email,
-                    },
-                    'created_time': question.created_time,
-                    'updated_time': question.updated_time,
-                    'answers': [
-                        {
-                            'answer_id': answer.id,
-                            'content': answer.content,
-                            'respondent': answer.respondent.username,
-                            'created_time': answer.created_time,
-                        }
-                        for answer in question.answer_set.all().filter(state=2)
-                    ]
-                }
-                return JsonResponse({'code': 200, 'msg': 'succeed', 'data': question})
-            else:
-                return JsonResponse({'code': 404, 'msg': 'failed with no data'})
-        else:
-            return JsonResponse({'code': 402, 'msg': 'failed with invalid data'})
-    else:
-        return JsonResponse({'code': 405, 'msg': 'failed with invalid request action'})
+from general.init_cache import get_all_questions
 
 
 @require_GET
-def question(request):
-    return render(request, 'question.html', {
+def init_questions(request):
+    if request.method == 'GET':
+        all_question = sorted(sorted(get_all_questions(), key=lambda q: q.state, reverse=False),
+                              key=lambda q: q.updated_time, reverse=True)
+        all_question_count = len(all_question) if all_question else 0
+        init_quests = all_question[:6]
+        return render(request, 'question_list.html', {
+            'questions': init_quests,
+            'questions_count': all_question_count
+        })
+    return render(request, '404.html', {
+        'code': 403,
+        'error': '请求方式不正确，页面未找到'
+    })
+
+
+@router.path('api/get/left/questions/')
+@require_POST
+def load_left_questions(request):
+    if request.method == 'POST':
+        all_question = sorted(sorted(get_all_questions(), key=lambda q: q.state, reverse=False),
+                              key=lambda q: q.updated_time, reverse=True)
+        left_quests = all_question[6:]
+        left_quests = [
+            {
+                'id': q.id,
+                'title': q.title(),
+                'state': q.state,
+                'question': q.short_question(),
+                'created_day': q.created_time.day,
+                'created_month': q.created_time.month,
+                'created_year': q.created_time.year,
+            } for q in left_quests
+        ]
+        return JsonResponse({'code': 200, 'questions': left_quests})
+    return JsonResponse({'code': 403, 'error': '请求方式不正确，未能找到页面'})
+
+
+@router.path('question/details/')
+@require_GET
+def question_details(request):
+    if request.method == 'GET':
+        return render(request, 'question.html')
+    return render(request, '404.html', {
+        'code': 403,
+        'error': '请求方式不正确，未能找到页面'
     })

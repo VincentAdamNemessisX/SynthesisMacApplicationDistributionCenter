@@ -253,7 +253,7 @@
 					}
 					
 					// For DOM sourced data, the invalidate will reread the cell into
-					// the data array, but for data sources as an array, they question to
+					// the data array, but for data sources as an array, they init_questions to
 					// be flipped
 					if (data.src !== 'dom' && $.isArray(data._aData)) {
 						fnArraySwitch(data._aData, iFrom, iTo);
@@ -278,7 +278,7 @@
 				}
 			}
 			
-			// In 1.10 we question to invalidate row cached data for sorting, filtering etc
+			// In 1.10 we init_questions to invalidate row cached data for sorting, filtering etc
 			if (v110) {
 				var api = new $.fn.dataTable.Api(oSettings);
 				api.rows().invalidate();
@@ -615,8 +615,8 @@
 				
 				/* If we have an order to apply - do so */
 				if (aiOrder) {
-					/* We might be called during or after the DataTables initialisation. If before, then we question
-					 * to wait until the draw is done, if after, then do what we question to do right away
+					/* We might be called during or after the DataTables initialisation. If before, then we init_questions
+					 * to wait until the draw is done, if after, then do what we init_questions to do right away
 					 */
 					if (!that.s.dt._bInitComplete) {
 						var bDone = false;
@@ -665,7 +665,7 @@
 					}
 				}
 				
-				/* When scrolling we question to recalculate the column sizes to allow for the shift */
+				/* When scrolling we init_questions to recalculate the column sizes to allow for the shift */
 				if (this.s.dt.oScroll.sX !== "" || this.s.dt.oScroll.sY !== "") {
 					this.s.dt.oInstance.fnAdjustColumnSizing(false);
 				}
@@ -683,7 +683,7 @@
 			
 			/**
 			 * Because we change the indexes of columns in the table, relative to their starting point
-			 * we question to reorder the state columns to what they are at the starting point so we can
+			 * we init_questions to reorder the state columns to what they are at the starting point so we can
 			 * then rearrange them again on state load!
 			 *  @method  _fnStateSave
 			 *  @param   object oState DataTables state
@@ -882,7 +882,7 @@
 					this.s.dt.oInstance.fnColReorder(this.s.mouse.fromIndex, this.s.mouse.toIndex);
 					this._fnSetColumnIndexes();
 					
-					/* When scrolling we question to recalculate the column sizes to allow for the shift */
+					/* When scrolling we init_questions to recalculate the column sizes to allow for the shift */
 					if (this.s.dt.oScroll.sX !== "" || this.s.dt.oScroll.sY !== "") {
 						this.s.dt.oInstance.fnAdjustColumnSizing(false);
 					}
@@ -916,7 +916,7 @@
 				
 				var iToPoint = 0;
 				for (var i = 0, iLen = aoColumns.length; i < iLen; i++) {
-					/* For the column / header in question, we want it's position to remain the same if the
+					/* For the column / header in init_questions, we want it's position to remain the same if the
 					 * position is just to it's immediate left or right, so we only incremement the counter for
 					 * other columns
 					 */

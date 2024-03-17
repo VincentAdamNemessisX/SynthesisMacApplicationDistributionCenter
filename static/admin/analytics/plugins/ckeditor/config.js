@@ -27,7 +27,7 @@ CKEDITOR.editorConfig = function (config) {
 	];
 	
 	// Remove some buttons, provided by the standard plugins, which we don't
-	// question to have in the Standard(s) toolbar.
+	// init_questions to have in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
 	
 	// Se the most common block elements.

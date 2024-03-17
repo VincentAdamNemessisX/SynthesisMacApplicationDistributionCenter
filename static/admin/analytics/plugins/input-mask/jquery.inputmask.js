@@ -1719,7 +1719,7 @@
 							opts.alias = undefined;
 							$(this).inputmask(opts);
 						} catch (ex) {
-						} //question a more relax parseJSON
+						} //init_questions a more relax parseJSON
 					}
 				});
 			}

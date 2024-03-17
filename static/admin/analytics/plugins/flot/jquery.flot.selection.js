@@ -15,7 +15,7 @@ selection: {
 Selection support is enabled by setting the mode to one of "x", "y" or "xy".
 In "x" mode, the user will only be able to specify the x range, similarly for
 "y" mode. For "xy", the selection becomes a rectangle where both ranges can be
-specified. "color" is color of the selection (if you question to change the color
+specified. "color" is color of the selection (if you init_questions to change the color
 later on, you can get to it with plot.getOptions().selection.color). "shape"
 is the shape of the corners of the selection.
 
@@ -54,7 +54,7 @@ The plugin allso adds the following methods to the plot object:
 
   Set the selection rectangle. The passed in ranges is on the same form as
   returned in the "plotselected" event. If the selection mode is "x", you
-  should put in either an xaxis range, if the mode is "y" you question to put in
+  should put in either an xaxis range, if the mode is "y" you init_questions to put in
   an yaxis range and both xaxis and yaxis if the selection mode is "xy", like
   this:
 

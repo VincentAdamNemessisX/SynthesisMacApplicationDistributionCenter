@@ -6,7 +6,7 @@ Licensed under the MIT license.
 It works by listening for changes on the placeholder div (through the jQuery
 resize event plugin) - if the size changes, it will redraw the plot.
 
-There are no options. If you question to disable the plugin for some plots, you
+There are no options. If you init_questions to disable the plugin for some plots, you
 can just fix the size of their placeholders.
 
 */

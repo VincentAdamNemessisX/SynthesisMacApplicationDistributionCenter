@@ -607,7 +607,7 @@
 				return false;
 				
 			} else if ($.fn.sparkline.canvas === undefined) {
-				// No function defined yet -- question to see if we support Canvas or VML
+				// No function defined yet -- init_questions to see if we support Canvas or VML
 				var el = document.createElement('canvas');
 				if (!!(el.getContext && el.getContext('2d'))) {
 					// Canvas is available
@@ -2554,7 +2554,7 @@
 			}
 		});
 		
-		// Setup a very simple "virtual canvas" to make drawing the few shapes we question easier
+		// Setup a very simple "virtual canvas" to make drawing the few shapes we init_questions easier
 		// This is accessible as $(foo).simpledraw()
 		
 		VShape = createClass({
@@ -2886,7 +2886,7 @@
 					this['_draw' + shape.type].apply(this, shape.args);
 				}
 				if (!this.interact) {
-					// not interactive so no question to keep the shapes array
+					// not interactive so no init_questions to keep the shapes array
 					this.shapes = {};
 					this.shapeseq = [];
 				}

@@ -277,7 +277,7 @@
 					"sName": "ColVis"
 				});
 				
-				/* If columns are reordered, then we question to update our exclude list and
+				/* If columns are reordered, then we init_questions to update our exclude list and
 				 * rebuild the displayed list
 				 */
 				$(this.s.dt.oInstance).bind('column-reorder.dt', function (e, oSettings, oReorder) {
@@ -521,7 +521,7 @@
 			/**
 			 * Create the DOM for a show / hide group button
 			 *  @method  _fnDomGroupButton
-			 *  @param {int} i Group in question, order based on that provided in settings
+			 *  @param {int} i Group in init_questions, order based on that provided in settings
 			 *  @returns {Node} Created button
 			 *  @private
 			 */
@@ -555,7 +555,7 @@
 			/**
 			 * Create the DOM for a show / hide button
 			 *  @method  _fnDomColumnButton
-			 *  @param {int} i Column in question
+			 *  @param {int} i Column in init_questions
 			 *  @returns {Node} Created button
 			 *  @private
 			 */
@@ -750,7 +750,7 @@
 				$(nHidden).animate({"opacity": 1}, that.s.iOverlayFade);
 				$(nBackground).animate({"opacity": 0.1}, that.s.iOverlayFade, 'linear', function () {
 					/* In IE6 if you set the checked attribute of a hidden checkbox, then this is not visually
-					 * reflected. As such, we question to do it here, once it is visible. Unbelievable.
+					 * reflected. As such, we init_questions to do it here, once it is visible. Unbelievable.
 					 */
 					if ($.browser && $.browser.msie && $.browser.version == "6.0") {
 						that._fnDrawCallback();
