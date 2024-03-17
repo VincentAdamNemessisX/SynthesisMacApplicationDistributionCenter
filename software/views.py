@@ -27,7 +27,7 @@ def publish_software(request):
             if len(user) == 1:
                 user = user[0]
             else:
-                return render(request, 'frontenduser/publish_software.html', {
+                return render(request, 'front/publish_software.html', {
                     'code': 404,
                     'error': '请先登录',
                     'go_to': '/login/'
@@ -89,7 +89,7 @@ def publish_software(request):
                 if url is None:
                     continue
                 software.softwarescreenshots_set.create(software=software, image=url)
-            return render(request, 'frontenduser/publish_software.html', {
+            return render(request, 'front/publish_software.html', {
                 'msg': '发布成功',
                 'go_to': '/commentswitharticles/publish/?type=2'
             })
@@ -320,18 +320,18 @@ def software_details(request):
             related_articles = software.article_set.all().filter(state=2)
             related_articles_length = len(related_articles)
         except ValueError:
-            return render(request, 'frontenduser/software_details.html',
+            return render(request, 'front/software_details.html',
                           {'error': 'invalid params', 'code': 402})
         except TypeError:
-            return render(request, 'frontenduser/software_details.html',
+            return render(request, 'front/software_details.html',
                           {'error': 'wrong params', 'code': 401})
         except AttributeError:
-            return render(request, 'frontenduser/software_details.html',
+            return render(request, 'front/software_details.html',
                           {'error': 'not found', 'code': 404})
         except IndexError:
-            return render(request, 'frontenduser/software_details.html',
+            return render(request, 'front/software_details.html',
                           {'error': 'not found', 'code': 404})
-        return render(request, 'frontenduser/software_details.html', {
+        return render(request, 'front/software_details.html', {
             'software_id': software_id,
             'software': software,
             'related_software': related_software,

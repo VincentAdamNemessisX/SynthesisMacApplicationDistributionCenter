@@ -1,0 +1,410 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block title %}
+    {% if user.nickname %}{{ user.nickname }}{% else %}
+        {{ user.username }}{% endif %}的个人中心
+{% endblock %}
+{% block style %}
+    <style>
+        a:hover {
+            color: #f1404b !important;
+        }
+    </style>
+    <link rel="dns-prefetch" href="https://apps.bdimg.com/">
+    <link rel="stylesheet" id="wp-block-library-css" href="{% static 'user_center/css/style.min.css' %}"
+          type="text/css" media="all">
+    <link rel="stylesheet" id="classic-theme-styles-css" href="{% static 'user_center/css/classic-themes.min.css' %}"
+          type="text/css" media="all">
+    <link rel="stylesheet" id="_main-css" href="{% static 'user_center/css/main.min.css' %}" type="text/css"
+          media="all">
+    <link type="text/css" id="swiper" rel="stylesheet" href="{% static 'user_center/css/swiper.min.css' %}">
+    <link type="text/css" id="zibpay_css" rel="stylesheet" href="{% static 'user_center/css/main.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="loading_container">
+        <div class="loading"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <body class="app-template-default single single-app sidebar_no app">
+    {% include 'front/sidebar.html' %}
+    <div class="main-content flex-fill">
+        {% include 'front/header-nav.html' %}
+        <div class="container">
+            <div class="author-header mb20 radius8 main-shadow main-bg full-widget-sm">
+                <div class="page-cover">
+                    <img class="fit-cover user-cover user-cover-id-1853 ls-is-cached lazyloaded"
+                         src="{{ user.user_center_cover.url }}"
+                         alt="用户封面">
+                    <div class="absolute linear-mask"></div>
+                </div>
+                <div class="header-content">
+                    <div class="flex header-info relative hh">
+                        <div class="flex0 header-avatar">
+                            <span
+                                    class="avatar-img"><img
+                                    alt="{{ user.username }}的头像"
+                                    src="{{ user.head_icon.url }}"
+                                    class="avatar avatar-id-1853 ls-is-cached lazyloaded"></span>
+                        </div>
+                        <div class="flex1">
+                            <div class="em12 name">
+                                <div class="flex ac flex1">
+                                    <a class="display-name text-ellipsis user_link_{{ request.session.logon_user.id }}"
+                                       href="" onmouseout="default_href()"
+                                       onmouseleave="default_href()"
+                                       onmousemove="re_href_user('{{ request.session.logon_user.id }}')"
+                                    >
+                                        {% if user.nickname %}{{ user.nickname }}{% else %}
+                                            {{ user.username }} {% endif %}
+                                    </a>
+                                    <span class="ml-2 rank" title="角色：站长">站长</span>
+                                </div>
+                            </div>
+                            <div class="mt6 desc muted-2-color"></div>
+                        </div>
+                        {#                        <div class="header-btns flex0 flex ac"><a href="https://macked.app/user/"#}
+                        {#                                                                  class="but c-blue ml10 pw-1em radius">#}
+                        {#                            <svg class="icon" aria-hidden="true"></svg>#}
+                        {#                            用户中心</a><a href="https://macked.app/message/news" class="msg-news-icon ml10"><span#}
+                        {#                                class="toggle-radius msg-icon"><i class="fa fa-bell-o"#}
+                        {#                                                                  aria-hidden="true"></i></span></a>#}
+                        {#                        </div>#}
+                    </div>
+                </div>
+            </div>
+            <div class="author-tab zib-widget">
+                <div class="affix-header-sm" offset-top="6">
+                    <ul id="tabs" style="display: flex; flex-direction: row; justify-content: space-evenly"
+                        class="list-inline scroll-x mini-scrollbar tab-nav-theme">
+                        <li class="active">
+                            <a href="#author-tab-article" onclick="changeTab(this.parentElement)"
+                               aria-expanded="true">文章
+                                <count class="opacity8 ml3">{{ user.article_set.count }}</count>
+                            </a>
+                        </li>
+                        {#                        <li class="">#}
+                        {#                            <a href="#author-tab-comment" onclick="changeTab(this.parentElement)"#}
+                        {#                               aria-expanded="false">评论#}
+                        {#                                <count class="opacity8 ml3">{{ user.comment_set.count }}</count>#}
+                        {#                            </a>#}
+                        {#                        </li>#}
+                        <li class="">
+                            <a href="#author-tab-software" onclick="changeTab(this.parentElement)"
+                               aria-expanded="false">软件
+                                <count class="opacity8 ml3">{{ user.software_set.count }}</count>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#author-tab-recent-browsing" onclick="changeTab(this.parentElement)"
+                               aria-expanded="false">最近浏览
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content main-tab-content">
+                    <div class="ajaxpager tab-pane active" id="author-tab-article">
+                        {% if published_articles_count < 1 %}
+                            <div class="text-center ajax-item " style="padding:100px 0;">
+                                <img style="width:280px;opacity: .7;"
+                                     src="{% static 'user_center/img/null-post.svg' %}">
+                                <p style="margin-top:20px;" class="em09 muted-3-color separator">您还没有发表过文章</p>
+                            </div>
+                        {% else %}
+                            <div class="row mb-n4">
+                                {% for article in user.article_set.all %}
+                                    <div class="col-6 col-md-4">
+                                        <div class="card-post list-item">
+                                            <div class="media media-4x3 p-0 rounded">
+                                                <a class="media-content article_link_{{ article.id }}" href=""
+                                                   onmouseout="default_href()" onmouseleave="default_href()"
+                                                   onmousemove="re_href_article('{{ article.id }}')"
+                                                   data-src="{{ article.cover.url }}"
+                                                   data-was-processed="true"
+                                                   style="background-image: url({{ article.cover.url }});">
+                                                </a>
+                                            </div>
+                                            <div class="list-content">
+                                                <div class="list-body">
+                                                    <a href="" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_article('{{ article.id }}')"
+                                                       class="list-title text-md overflowClip_2 article_link_{{ article.id }}">
+                                                        {{ article.title }} </a>
+                                                </div>
+                                                <div class="list-footer">
+                                                    <div class="d-flex flex-fill align-items-center">
+                                                        <a href=""
+                                                           class="flex-avatar mr-1 user_link_{{ article.user.id }}"
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_user('{{ article.user.id }}')"
+                                                           target="_blank">
+                                                            <img src="{{ article.user.head_icon.url }}"
+                                                                 width="20" height="20" alt="头像"
+                                                                 class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                        </a>
+                                                        <a href=""
+                                                           class="d-none d-md-inline-block text-xs user_link_{{ article.user.id }}"
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_user('{{ article.user.id }}')"
+                                                           target="_blank">
+                                                            {% if article.user.nickname %}
+                                                                {{ article.user.nickname }}
+                                                            {% else %}
+                                                                {{ article.user.username }}
+                                                            {% endif %}
+                                                        </a>
+                                                        <div class="flex-fill"></div>
+                                                        <div class="text-muted text-xs">
+                                                        <span class="views mr-1"><i
+                                                                class="iconfont icon-chakan mr-1"></i>
+                                                            {{ article.view_volume }}
+                                                        </span><i
+                                                                class="iconfont icon-like mr-1"></i>
+                                                            {{ article.thumbs_volume }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="ajax-pag hide">
+                            <div class="next-page ajax-next"><a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ajaxpager tab-pane" id="author-tab-software">
+                        {% if published_software_count < 1 %}
+                            <div class="text-center ajax-item " style="padding:60px 0;"><img
+                                    style="width:280px;opacity: .7;"
+                                    src="{% static 'user_center/img/null-software.svg' %}">
+                                <p style="margin-top:20px;" class="em09 muted-3-color separator">您还没有投稿软件</p>
+                            </div>
+                        {% else %}
+                            <div class="row mb-n4">
+                                {% for software in user.software_set.all %}
+                                    <div class="col-6 col-md-4">
+                                        <div class="card-post list-item">
+                                            <div class="media media-4x3 p-0 rounded">
+                                                <a class="media-content software_link_{{ software.id }}" href=""
+                                                   onmouseout="default_href()" onmouseleave="default_href()"
+                                                   onmousemove="re_href_software('{{ software.id }}')"
+                                                   data-was-processed="true"
+                                                   style="background-image: url('{{ software.icon.url }}');">
+                                                </a>
+                                            </div>
+                                            <div class="list-content">
+                                                <div class="list-body">
+                                                    <a href="" onmouseleave="default_href()"
+                                                       onmouseout="default_href()"
+                                                       onmousemove="re_href_software('{{ software.id }}')"
+                                                       class="list-title text-md overflowClip_2 software_link_{{ software.id }}">
+                                                        {{ software.name }} </a>
+                                                </div>
+                                                <div class="list-footer">
+                                                    <div class="d-flex flex-fill align-items-center">
+                                                        <a href=""
+                                                           class="flex-avatar mr-1 user_link_{{ software.user.id }}"
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_user('{{ software.user.id }}')"
+                                                           target="_blank">
+                                                            <img src="{{ software.user.head_icon.url }}"
+                                                                 width="20" height="20" alt="头像"
+                                                                 class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                        </a>
+                                                        <a href=""
+                                                           class="d-none d-md-inline-block text-xs user_link_{{ software.user.id }}"
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_user('{{ software.user.id }}')"
+                                                           target="_blank">
+                                                            {% if software.user.nickname %}
+                                                                {{ software.user.nickname }}
+                                                            {% else %}
+                                                                {{ software.user.username }}
+                                                            {% endif %}
+                                                        </a>
+                                                        <div class="flex-fill"></div>
+                                                        <div class="text-muted text-xs">
+                                                        <span class="views mr-1"><i
+                                                                class="iconfont icon-chakan mr-1"></i>
+                                                            {{ software.view_volume }}
+                                                        </span><i
+                                                                class="iconfont icon-like mr-1"></i>
+                                                            {{ software.thumbs_volume }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="ajax-pag hide">
+                            <div class="next-page ajax-next"><a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ajaxpager tab-pane" id="author-tab-comment">
+                        <div class="text-center ajax-item posts-item no_margin">
+                            <img style="width:280px;opacity: .7;"
+                                 src="{% static 'user_center/img/null-comment.svg' %}">
+                            <p style="margin-top:20px;" class="em09 muted-3-color separator">您还没有评论</p>
+                        </div>
+                        <div class="ajax-pag hide">
+                            <div class="next-page ajax-next"><a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ajaxpager tab-pane text-center" id="author-tab-recent-browsing">
+                        {% if recent_browsing_count < 1 %}
+                            <div class="text-center ajax-item " style="padding:40px 0;"><img
+                                    style="width:280px;opacity: .7;"
+                                    src="{% static '/user_center/img/null-recent.svg' %}">
+                                <p style="margin-top:20px;" class="em09 muted-3-color separator">最近什么也没浏览</p>
+                            </div>
+                        {% else %}
+                            <div class="row mb-n4">
+                                {% for record in user.recentbrowsing_set.all %}
+                                    {% if record.article %}
+                                        <div class="col-6 col-md-4">
+                                            <div class="card-post list-item">
+                                                <div class="media media-4x3 p-0 rounded">
+                                                    <a class="media-content article_link_{{ record.article.id }}" href=""
+                                                       onmouseout="default_href()" onmouseleave="default_href()"
+                                                       onmousemove="re_href_article('{{ record.article.id }}')"
+                                                       data-src="{{ record.article.cover.url }}"
+                                                       data-was-processed="true"
+                                                       style="background-image: url({{ record.article.cover.url }});">
+                                                    </a>
+                                                </div>
+                                                <div class="list-content">
+                                                    <div class="list-body">
+                                                        <a href="" onmouseleave="default_href()"
+                                                           onmouseout="default_href()"
+                                                           onmousemove="re_href_article('{{ record.article.id }}')"
+                                                           class="list-title text-md overflowClip_2 article_link_{{ record.article.id }}">
+                                                            {{ record.article.title }} </a>
+                                                    </div>
+                                                    <div class="list-footer">
+                                                        <div class="d-flex flex-fill align-items-center">
+                                                            <a href=""
+                                                               class="flex-avatar mr-1 user_link_{{ record.article.user.id }}"
+                                                               onmouseout="default_href()" onmouseleave="default_href()"
+                                                               onmousemove="re_href_user('{{ record.article.user.id }}')"
+                                                               target="_blank">
+                                                                <img src="{{ record.article.user.head_icon.url }}"
+                                                                     width="20" height="20" alt="头像"
+                                                                     class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                            </a>
+                                                            <a href=""
+                                                               class="d-none d-md-inline-block text-xs user_link_{{ record.article.user.id }}"
+                                                               onmouseout="default_href()" onmouseleave="default_href()"
+                                                               onmousemove="re_href_user('{{ record.article.user.id }}')"
+                                                               target="_blank">
+                                                                {% if record.article.user.nickname %}
+                                                                    {{ record.article.user.nickname }}
+                                                                {% else %}
+                                                                    {{ record.article.user.username }}
+                                                                {% endif %}
+                                                            </a>
+                                                            <div class="flex-fill"></div>
+                                                            <div class="text-muted text-xs">
+                                                        <span class="views mr-1"><i
+                                                                class="iconfont icon-chakan mr-1"></i>
+                                                            {{ record.article.view_volume }}
+                                                        </span><i
+                                                                    class="iconfont icon-like mr-1"></i>
+                                                                {{ record.article.thumbs_volume }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% elif record.software %}
+                                        <div class="col-6 col-md-4">
+                                            <div class="card-post list-item">
+                                                <div class="media media-4x3 p-0 rounded">
+                                                    <a class="media-content software_link_{{ record.software.id }}" href=""
+                                                       onmouseout="default_href()" onmouseleave="default_href()"
+                                                       onmousemove="re_href_software('{{ record.software.id }}')"
+                                                       data-was-processed="true"
+                                                       style="background-image: url('{{ record.software.icon.url }}');">
+                                                    </a>
+                                                </div>
+                                                <div class="list-content">
+                                                    <div class="list-body">
+                                                        <a href="" onmouseleave="default_href()"
+                                                           onmouseout="default_href()"
+                                                           onmousemove="re_href_software('{{ record.software.id }}')"
+                                                           class="list-title text-md overflowClip_2 software_link_{{ record.software.id }}">
+                                                            {{ record.software.name }} </a>
+                                                    </div>
+                                                    <div class="list-footer">
+                                                        <div class="d-flex flex-fill align-items-center">
+                                                            <a href=""
+                                                               class="flex-avatar mr-1 user_link_{{ record.software.user.id }}"
+                                                               onmouseout="default_href()" onmouseleave="default_href()"
+                                                               onmousemove="re_href_user('{{ record.software.user.id }}')"
+                                                               target="_blank">
+                                                                <img src="{{ record.software.user.head_icon.url }}"
+                                                                     width="20" height="20" alt="头像"
+                                                                     class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                            </a>
+                                                            <a href=""
+                                                               class="d-none d-md-inline-block text-xs user_link_{{ record.software.user.id }}"
+                                                               onmouseout="default_href()" onmouseleave="default_href()"
+                                                               onmousemove="re_href_user('{{ record.software.user.id }}')"
+                                                               target="_blank">
+                                                                {% if record.software.user.nickname %}
+                                                                    {{ record.software.user.nickname }}
+                                                                {% else %}
+                                                                    {{ record.software.user.username }}
+                                                                {% endif %}
+                                                            </a>
+                                                            <div class="flex-fill"></div>
+                                                            <div class="text-muted text-xs">
+                                                        <span class="views mr-1"><i
+                                                                class="iconfont icon-chakan mr-1"></i>
+                                                            {{ record.software.view_volume }}
+                                                        </span><i
+                                                                    class="iconfont icon-like mr-1"></i>
+                                                                {{ record.software.thumbs_volume }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="ajax-pag hide">
+                            <div class="next-page ajax-next"><a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+{% block script %}
+    <script>
+		function changeTab(tab) {
+			let tabs = document.getElementById('tabs').getElementsByTagName('li');
+			for (let i = 0; i < tabs.length; i++) {
+				tabs[i].classList.remove('active');
+				let temp = $('#' + tabs[i].children[0].getAttribute('href').split('#')[1])[0];
+				temp.classList.remove('active');
+			}
+			let tab_con = $('#' + tab.children[0].getAttribute('href').split('#')[1])[0];
+			tab_con.classList.add('active');
+			tab.classList.add('active');
+		}
+    </script>
+{% endblock %}

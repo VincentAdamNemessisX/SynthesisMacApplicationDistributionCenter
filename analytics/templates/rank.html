@@ -1,4 +1,4 @@
-{% extends 'frontenduser/base.html' %}
+{% extends 'front/base.html' %}
 {% load static %}
 {% block title %}
     排行榜
@@ -15,9 +15,9 @@
     <div class="loading_container">
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
-    {% include 'frontenduser/sidebar.html' %}
+    {% include 'front/sidebar.html' %}
     <div class="main-content flex-fill">
-        {% include 'frontenduser/header-nav.html' %}
+        {% include 'front/header-nav.html' %}
         <div id="content" class="container container-lg my-3 my-md-4">
             <div class="card d-none d-md-block">
                 <div class="card-body py-2 text-center">软件热度排行榜</div>

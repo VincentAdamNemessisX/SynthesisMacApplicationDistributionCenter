@@ -52,5 +52,6 @@ urlpatterns = [
                   path('software/details/', software_details),
                   path('login/', login),
                     path('logout/', logout),
+                    path('user/details/', user_details),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + rt.urlpatterns
 document_root = settings.STATIC_ROOT

@@ -1,4 +1,4 @@
-{% extends 'frontenduser/base.html' %}
+{% extends 'front/base.html' %}
 {% load static %}
 {% block title %}
     Mac软件分享平台 {{ article.title }}
@@ -29,9 +29,9 @@
     <div class="loading_container">
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
-    {% include 'frontenduser/sidebar.html' %}
+    {% include 'front/sidebar.html' %}
     <div class="main-content flex-fill" style="transform: none">
-        {% include 'frontenduser/header-nav.html' %}
+        {% include 'front/header-nav.html' %}
         <div id="content" class="container my-3 my-md-4" style="transform: none;">
             <nav class="text-xs mb-3 mb-md-4" aria-label="breadcrumb"><i class="iconfont icon-home"></i> <a
                     class="crumbs" href="/index/">首页</a><i class="text-danger px-1">•</i><a
@@ -97,7 +97,7 @@
                                                                            onmousemove="re_href_software('{{ software.id }}')"
                                                                            data-was-processed="false"
                                                                            data-src="{{ software.icon.url }}"
-                                                                           style="background-image: url({{ software.icon.url }});"
+                                                                           style="background-image: url('{{ software.icon.url }}');"
                                                                            href=""></a>
                                                                     </div>
                                                                 </div>
@@ -204,7 +204,7 @@
                                                    onmousemove="re_href_article('{{ article.id }}')"
                                                    data-src="{{ article.cover.url }}"
                                                    data-was-processed="true"
-                                                   style="background-image: url({{ article.cover.url }});">
+                                                   style="background-image: url('{{ article.cover.url }}');">
                                                 </a>
                                             </div>
                                             <div class="list-content">
@@ -261,7 +261,7 @@
                             {% endif %}
                         </div>
                         <!-- comments -->
-                        {% include 'frontenduser/comments_list.html' %}
+                        {% include 'front/comments_list.html' %}
                     </div>
                 </div>
             </main>

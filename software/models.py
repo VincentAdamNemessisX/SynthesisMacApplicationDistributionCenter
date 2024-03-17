@@ -3,6 +3,7 @@ from django.utils import timezone
 from zoneinfo import ZoneInfo
 from django.db import models
 from general.common_compute import get_hot_volume_of_software
+from frontenduser.models import FrontEndUser
 
 
 # Create your models here.

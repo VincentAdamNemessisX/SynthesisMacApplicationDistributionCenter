@@ -9,9 +9,10 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
+
 from frontenduser.models import FrontEndUser
-from general.encrypt import decrypt
 from general.data_handler import handle_uploaded_image
+from general.encrypt import decrypt
 from general.init_cache import (get_specific_user_articles_by_username, get_all_user,
                                 get_specific_user_software_by_username)
 
@@ -374,7 +375,7 @@ def update_user(request):
                     django_user = User.objects.get(username=username)
                     django_user.email = email if django_user.email != email else django_user.email
                     django_user.save()
-                    user = User.objects.filter(username=username)\
+                    user = User.objects.filter(username=username) \
                         if User.objects.filter(username=username).count() == 1 else None
                     user.nickname = nickname if user.nickname != nickname else user.nickname
                     user.save()
@@ -408,3 +409,53 @@ def cancel_user(request):
         else:
             return JsonResponse({'code': 401, 'msg': 'failed with invalid params'}, status=401)
     return JsonResponse({'code': 400, 'msg': 'failed with wrong request action'}, status=400)
+
+
+@require_GET
+def user_details(request):
+    if request.method == 'GET':
+        user_id = request.GET.get('user_id')
+        try:
+            user_id = int(decrypt(user_id))
+            FrontEndUser.objects.get(username='vincent')
+        except ValueError:
+            return render(request, '404.html', {
+                'code': 401,
+                'msg': 'failed with wrong user or invalid params value'
+            })
+        except TypeError:
+            return render(request, '404.html', {
+                'code': 402,
+                'msg': 'failed with wrong user or invalid params'
+            })
+        except Exception as e:
+            return render(request, '404.html', {
+                'code': 403,
+                'msg': str(e)
+            })
+        if user_id:
+            user = [x for x in get_all_user() if x.id == user_id]
+            if len(user) == 1:
+                published_articles_count = len(user[0].article_set.all())
+                published_software_count = len(user[0].software_set.all())
+                published_comments_count = len(user[0].comment_set.all())
+                recent_browsing_count = len(user[0].recentbrowsing_set.all())
+                return render(request, 'user_details.html', {
+                    'user': user[0],
+                    'published_articles_count': published_articles_count,
+                    'published_software_count': published_software_count,
+                    'published_comments_count': published_comments_count,
+                    'recent_browsing_count': recent_browsing_count
+                })
+            return render(request, '404.html', {
+                'code': 404,
+                'msg': 'request succeed, failed with no matched user'
+            })
+        return render(request, '404.html', {
+            'code': 400,
+            'msg': 'failed with wrong request action'
+        })
+    return render(request, '404.html', {
+        'code': 400,
+        'msg': 'failed with wrong request action'
+    })

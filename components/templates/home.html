@@ -1,4 +1,4 @@
-{% extends 'frontenduser/base.html' %}
+{% extends 'front/base.html' %}
 {% load static %}
 {% block title %}
     Mac软件分享平台
@@ -11,9 +11,9 @@
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
     <body class="app-template-default single single-app postid-1428 sidebar_no app">
-    {% include 'frontenduser/sidebar.html' %}
+    {% include 'front/sidebar.html' %}
     <div class="main-content flex-fill">
-        {% include 'frontenduser/header-nav.html' %}
+        {% include 'front/header-nav.html' %}
         <div id="content" class="container container-fluid customize-width">
             <div class="home-widget-group">
                 <div class="slice-article mb-4">
@@ -48,19 +48,13 @@
                                             class="carousel-caption d-none d-md-block"></span></a></div>
                                     <div class="swiper-slide media media-21x9 swiper-slide-duplicate swiper-slide-active"
                                          data-swiper-slide-index="0" role="group" aria-label="1 / 2"
-                                         style="width: 671px;"><a class="media-content media-title-bg" href=""
+                                         style=""><a class="media-content media-title-bg" href=""
                                                                   target="_blank" rel="external noopener nofollow"
                                                                   data-bg="url({% static 'front/img/home/slice_bg.png' %})"
                                                                   data-was-processed="true"
                                                                   style="background-image: url({% static 'front/img/home/slice_bg.png' %});"><span
                                             class="carousel-caption d-none d-md-block"></span></a></div>
                                 </div>
-
-                                <div class="swiper-pagination carousel-blog swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0"
-                                          role="button" aria-label="Go to slide 1" aria-current="true"></span><span
-                                        class="swiper-pagination-bullet" tabindex="0" role="button"
-                                        aria-label="Go to slide 2"></span></div>
                                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                         </div>
                         <div class="col-12 col-md-5 col-lg-4 col-xl-3 mt-4 mt-md-0">
@@ -142,7 +136,7 @@
                                                                    onmousemove="re_href_software('{{ software.id }}')"
                                                                    target="_blank"
                                                                    style="background-size: 100%;
-                                                                           background-image: url({{ software.icon.url }});"
+                                                                           background-image: url('{{ software.icon.url }}');"
                                                                    data-was-processed="true"></a>
                                                             </div>
                                                             <div class="app-content flex-fill pl-2 pr-1">

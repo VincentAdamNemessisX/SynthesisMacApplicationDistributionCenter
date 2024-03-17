@@ -351,11 +351,11 @@ def publish_article_and_software_page(request):
         try:
             type = request.GET.get('type')
             if int(type) == 1:
-                return render(request, 'frontenduser/publish_article.html', {
+                return render(request, 'front/publish_article.html', {
                     'all_software': all_software
                 })
             elif int(type) == 2:
-                return render(request, 'frontenduser/publish_software.html', {
+                return render(request, 'front/publish_software.html', {
                 })
             else:
                 return render(request, '500.html', {

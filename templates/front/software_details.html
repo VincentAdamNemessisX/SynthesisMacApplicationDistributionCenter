@@ -1,4 +1,4 @@
-{% extends 'frontenduser/base.html' %}
+{% extends 'front/base.html' %}
 {% load static %}
 {% block title %}
     Mac软件分享平台“{{ software.name }}”详情
@@ -37,9 +37,9 @@
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
     <body class="app-template-default single single-app postid-1428 sidebar_no app">
-    {% include 'frontenduser/sidebar.html' %}
+    {% include 'front/sidebar.html' %}
     <div class="main-content flex-fill">
-        {% include 'frontenduser/header-nav.html' %}
+        {% include 'front/header-nav.html' %}
         <div id="content" class="container my-4 my-md-5">
             <div class="background-fx">
                 <img
@@ -225,7 +225,7 @@
                                                                 onmousemove="re_href_article('{{ article.id }}')"
                                                                 data-was-processed="true"
                                                                 data-src="{{ article.cover.url }}"
-                                                                style="background-image: url({{ article.cover.url }});"></a>
+                                                                style="background-image: url('{{ article.cover.url }}');"></a>
                                                     </div>
                                                 </div>
                                                 <div class="col-8">
@@ -282,7 +282,7 @@
                                                    onmouseleave="default_href()"
                                                    target="_blank"
                                                    onmousemove="re_href_software('{{ software.id }}')"
-                                                   data-bg="url({{ software.icon.url }})"
+                                                   data-bg="url('{{ software.icon.url }}')"
                                                    style="background-size: 100%; background-image: url('{{ software.icon.url }}');"
                                                    data-was-processed="true"></a>
                                             </div>
@@ -314,7 +314,7 @@
                             </div>
                         {% endif %}
                         {#comments#}
-                        {% include 'frontenduser/comments_list.html' %}
+                        {% include 'front/comments_list.html' %}
                     </div><!-- content-layout end -->
                 </div><!-- content-wrap end -->
             </main>

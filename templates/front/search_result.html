@@ -1,4 +1,4 @@
-{% extends 'frontenduser/base.html' %}
+{% extends 'front/base.html' %}
 {% load static %}
 {% block title %}
     “{{ search_str }}”的搜索结果
@@ -15,9 +15,9 @@
     <div class="loading_container">
         <div class="loading"><i></i><i></i><i></i><i></i></div>
     </div>
-    {% include 'frontenduser/sidebar.html' %}
+    {% include 'front/sidebar.html' %}
     <div class="main-content flex-fill">
-        {% include 'frontenduser/header-nav.html' %}
+        {% include 'front/header-nav.html' %}
         <div id="content" class="container mb-4 mb-md-5">
             <div id="search" class="s-search mx-auto my-4">
                 <form name="formsearch" method="get" action="/search/"
@@ -78,9 +78,9 @@
                                                    onmouseleave="default_href()"
                                                    onmousemove="re_href_user('{{ user.id }}')"
                                                    target="_blank"
-                                                   data-bg="url({{ user.head_icon.url }})"
+                                                   data-bg="url('{{ user.head_icon.url }}')"
                                                    style="background-size: 100%;
-                                                           background-image: url({{ user.head_icon.url }});"
+                                                           background-image: url('{{ user.head_icon.url }}');"
                                                    data-was-processed="true"></a>
                                             </div>
                                             <div class="list-content text-center pt-2">
@@ -152,8 +152,8 @@
                                                    target="_blank" onmouseleave="default_href()"
                                                    onmouseout="default_href()" href=""
                                                    onmousemove="re_href_article('{{ article.id }}')"
-                                                   data-bg="url({{ article.cover.url }})"
-                                                   style="background-size: 100%; background-image: url({{ article.cover.url }});"
+                                                   data-bg="url('{{ article.cover.url }}')"
+                                                   style="background-size: 100%; background-image: url('{{ article.cover.url }}');"
                                                    data-was-processed="true"></a>
                                             </div>
                                             <div class="list-content text-center pt-2">
@@ -194,11 +194,11 @@
                                             <div class="media p-0 app-rounded"
                                                  style="background-image: linear-gradient(130deg, transparent, transparent);">
                                                 <a class="media-content software_link_{{ software.id }}"
-                                                   href="" target="_blank" data-bg="url({{ software.icon.url }})"
+                                                   href="" target="_blank" data-bg="url('{{ software.icon.url }}')"
                                                    onmouseout="default_href()"
                                                    onmouseleave="default_href()"
                                                    onmousemove="re_href_software('{{ software.id }}')"
-                                                   style="background-size: 100%; background-image: url({{ software.icon.url }});"
+                                                   style="background-size: 100%; background-image: url('{{ software.icon.url }}');"
                                                    data-was-processed="true"></a>
                                             </div>
                                             <div class="list-content text-center pt-2">

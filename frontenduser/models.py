@@ -8,6 +8,7 @@ class FrontEndUser(models.Model):
     username = models.CharField(max_length=200, unique=True)
     nickname = models.CharField(max_length=30, null=True, blank=True)
     head_icon = models.ImageField(upload_to='user', default='user/default_head_icon.ico')
+    user_center_cover = models.ImageField(upload_to='user/user_center', default='user/user_center/default.svg')
     description = models.TextField(null=True, blank=True)
     django_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
     state = models.IntegerField(default=1, choices=((1, '封禁'), (2, '正常')))
@@ -23,6 +24,18 @@ class FrontEndUser(models.Model):
                 return self.description
         else:
             return '无'
+
+    class RecentBrowsing(models.Model):
+        id = models.AutoField(primary_key=True)
+        user = models.ForeignKey('FrontEndUser', on_delete=models.CASCADE)
+        article = models.ForeignKey('commentswitharticles.Article', on_delete=models.CASCADE, null=True, blank=True)
+        software = models.ForeignKey('software.SoftWare', on_delete=models.CASCADE, null=True, blank=True)
+        browsing_time = models.DateTimeField(auto_now=True)
+
+        class Meta:
+            db_table = 'recent_browsing'
+            verbose_name = '最近浏览'
+            verbose_name_plural = verbose_name
 
     class Meta:
         db_table = 'front_end_user'

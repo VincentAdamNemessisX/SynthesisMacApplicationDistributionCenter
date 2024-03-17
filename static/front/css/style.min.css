@@ -5353,7 +5353,7 @@ th, td {
     transition: opacity .3s
 }
 
-.comment-list .rank {
+.rank {
     position: relative;
     color: #fff;
     cursor: pointer;
@@ -5365,7 +5365,7 @@ th, td {
     transition: opacity .3s
 }
 
-.comment-list .rank:after {
+.rank:after {
     content: "";
     position: absolute;
     width: 8px;
@@ -5377,7 +5377,7 @@ th, td {
     background: #ffae00
 }
 
-.comment-list .rank:before {
+.rank:before {
     content: "";
     position: absolute;
     width: 5px;

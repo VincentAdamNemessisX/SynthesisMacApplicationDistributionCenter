@@ -83,7 +83,7 @@ def search_result(request):
             matched_software_count = len(matched_software)
             matched_articles_count = len(matched_articles)
             matched_user_count = len(matched_user)
-            return render(request, 'frontenduser/search_result.html', {
+            return render(request, 'front/search_result.html', {
                 'search_str': search_str,
                 'matched_software': matched_software,
                 'matched_software_count': matched_software_count,
@@ -93,12 +93,12 @@ def search_result(request):
                 'matched_user_count': matched_user_count,
             })
         else:
-            return render(request, 'frontenduser/search_result.html', {
+            return render(request, 'front/search_result.html', {
                 'error': 'invalid params',
                 'code': 402
             })
     else:
-        return render(request, 'frontenduser/search_result.html', {
+        return render(request, 'front/search_result.html', {
             'error': 'invalid request action',
             'code': 403
         })
