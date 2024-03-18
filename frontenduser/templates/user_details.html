@@ -56,7 +56,7 @@
                                         {% if user.nickname %}{{ user.nickname }}{% else %}
                                             {{ user.username }} {% endif %}
                                     </a>
-                                    <span class="ml-2 rank" title="角色：站长">站长</span>
+                                    <span class="ml-2 rank" title="角色：{{ user.role }}">{{ user.role }}</span>
                                 </div>
                             </div>
                             <div class="mt6 desc muted-2-color"></div>
@@ -81,23 +81,27 @@
                                 <count class="opacity8 ml3">{{ user.article_set.count }}</count>
                             </a>
                         </li>
-                        {#                        <li class="">#}
-                        {#                            <a href="#author-tab-comment" onclick="changeTab(this.parentElement)"#}
-                        {#                               aria-expanded="false">评论#}
-                        {#                                <count class="opacity8 ml3">{{ user.comment_set.count }}</count>#}
-                        {#                            </a>#}
-                        {#                        </li>#}
+                        {% if request.session.logon_user.id == user.id %}
+                            <li class="">
+                                <a href="#author-tab-comment" onclick="changeTab(this.parentElement)"
+                                   aria-expanded="false">评论
+                                    <count class="opacity8 ml3">{{ user.comment_set.count }}</count>
+                                </a>
+                            </li>
+                        {% endif %}
                         <li class="">
                             <a href="#author-tab-software" onclick="changeTab(this.parentElement)"
                                aria-expanded="false">软件
                                 <count class="opacity8 ml3">{{ user.software_set.count }}</count>
                             </a>
                         </li>
-                        <li class="">
-                            <a href="#author-tab-recent-browsing" onclick="changeTab(this.parentElement)"
-                               aria-expanded="false">最近浏览
-                            </a>
-                        </li>
+                        {% if request.session.logon_user.id == user.id %}
+                            <li class="">
+                                <a href="#author-tab-recent-browsing" onclick="changeTab(this.parentElement)"
+                                   aria-expanded="false">最近浏览
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="tab-content main-tab-content">
@@ -106,7 +110,10 @@
                             <div class="text-center ajax-item " style="padding:100px 0;">
                                 <img style="width:280px;opacity: .7;"
                                      src="{% static 'user_center/img/null-post.svg' %}">
-                                <p style="margin-top:20px;" class="em09 muted-3-color separator">您还没有发表过文章</p>
+                                <p style="margin-top:20px;" class="em09 muted-3-color separator">
+                                    {% if request.session.logon_user.id == user.id %}
+                                        您{% else %}该用户{% endif %}还没有发表过文章
+                                </p>
                             </div>
                         {% else %}
                             <div class="row mb-n4">
@@ -179,7 +186,10 @@
                             <div class="text-center ajax-item " style="padding:60px 0;"><img
                                     style="width:280px;opacity: .7;"
                                     src="{% static 'user_center/img/null-software.svg' %}">
-                                <p style="margin-top:20px;" class="em09 muted-3-color separator">您还没有投稿软件</p>
+                                <p style="margin-top:20px;" class="em09 muted-3-color separator">
+                                    {% if request.session.logon_user.id == user.id %}
+                                        您{% else %}该用户{% endif %}还没有投稿软件
+                                </p>
                             </div>
                         {% else %}
                             <div class="row mb-n4">
@@ -246,147 +256,189 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ajaxpager tab-pane" id="author-tab-comment">
-                        <div class="text-center ajax-item posts-item no_margin">
-                            <img style="width:280px;opacity: .7;"
-                                 src="{% static 'user_center/img/null-comment.svg' %}">
-                            <p style="margin-top:20px;" class="em09 muted-3-color separator">您还没有评论</p>
-                        </div>
-                        <div class="ajax-pag hide">
-                            <div class="next-page ajax-next"><a href=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ajaxpager tab-pane text-center" id="author-tab-recent-browsing">
-                        {% if recent_browsing_count < 1 %}
-                            <div class="text-center ajax-item " style="padding:40px 0;"><img
-                                    style="width:280px;opacity: .7;"
-                                    src="{% static '/user_center/img/null-recent.svg' %}">
-                                <p style="margin-top:20px;" class="em09 muted-3-color separator">最近什么也没浏览</p>
-                            </div>
-                        {% else %}
-                            <div class="row mb-n4">
-                                {% for record in user.recentbrowsing_set.all %}
-                                    {% if record.article %}
-                                        <div class="col-6 col-md-4">
-                                            <div class="card-post list-item">
-                                                <div class="media media-4x3 p-0 rounded">
-                                                    <a class="media-content article_link_{{ record.article.id }}" href=""
-                                                       onmouseout="default_href()" onmouseleave="default_href()"
-                                                       onmousemove="re_href_article('{{ record.article.id }}')"
-                                                       data-src="{{ record.article.cover.url }}"
-                                                       data-was-processed="true"
-                                                       style="background-image: url({{ record.article.cover.url }});">
-                                                    </a>
-                                                </div>
-                                                <div class="list-content">
-                                                    <div class="list-body">
-                                                        <a href="" onmouseleave="default_href()"
-                                                           onmouseout="default_href()"
-                                                           onmousemove="re_href_article('{{ record.article.id }}')"
-                                                           class="list-title text-md overflowClip_2 article_link_{{ record.article.id }}">
-                                                            {{ record.article.title }} </a>
+                    {% if request.session.logon_user.id == user.id %}
+                        <div class="ajaxpager tab-pane" id="author-tab-comment">
+                            {% if published_comments_count < 1 %}
+                                <div class="text-center ajax-item posts-item no_margin">
+                                    <img style="width:280px;opacity: .7;"
+                                         src="{% static 'user_center/img/null-comment.svg' %}">
+                                    <p style="margin-top:20px;" class="em09 muted-3-color separator">
+                                        {% if request.session.logon_user.id == user.id %}
+                                            您{% else %}该用户{% endif %}还没有评论
+                                    </p>
+                                </div>
+                            {% else %}
+                                <ul class="comment-list" id="comment-list">
+                                    {% for comment in user.comment_set.all %}
+                                        <li class="comment even thread-even depth-1 comment">
+                                            <div class="comment_body d-flex flex-fill">
+                                                <section class="comment-text d-flex flex-fill flex-column">
+                                                    <div class="comment-content d-inline-block text-sm">
+                                                        <p>我来评论了了</p>
+                                                        <p>发表在
+                                                            <a href="/index/" class="mr-5">x</a>
+                                                            <span>
+                                                            发表于<span class="info mr-2"><i
+                                                                    class="iconfont icon-time mr-1"></i><time
+                                                                    itemprop="datePublished"
+                                                                    datetime="2024-03-02 00:00:00">2周前</time>
+                                                            </span>
+                                                        </span>
+                                                        </p>
                                                     </div>
-                                                    <div class="list-footer">
-                                                        <div class="d-flex flex-fill align-items-center">
-                                                            <a href=""
-                                                               class="flex-avatar mr-1 user_link_{{ record.article.user.id }}"
-                                                               onmouseout="default_href()" onmouseleave="default_href()"
-                                                               onmousemove="re_href_user('{{ record.article.user.id }}')"
-                                                               target="_blank">
-                                                                <img src="{{ record.article.user.head_icon.url }}"
-                                                                     width="20" height="20" alt="头像"
-                                                                     class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
-                                                            </a>
-                                                            <a href=""
-                                                               class="d-none d-md-inline-block text-xs user_link_{{ record.article.user.id }}"
-                                                               onmouseout="default_href()" onmouseleave="default_href()"
-                                                               onmousemove="re_href_user('{{ record.article.user.id }}')"
-                                                               target="_blank">
-                                                                {% if record.article.user.nickname %}
-                                                                    {{ record.article.user.nickname }}
-                                                                {% else %}
-                                                                    {{ record.article.user.username }}
-                                                                {% endif %}
-                                                            </a>
-                                                            <div class="flex-fill"></div>
-                                                            <div class="text-muted text-xs">
+                                                </section>
+                                            </div>
+                                        </li><!-- #comment-## -->
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            <div class="ajax-pag hide">
+                                <div class="next-page ajax-next"><a href=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if request.session.logon_user.id == user.id %}
+                        <div class="ajaxpager tab-pane text-center" id="author-tab-recent-browsing">
+                            {% if recent_browsing_count < 1 %}
+                                <div class="text-center ajax-item " style="padding:40px 0;"><img
+                                        style="width:280px;opacity: .7;"
+                                        src="{% static '/user_center/img/null-recent.svg' %}">
+                                    <p style="margin-top:20px;" class="em09 muted-3-color separator">
+                                        {% if request.session.logon_user.id == user.id %}
+                                            您{% else %}该用户{% endif %}最近什么也没浏览
+                                    </p>
+                                </div>
+                            {% else %}
+                                <div class="row mb-n4">
+                                    {% for record in user.recentbrowsing_set.all %}
+                                        {% if record.article %}
+                                            <div class="col-6 col-md-4">
+                                                <div class="card-post list-item">
+                                                    <div class="media media-4x3 p-0 rounded">
+                                                        <a class="media-content article_link_{{ record.article.id }}"
+                                                           href=""
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
+                                                           onmousemove="re_href_article('{{ record.article.id }}')"
+                                                           data-src="{{ record.article.cover.url }}"
+                                                           data-was-processed="true"
+                                                           style="background-image: url({{ record.article.cover.url }});">
+                                                        </a>
+                                                    </div>
+                                                    <div class="list-content">
+                                                        <div class="list-body">
+                                                            <a href="" onmouseleave="default_href()"
+                                                               onmouseout="default_href()"
+                                                               onmousemove="re_href_article('{{ record.article.id }}')"
+                                                               class="list-title text-md overflowClip_2 article_link_{{ record.article.id }}">
+                                                                {{ record.article.title }} </a>
+                                                        </div>
+                                                        <div class="list-footer">
+                                                            <div class="d-flex flex-fill align-items-center">
+                                                                <a href=""
+                                                                   class="flex-avatar mr-1 user_link_{{ record.article.user.id }}"
+                                                                   onmouseout="default_href()"
+                                                                   onmouseleave="default_href()"
+                                                                   onmousemove="re_href_user('{{ record.article.user.id }}')"
+                                                                   target="_blank">
+                                                                    <img src="{{ record.article.user.head_icon.url }}"
+                                                                         width="20" height="20" alt="头像"
+                                                                         class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                                </a>
+                                                                <a href=""
+                                                                   class="d-none d-md-inline-block text-xs user_link_{{ record.article.user.id }}"
+                                                                   onmouseout="default_href()"
+                                                                   onmouseleave="default_href()"
+                                                                   onmousemove="re_href_user('{{ record.article.user.id }}')"
+                                                                   target="_blank">
+                                                                    {% if record.article.user.nickname %}
+                                                                        {{ record.article.user.nickname }}
+                                                                    {% else %}
+                                                                        {{ record.article.user.username }}
+                                                                    {% endif %}
+                                                                </a>
+                                                                <div class="flex-fill"></div>
+                                                                <div class="text-muted text-xs">
                                                         <span class="views mr-1"><i
                                                                 class="iconfont icon-chakan mr-1"></i>
                                                             {{ record.article.view_volume }}
                                                         </span><i
-                                                                    class="iconfont icon-like mr-1"></i>
-                                                                {{ record.article.thumbs_volume }}
+                                                                        class="iconfont icon-like mr-1"></i>
+                                                                    {{ record.article.thumbs_volume }}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% elif record.software %}
-                                        <div class="col-6 col-md-4">
-                                            <div class="card-post list-item">
-                                                <div class="media media-4x3 p-0 rounded">
-                                                    <a class="media-content software_link_{{ record.software.id }}" href=""
-                                                       onmouseout="default_href()" onmouseleave="default_href()"
-                                                       onmousemove="re_href_software('{{ record.software.id }}')"
-                                                       data-was-processed="true"
-                                                       style="background-image: url('{{ record.software.icon.url }}');">
-                                                    </a>
-                                                </div>
-                                                <div class="list-content">
-                                                    <div class="list-body">
-                                                        <a href="" onmouseleave="default_href()"
-                                                           onmouseout="default_href()"
+                                        {% elif record.software %}
+                                            <div class="col-6 col-md-4">
+                                                <div class="card-post list-item">
+                                                    <div class="media media-4x3 p-0 rounded">
+                                                        <a class="media-content software_link_{{ record.software.id }}"
+                                                           href=""
+                                                           onmouseout="default_href()" onmouseleave="default_href()"
                                                            onmousemove="re_href_software('{{ record.software.id }}')"
-                                                           class="list-title text-md overflowClip_2 software_link_{{ record.software.id }}">
-                                                            {{ record.software.name }} </a>
+                                                           data-was-processed="true"
+                                                           style="background-image: url('{{ record.software.icon.url }}');">
+                                                        </a>
                                                     </div>
-                                                    <div class="list-footer">
-                                                        <div class="d-flex flex-fill align-items-center">
-                                                            <a href=""
-                                                               class="flex-avatar mr-1 user_link_{{ record.software.user.id }}"
-                                                               onmouseout="default_href()" onmouseleave="default_href()"
-                                                               onmousemove="re_href_user('{{ record.software.user.id }}')"
-                                                               target="_blank">
-                                                                <img src="{{ record.software.user.head_icon.url }}"
-                                                                     width="20" height="20" alt="头像"
-                                                                     class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
-                                                            </a>
-                                                            <a href=""
-                                                               class="d-none d-md-inline-block text-xs user_link_{{ record.software.user.id }}"
-                                                               onmouseout="default_href()" onmouseleave="default_href()"
-                                                               onmousemove="re_href_user('{{ record.software.user.id }}')"
-                                                               target="_blank">
-                                                                {% if record.software.user.nickname %}
-                                                                    {{ record.software.user.nickname }}
-                                                                {% else %}
-                                                                    {{ record.software.user.username }}
-                                                                {% endif %}
-                                                            </a>
-                                                            <div class="flex-fill"></div>
-                                                            <div class="text-muted text-xs">
+                                                    <div class="list-content">
+                                                        <div class="list-body">
+                                                            <a href="" onmouseleave="default_href()"
+                                                               onmouseout="default_href()"
+                                                               onmousemove="re_href_software('{{ record.software.id }}')"
+                                                               class="list-title text-md overflowClip_2 software_link_{{ record.software.id }}">
+                                                                {{ record.software.name }} </a>
+                                                        </div>
+                                                        <div class="list-footer">
+                                                            <div class="d-flex flex-fill align-items-center">
+                                                                <a href=""
+                                                                   class="flex-avatar mr-1 user_link_{{ record.software.user.id }}"
+                                                                   onmouseout="default_href()"
+                                                                   onmouseleave="default_href()"
+                                                                   onmousemove="re_href_user('{{ record.software.user.id }}')"
+                                                                   target="_blank">
+                                                                    <img src="{{ record.software.user.head_icon.url }}"
+                                                                         width="20" height="20" alt="头像"
+                                                                         class="avatar avatar-20 wp-user-avatar wp-user-avatar-20 photo avatar-default">
+                                                                </a>
+                                                                <a href=""
+                                                                   class="d-none d-md-inline-block text-xs user_link_{{ record.software.user.id }}"
+                                                                   onmouseout="default_href()"
+                                                                   onmouseleave="default_href()"
+                                                                   onmousemove="re_href_user('{{ record.software.user.id }}')"
+                                                                   target="_blank">
+                                                                    {% if record.software.user.nickname %}
+                                                                        {{ record.software.user.nickname }}
+                                                                    {% else %}
+                                                                        {{ record.software.user.username }}
+                                                                    {% endif %}
+                                                                </a>
+                                                                <div class="flex-fill"></div>
+                                                                <div class="text-muted text-xs">
                                                         <span class="views mr-1"><i
                                                                 class="iconfont icon-chakan mr-1"></i>
                                                             {{ record.software.view_volume }}
                                                         </span><i
-                                                                    class="iconfont icon-like mr-1"></i>
-                                                                {{ record.software.thumbs_volume }}
+                                                                        class="iconfont icon-like mr-1"></i>
+                                                                    {{ record.software.thumbs_volume }}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                        <div class="ajax-pag hide">
-                            <div class="next-page ajax-next"><a href=""></a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="ajax-pag hide">
+                                <div class="next-page ajax-next"><a href=""></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
