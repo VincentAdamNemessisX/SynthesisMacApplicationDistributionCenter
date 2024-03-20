@@ -167,7 +167,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # simpleui that backend settings
-# SIMPLEUI_HOME_PAGE = '/analytics/'
+SIMPLEUI_HOME_PAGE = '/analytics/'
 SIMPLEUI_HOME_TITLE = '概览'
 SIMPLEUI_LOGO = '/static/favicon.ico'  # left top logo
 SIMPLEUI_DEFAULT_THEME = 'e-purple.css'  # default theme

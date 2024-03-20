@@ -11,3 +11,4 @@ comtypes~=1.2.1
 pillow~=10.2.0
 redis~=3.5.3
 jieba~=0.42.1
+pyecharts~=2.0.5
