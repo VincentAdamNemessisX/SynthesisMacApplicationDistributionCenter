@@ -1,4 +1,5 @@
 from django.contrib import admin
+from import_export.admin import ExportActionModelAdmin
 
 from commentswitharticles.models import Comment, Article
 
@@ -7,9 +8,14 @@ from commentswitharticles.models import Comment, Article
 
 
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(ExportActionModelAdmin, admin.ModelAdmin):
     list_display = ['id', 'user', 'short_content', 'correlation_article', 'correlation_software',
                     'state', 'created_time', 'parent']
+    search_fields = ['content', 'user__username', 'user__nickname', 'correlation_article__title',
+                     'correlation_software__short_name']
+    list_filter = ['state', 'created_time', 'correlation_article', 'correlation_software']
+    ordering = ['-created_time', 'id']
+    list_per_page = 10
     actions = ['pass_audit_batch', 'reject_audit_batch']
 
     def pass_audit_batch(self, request, queryset):
@@ -34,9 +40,13 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(ExportActionModelAdmin, admin.ModelAdmin):
     list_display = ['id', 'user', 'short_title', 'short_content', 'correlation_software', 'state', 'created_time',
                     'updated_time']
+    search_fields = ['title', 'content', 'user__username', 'user__nickname', 'correlation_software__short_name']
+    list_filter = ['state', 'created_time', 'updated_time', 'correlation_software']
+    ordering = ['-created_time', 'id']
+    list_per_page = 10
     actions = ['pass_audit_batch', 'reject_audit_batch']
 
     def pass_audit_batch(self, request, queryset):

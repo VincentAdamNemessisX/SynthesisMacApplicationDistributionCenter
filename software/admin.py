@@ -1,14 +1,20 @@
 from django.contrib import admin
+from import_export.admin import ExportActionModelAdmin
 
 from software.models import SoftWare
 
 
 # Register your models here.
 @admin.register(SoftWare)
-class SoftWareAdmin(admin.ModelAdmin):
+class SoftWareAdmin(ExportActionModelAdmin, admin.ModelAdmin):
     list_display = ['id', 'short_name', 'version', 'short_description', 'language', 'platform', 'run_os_version',
                     'category', 'tags', 'file_size', 'link_adrive', 'link_baidu', 'link_123', 'link_direct', 'icon', 'state',
                     'created_time', 'updated_time']
+    search_fields = ['name', 'description', 'language', 'platform', 'run_os_version', 'category__name', 'tags',
+                     'file_size', 'link_adrive', 'link_baidu', 'link_123', 'link_direct']
+    list_filter = ['state', 'created_time', 'updated_time', 'category']
+    ordering = ['-created_time', 'id']
+    list_per_page = 15
     actions = ['pass_audit_batch', 'reject_audit_batch']
 
     def pass_audit_batch(self, request, queryset):
@@ -35,3 +41,5 @@ class SoftWareAdmin(admin.ModelAdmin):
 @admin.register(SoftWare.SoftwareScreenShots)
 class SoftwareScreenShotsAdmin(admin.ModelAdmin):
     list_display = ['id', 'image']
+    list_per_page = 10
+    ordering = ['id']
