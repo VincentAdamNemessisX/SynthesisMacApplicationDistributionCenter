@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized front end user ban rules">
+      <change afterPath="$PROJECT_DIR$/media/category/icons/office_jiHwiJi.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,15 +323,8 @@
       <workItem from="1710955103581" duration="7930000" />
       <workItem from="1711018471433" duration="1210000" />
       <workItem from="1711293136342" duration="4264000" />
-      <workItem from="1711343966410" duration="285000" />
-    </task>
-    <task id="LOCAL-00023" summary="appended security request method instead of unsecure request method to request notices">
-      <option name="closed" value="true" />
-      <created>1707043573455</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1707043573455</updated>
+      <workItem from="1711343966410" duration="315000" />
+      <workItem from="1711363371923" duration="8090000" />
     </task>
     <task id="LOCAL-00024" summary="optimized notice to app's bug that warning to show">
       <option name="closed" value="true" />
@@ -715,7 +710,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711297330550</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="optimized front end user ban rules">
+      <option name="closed" value="true" />
+      <created>1711344271405</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1711344271405</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,7 +727,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="appended some functions to implement show short content with a very long field's value;" />
     <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
     <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
     <MESSAGE value="finished rank page and squared logo image" />
@@ -749,7 +751,8 @@
     <MESSAGE value="optimized something in user details page;" />
     <MESSAGE value="appended simple echarts instead simpleui that default backend page" />
     <MESSAGE value="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;" />
-    <option name="LAST_COMMIT_MESSAGE" value="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;" />
+    <MESSAGE value="optimized front end user ban rules" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized front end user ban rules" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1710680925101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

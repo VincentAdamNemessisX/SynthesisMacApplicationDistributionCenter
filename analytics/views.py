@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-
 from django.shortcuts import render
 from pyecharts import options as opts
 from pyecharts.charts import Bar
