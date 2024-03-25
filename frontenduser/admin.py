@@ -8,7 +8,7 @@ from frontenduser.models import FrontEndUser
 
 @admin.register(FrontEndUser)
 class FrontEndUserAdmin(admin.ModelAdmin):
-    list_display = ['id', 'username', 'nickname', 'short_description', 'django_user', 'head_icon', 'role']
+    list_display = ['id', 'username', 'nickname', 'state', 'short_description', 'django_user', 'head_icon', 'role']
     search_fields = ['username', 'nickname', 'short_description', 'django_user__username', 'role']
     list_filter = ['role', 'django_user', 'django_user__date_joined']
     ordering = ['django_user__date_joined', 'id']
@@ -17,9 +17,9 @@ class FrontEndUserAdmin(admin.ModelAdmin):
 
     def ban_user(self, request, queryset):
         for obj in queryset:
-            if obj.django_user.is_active == 1:
+            if obj.state == 1:
                 continue
-            obj.django_user.is_active = 0
+            obj.state = 1
             obj.save()
         self.message_user(request, '已封禁！', level='success')
 
@@ -27,9 +27,9 @@ class FrontEndUserAdmin(admin.ModelAdmin):
 
     def unban_user(self, request, queryset):
         for obj in queryset:
-            if obj.django_user.is_active == 0:
+            if obj.state == 2:
                 continue
-            obj.django_user.is_active = 1
+            obj.state = 2
             obj.save()
         self.message_user(request, '已解封！', level='success')
 

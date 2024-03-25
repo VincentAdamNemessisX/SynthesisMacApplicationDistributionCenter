@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended simple echarts instead simpleui that default backend page">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;">
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/announcements/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/category/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontenduser/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontenduser/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testunit/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/testunit/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,15 +320,8 @@
       <workItem from="1710840540997" duration="3266000" />
       <workItem from="1710955103581" duration="7930000" />
       <workItem from="1711018471433" duration="1210000" />
-      <workItem from="1711293136342" duration="3930000" />
-    </task>
-    <task id="LOCAL-00022" summary="restored notice showing to home page">
-      <option name="closed" value="true" />
-      <created>1706905038952</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1706905038953</updated>
+      <workItem from="1711293136342" duration="4264000" />
+      <workItem from="1711343966410" duration="285000" />
     </task>
     <task id="LOCAL-00023" summary="appended security request method instead of unsecure request method to request notices">
       <option name="closed" value="true" />
@@ -722,7 +707,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710963079093</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;">
+      <option name="closed" value="true" />
+      <created>1711297330550</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1711297330550</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -731,7 +724,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished thumbs function in article details;&#10;fixed comments loaded dirty data;&#10;deleted favorite model;" />
     <MESSAGE value="appended some functions to implement show short content with a very long field's value;" />
     <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
     <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
@@ -756,7 +748,8 @@
     <MESSAGE value="just finished for 0.0.1 version;&#10;finished almost all features;" />
     <MESSAGE value="optimized something in user details page;" />
     <MESSAGE value="appended simple echarts instead simpleui that default backend page" />
-    <option name="LAST_COMMIT_MESSAGE" value="appended simple echarts instead simpleui that default backend page" />
+    <MESSAGE value="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;" />
+    <option name="LAST_COMMIT_MESSAGE" value="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1710680925101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
