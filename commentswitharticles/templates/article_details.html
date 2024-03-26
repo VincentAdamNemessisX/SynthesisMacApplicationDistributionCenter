@@ -68,7 +68,9 @@
                                                 class="like-count ">{{ article.thumbs_volume }}</span>
                                         </button>
                                         <span class="views mr-3"><i
-                                                class="iconfont icon-chakan"></i> {{ article.view_volume }}</span><span
+                                                class="iconfont icon-chakan"></i>
+                                            <span id="view-volume">{{ article.view_volume }}</span>
+                                        </span><span
                                             class="mr-3"><a class="smooth-n" href="#comments"> <i
                                             class="iconfont icon-comment"></i> {{ article.comment_set.count }}</a></span>
                                     </div>
@@ -271,6 +273,7 @@
 {% block script %}
     <script>
 		$(document).ready(function () {
+			auto_add_view_volume('{{ csrf_token }}', 2, '{{ article.id }}');
 			format_time_block();
 		})
     </script>

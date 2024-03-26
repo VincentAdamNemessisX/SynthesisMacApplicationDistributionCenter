@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized front end user ban rules">
-      <change afterPath="$PROJECT_DIR$/media/category/icons/office_jiHwiJi.png" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized something...">
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/custom-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/custom-modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/software_details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,15 +327,10 @@
       <workItem from="1711018471433" duration="1210000" />
       <workItem from="1711293136342" duration="4264000" />
       <workItem from="1711343966410" duration="315000" />
-      <workItem from="1711363371923" duration="8090000" />
-    </task>
-    <task id="LOCAL-00024" summary="optimized notice to app's bug that warning to show">
-      <option name="closed" value="true" />
-      <created>1707122198524</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1707122198524</updated>
+      <workItem from="1711363371923" duration="8724000" />
+      <workItem from="1711384308321" duration="19000" />
+      <workItem from="1711435760170" duration="1208000" />
+      <workItem from="1711470066863" duration="3534000" />
     </task>
     <task id="LOCAL-00025" summary="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status">
       <option name="closed" value="true" />
@@ -718,7 +716,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711344271405</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="optimized something...">
+      <option name="closed" value="true" />
+      <created>1711384258320</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1711384258322</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,7 +733,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="appended similarity computing function to implement related software or articles;&#10;finished article details page;" />
     <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
     <MESSAGE value="finished rank page and squared logo image" />
     <MESSAGE value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
@@ -752,7 +757,8 @@
     <MESSAGE value="appended simple echarts instead simpleui that default backend page" />
     <MESSAGE value="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;" />
     <MESSAGE value="optimized front end user ban rules" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized front end user ban rules" />
+    <MESSAGE value="optimized something..." />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized something..." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1710680925101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

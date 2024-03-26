@@ -104,20 +104,101 @@ async function thumb_article_or_not(csrftoken, type, article_id) {
 				})
 			}
 		})
-		// .catch((error) => { //捕获fetch过程中可能会碰到的异常并将其输出在控制台
-		// 		Swal.fire({
-		// 			icon: 'error',
-		// 			title: '出错了',
-		// 			text: "错误代码" + error.code + "," + error.msg + "!",
-		// 			footer: '<a href="/help">需要帮助?</a>'
-		// 		})
-		// }); //返回promise以供后续代码使用promise链式访问其中数据
+	// .catch((error) => { //捕获fetch过程中可能会碰到的异常并将其输出在控制台
+	// 		Swal.fire({
+	// 			icon: 'error',
+	// 			title: '出错了',
+	// 			text: "错误代码" + error.code + "," + error.msg + "!",
+	// 			footer: '<a href="/help">需要帮助?</a>'
+	// 		})
+	// }); //返回promise以供后续代码使用promise链式访问其中数据
 }
 
 function load_img(file) {
 
 }
 
-function unload_img(src){
+function unload_img(src) {
 
+}
+
+function auto_add_download_volume(csrftoken, id) {
+	$.ajax({
+		url: '/software/api/download/',
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			csrfmiddlewaretoken: csrftoken,
+			software_id: encrypt_param(id.toString())
+		},
+		success: function (data) {
+			if (data.code !== 200) {
+				console.error('Error: ' + data.code + ': ' + data.error);
+			} else {
+				let down_count = $('#down-count');
+				down_count.text(parseInt(down_count.text().trim()) + 1);
+			}
+		},
+		error: function (data) {
+			Swal.fire({
+				icon: 'error',
+				title: '出错了',
+				text: '后台严重异常，请联系站长!'
+			})
+		}
+	})
+}
+
+function auto_add_view_volume(csrftoken, type, id) {
+	if (type === 1) {
+		$.ajax({
+			url: '/software/api/view/',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				csrfmiddlewaretoken: csrftoken,
+				software_id: encrypt_param(id.toString())
+			},
+			success: function (data) {
+				if (data.code !== 200) {
+					console.log('Success: ' + data.code + ': ' + data.msg);
+				} else {
+					let view_volume = $('#view-volume');
+					view_volume.text(parseInt(view_volume.text().trim()) + 1);
+				}
+			},
+			error: function (data) {
+				Swal.fire({
+					icon: 'error',
+					title: '出错了',
+					text: '后台严重异常，请联系站长!',
+				})
+			}
+		})
+	} else if (type === 2) {
+		$.ajax({
+			url: '/commentswitharticles/article/api/view/',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				csrfmiddlewaretoken: csrftoken,
+				article_id: encrypt_param(id.toString())
+			},
+			success: function (data) {
+				if (data.code !== 200) {
+					console.error('Error: ' + data.code + ': ' + data.error);
+				} else {
+					let view_volume = $('#view-volume');
+					view_volume.text(parseInt(view_volume.text().trim()) + 1);
+				}
+			},
+			error: function (data) {
+				Swal.fire({
+					icon: 'error',
+					title: '出错了',
+					text: '后台严重异常，请联系站长!',
+				})
+			}
+		})
+	}
 }

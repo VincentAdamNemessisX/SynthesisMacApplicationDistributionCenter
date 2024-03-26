@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
-from frontenduser.models import FrontEndUser
 from general.common_compute import compute_similarity
 from general.data_handler import handle_uploaded_image
 from general.encrypt import decrypt
@@ -395,6 +394,90 @@ def thumb(request):
             return JsonResponse({
                 'code': 406,
                 'error': 'Error with bad request headers'
+            })
+    else:
+        return JsonResponse({
+            'code': 405,
+            'error': 'Error with bad request action'
+        })
+
+
+@router.path(pattern='api/download/')
+@require_POST
+def download(request):
+    if request.method == 'POST':
+        try:
+            software_id = request.POST.get('software_id')
+            software_id = str(software_id.replace(' ', '+'))
+            software_id = decrypt(software_id)
+            software = SoftWare.objects.get(id=software_id)
+            if software:
+                software.download_volume += 1
+                software.save()
+                return JsonResponse({
+                    'code': 200
+                })
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'error': 'Error with not found software'
+                })
+        except ValueError:
+            return JsonResponse({
+                'code': 401,
+                'error': 'Error with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 402,
+                'error': 'Error with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 400,
+                'error': 'Error with bad params'
+            })
+    else:
+        return JsonResponse({
+            'code': 405,
+            'error': 'Error with bad request action'
+        })
+
+
+@router.path(pattern='api/view/')
+@require_POST
+def view(request):
+    if request.method == 'POST':
+        try:
+            software_id = request.POST.get('software_id')
+            software_id = str(software_id.replace(' ', '+'))
+            software_id = decrypt(software_id)
+            software = SoftWare.objects.get(id=software_id)
+            if software:
+                software.view_volume += 1
+                software.save()
+                return JsonResponse({
+                    'code': 200
+                })
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'error': 'Error with not found software'
+                })
+        except ValueError:
+            return JsonResponse({
+                'code': 401,
+                'error': 'Error with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 402,
+                'error': 'Error with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 400,
+                'error': 'Error with bad params'
             })
     else:
         return JsonResponse({

@@ -1,4 +1,4 @@
-function download_modal(software) {
+function download_modal(csrftoken, software) {
 	let modal_html = `
 			<div class="modal-header py-2 modal-header-simple">
 				<span></span>
@@ -18,7 +18,7 @@ function download_modal(software) {
                 </div>
             </div>`;
 	modal_html = modal_html.replace('<div class="down_btn_list mb-4"></div>',
-		'<div class="down_btn_list mb-4">' + append_download_links(software)
+		'<div class="down_btn_list mb-4">' + append_download_links(csrftoken, software)
 							+ '</div>');
 	Swal.fire({
 		width: '70%',
@@ -28,7 +28,7 @@ function download_modal(software) {
 	});
 }
 
-function append_download_links(software) {
+function append_download_links(csrftoken, software) {
 	let download_block = '';
 	if (software.get('link_adrive') !== '' && software.get('link_adrive') !== 'None' && software.get('link_adrive') !== undefined) {
 		download_block += `
@@ -37,7 +37,7 @@ function append_download_links(software) {
 		    <div class="col-6 col-md-7">${software.get('name')} - ${software.get('version')}【要改后缀名】</div>
 		    <div class="col-4 col-md-3 "><a
 		            class="btn btn-danger custom_btn-d py-0 px-1 mx-auto down_count copy-data text-sm"
-		            href="${software.get('link_adrive')}" target="_blank"
+		            href="${software.get('link_adrive')}" onclick="auto_add_download_volume('${csrftoken.toString()}', ${software.get('id')})" target="_blank"
 		            data-mmid="down-mm-0">阿里云盘下载</a>
 		    </div>
 		</div>
@@ -52,7 +52,9 @@ function append_download_links(software) {
 		    <div class="col-6 col-md-7">${software.get('name')} - ${software.get('version')}</div>
 		    <div class="col-4 col-md-3 "><a
 		            class="btn btn-danger custom_btn-d py-0 px-1 mx-auto down_count copy-data text-sm"
-		            href="${software.get('link_baidu')}" target="_blank"
+		            href="${software.get('link_baidu')}"
+		             onclick="auto_add_download_volume(${csrftoken}, ${software.get('id')})"
+		             target="_blank"
 		            data-mmid="down-mm-0">百度云盘下载</a>
 		    </div>
 		</div>
@@ -67,7 +69,7 @@ function append_download_links(software) {
 		    <div class="col-6 col-md-7">${software.get('name')} - ${software.get('version')}</div>
 		    <div class="col-4 col-md-3 "><a
 		            class="btn btn-danger custom_btn-d py-0 px-1 mx-auto down_count copy-data text-sm"
-		            href="${software.get('link_direct')}" target="_blank"
+		            href="${software.get('link_direct')}" target="_blank" onclick="auto_add_download_volume(${csrftoken}, ${software.get('id')})"
 		            data-mmid="down-mm-0">本站直链下载</a>
 		    </div>
 		</div>
@@ -83,6 +85,7 @@ function append_download_links(software) {
 		    <div class="col-4 col-md-3 "><a
 		            class="btn btn-danger custom_btn-d py-0 px-1 mx-auto down_count copy-data text-sm"
 		            href="${software.get('link_123')}" target="_blank"
+		            onclick="auto_add_download_volume(${csrftoken}, ${software.get('id')})"
 		            data-mmid="down-mm-0">123云盘下载</a>
 		    </div>
 		</div>

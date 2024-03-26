@@ -85,11 +85,7 @@
                                     class="fa fa-laptop mr-2"></i>{{ software.platform }}</span><span
                                     class="badge badge-pill vc-black mr-1"><i
                                     class="iconfont icon-chakan-line mr-2"></i>
-                                {% if software.view_volume == 0 %}
-                                    1
-                                {% else %}
-                                    {{ software.view_volume }}
-                                {% endif %}
+                                <span id="view-volume">{{ software.view_volume }}</span>
                             </span>
                             </div>
                             <p class="text-muted mb-4"><span
@@ -107,7 +103,8 @@
                                                                        href="">{{ software.category }}<i
                                         class="iconfont icon-wailian text-ss"></i></a></span></p>
                             <div class="mb-2 app-button">
-                                <button type="button" onclick="download_modal(storage_software_info())"
+                                <button type="button"
+                                        onclick="download_modal('{{ csrf_token }}', storage_software_info())"
                                         class="btn btn-lg px-4 text-lg radius-50 btn-danger custom_btn-d btn_down mr-3 mb-2">
                                     <i class="iconfont icon-down mr-2"></i>立即下载
                                 </button>
@@ -130,7 +127,7 @@
                                 </span>
                                 <span class="mr-2">
                                     <i class="iconfont icon-qushitubiao"></i>
-                                    <span class="down-count-text count-a">
+                                    <span id="down-count" class="down-count-text count-a">
                                         {{ software.download_volume }}
                                     </span> 人已下载
                                 </span>
@@ -325,6 +322,7 @@
 {% block script %}
     <script>
 		$(document).ready(function () {
+			auto_add_view_volume('{{ csrf_token }}', 1, '{{ software.id }}')
 			get_notice_to_specific_app('{{ csrf_token }}', '{{ software.id }}');
 			fill_in_tags();
 		});

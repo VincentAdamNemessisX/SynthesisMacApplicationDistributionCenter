@@ -612,3 +612,45 @@ def publish_article(request):
             'code': 301,
             'msg': 'failed with wrong request action'
         })
+
+
+@router.path(pattern='article/api/view/')
+@require_POST
+def view_article(request):
+    if request.method == 'POST':
+        try:
+            article_id = request.POST.get('article_id')
+            article_id = str(article_id.replace(' ', '+'))
+            article_id = decrypt(article_id)
+            article = Article.objects.get(id=article_id)
+            if article:
+                article.view_volume += 1
+                article.save()
+                return JsonResponse({
+                    'code': 200
+                })
+            else:
+                return JsonResponse({
+                    'code': 404,
+                    'error': 'Error with not found article'
+                })
+        except ValueError:
+            return JsonResponse({
+                'code': 401,
+                'error': 'Error with invalid params'
+            })
+        except TypeError:
+            return JsonResponse({
+                'code': 402,
+                'error': 'Error with wrong params'
+            })
+        except AttributeError:
+            return JsonResponse({
+                'code': 400,
+                'error': 'Error with bad params'
+            })
+    else:
+        return JsonResponse({
+            'code': 405,
+            'error': 'Error with bad request action'
+        })
