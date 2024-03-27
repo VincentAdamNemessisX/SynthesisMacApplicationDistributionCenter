@@ -4,15 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="optimized something...">
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="appended auto-add-view-volume after browsed any software or article;&#10;appended auto-add-download-volume after click download link to outside website;&#10;optimized other things...">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/148188897.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/2107901138.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/2494808905.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/29bfeef37eef4ca3bcf962274c1c7766.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/3030694664.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/3030694664_1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/311882458.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/3303086451.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/3503314265_1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/3950969068.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/460x0w.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/46970285.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/844801572_1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/macwk.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/article_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/custom-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/custom-modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/extend_js/modify_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/software_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/software_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testunit/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/testunit/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,15 +343,8 @@
       <workItem from="1711363371923" duration="8724000" />
       <workItem from="1711384308321" duration="19000" />
       <workItem from="1711435760170" duration="1208000" />
-      <workItem from="1711470066863" duration="3534000" />
-    </task>
-    <task id="LOCAL-00025" summary="optimized duplicate codes in templates with html files that sidebar.html and header-nav.html;&#10;appended rank page;&#10;appended communication among tabs that use broadcast channel to implements sidebar mini status">
-      <option name="closed" value="true" />
-      <created>1707152658717</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1707152658717</updated>
+      <workItem from="1711470066863" duration="3769000" />
+      <workItem from="1711545182544" duration="10520000" />
     </task>
     <task id="LOCAL-00026" summary="appended articles_list.html, search_result.html and sweetalert2.css and optimized some bugs">
       <option name="closed" value="true" />
@@ -724,7 +730,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711384258322</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="appended auto-add-view-volume after browsed any software or article;&#10;appended auto-add-download-volume after click download link to outside website;&#10;optimized other things...">
+      <option name="closed" value="true" />
+      <created>1711473794511</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1711473794512</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -733,7 +747,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished article_list page;&#10;updated logo image to transparent;" />
     <MESSAGE value="finished rank page and squared logo image" />
     <MESSAGE value="finished article and software publication pages' content layout;&#10;finished front end uploaded image preview" />
     <MESSAGE value="finished front end verified data;&#10;finished publish software front end all problems;" />
@@ -758,10 +771,11 @@
     <MESSAGE value="appended django_import_export app into this project to implement exporting data;&#10;optimized all admin properties for better backend ui;" />
     <MESSAGE value="optimized front end user ban rules" />
     <MESSAGE value="optimized something..." />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized something..." />
+    <MESSAGE value="appended auto-add-view-volume after browsed any software or article;&#10;appended auto-add-download-volume after click download link to outside website;&#10;optimized other things..." />
+    <option name="LAST_COMMIT_MESSAGE" value="appended auto-add-view-volume after browsed any software or article;&#10;appended auto-add-download-volume after click download link to outside website;&#10;optimized other things..." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1710680925101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
+    <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1711555239921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$views.coverage" NAME="views Coverage Results" MODIFIED="1707251785530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/category" />
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$encrypt.coverage" NAME="encrypt Coverage Results" MODIFIED="1707252398914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/general" />
   </component>

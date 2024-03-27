@@ -6,7 +6,7 @@ from software.models import SoftWare
 
 # Register your models here.
 @admin.register(SoftWare)
-class SoftWareAdmin(ExportActionModelAdmin, admin.ModelAdmin):
+class SoftWareAdmin(admin.ModelAdmin):
     list_display = ['id', 'short_name', 'version', 'short_description', 'language', 'platform', 'run_os_version',
                     'category', 'tags', 'file_size', 'link_adrive', 'link_baidu', 'link_123', 'link_direct', 'icon', 'state',
                     'created_time', 'updated_time']

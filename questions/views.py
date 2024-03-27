@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_GET
 from django_router import router
-
 from general.init_cache import get_all_questions
 
 
@@ -14,6 +13,7 @@ def init_questions(request):
                               key=lambda q: q.updated_time, reverse=True)
         all_question_count = len(all_question) if all_question else 0
         init_quests = all_question[:6]
+        # write_something()
         return render(request, 'question_list.html', {
             'questions': init_quests,
             'questions_count': all_question_count
