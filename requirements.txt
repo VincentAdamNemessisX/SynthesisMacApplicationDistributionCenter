@@ -1,6 +1,6 @@
 django~=3.2.23
 pymysql~=1.0.2
-djang-simpleui~=2023.11.16
+djang-simpleui
 django-router~=1.0.7
 scikit-learn~=1.4.1.post1
 beautifulsoup4~=4.12.2
