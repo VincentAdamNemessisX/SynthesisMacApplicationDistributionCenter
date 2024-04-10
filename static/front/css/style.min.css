@@ -3994,7 +3994,7 @@ a img.aligncenter {
     right: 0;
     border: 0;
     border-radius: inherit;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-color: rgba(120, 120, 120, .1)

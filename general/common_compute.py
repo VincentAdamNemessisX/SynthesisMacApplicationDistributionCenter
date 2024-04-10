@@ -1,6 +1,7 @@
 from datetime import datetime, time
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from general.encrypt import decrypt
 
 
 def get_hot_volume_of_article(article, get_type=1):
@@ -81,3 +82,29 @@ def compute_similarity(str1, str2):
     vectors = vectorizer.fit_transform(corpus)
     similarity = cosine_similarity(vectors[0], vectors[1])
     return similarity[0][0]
+
+
+def update_user_recent(user, article_id, software_id):
+    from commentswitharticles.models import Article
+    from software.models import SoftWare
+    from frontenduser.models import FrontEndUser
+    article_id = int(decrypt(article_id.replace(' ', '+'))) if article_id else None
+    software_id = int(decrypt(software_id.replace(' ', '+'))) if software_id else None
+    try:
+        if user and article_id:
+            if FrontEndUser.RecentBrowsing.objects.all().values('article').filter(user=user, article=Article.objects.get(id=article_id)).count() > 0:
+                return True
+            FrontEndUser.RecentBrowsing.objects.create(user=user, article=Article.objects.get(id=article_id))
+            return True
+        if user and software_id:
+            if FrontEndUser.RecentBrowsing.objects.all().values('software').filter(user=user, software=SoftWare.objects.get(id=software_id)).count() > 0:
+                return True
+            FrontEndUser.RecentBrowsing.objects.create(user=user, software=SoftWare.objects.get(id=software_id))
+            return True
+    except Article.DoesNotExist:
+        return False, 'Article does not exist or valid'
+    except SoftWare.DoesNotExist:
+        return False, 'Software does not exist or valid'
+    except FrontEndUser.DoesNotExist:
+        return False, 'User does not exist or valid'
+    return False, 'Unknown error'

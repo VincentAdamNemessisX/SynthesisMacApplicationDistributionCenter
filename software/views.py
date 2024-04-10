@@ -326,10 +326,10 @@ def software_details(request):
                           {'error': 'wrong params', 'code': 401})
         except AttributeError:
             return render(request, 'front/software_details.html',
-                          {'error': 'not found', 'code': 404})
+                          {'error': '未上架或参数异常', 'code': 404})
         except IndexError:
             return render(request, 'front/software_details.html',
-                          {'error': 'not found', 'code': 404})
+                          {'error': '未上架或参数异常', 'code': 404})
         return render(request, 'front/software_details.html', {
             'software_id': software_id,
             'software': software,

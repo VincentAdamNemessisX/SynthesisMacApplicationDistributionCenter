@@ -366,25 +366,34 @@ def register(request):
 @require_POST
 def update_user(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        nickname = request.POST.get('nickname') if request.POST.get('nickname') else None
-        email = request.POST.get('email')
+        username = request.POST['username'] or None
+        nickname = request.POST.get('nickname') or None
+        email = request.POST['email'] or None
+        description = request.POST.get('description') or None
+        head_icon = request.FILES['head_icon'] if request.FILES.get('head_icon') else None
+        user_center_cover = request.FILES['user_center_cover'] if request.FILES.get('user_center_cover') else None
         if username and email:
             if len(FrontEndUser.objects.filter(username=username)) == 1:
                 try:
                     django_user = User.objects.get(username=username)
                     django_user.email = email if django_user.email != email else django_user.email
                     django_user.save()
-                    user = User.objects.filter(username=username) \
-                        if User.objects.filter(username=username).count() == 1 else None
+                    user = FrontEndUser.objects.filter(username=username)[0] \
+                        if FrontEndUser.objects.filter(username=username).count() == 1 else None
+                    user.username = username if user.username != username else user.username
                     user.nickname = nickname if user.nickname != nickname else user.nickname
+                    user.description = description if user.description != description else user.description
                     user.save()
                 except Exception as e:
                     return JsonResponse({'code': 401, 'msg': str(e)}, status=401)
                 updated_user = FrontEndUser.objects.get(username=username)
-                head_icon_path = handle_uploaded_image(request.FILES.get('head_icon'), 'user/head_icon/')
+                head_icon_path = handle_uploaded_image(head_icon, 'user/head_icon/') if head_icon else None
+                user_center_cover_path = handle_uploaded_image(user_center_cover, 'user/user_center_cover/') if user_center_cover else None
                 if head_icon_path:
                     updated_user.head_icon = head_icon_path
+                    updated_user.save()
+                if user_center_cover_path:
+                    updated_user.user_center_cover = user_center_cover_path
                     updated_user.save()
             return JsonResponse({'code': 200, 'msg': 'success'}, status=200)
         else:
@@ -397,11 +406,15 @@ def update_user(request):
 @require_POST
 def cancel_user(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        if username:
-            if len(FrontEndUser.objects.filter(username=username)) == 1:
+        user_id = request.POST.get('id')
+        if user_id:
+            if len(FrontEndUser.objects.filter(id=user_id)) == 1:
                 try:
-                    user = User.objects.get(username=username)
+                    # user = FrontEndUser.objects.get(id=user_id)
+                    if request.session.get('logon_user'):
+                        del request.session['logon_user']
+                        django_logout(request)
+                    user = User.objects.get(id=FrontEndUser.objects.get(id=user_id).django_user_id)
                     user.delete()
                 except Exception as e:
                     return JsonResponse({'code': 401, 'msg': str(e)}, status=401)
@@ -417,7 +430,6 @@ def user_details(request):
         user_id = request.GET.get('user_id')
         try:
             user_id = int(decrypt(user_id))
-            FrontEndUser.objects.get(username='vincent')
         except ValueError:
             return render(request, '404.html', {
                 'code': 401,
