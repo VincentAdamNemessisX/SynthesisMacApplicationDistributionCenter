@@ -4,8 +4,7 @@ from django.views.decorators.http import require_POST, require_GET
 from django_router import router
 
 from general.data_handler import handle_uploaded_image, unload_image_from_server
-from general.init_cache import get_all_software, get_all_articles, get_all_user, get_category_tags
-from software.models import SoftWare
+from general.init_cache import get_all_software, get_all_articles, get_all_user
 
 
 # Create your views here.
@@ -72,10 +71,21 @@ def unload_image(request):
 def search_result(request):
     if request.method == 'GET':
         search_str = request.GET.get('s')
+        matched_software = []
         if search_str:
-            matched_software = [x for x in get_all_software()
-                                if search_str in x.name or search_str in x.description
-                                or search_str in x.tags]
+            try:
+                matched_software = [
+                    x for x in get_all_software()
+                    if (search_str in x.name or
+                        search_str in x.description or
+                        search_str in x.tags)
+                ]
+            except TypeError:
+                matched_software = [
+                    x for x in get_all_software()
+                    if (search_str in x.name or
+                        search_str in x.description)
+                ]
             matched_articles = [x for x in get_all_articles() if search_str in x.title
                                 or search_str in x.content]
             matched_user = [x for x in get_all_user() if search_str in x.username
