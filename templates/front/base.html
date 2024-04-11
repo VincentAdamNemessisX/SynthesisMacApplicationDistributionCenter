@@ -21,8 +21,7 @@
     <link rel="stylesheet" id="iconfont-css"
           href="{% static 'front/css/iconfont.css' %}?ver=4.1031" type="text/css" media="all">
     <link rel="stylesheet" id="iconfont-io-1-css" href="{% static 'front/css/font_1620678_18rbnd2homc.css' %}"
-          type="text/css"
-          media="all">
+          type="text/css" media="all">
     <link rel="stylesheet" href="{% static 'front/css/font-awesome.min.css' %}">
     <link rel="stylesheet" id="iconfont-io-2-css" href="{% static 'front/css/font_4184880_kci8o10x3ij.css' %}"
           type="text/css" media="all">
@@ -277,13 +276,6 @@
             background: rgba(0, 0, 0, 0);
         }
 
-        @font-face {
-            font-family: 'io';  /* Project id 4184880 */
-            src: url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff2?t=1695309630232') format('woff2'),
-            url('../../static/front/fonts/font_4184880_vhx4dqprsh.woff?t=1695309630232') format('woff'),
-            url('../../static/front/fonts/font_4184880_vhx4dqprsh.ttf?t=1695309630232') format('truetype');
-        }
-
         .iconfont {
             font-family: "iconfont", serif !important;
             font-size: 16px;
@@ -412,8 +404,7 @@
 	};
 	/* ]]> */
 </script>
-<script charset="UTF-8" id="LA_COLLECT" src="../../static/front/js/js-sdk-pro.min.js"></script>
-<script type="text/javascript" src="../../static/front/js/app.min.js"
+<script type="text/javascript" src="{% static 'front/js/app.min.js' %}"
         id="appjs-js"></script>
 <script type="text/javascript" src="{% static 'front/js/popper.min.js' %}?ver=4.1031"
         id="popper-js"></script>
@@ -486,7 +477,7 @@
 	};
 	/* ]]> */
 </script>
-<script charset="UTF-8" id="LA_COLLECT" src="../../static/front/js/js-sdk-pro.min.js"></script>
+<script charset="UTF-8" id="LA_COLLECT" src="{% static '/front/js/js-sdk-pro.min.js' %}"></script>
 <script src="{% static 'front/extend_js/crypto-js.min.js' %}"></script>
 <script src="{% static 'front/js/sweetalert2.all.min.js' %}"></script>
 <script src="{% static 'front/extend_js/qrcode.min.js' %}"></script>

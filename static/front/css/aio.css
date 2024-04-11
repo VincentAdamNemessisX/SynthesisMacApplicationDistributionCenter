@@ -1,0 +1,16 @@
+.ff-arial {
+    font-family: arial,"\5b8b\4f53",sans-serif,tahoma
+}
+
+.f-light-gray, a.f-light-gray {
+    color: #9eadb6;
+}
+
+.f-12, a.f-12 {
+    font-family: arial, "\5b8b\4f53", sans-serif, tahoma;
+    font-size: 12px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}

@@ -1,5 +1,5 @@
 import jieba
-from django.contrib.auth import get_user_model
+from frontenduser.models import FrontEndUser
 from django.db import models
 
 
@@ -26,7 +26,8 @@ class Questions(models.Model):
         id = models.AutoField(primary_key=True)
         question = models.ForeignKey('Questions', on_delete=models.CASCADE)
         content = models.TextField()
-        respondent = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+        respondent = models.ForeignKey(FrontEndUser, on_delete=models.CASCADE)
+        is_adopt = models.IntegerField(default=0, choices=((0, '未采纳'), (1, '已采纳')))
         created_time = models.DateTimeField(auto_now_add=True, null=True)
 
         def short_content(self):

@@ -1,6 +1,7 @@
 from django.core.cache import cache
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
 from announcements.models import Announcements
 from category.models import Category
 from commentswitharticles.models import Comment, Article
@@ -200,8 +201,19 @@ def get_all_questions():
                              .select_related('publisher')
                              .order_by('updated_time')
                              )
-        cache.set('all_questions', all_questions, 45)
+        cache.set('all_questions', all_questions, 360)
     return cache.get('all_questions')
+
+
+def get_all_answer():
+    all_answer = cache.get('all_answer')
+    if all_answer is None:
+        all_answer = list(Questions.Answer.objects.all()
+                          .select_related('respondent')
+                          .order_by('created_time')
+                          )
+        cache.set('all_answer', all_answer, 360)
+    return cache.get('all_answer')
 
 
 def get_all_category():
@@ -286,6 +298,12 @@ def refresh_cache_on_model_save(sender, instance, **kwargs):
 def refresh_cache_on_model_save(sender, instance, **kwargs):
     # 在Questions保存后刷新相关缓存
     cache.delete('all_questions')
+
+
+@receiver(post_save, sender=Questions.Answer)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Questions.Answer保存后刷新相关缓存
+    cache.delete('all_answer')
 
 
 @receiver(post_save, sender=Category)

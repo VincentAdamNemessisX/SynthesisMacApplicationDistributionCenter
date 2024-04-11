@@ -1,8 +1,8 @@
 @font-face {
   font-family: "io"; /* Project id 1620678 */
-  src: url('../fonts/font_1620678_18rbnd2homc.woff2?t=1625307263125') format('woff2'),
-       url('../fonts/font_1620678_18rbnd2homc.woff?t=1625307263125') format('woff'),
-       url('../fonts/font_1620678_18rbnd2homc.ttf?t=1625307263125') format('truetype');
+  src: url('/static/front/fonts/font_1620678_18rbnd2homc.woff2?t=1625307263125') format('woff2'),
+       url('/static/front/fonts/font_1620678_18rbnd2homc.woff?t=1625307263125') format('woff'),
+       url('/static/front/fonts/font_1620678_18rbnd2homc.ttf?t=1625307263125') format('truetype');
 }
 
 .io {

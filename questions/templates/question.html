@@ -1,13 +1,18 @@
 {% extends 'front/base.html' %}
 {% load static %}
 {% block title %}
-    Mac软件分享平台反馈中心
+    Mac软件分享平台-问题详情-{{ question.question|truncatechars:10 }}...
 {% endblock %}
 {% block style %}
+    <link rel="stylesheet" href="{% static 'front/css/aio.css' %}">
     <style>
         #super-search-fm {
             display: flex;
             flex-direction: row;
+        }
+
+        #question, #answer {
+            padding: .9rem;
         }
     </style>
     <style type="text/css">
@@ -114,40 +119,123 @@
     {% include 'front/sidebar.html' %}
     <div class="main-content flex-fill">
         {% include 'front/header-nav.html' %}
-        <div class="container container-fluid customize-width">
-            <div class="no-search my-2 p-1"></div>
-        </div>
-        <!-- comments -->
-        <div id="comments" class="comments">
-            <div class="card">
-                <div class="card-body" id="comment-box">
+        <!-- Questions and answer -->
+        <div id="question">
+            <h1 id="comments-list-title" class="comments-title h5 mx-1 my-4">
+                <i class="iconfont icon-tishi mr-2"></i>问题详情：
+            </h1>
+            <div class="panel card">
+                <div class="card-body">
+                    <div class="panel-body single mt-2" style="text-indent: 2em" id="notice">
+                        {{ question.question }}
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div id="answer" class="comments">
+            <div class="card">
+                <ul class="comment-list" id="answer-list">
+                    {% for ans in answer %}
+                        <li class="answer even thread-even depth-1">
+                            <div class="answer_body d-flex flex-fill">
+                                <div class="profile mr-2 mr-md-3">
+                                    <img src="{{ ans.respondent.head_icon.url }}" width="96"
+                                         height="96" alt="头像"
+                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
+                                </div>
+                                <section class="comment-text d-flex flex-fill flex-column">
+                                    <div class="comment-info d-flex align-items-center mb-1">
+                                        <div class="comment-author text-sm w-100">
+                                            <a href=""
+                                               class="user_link_{{ ans.respondent.id }}"
+                                               onmouseout="default_href()" onmouseleave="default_href()"
+                                               onmousemove="re_href_user({{ ans.respondent.id }})"
+                                               target="_blank"
+                                               rel="nofollow noopener noreferrer">{{ ans.respondent.nickname|default:ans.respondent.username }}</a>
+                                            <span class="rank"
+                                                  title="角色：{{ ans.respondent.role }}">{{ ans.respondent.role }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content d-inline-block text-sm">
+                                        <p>{{ ans.content }}</p>
+                                    </div>
+                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
+                                        <div class="comment-meta">
+                                            <span class="info mr-2"><i class="iconfont icon-time mr-1"></i><time
+                                                    data-type="local"
+                                                    datetime="{{ ans.created_time|date:'Y-m-d H:i:sO' }}"></time>
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill"></div>
+                                        {% if request.session.logon_user %}
+                                            {% if request.session.logon_user.id == question.publisher.id %}
+                                                {% if ans.is_adopt == 0 %}
+                                                    <button type="button" onclick="adopt_answer({{ ans.id }})"
+                                                            class="btn btn-lg px-4 text-lg radius-50 btn-outline-danger custom_btn-outline mb-2 mr-3">
+                                                        <i class="iconfont icon-like mr-2"></i> 采纳
+                                                    </button>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                    {% if ans.is_adopt == 1 %}
+                                        <div class="line f-light-gray f-12 mt-10 ff-arial">
+                                            <svg t="1712819968270"
+                                                 style="width: 1.5em; height: 1.5em; text-align: center; vertical-align: middle"
+                                                 class="icon"
+                                                 viewBox="0 0 1024 1024" version="1.1"
+                                                 xmlns="http://www.w3.org/2000/svg" p-id="2356" width="200"
+                                                 height="200">
+                                                <path d="M546.7 818.9l-6.1-2.4C344 738.9 321.3 637.6 321.3 568.1V302.6l17.5 0.6c136.6 4.7 194.8-58.2 195.3-58.8l12.5-14 34.8 6.8c0.5 0.5 49.8 18 174.9 18l19.4 34.7c4.7 0-26.3 13.4-21.3 13.2l17.6-0.6V568c0 69.5-22.7 170.9-219.3 248.4l-6 2.5z"
+                                                      fill="#25B195" p-id="2357"></path>
+                                                <path d="M511 880.1l-7.7-3c-248.7-97-277.5-223.8-277.5-310.7v-332l22.2 0.8c172.9 5.9 246.5-72.8 247.2-73.6l15.9-17.5 15.8 17.5c0.6 0.6 70.3 73.9 228.7 73.9 6 0 12.2-0.1 18.4-0.3l22.2-0.8v332c0 86.9-28.8 213.7-277.5 310.7l-7.7 3zM268.8 278.8v287.6c0 46.7 0 170.2 242.3 267.3 242.3-97.1 242.3-220.5 242.3-267.3V278.8c-134.2-0.5-211.4-48.7-242.4-73.6-30.9 24.8-108.1 73-242.2 73.6z m49.9 251.6"
+                                                      fill="#595857" p-id="2358"></path>
+                                                <path d="M517.4 646.6L385 509.8l26.7 8.2 94.1 35.3c31.4-37.9 80.3-104.9 176.4-164.7l23.5-11.8c-88.2 82.3-165.4 210.5-188.3 269.8z m167.3-149.4"
+                                                      fill="#595857" p-id="2359"></path>
+                                            </svg>
+                                            <span style="vertical-align: middle">本回答被提问者采纳</span>
+                                        </div>
+                                    {% endif %}
+                                </section>
+                            </div>
+                        </li><!-- #comment-## -->
+                    {% endfor %}
+                </ul>
                 <div id="respond_box">
                     <div id="respond" class="comment-respond">
                         <form class="text-sm mb-4" method="post" name="respond"
-                              enctype="multipart/form-data" onsubmit="submit_comment()">
+                              enctype="multipart/form-data" onsubmit="submit_answer()">
                             {% csrf_token %}
                             <div id="comment-author-info" class="row  row-sm">
                                 <div class="visitor-avatar d-flex mb-2">
                                     <img class="v-avatar rounded-circle"
-                                         src="{% static 'favicon.ico' %}"
-                                         alt="">
+                                         src="{{ request.session.logon_user.head_icon.url }}"
+                                         alt="头像">
                                 </div>
                                 <div class="col-12 col-md-6 mb-3">
-                                    <a class="pixel-btn user_link_2 text-center" href=""
-                                       onmouseout="default_href()" onmouseleave="default_href()"
-                                       onmousemove="re_href_user('2')"
-                                       style="display: block; cursor: pointer; width: 15rem;"
-                                       id="user-link">
-                                        VincentAdamNemessis{{ request.session.user.username }}
+                                    <a
+                                            {% if request.session.logon_user %}
+                                                class="pixel-btn user_link_{{ request.session.logon_user.id }} text-center"
+                                                onmouseout="default_href()" onmouseleave="default_href()"
+                                                onmousemove="re_href_user({{ request.session.logon_user.id }})"
+                                            {% else %}
+                                                class="pixel-btn text-center"
+                                            {% endif %}
+                                                style="display: block; cursor: pointer; width: 15rem;"
+                                                id="user-link">
+                                        {% if request.session.logon_user %}
+                                            {{ request.session.logon_user.nickname|default:request.session.logon_user.username }}
+                                        {% else %}
+                                            匿名用户
+                                        {% endif %}
                                     </a>
                                 </div>
                             </div>
                             <div class="comment-textarea mb-3">
-                                <label for="comment"></label>
-                                <textarea name="comment" id="comment"
+                                <label for="answer"></label>
+                                <textarea name="answer" id="answer"
                                           class="form-control"
-                                          placeholder="输入评论内容..."
+                                          placeholder="输入回复内容..."
                                           tabindex="4" cols="50"
                                           rows="5"></textarea>
                             </div>
@@ -155,284 +243,127 @@
                                 <button type="button" class="btn btn-dark custom_btn-d ml-2"
                                         id="reset-btn">再想想
                                 </button>
-                                <button class="btn btn-dark custom_btn-d ml-2" id="respond-btn">发表评论
+                                <button class="btn btn-dark custom_btn-d ml-2" id="respond-btn">
+                                    回复楼主
                                 </button>
-                                <input type="hidden" id='action' name="action" value="publish">
-                                <input type="hidden" id="comment_parent" name="comment_parent"
-                                       value="0">
-                                <input type="hidden" id="software_id" name="software_id"
-                                       value="{% if software.id %}{{ software.id }}{% else %}0{% endif %}">
-                                <input type="hidden" id="article_id" name="article_id"
-                                       value="{% if article.id %}{{ article.id }}{% else %}0{% endif %}">
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div><!-- comments end -->
-        <script>
-			$(document).ready(function () {
-				load_comments(1);
-			})
-
-			function load_comments(init, remove_load_btn = 0) {
-				let comments_promise = get_comments_for_software_or_articles('{{ csrf_token }}',
-					'article',
-					encrypt_param('1'),
-					init)
-				comments_promise.then((data) => {
-					let comments_list = '';
-					if (data === null) {
-						if (init === 1) {
-							comments_list = `
-                    <div class="not-comment card">
-                        <div class="card-body nothing text-center color-d">暂无评论...</div>
-                    </div>
-				`;
-						}
-					} else {
-						comments_list = `<ul class="comment-list" id='comment-list'>`;
-						for (var index in data.comments) {
-							if ('{{ respond_comment }}' === 'software') {
-								if (data.comments[index].correlation_software === '') {
-									continue;
-								}
-							}
-							if ('{{ respond_comment }}' === 'article') {
-								if (data.comments[index].correlation_article === '') {
-									continue;
-								}
-							}
-							if (data.comments[index].parent_id === encrypt_param('0')) {
-								let comment = `
-                        <li class="comment even thread-even depth-1 comment">
-                            <div class="comment_body d-flex flex-fill">
-                                <div class="profile mr-2 mr-md-3">
-                                    <img src="${data.comments[index].user.head_icon}"
-                                         width="96" height="96" alt="头像"
-                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
-                                </div>
-                                <section class="comment-text d-flex flex-fill flex-column">
-                                    <div class="comment-info d-flex align-items-center mb-1">
-                                        <div class="comment-author text-sm w-100">
-                                                <a    href='' class="user_link_${decrypt_param(data.comments[index].user.user_id.toString())}"
-                                                        onmouseout="default_href()"
-                                                        onmouseleave="default_href()"
-                                                        onmousemove="re_href_user(decrypt_param('${data.comments[index].user.user_id}'))"
-                                                        target="_blank"
-                                                        rel="nofollow noopener noreferrer" class="url">${data.comments[index].user.username}</a>
-                                                <span class="rank"
-                                                                                           title="角色：${data.comments[index].user.role}">${data.comments[index].user.role}</span>
-                                        </div>
-                                    </div>
-                                    <div class="comment-content d-inline-block text-sm">
-                                        <p>${data.comments[index].content}</p>
-                                    </div>
-                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
-                                        <div class="comment-meta">
-                                            <span class="info mr-2"><i
-                                                    class="iconfont icon-time mr-1"></i><time
-                                                    itemprop="datePublished"
-                                                    datetime="${data.comments[index].created_time}"></time>
-                                            </span>
-                                        </div>
-                                        <div class="flex-fill"></div>
-                                        <a rel="nofollow" class="comment-reply-link" href="#respond"
-                                           data-comment-id="${data.comments[index].comment_id}"
-                                           data-comment-content='${data.comments[index].content}'
-                                           aria-label="回复给 @${data.comments[index].user.username}">回复</a></div>
-                                </section>
-                            </div>
-                        `;
-								comment += load_children(data, data.comments[index].comment_id.toString());
-								comment += '</li><!-- #comment-## -->';
-								comments_list += comment;
-							}
-						}
-						comments_list += '</ul>';
-						try {
-							if (data !== null && data.comments.length >= 10) {
-								comments_list += `
-                            <div class="text-center">
-                                <button class="pixel-btn" id="load_more_comments"
-                                        onclick="load_comments(0, 1)">
-                                    加载更多
-                                </button>
-                            </div>
-                        `;
-							}
-						} catch (e) {
-						}
-					}
-					if (remove_load_btn === 1) {
-						try {
-							document.getElementById('load_more_comments').parentElement.remove();
-						} catch (e) {
-						}
-					}
-					document.getElementById('comment-box').innerHTML += comments_list;
-					append_event();
-					format_time_block();
-				})
-			}
-
-			function load_children(data, id) {
-				let children_list = '<ul class="children">';
-				for (let index in data.comments) {
-					if ('{{ respond_comment }}' === 'software') {
-						if (data.comments[index].correlation_software === '') {
-							continue;
-						}
-					}
-					if ('{{ respond_comment }}' === 'article') {
-						if (data.comments[index].correlation_article === '') {
-							continue;
-						}
-					}
-					if (data.comments[index].parent_id === id && data.comments[index].comment_id !== id) {
-						children_list += `
-                        <li class="comment byuser bypostauthor odd alt depth-2 comment">
-                            <div class="comment_body d-flex flex-fill">
-                                <div class="profile mr-2 mr-md-3">
-                                    <img src="${data.comments[index].user.head_icon}"
-                                         width="96" height="96" alt="头像"
-                                         class="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default">
-                                </div>
-                                <section class="comment-text d-flex flex-fill flex-column">
-                                    <div class="comment-info d-flex align-items-center mb-1">
-                                        <div class="comment-author text-sm w-100">
-                                                <a    href='' class="user_link_${decrypt_param(data.comments[index].user.user_id.toString())}"
-                                                        onmouseout="default_href()"
-                                                        onmouseleave="default_href()"
-                                                        onmousemove="re_href_user(decrypt_param('${data.comments[index].user.user_id}'))"
-                                                        target="_blank"
-                                                        rel="nofollow noopener noreferrer" class="url">${data.comments[index].user.username}</a>
-                                                <span class="rank"
-                                                          title="角色：${data.comments[index].user.role}">${data.comments[index].user.role}</span>
-                                        </div>
-                                    </div>
-                                    <div class="comment-content d-inline-block text-sm">
-                                        <p>${data.comments[index].content}</p>
-                                    </div>
-                                    <div class="d-flex flex-fill text-xs text-muted pt-2">
-                                        <div class="comment-meta">
-                                            <span class="info mr-2"><i
-                                                    class="iconfont icon-time mr-1"></i><time
-                                                    itemprop="datePublished"
-                                                    datetime="${data.comments[index].created_time}"></time>
-                                            </span>
-                                        </div>
-                                        <div class="flex-fill"></div>
-                                    </div>
-                                </section>
-                            </div>
-                        </li><!-- #comment-## -->
-				`;
-					}
-				}
-				children_list += '</ul><!-- .children -->';
-				return children_list;
-			}
-
-			function validate_comment() {
-				let comment = document.getElementById('comment').value;
-				let warning_msg = [];
-				if ($('#user-link').text() === '' || $('#user-link').text() === undefined) {
-					Swal.fire({
-						icon: 'error',
-						title: '请先登录！',
-					})
-					return false;
-				}
-				if (!/^[^<>][0-9A-Za-z\u4e00-\u9fa5]{5,150}$/.test(comment)) {
-					warning_msg[0] = '评论内容长度为5-200个字符的中文、数字或英文！';
-				}
-				if ($('#software_id').val() === '0' && $('#article_id').val() === '0') {
-					warning_msg['1'] = '评论对象不存在！';
-				}
-				if ($('#action').val() !== 'publish' && $('#action').val() !== 'reply') {
-					warning_msg['2'] = '评论操作不合法！';
-				}
-				if ($('#comment_parent').val() !== '0') {
-					try {
-						decrypt_param($('#comment_parent').val());
-					} catch (e) {
-						warning_msg['3'] = '评论对象不存在！';
-					}
-				}
-				if (warning_msg.length > 0) {
-					Swal.fire({
-						icon: 'error',
-						title: warning_msg.join('\n'),
-					})
-					return false;
-				}
-				return true;
-			}
-
-			function append_event() {
-				$('.comment-reply-link').on('click', function () {
-					$('#respond-btn').text('回复评论');
-					$('#action').val('reply');
-					$('#comment_parent').val(decrypt_param($(this).attr('data-comment-id')));
-					$('#comment').attr('placeholder', $(this).attr('aria-label') + ' ' + $(this).attr('data-comment-content'));
-				});
-				$('#reset-btn').on('click', function () {
-					$('#respond-btn').text('发表评论');
-					$('#action').val('publish');
-					$('#comment_parent').val('0');
-					$('#comment').attr('placeholder', '输入评论内容...');
-				});
-			}
-
-			$(document).ready(function () {
-				append_event();
-			})
-
-			function submit_comment() {
-				event.preventDefault();
-				if (!validate_comment()) {
-					return;
-				} else {
-					$('#software_id').val(encrypt_param($('#software_id').val()));
-					$('#article_id').val(encrypt_param($('#article_id').val()));
-					$('#comment_parent').val(encrypt_param($('#comment_parent').val()));
-				}
-				let options = {
-					url: '/commentswitharticles/api/publish/comment/',
-					type: 'post',
-					dataType: 'json',
-					data: $("#respond").children('form').serialize(),
-					success: function (data) {
-						if (data.code === 200) {
-							Swal.fire({
-								icon: 'success',
-								title: '评论已提交，审核后方可展示！',
-							})
-						} else {
-							Swal.fire({
-								icon: 'error',
-								title: '评论提交失败！',
-								text: data.code + ': ' + data.msg
-							})
-						}
-					},
-					error: function (error) {
-						Swal.fire({
-							icon: 'error',
-							title: error.code + ": " + error.msg
-						})
-					}
-				}
-				$.ajax(options);
-				$('#software_id').val(decrypt_param($('#software_id').val()));
-				$('#article_id').val(decrypt_param($('#article_id').val()));
-				$('#comment_parent').val(decrypt_param($('#comment_parent').val()));
-				{#comment_form.submit();#}
-			}
-        </script>
-        <!-- comments end -->
+        </div><!-- answer end -->
     </div>
 {% endblock %}
 {% block script %}
+    <script>
+		$(document).ready(function () {
+			format_time_block()
+		})
+
+		function validate_answer() {
+			let answer = document.getElementById('answer').value;
+			let warning_msg = [];
+			if ($('#user-link').text() === '匿名用户' || $('#user-link').text() === undefined) {
+				Swal.fire({
+					icon: 'error',
+					title: '请先登录！',
+				})
+				return false;
+			}
+			if (!/^[^<>][0-9A-Za-z\u4e00-\u9fa5]{5,150}$/.test(answer)) {
+				warning_msg[0] = '回复内容长度为5-200个字符的中文、数字或英文！';
+			}
+			if (warning_msg.length > 0) {
+				Swal.fire({
+					icon: 'error',
+					title: warning_msg.join('\n'),
+				})
+				return false;
+			}
+			return true;
+		}
+
+		function append_event() {
+			$('#reset-btn').on('click', function () {
+				$('#answer').attr('placeholder', '输入回复内容...');
+			});
+		}
+
+		$(document).ready(function () {
+			append_event();
+		})
+
+		function submit_answer() {
+			event.preventDefault();
+			if (!validate_answer()) {
+				return;
+			}
+			let options = {
+				url: '/questions/api/publish/answer/',
+				type: 'post',
+				dataType: 'json',
+				data: $("#respond").children('form').serialize(),
+				success: function (data) {
+					if (data.code === 200) {
+						Swal.fire({
+							icon: 'success',
+							title: '回复已提交！',
+						}).then(() => {
+							window.location.reload();
+                        })
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: '回复提交失败！',
+							text: data.code + ': ' + data.msg
+						})
+					}
+				},
+				error: function (error) {
+					Swal.fire({
+						icon: 'error',
+						title: error.code + ": " + error.msg
+					})
+				}
+			}
+			$.ajax(options);
+		}
+		
+		function adopt_answer(id) {
+			let question_id = {{ question.id }};
+			let options = {
+				url: '/questions/api/adopt/answer/',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					'csrfmiddlewaretoken': '{{ csrf_token }}',
+					'question_id': question_id,
+					'answer_id': id
+				},
+				success: function (data) {
+					if (data.code === 200) {
+						Swal.fire({
+							icon: 'success',
+							title: '已采纳！',
+						}).then(() => {
+							window.location.reload();
+                        })
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: '采纳失败！',
+							text: data.code + ': ' + data.msg
+						})
+					}
+				},
+				error: function (error) {
+					Swal.fire({
+						icon: 'error',
+						title: error.code + ": " + error.msg
+					})
+				}
+			}
+			$.ajax(options);
+		}
+    </script>
 {% endblock %}

@@ -28,8 +28,8 @@ class QuestionsAdmin(ExportActionModelAdmin, admin.ModelAdmin):
 
 @admin.register(Questions.Answer)
 class AnswerAdmin(ExportActionModelAdmin, admin.ModelAdmin):
-    list_display = ['id', 'short_content', 'respondent']
+    list_display = ['id', 'question', 'short_content', 'is_adopt', 'respondent']
     search_fields = ['content', 'respondent__username', 'respondent__nickname']
-    list_filter = ['respondent__username']
+    list_filter = ['respondent__username', 'question__question', 'is_adopt']
     ordering = ['-created_time', 'id']
     list_per_page = 10

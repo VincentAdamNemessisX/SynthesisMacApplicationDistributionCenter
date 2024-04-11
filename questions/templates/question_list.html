@@ -271,7 +271,7 @@
 		})
 
         function goto(id) {
-            window.location.href = '/questions/question/details/?question_id=' + id;
+            window.location.href = '/questions/question/details/?question_id=' + encrypt_param(id.toString());
         }
     </script>
 {% endblock %}
