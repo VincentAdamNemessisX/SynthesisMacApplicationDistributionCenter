@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="fixed search result bug with searching fields">
-      <change afterPath="$PROJECT_DIR$/static/front/css/aio.css" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="finished feedback module all function;&#10;finished this site with version 0.2.0;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_handler/templates/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/error_handler/templates/500.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/questions/templates/question.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/questions/templates/question_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/questions/templates/question_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font_1620678_18rbnd2homc.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font_1620678_18rbnd2homc.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font_4184880_kci8o10x3ij.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font_4184880_kci8o10x3ij.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/font_4263277_2axl22bwq06.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/font_4263277_2axl22bwq06.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/static/front/css/jquery.fancybox.min.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/static/front/css/style.min.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/static/front/extend_js/qrcode.min.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/front/js/sweetalert2.all.min.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,45 +70,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.AllYouWantMacApplicationDistributionCenter.executor": "Run",
-    "Django Server.SynthesisMacApplicationDistributionCenter.executor": "Run",
-    "JavaScript Debug.software_details.html.executor": "Run",
-    "JavaScript Debug.test.html.executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "Python.encrypt.executor": "Run",
-    "Python.tests.executor": "Run",
-    "Python.views.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/media/user/user_center",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.AllYouWantMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
+    &quot;Django Server.SynthesisMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.software_details.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.test.html.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;Python.encrypt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/media/user/user_center&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\media\user\user_center" />
@@ -128,11 +118,11 @@
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\media\user\head_icon" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\templates" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\components" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\static\front\extend_js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static\login\fonts" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static\login\assests" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.SynthesisMacApplicationDistributionCenter">
@@ -382,23 +372,8 @@
       <workItem from="1712730214982" duration="16762000" />
       <workItem from="1712754264082" duration="130000" />
       <workItem from="1712754404904" duration="11976000" />
-      <workItem from="1712812214701" duration="16430000" />
-    </task>
-    <task id="LOCAL-00029" summary="finished header-nav.html data filled;&#10;optimized some code logic">
-      <option name="closed" value="true" />
-      <created>1707337522803</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1707337522803</updated>
-    </task>
-    <task id="LOCAL-00030" summary="finished sidebar.html data filled;&#10;optimized some display that show style are not common bugs;&#10;appended request data into append_middleware.py">
-      <option name="closed" value="true" />
-      <created>1707341985219</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1707341985219</updated>
+      <workItem from="1712812214701" duration="23901000" />
+      <workItem from="1712896341181" duration="4188000" />
     </task>
     <task id="LOCAL-00031" summary="finished main-content footer data filled;&#10;finished footer data filled;&#10;optimized some styles">
       <option name="closed" value="true" />
@@ -776,7 +751,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712766329153</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="appended question details with answer;&#10;fixed some known bugs;">
+      <option name="closed" value="true" />
+      <created>1712845899151</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1712845899152</updated>
+    </task>
+    <task id="LOCAL-00079" summary="finished feedback module all function;&#10;finished this site with version 0.2.0;">
+      <option name="closed" value="true" />
+      <created>1712853030966</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1712853030966</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,8 +776,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finished image upload to server media" />
-    <MESSAGE value="finished all publish pages;&#10;appended all state into any model that need;&#10;appended ckeditor with that needed plugins;&#10;optimized other icon shown bugs;" />
     <MESSAGE value="finished search function;&#10;finished search results page;&#10;appended markdown third part library to parse markdown strings;&#10;removed algolia search services from this project;" />
     <MESSAGE value="appended share function to software page and article page;" />
     <MESSAGE value="replaced home to new style;&#10;finished index page latest articles shown;" />
@@ -810,7 +799,9 @@
     <MESSAGE value="finished first publish version with 0.1.0 for education" />
     <MESSAGE value="appended destroy account and update user info interface and buttons;&#10;appended auto-update user recent browsing by django middleware;&#10;fixed some bugs with no-correct software id that into details page and user center;&#10;fixed some known bugs with version 0.1.1" />
     <MESSAGE value="fixed search result bug with searching fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed search result bug with searching fields" />
+    <MESSAGE value="appended question details with answer;&#10;fixed some known bugs;" />
+    <MESSAGE value="finished feedback module all function;&#10;finished this site with version 0.2.0;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished feedback module all function;&#10;finished this site with version 0.2.0;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1711555239921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

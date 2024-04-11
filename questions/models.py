@@ -1,6 +1,6 @@
 import jieba
-from frontenduser.models import FrontEndUser
 from django.db import models
+from frontenduser.models import FrontEndUser
 
 
 # Create your models here.
@@ -14,7 +14,11 @@ class Questions(models.Model):
 
     def title(self):
         t = jieba.cut(self.question, cut_all=False)
-        return next(t) + next(t) + next(t)
+        try:
+            t1 = next(t) + next(t) + next(t)
+        except StopIteration:
+            t1 = self.question[:5]
+        return t1
 
     def short_question(self):
         max_length = 40
