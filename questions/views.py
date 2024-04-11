@@ -1,4 +1,6 @@
 # Create your views here.
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -7,6 +9,7 @@ from django_router import router
 
 from general.encrypt import decrypt
 from general.init_cache import get_all_questions, get_all_answer
+from questions.models import Questions
 
 
 @require_GET
@@ -123,11 +126,36 @@ def adopt_answer(request):
 @login_required
 @router.path('api/publish/answer/')
 def publish_answer(request):
-    pass
+    if request.method == 'POST':
+        try:
+            question_id = int(request.POST.get('question_id'))
+            content = request.POST.get('content')
+        except Exception as e:
+            return JsonResponse({'code': 500, 'msg': '参数异常，' + str(e)})
+        question = [q for q in get_all_questions() if q.id == question_id]
+        if len(question) == 1:
+            question = question[0]
+            answer = Questions.Answer(question=question,
+                                      content=content, respondent=request.session.get('logon_user'))
+            answer.save()
+            return JsonResponse({'code': 200, 'msg': '回复成功'})
+    return JsonResponse({'code': 404, 'msg': '参数异常，未找到问题'})
 
 
 @require_POST
 @login_required
 @router.path('api/publish/question/')
 def publish_question(request):
-    pass
+    if request.method == 'POST':
+        try:
+            post_data = json.loads(request.body)
+            question_content = post_data['content']
+            publisher = request.session.get('logon_user')
+            if publisher is None:
+                return JsonResponse({'code': 401, 'msg': '用户未登录'})
+            question = Questions(question=question_content, publisher=publisher)
+            question.save()
+            return JsonResponse({'code': 200, 'msg': '问题已发表，请耐心等待'})
+        except Exception as e:
+            return JsonResponse({'code': 500, 'msg': '参数异常，' + str(e)})
+    return JsonResponse({'code': 403, 'msg': '不允许的请求方式'})
