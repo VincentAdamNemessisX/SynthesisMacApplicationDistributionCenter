@@ -26,11 +26,11 @@
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <a class="pixel-btn user_link_{{ request.session.logon_user.id }} text-center"
+                                        {% if request.session.logon_user %}
+                                   href=""
                                    onmouseout="default_href()" onmouseleave="default_href()"
-                                   {% if request.session.logon_user %}
-                                        href=""
-                                        onmousemove="re_href_user('{{ request.session.logon_user.id }}')"
-                                   {% endif %}
+                                   onmousemove="re_href_user('{{ request.session.logon_user.id }}')"
+                                        {% endif %}
                                    style="display: block; cursor: pointer; width: 15rem;" id="user-link">
                                     {% if request.session.logon_user %}
                                         {{ request.session.logon_user.username }}
