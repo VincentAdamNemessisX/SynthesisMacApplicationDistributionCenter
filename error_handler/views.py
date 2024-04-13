@@ -1,16 +1,21 @@
 from django.shortcuts import render
+from django_router import router
 
 
 # Create your views here.
+@router.path(pattern='404/')
 def custom_404_view(request, exception):
-    return render(request, '404.html',{
+    # def custom_404_view(request):
+    return render(request, '404.html', {
         'code': 404,
-        'error': exception
-    }, status=404)
+        'err': exception
+        # 'err': 'not found'
+    })
 
 
+@router.path(pattern='500/')
 def custom_500_view(request):
-    return render(request, '500.html',{
+    return render(request, '500.html', {
         'code': 500,
-        'error': '服务器异常'
-    }, status=500)
+        'err': '服务器异常'
+    })

@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="collected static files to /static directory;&#10;finished this site with version 0.2.1;">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bd35a690-c2d4-4ac5-827e-5b9c98d2a166.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/error_handler/static/error_handler/404.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error_handler/static/error_handler/500.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error_handler/static/error_handler/500.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SynthesisMacApplicationDistributionCenter/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_handler/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/error_handler/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_handler/templates/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/error_handler/templates/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_handler/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/error_handler/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,7 @@
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/VincentAdamNemessis/PycharmProjects/SynthesisMacApplicationDistributionCenter/media/user/user_center",
+    "last_opened_file_path": "/Users/vincent/Documents/ProgramCodes/Python/DjangoProjects/SynthesisMacApplicationDistributionCenter/error_handler/static/error_handler",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -103,7 +105,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -114,11 +116,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/error_handler/static/error_handler" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\media\user\user_center" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static\login\js" />
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\static\login\css" />
-      <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\frontenduser\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\VincentAdamNemessis\PycharmProjects\SynthesisMacApplicationDistributionCenter\media\user\head_icon" />
@@ -375,14 +377,7 @@
       <workItem from="1712812214701" duration="23901000" />
       <workItem from="1712896341181" duration="7478000" />
       <workItem from="1712911620100" duration="333000" />
-    </task>
-    <task id="LOCAL-00033" summary="maybe ready for next with thumb and de_thumb api test">
-      <option name="closed" value="true" />
-      <created>1707594379889</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1707594379889</updated>
+      <workItem from="1712988433333" duration="3382000" />
     </task>
     <task id="LOCAL-00034" summary="finished thumbs function">
       <option name="closed" value="true" />
@@ -768,7 +763,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712911950528</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="fixed bug with comments_list.html that anonymous user can click by user;&#10;finished this site with version 0.2.2;">
+      <option name="closed" value="true" />
+      <created>1712919458291</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1712919458291</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +780,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="updated handle image upload logic" />
     <MESSAGE value="finished home page" />
     <MESSAGE value="appended localstorage to save sidebar status" />
     <MESSAGE value="attempted to filled question page but failed;&#10;optimized login and register page code" />
@@ -802,7 +804,8 @@
     <MESSAGE value="finished feedback module all function;&#10;finished this site with version 0.2.0;" />
     <MESSAGE value="finished feedback module all function;&#10;finished this site with version 0.2.0;&#10;appended publish question button to question list;" />
     <MESSAGE value="collected static files to /static directory;&#10;finished this site with version 0.2.1;" />
-    <option name="LAST_COMMIT_MESSAGE" value="collected static files to /static directory;&#10;finished this site with version 0.2.1;" />
+    <MESSAGE value="fixed bug with comments_list.html that anonymous user can click by user;&#10;finished this site with version 0.2.2;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug with comments_list.html that anonymous user can click by user;&#10;finished this site with version 0.2.2;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1707414894868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />
