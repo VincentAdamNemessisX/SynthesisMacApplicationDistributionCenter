@@ -303,6 +303,7 @@ def refresh_cache_on_model_save(sender, instance, **kwargs):
 @receiver(post_save, sender=Questions.Answer)
 def refresh_cache_on_model_save(sender, instance, **kwargs):
     # 在Questions.Answer保存后刷新相关缓存
+    cache.delete('all_questions')
     cache.delete('all_answer')
 
 
