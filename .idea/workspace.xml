@@ -4,18 +4,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7efb8bc9-e02c-4d8d-aed6-3abcacb98fc6" name="Changes" comment="updated articles_list truncate chars 200 to truncate words 20;&#10;appended 4 option to state for not shown more software in user center;&#10;adjusted init_cache read software logic;&#10;appended not shown action to software management center;&#10;finished this site with version 0.2.6;">
+      <change afterPath="$PROJECT_DIR$/media/article/2024-05-03-15-12-03-ge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/article/2024-05-03-15-23-12-ge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/article/29bfeef37eef4ca3bcf962274c1c7766.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/article/350x350.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/article/content/2024/05/2024-05-03-15-12-03-ge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/article/content/2024/05/2024-05-03-15-23-12-ge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/article/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/044535jwrkprjhinjnhcoe.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/044535jwrkprjhinjnhcoe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/1aea7a16ecc28f9792474e907579bae4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/20240217215106945.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/20240217215119667.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (1).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (2).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (3).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (4).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (5).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (6).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w (7).webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/434x0w.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/ABUIABACGAAgqcecgQYonNiaLjDuETiwCg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/ABUIABACGAAgrfucgQYo_fSX5wIwyRA47Qw.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/Ae6ItmA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/QuickSearchBack@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/R6bTXkY.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/alfred-results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/apps.42674.14106670027061638.e082396f-303d-4f5d-9f3d-d77e13008b5a.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/apps.61165.14106670027061638.536cdfb9-4088-4cda-8187-8a6d3163d0f2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/b5b60ae15d8a4f53879738ce70e8ed26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/downie-4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/downie-6.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/download_PR0Jo28.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/download_PR0Jo28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/download_PR0Jo28_qZidgfc.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/ea03b25019d54785974fd93d8d6eb603.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/f20e70a2b5a02bd88ffce2c8c4e89295.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/05/044535jwrkprjhinjnhcoe.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/05/044535jwrkprjhinjnhcoe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/05/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/05/th.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/icon/2024/05/ypyh6slx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/im3-3.3-overview-mac@2x.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/im3-3.6-battery-mac@2x.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/mac-active-en@2x-60f80bb1ef.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/media_12d725ce21d780feeda6aff7c83f5e969ec1b387a.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/media_1af85970448756bc41eb0ba41daa027f2eb959a0e.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/quickreveal.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshot-dashboard.50b7eca40d5ee8aa3b93.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshot.a196604d86110eb4b9b9.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/1aea7a16ecc28f9792474e907579bae4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/20240217215106945.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/20240217215119667.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_5.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_6.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/434x0w_7.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/ABUIABACGAAgqcecgQYonNiaLjDuETiwCg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/ABUIABACGAAgrfucgQYo_fSX5wIwyRA47Qw.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/Ae6ItmA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/QuickSearchBack2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/R6bTXkY.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/alfred-results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/apps.42674.14106670027061638.e082396f-303d-4f5d-9f3d-d77e13008b5a.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/apps.61165.14106670027061638.536cdfb9-4088-4cda-8187-8a6d3163d0f2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/b5b60ae15d8a4f53879738ce70e8ed26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/downie-4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/downie-6.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/ea03b25019d54785974fd93d8d6eb603.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/f20e70a2b5a02bd88ffce2c8c4e89295.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/im3-3.3-overview-mac2x.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/im3-3.6-battery-mac2x.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/mac-active-en2x-60f80bb1ef.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/media_12d725ce21d780feeda6aff7c83f5e969ec1b387a.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/media_1af85970448756bc41eb0ba41daa027f2eb959a0e.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/quickreveal.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/quickreveal_deQb8IB.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/screenshot.a196604d86110eb4b9b9.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/screenshot.a196604d86110eb4b9b9_fIz3ssE.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/structures-ui2x-6fba964829.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/screenshots/workflow-canvas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/structures-ui@2x-6fba964829.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/th.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/thumbnail.d812987e.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/workflow-canvas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/software/ypyh6slx.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/category/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commentswitharticles/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_handler/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favorites/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenduser/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/questions/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/commentswitharticles/templates/articles_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/init_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/init_cache.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,45 +160,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.AllYouWantMacApplicationDistributionCenter.executor": "Run",
-    "Django Server.SynthesisMacApplicationDistributionCenter.executor": "Run",
-    "JavaScript Debug.software_details.html.executor": "Run",
-    "JavaScript Debug.test.html.executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "Python.encrypt.executor": "Run",
-    "Python.tests.executor": "Run",
-    "Python.views.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "/Users/vincent/Documents/ProgramCodes/Python/DjangoProjects/SynthesisMacApplicationDistributionCenter/software",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "http.proxy",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.AllYouWantMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
+    &quot;Django Server.SynthesisMacApplicationDistributionCenter.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.software_details.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.test.html.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;Python.encrypt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vincent/Documents/ProgramCodes/Python/DjangoProjects/SynthesisMacApplicationDistributionCenter/software&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/software" />
@@ -382,23 +463,9 @@
       <workItem from="1712896341181" duration="7478000" />
       <workItem from="1712911620100" duration="333000" />
       <workItem from="1712988433333" duration="4621000" />
-      <workItem from="1712996050370" duration="3351000" />
-    </task>
-    <task id="LOCAL-00037" summary="finished some software_details page content filled">
-      <option name="closed" value="true" />
-      <created>1707878129958</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1707878129958</updated>
-    </task>
-    <task id="LOCAL-00038" summary="cut down qrcode shown&#10;finished main content;&#10;with software_details page">
-      <option name="closed" value="true" />
-      <created>1707920370620</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1707920370620</updated>
+      <workItem from="1712996050370" duration="3429000" />
+      <workItem from="1714639327643" duration="2128000" />
+      <workItem from="1714719098580" duration="1952000" />
     </task>
     <task id="LOCAL-00039" summary="finished core of software details page;&#10;finished download modal;">
       <option name="closed" value="true" />
@@ -776,7 +843,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712997376717</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="appended all migrations files into remote;&#10;finished this site with version 0.2.6;">
+      <option name="closed" value="true" />
+      <created>1713001375325</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1713001375325</updated>
+    </task>
+    <task id="LOCAL-00087" summary="updated articles_list truncate chars 200 to truncate words 20;&#10;appended 4 option to state for not shown more software in user center;&#10;adjusted init_cache read software logic;&#10;appended not shown action to software management center;&#10;finished this site with version 0.2.6;">
+      <option name="closed" value="true" />
+      <created>1714719573102</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1714719573102</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -786,8 +869,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
-    <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;" />
-    <MESSAGE value="finished login function;&#10;finished logout function;&#10;finished register with front end verified;&#10;be attention with register function that should be registered that must flush the redis cache with all user to update the user data or modified password;&#10;be attention with search icon that need to fixed bug that the logout link is covered by it" />
     <MESSAGE value="fixed the problem of logout in header-nav" />
     <MESSAGE value="finished core of apis of frontenduser model(included the apis that needed in user center[update and cancel user], login and register);&#10;appended signal of refresh with any model of this site;&#10;restored all shapes svg image in software details page" />
     <MESSAGE value="appended user info instead of temp fixed data;&#10;appended 404 and 500 handler page;" />
@@ -811,7 +892,9 @@
     <MESSAGE value="updated error_handler with 404 page and 500 page;&#10;finished this site with version 0.2.3;" />
     <MESSAGE value="fixed bug with questions and answer's consistency is not same;&#10;finished this site with version 0.2.4;" />
     <MESSAGE value="collected static files again;&#10;finished this site with version 0.2.5;" />
-    <option name="LAST_COMMIT_MESSAGE" value="collected static files again;&#10;finished this site with version 0.2.5;" />
+    <MESSAGE value="appended all migrations files into remote;&#10;finished this site with version 0.2.6;" />
+    <MESSAGE value="updated articles_list truncate chars 200 to truncate words 20;&#10;appended 4 option to state for not shown more software in user center;&#10;adjusted init_cache read software logic;&#10;appended not shown action to software management center;&#10;finished this site with version 0.2.6;" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated articles_list truncate chars 200 to truncate words 20;&#10;appended 4 option to state for not shown more software in user center;&#10;adjusted init_cache read software logic;&#10;appended not shown action to software management center;&#10;finished this site with version 0.2.6;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SynthesisMacApplicationDistributionCenter$tests.coverage" NAME="tests Coverage Results" MODIFIED="1707414894868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testunit" />

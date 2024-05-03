@@ -92,12 +92,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'PORT': '3306',
-        # 'HOST': 'localhost',
-        # 'USER': 'root',  # 'localhost database'
-        # 'PASSWORD': 'ic3344',
-        'HOST': 'vincentadam.icu', # 'remote database'
-        'USER': 'vincent',
-        'PASSWORD': '2',
+        'HOST': 'localhost',
+        'USER': 'root',  # 'localhost database'
+        'PASSWORD': 'ic3344',
+        # 'HOST': 'vincentadam.icu', # 'remote database'
+        # 'USER': 'vincent',
+        # 'PASSWORD': '2',
         'NAME': 'synthesisyouwantmacapplicationdistributioncenter',  # database Name dismiss caps
     }
 }
@@ -105,13 +105,13 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        # 'LOCATION': 'redis://localhost:6379',  # local redis
-        'LOCATION': 'redis://vincentadam.icu:6379', # remote redis
+        'LOCATION': 'redis://localhost:6379',  # local redis
+        # 'LOCATION': 'redis://vincentadam.icu:6379', # remote redis
         'OPTIONS': {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "CONNECTION_POOL_KWARGS": {"max_connections": 100},
             "DECODE_RESPONSE": True,
-            "PASSWORD": "2",
+            # "PASSWORD": "2",
         }
     }
 }
@@ -155,10 +155,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
+# STATIC_ROOT = 'static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 

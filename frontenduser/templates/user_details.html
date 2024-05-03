@@ -131,7 +131,7 @@
                         <li class="">
                             <a href="#author-tab-software" onclick="changeTab(this.parentElement)"
                                aria-expanded="false">软件
-                                <count class="opacity8 ml3">{{ user.software_set.count }}</count>
+                                <count class="opacity8 ml3">{{ published_software_count }}</count>
                             </a>
                         </li>
                         {% if request.session.logon_user.id == user.id %}
@@ -232,7 +232,7 @@
                             </div>
                         {% else %}
                             <div class="row mb-n4">
-                                {% for software in user.software_set.all %}
+                                {% for software in current_software_set %}
                                     <div class="col-6 col-md-4">
                                         <div class="card-post list-item">
                                             <div class="media media-4x3 p-0 rounded">

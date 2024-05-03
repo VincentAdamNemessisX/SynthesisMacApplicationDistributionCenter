@@ -1,5 +1,5 @@
 from django.core.cache import cache
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from announcements.models import Announcements
@@ -138,7 +138,7 @@ def get_specific_user_software_by_username(username=None):
         if username is None:
             cache.set('specific_user_software', None, 1)
         else:
-            specific_user_software = list(SoftWare.objects.filter(user__username=username, state=2)
+            specific_user_software = list(SoftWare.objects.filter(user__username=username, state__lt=3)
                                           .select_related('user', 'category').prefetch_related('article_set')
                                           .order_by('-updated_time'))
             cache.set('specific_user_software', specific_user_software, 1)
@@ -265,10 +265,30 @@ def refresh_cache_on_model_save(sender, instance, **kwargs):
     cache.delete('specific_user_software')
 
 
+@receiver(post_delete, sender=FrontEndUser)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在FrontEndUser保存后刷新相关缓存
+    cache.delete('specific_user_articles')
+    cache.delete('all_user')
+    cache.delete('specific_user_software')
+
+
+@receiver(post_delete, sender=Announcements)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Announcements保存后刷新相关缓存
+    cache.delete('notices')
+
+
 @receiver(post_save, sender=Announcements)
 def refresh_cache_on_model_save(sender, instance, **kwargs):
     # 在Announcements保存后刷新相关缓存
     cache.delete('notices')
+
+
+@receiver(post_delete, sender=Comment)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Comment保存后刷新相关缓存
+    cache.delete('comments')
 
 
 @receiver(post_save, sender=Comment)
@@ -277,12 +297,29 @@ def refresh_cache_on_model_save(sender, instance, **kwargs):
     cache.delete('comments')
 
 
+@receiver(post_delete, sender=Article)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Article保存后刷新相关缓存
+    cache.delete('all_articles')
+    cache.delete('specific_user_articles')
+    cache.delete('hot_articles')
+
+
 @receiver(post_save, sender=Article)
 def refresh_cache_on_model_save(sender, instance, **kwargs):
     # 在Article保存后刷新相关缓存
     cache.delete('all_articles')
     cache.delete('specific_user_articles')
     cache.delete('hot_articles')
+
+
+@receiver(post_delete, sender=SoftWare)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在SoftWare保存后刷新相关缓存
+    cache.delete('all_software')
+    cache.delete('specific_user_software')
+    cache.delete('hot_software')
+    cache.delete(f'category_{instance.category_id}_tags')
 
 
 @receiver(post_save, sender=SoftWare)
@@ -294,10 +331,23 @@ def refresh_cache_on_model_save(sender, instance, **kwargs):
     cache.delete(f'category_{instance.category_id}_tags')
 
 
+@receiver(post_delete, sender=Questions)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Questions保存后刷新相关缓存
+    cache.delete('all_questions')
+
+
 @receiver(post_save, sender=Questions)
 def refresh_cache_on_model_save(sender, instance, **kwargs):
     # 在Questions保存后刷新相关缓存
     cache.delete('all_questions')
+
+
+@receiver(post_delete, sender=Questions.Answer)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Questions.Answer保存后刷新相关缓存
+    cache.delete('all_questions')
+    cache.delete('all_answer')
 
 
 @receiver(post_save, sender=Questions.Answer)
@@ -305,6 +355,13 @@ def refresh_cache_on_model_save(sender, instance, **kwargs):
     # 在Questions.Answer保存后刷新相关缓存
     cache.delete('all_questions')
     cache.delete('all_answer')
+
+
+@receiver(post_delete, sender=Category)
+def refresh_cache_on_model_save(sender, instance, **kwargs):
+    # 在Category保存后刷新相关缓存
+    cache.delete('categories')
+    cache.delete(f'category_{instance.id}_tags')
 
 
 @receiver(post_save, sender=Category)

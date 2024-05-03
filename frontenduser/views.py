@@ -449,15 +449,19 @@ def user_details(request):
             user = [x for x in get_all_user() if x.id == user_id]
             if len(user) == 1:
                 published_articles_count = len(user[0].article_set.all())
-                published_software_count = len(user[0].software_set.all())
+                published_software_count = len([x for x in
+                                                get_specific_user_software_by_username(user[0].username)])
                 published_comments_count = len(user[0].comment_set.all())
                 recent_browsing_count = len(user[0].recentbrowsing_set.all())
+                current_software_set = [x for x in
+                                        get_specific_user_software_by_username(user[0].username)]
                 return render(request, 'user_details.html', {
                     'user': user[0],
                     'published_articles_count': published_articles_count,
                     'published_software_count': published_software_count,
                     'published_comments_count': published_comments_count,
-                    'recent_browsing_count': recent_browsing_count
+                    'recent_browsing_count': recent_browsing_count,
+                    'current_software_set': current_software_set
                 })
             return render(request, '404.html', {
                 'code': 404,

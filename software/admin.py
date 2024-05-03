@@ -12,10 +12,10 @@ class SoftWareAdmin(admin.ModelAdmin):
                     'created_time', 'updated_time']
     search_fields = ['name', 'description', 'language', 'platform', 'run_os_version', 'category__name', 'tags',
                      'file_size', 'link_adrive', 'link_baidu', 'link_123', 'link_direct']
-    list_filter = ['state', 'created_time', 'updated_time', 'category']
+    list_filter = ['state', 'created_time', 'updated_time', 'category', 'user']
     ordering = ['-created_time', 'id']
     list_per_page = 15
-    actions = ['pass_audit_batch', 'reject_audit_batch']
+    actions = ['pass_audit_batch', 'reject_audit_batch', 'not_shown']
 
     def pass_audit_batch(self, request, queryset):
         for obj in queryset:
@@ -36,6 +36,16 @@ class SoftWareAdmin(admin.ModelAdmin):
         self.message_user(request, '已全部下架！', level='warning')
 
     reject_audit_batch.short_description = '下架'
+
+    def not_shown(self, request, queryset):
+        for obj in queryset:
+            if obj.state == 4:
+                continue
+            obj.state = 4
+            obj.save()
+        self.message_user(request, '已全部不展示！', level='warning')
+
+    not_shown.short_description = '不展示'
 
 
 @admin.register(SoftWare.SoftwareScreenShots)

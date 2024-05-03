@@ -49,7 +49,8 @@
                                                 </h2>
                                                 <div class="list-desc d-none d-md-block text-sm text-secondary my-3">
                                                     <div style="height: 7rem">
-                                                        {{ article.plain_content|truncatechars:200 }}
+                                                        {{ article.plain_content|truncatechars:170 }}
+                                                        {% if article.plain_content|length > 170 %}...{% endif %}
                                                     </div>
                                                 </div>
                                             </div>
